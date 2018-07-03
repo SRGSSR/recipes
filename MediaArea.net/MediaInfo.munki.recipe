@@ -11,14 +11,14 @@
 	<key>Input</key>
 	<dict>
 		<key>MUNKI_REPO_SUBDIR</key>
-		<string>apps/%NAME%</string>
+		<string>SW/MediaInfo/MediaInfo</string>
 		<key>NAME</key>
 		<string>MediaInfo</string>
 		<key>pkginfo</key>
 		<dict>
 			<key>catalogs</key>
 			<array>
-				<string>testing</string>
+				<string>QA</string>
 			</array>
 			<key>description</key>
 			<string> </string>
@@ -27,7 +27,7 @@
 			<key>display_name</key>
 			<string>MediaInfo</string>
 			<key>name</key>
-			<string>%NAME%</string>
+			<string>SW_%NAME%</string>
 			<key>unattended_install</key>
 			<true/>
 		</dict>
