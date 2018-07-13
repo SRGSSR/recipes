@@ -30,6 +30,32 @@
 			<string>%NAME%</string>
 			<key>unattended_install</key>
 			<true/>
+				<key>postinstall_script</key>
+					<string>#!/bin/sh
+				/bin/cp /Applications/Native\ Access.app/Contents/Library/LaunchServices/com.native-instruments.NativeAccess.Helper2 /Library/PrivilegedHelperTools</string>
+					<key>preinstall_script</key>
+					<string>#!/bin/sh
+				/bin/cat &lt;&lt;EOF &gt; "/Library/LaunchDaemons/com.native-instruments.NativeAccess.Helper2.plist"
+				&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+				&lt;!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;
+				&lt;plist version="1.0"&gt;
+				&lt;dict&gt;
+					&lt;key&gt;Label&lt;/key&gt;
+					&lt;string&gt;com.native-instruments.NativeAccess.Helper2&lt;/string&gt;
+					&lt;key&gt;MachServices&lt;/key&gt;
+					&lt;dict&gt;
+						&lt;key&gt;com.native-instruments.NativeAccess.Helper2&lt;/key&gt;
+						&lt;true/&gt;
+					&lt;/dict&gt;
+					&lt;key&gt;Program&lt;/key&gt;
+					&lt;string&gt;/Library/PrivilegedHelperTools/com.native-instruments.NativeAccess.Helper2&lt;/string&gt;
+					&lt;key&gt;ProgramArguments&lt;/key&gt;
+					&lt;array&gt;
+						&lt;string&gt;/Library/PrivilegedHelperTools/com.native-instruments.NativeAccess.Helper2&lt;/string&gt;
+					&lt;/array&gt;
+				&lt;/dict&gt;
+				&lt;/plist&gt;
+				EOF</string>
 		</dict>
 	</dict>
 	<key>MinimumVersion</key>
