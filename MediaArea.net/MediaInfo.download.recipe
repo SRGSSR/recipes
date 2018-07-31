@@ -11,51 +11,42 @@
 	<key>Input</key>
 	<dict>
 		<key>DOWNLOAD_URL</key>
-		<string>https://mediaarea.net/download/binary/mediainfo-gui/18.05/MediaInfo_GUI_18.05_Mac.dmg</string>
+		<string>https://mediaarea.net/en/MediaInfo/Download/Mac_OS</string>
 		<key>NAME</key>
 		<string>MediaInfo</string>
 	</dict>
 	<key>MinimumVersion</key>
-	<string>1.0.0</string>
-	<key>Process</key>
-	<array>
-		<dict>
-			<key>Arguments</key>
+	<string>1.0.5</string>
+<key>Process</key>
+		<array>
 			<dict>
-				<key>filename</key>
-				<string>%NAME%.dmg</string>
-				<key>url</key>
-				<string>%DOWNLOAD_URL%</string>
+				<key>Processor</key>
+				<string>URLTextSearcher</string>
+				<key>Arguments</key>
+				<dict>
+					<key>url</key>
+					<string>https://mediaarea.net/en/MediaInfo/Download/Mac_OS</string>
+					<key>re_pattern</key>
+					<string>(/[0-9\.]+/MediaInfo_GUI_[0-9\.]+_Mac.dmg)</string>
+					<key>result_output_var_name</key>
+					<string>url</string>
+				</dict>
 			</dict>
-			<key>Processor</key>
-			<string>URLDownloader</string>
-		</dict>
-		<dict>
-			<key>Processor</key>
-			<string>EndOfCheckPhase</string>
-		</dict>
-		<dict>
-			<key>Arguments</key>
 			<dict>
-				<key>input_path</key>
-				<string>%pathname%/MediaInfo.app</string>
-				<key>requirement</key>
-				<string>identifier "net.mediaarea.mediainfo.mac-old" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = C2SZ4M9843</string>
+				<key>Processor</key>
+				<string>URLDownloader</string>
+				<key>Arguments</key>
+				<dict>
+					<key>url</key>
+					<string>https://mediaarea.net/en/MediaInfo/Download/Mac_OS/%url%</string>
+					<key>filename</key>
+					<string>%NAME%.dmg</string>
+				</dict>
 			</dict>
-			<key>Processor</key>
-			<string>CodeSignatureVerifier</string>
-		</dict>
-		<dict>
-			<key>Arguments</key>
 			<dict>
-				<key>input_plist_path</key>
-				<string>%pathname%/MediaInfo.app/Contents/Info.plist</string>
-				<key>plist_version_key</key>
-				<string>CFBundleShortVersionString</string>
+				<key>Processor</key>
+				<string>EndOfCheckPhase</string>
 			</dict>
-			<key>Processor</key>
-			<string>Versioner</string>
-		</dict>
-	</array>
+		</array>
 </dict>
 </plist>
