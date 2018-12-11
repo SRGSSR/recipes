@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>Download the latest version of Logitech Control Center and imports it into Munki.</string>
+    <key>Identifier</key>
+    <string>com.github.srgssr.munki.logitechcontrolcenter</string>
+    <key>Input</key>
+    <dict>
+        <key>MUNKI_REPO_SUBDIR</key>
+        <string>apps/Logitech</string>
+        <key>NAME</key>
+        <string>Logitech Control Center</string>
+    	<key>pkginfo</key>
+    	<dict>
+    		<key>catalogs</key>
+    		<array>
+    			<string>testing</string>
+    		</array>
+            <key>developer</key>
+            <string>Logitech</string>
+            <key>display_name</key>
+            <string>Logitech Control Center</string>
+            <key>RestartAction</key>
+            <string>RequireRestart</string>
+    	<key>description</key>
+    	<string>Logitech Control Center lets you customize your mouse buttons, and toggle between standard and enhanced key functions on your keyboard. It can also notify you of your device's battery status.</string>
+            <key>minimum_os_version</key>
+			<string>10.8.0</string>
+            <key>name</key>
+            <string>%NAME%</string>
+            <key>display_name</key>
+            <string>%NAME%</string>
+    	<key>unattended_install</key>
+    	<true/>
+    	</dict>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.2.9</string>
+    <key>ParentRecipe</key>
+    <string>com.github.gmarnin.download.logitechcontrolcenter</string>
+    <key>Process</key>
+    <array>
+         <dict>
+            <key>Arguments</key>
+            <dict>
+                <key>destination_path</key>
+                <string>%RECIPE_CACHE_DIR%/pkg</string>
+                <key>pkg_payload_path</key>
+                <string>%RECIPE_CACHE_DIR%/LCC/LCC Installer.app/Contents/Resources/Logitech Control Center.mpkg</string>
+            </dict>
+            <key>Processor</key>
+            <string>PkgPayloadUnpacker</string>
+        </dict>   
+        <dict>
+            <key>Arguments</key>
+            <dict>
+                <key>input_plist_path</key>
+                <string>%RECIPE_CACHE_DIR%/LCC/LCC Installer.app/Contents/Info.plist</string>
+            </dict>
+            <key>Processor</key>
+            <string>Versioner</string>
+        </dict>
+        <dict>
+            <key>Arguments</key>
+            <dict>
+                <key>source</key>
+                <string>%RECIPE_CACHE_DIR%/LCC/LCC Installer.app/Contents/Resources/Logitech Control Center.mpkg</string>
+                <key>target</key>
+                <string>%RECIPE_CACHE_DIR%/Logitech Control Center.mpkg</string>
+            </dict>
+            <key>Processor</key>
+            <string>FileMover</string>
+        </dict>
+        <dict>
+            <key>Arguments</key>
+            <dict>
+                <key>path_list</key>
+                <array>
+                    <string>%RECIPE_CACHE_DIR%/LCC/</string>
+                </array>
+            </dict>
+            <key>Processor</key>
+            <string>PathDeleter</string>
+        </dict>
+        <dict>
+            <key>Arguments</key>
+            <dict>
+                <key>additional_pkginfo</key>
+                <dict>
+                    <key>version</key>
+                    <string>%version%</string>
+                </dict>
+            </dict>
+            <key>Processor</key>
+            <string>MunkiPkginfoMerger</string>
+        </dict>
+        <dict>
+            <key>Arguments</key>
+            <dict>
+                <key>pkg_path</key>
+                <string>%RECIPE_CACHE_DIR%/Logitech Control Center.mpkg</string>
+                <key>repo_subdirectory</key>
+                <string>%MUNKI_REPO_SUBDIR%</string>
+            </dict>
+            <key>Processor</key>
+            <string>MunkiImporter</string>
+        </dict>
+    </array>
+</dict>
+</plist>
