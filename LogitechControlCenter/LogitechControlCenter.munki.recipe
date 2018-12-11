@@ -45,13 +45,13 @@
          <dict>
             <key>Arguments</key>
             <dict>
-                <key>destination_path</key>
+                <key>extract_root</key>
                 <string>%RECIPE_CACHE_DIR%/pkg</string>
-                <key>pkg_payload_path</key>
+                <key>pkg_path</key>
                 <string>%RECIPE_CACHE_DIR%/LCC/LCC Installer.app/Contents/Resources/Logitech Control Center.mpkg</string>
             </dict>
             <key>Processor</key>
-            <string>PkgPayloadUnpacker</string>
+            <string>PkgExtractor</string>
         </dict>   
         <dict>
             <key>Arguments</key>
