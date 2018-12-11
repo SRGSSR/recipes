@@ -49,6 +49,8 @@
                 <string>%RECIPE_CACHE_DIR%/pkg</string>
                 <key>flat_pkg_path</key>
                 <string>%RECIPE_CACHE_DIR%/LCC/LCC Installer.app/Contents/Resources/Logitech Control Center.mpkg</string>
+                <key>skip_payload</key>
+                <string>true</string>
             </dict>
             <key>Processor</key>
             <string>FlatPkgUnpacker</string>
