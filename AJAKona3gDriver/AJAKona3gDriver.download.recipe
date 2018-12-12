@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple/DTD PLIST 1.0//EN" "http://apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Attribution</key>
+	<dict>
+		<key>Copyright</key>
+		<array>
+			<string>SRGSSR</string>
+		</array>	
+		<key>Authors</key>
+		<dict>
+			<key>Name</key>
+			<array>
+				<string>Antti Pettinen</string>
+			</array>
+			<key>Email</key>
+			<array>
+				<string>a.pettinen at apfelwerk.de</string>
+			</array>
+			<key>Github</key>
+			<array>
+				<string>apettinen</string>
+			</array>
+			<key>Comment</key>
+			<string>This recipe uses a custom provider, AJADownloadURLProvider.py</string> 
+		</dict>
+	</dict>
+	<key>Description</key>
+	<string>Downloads the latest version of AJA Kona 3g driver and extracts the package for codesignature verification and further processing.</string>
+	<key>Identifier</key>
+	<string>com.github.srgssr.download.AJAKona3gDriver</string>
+	<key>Input</key>
+	<dict>
+		<key>NAME</key>
+		<string>AJA_Kona3g</string>
+		<key>SUPPORT_PAGE_URL</key>
+		<string>https://www.aja.com/products/kona-3g#support</string>
+		<key>PATTERN</key>
+		<string>AJA_Mac_Retail_*_*_*.pkg</string> 
+	</dict>
+	<key>MinimumVersion</key>
+	<string>0.6.0</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<!-- this only works with the patched version currently! -->
+			<key>Processor</key>
+			<string>AJADownloadURLProvider</string>
+			<key>Arguments</key>
+			<dict>
+				<key>support_page_url</key>
+				<string>%SUPPORT_PAGE_URL%</string>
+			</dict> 
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>URLDownloader</string>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>EndOfCheckPhase</string>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>Unarchiver</string>
+			<key>Arguments</key>
+			<dict>
+				<key>purge_destination</key>
+				<true/>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>FileFinder</string>
+			<key>Arguments</key>
+			<dict>
+				<key>pattern</key>
+				<string>%RECIPE_CACHE_DIR%/%NAME%/%PATTERN%</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>CodeSignatureVerifier</string>
+			<key>Arguments</key>
+			<dict>
+				<key>input_path</key>
+				<string>%found_filename%</string>
+				<key>expected_authority_names</key>
+				<array>
+					<string>Developer ID Installer: AJA Video Systems (9VB857J7CD)</string>
+					<string>Developer ID Certification Authority</string>
+					<string>Apple Root CA</string>
+				</array>
+			</dict>
+		</dict>
+	</array>
+</dict> 
+</plist>
