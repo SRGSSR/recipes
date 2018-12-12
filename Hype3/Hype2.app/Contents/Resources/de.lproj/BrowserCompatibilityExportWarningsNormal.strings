@@ -1,0 +1,36 @@
+/* Class = "NSTableColumn"; headerCell.title = "Browser"; ObjectID = "27"; */
+"27.headerCell.title" = "Browser";
+
+/* Class = "NSTableColumn"; headerCell.title = "Issue"; ObjectID = "28"; */
+"28.headerCell.title" = "Problem";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "29"; */
+"29.title" = "Text Cell";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "30"; */
+"30.title" = "Text Cell";
+
+/* Class = "NSButtonCell"; title = "Export…"; ObjectID = "36"; */
+"36.title" = "Exportieren …";
+
+/* Class = "NSButtonCell"; title = "Cancel"; ObjectID = "38"; */
+"38.title" = "Abbrechen";
+
+/* Class = "NSButtonCell"; title = "Edit Warnings…"; ObjectID = "40"; */
+"40.title" = "Warnungen bearbeiten …";
+
+/* Class = "NSButtonCell"; title = "Always show browser compatibility warnings before exporting"; ObjectID = "42"; */
+"42.title" = "Warnungen zur Browserkompatibilität vor dem Export immer einblenden";
+
+/* Class = "NSTextFieldCell"; title = "Browser Compatibility Summary"; ObjectID = "46"; */
+"46.title" = "Zusammenfassung zur Browserkompatibilität";
+
+/* Class = "NSTextFieldCell"; title = "These warnings indicate potential problems (stylistic and functional) when viewing your document with different browsers.  Always test in different environments before deploying."; ObjectID = "52"; */
+"52.title" = "Diese Warnungen weisen auf mögliche Probleme (Stil und Funktion) beim Anzeigen Ihres Dokuments in unterschiedlichen Webbrowsern hin. Testen Sie vor der Bereitstellung immer in verschiedenen Umgebungen.";
+
+/* Class = "NSTableColumn"; headerCell.title = "Element"; ObjectID = "60"; */
+"60.headerCell.title" = "Element";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "61"; */
+"61.title" = "Text Cell";
+

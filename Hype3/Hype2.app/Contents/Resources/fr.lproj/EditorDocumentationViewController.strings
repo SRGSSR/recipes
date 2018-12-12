@@ -1,0 +1,6 @@
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "26"; */
+"26.title" = "Text Cell";
+
+/* Class = "NSButton"; ibShadowedToolTip = "Show Documentation"; ObjectID = "35"; */
+"35.ibShadowedToolTip" = "Afficher la documentation";
+

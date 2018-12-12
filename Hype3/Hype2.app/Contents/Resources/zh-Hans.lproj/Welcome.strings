@@ -1,0 +1,6 @@
+/* Class = "NSButtonCell"; title = "Show this window when Hype opens"; ObjectID = "5"; */
+"5.title" = "在 Hype 打开时显示此窗口";
+
+/* Class = "NSButtonCell"; title = "Close"; ObjectID = "7"; */
+"7.title" = "关闭";
+

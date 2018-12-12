@@ -1,0 +1,294 @@
+/* Class = "NSMenuItem"; title = "Portrait"; ObjectID = "5Mf-jj-0EQ"; */
+"5Mf-jj-0EQ.title" = "縦";
+
+/* Class = "NSMenuItem"; title = "42mm"; ObjectID = "7O2-0x-Zcu"; */
+"7O2-0x-Zcu.title" = "42mm";
+
+/* Class = "NSMenuItem"; title = "Landscape"; ObjectID = "7tZ-1f-ADu"; */
+"7tZ-1f-ADu.title" = "横";
+
+/* Class = "NSMenuItem"; title = "Portrait"; ObjectID = "9Wg-n6-p01"; */
+"9Wg-n6-p01.title" = "縦";
+
+/* Class = "NSMenuItem"; title = "iPhone 4/3G"; ObjectID = "9mc-Eb-DiW"; */
+"9mc-Eb-DiW.title" = "iPhone 4/3G";
+
+/* Class = "NSMenuItem"; title = "Landscape"; ObjectID = "9qn-QM-KNH"; */
+"9qn-QM-KNH.title" = "横";
+
+/* Class = "NSTextFieldCell"; title = "Height"; ObjectID = "42"; */
+"42.title" = "高さ";
+
+/* Class = "NSTextFieldCell"; title = "88 px"; ObjectID = "44"; */
+"44.title" = "88 px";
+
+/* Class = "NSTextFieldCell"; title = "Width"; ObjectID = "45"; */
+"45.title" = "幅";
+
+/* Class = "NSTextFieldCell"; title = "1024 px"; ObjectID = "47"; */
+"47.title" = "1024 px";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "50"; */
+"50.title" = "OtherViews";
+
+/* Class = "NSMenuItem"; title = "Rectangles and Pop-Ups"; ObjectID = "52"; */
+"52.title" = "長方形とポップアップ";
+
+/* Class = "NSMenuItem"; title = "Full Banner"; ObjectID = "53"; */
+"53.title" = "フルバナー";
+
+/* Class = "NSMenuItem"; title = "Half Banner"; ObjectID = "59"; */
+"59.title" = "ハーフバナー";
+
+/* Class = "NSMenuItem"; title = "Micro Bar"; ObjectID = "60"; */
+"60.title" = "マクロバー";
+
+/* Class = "NSMenuItem"; title = "Button 1"; ObjectID = "61"; */
+"61.title" = "ボタン 1";
+
+/* Class = "NSMenuItem"; title = "Button 2"; ObjectID = "62"; */
+"62.title" = "ボタン 2";
+
+/* Class = "NSMenuItem"; title = "Vertical Banner"; ObjectID = "63"; */
+"63.title" = "縦型バナー";
+
+/* Class = "NSMenuItem"; title = "Square Button"; ObjectID = "71"; */
+"71.title" = "正方形ボタン";
+
+/* Class = "NSMenuItem"; title = "Leaderboard"; ObjectID = "72"; */
+"72.title" = "リーダーボード";
+
+/* Class = "NSMenuItem"; title = "Wide Skyscraper"; ObjectID = "73"; */
+"73.title" = "ワイドスカイスクレーパー";
+
+/* Class = "NSMenuItem"; title = "Skyscraper"; ObjectID = "74"; */
+"74.title" = "スカイスクレーパー";
+
+/* Class = "NSMenuItem"; title = "Half Page Ad"; ObjectID = "75"; */
+"75.title" = "ハーフページ広告";
+
+/* Class = "NSMenuItem"; title = "Banners and Buttons"; ObjectID = "77"; */
+"77.title" = "バナーとボタン";
+
+/* Class = "NSMenuItem"; title = "Skyscrapers"; ObjectID = "78"; */
+"78.title" = "スカイスクレーパー";
+
+/* Class = "NSMenuItem"; title = "Medium Rectangle"; ObjectID = "79"; */
+"79.title" = "中型長方形";
+
+/* Class = "NSMenuItem"; title = "Square Pop-Up"; ObjectID = "80"; */
+"80.title" = "正方形ポップアップ";
+
+/* Class = "NSMenuItem"; title = "Vertical Rectangle"; ObjectID = "81"; */
+"81.title" = "縦型長方形";
+
+/* Class = "NSMenuItem"; title = "Large Rectangle"; ObjectID = "82"; */
+"82.title" = "大型長方形";
+
+/* Class = "NSMenuItem"; title = "Rectangle"; ObjectID = "83"; */
+"83.title" = "長方形";
+
+/* Class = "NSMenuItem"; title = "3:1 Rectangle"; ObjectID = "84"; */
+"84.title" = "3:1 長方形";
+
+/* Class = "NSMenuItem"; title = "Pop-Under"; ObjectID = "85"; */
+"85.title" = "ポップアンダー";
+
+/* Class = "NSMenuItem"; title = "Preset Sizes"; ObjectID = "96"; */
+"96.title" = "プリセットサイズ";
+
+/* Class = "NSMenuItem"; title = "Web"; ObjectID = "105"; */
+"105.title" = "Web";
+
+/* Class = "NSMenuItem"; title = "Small"; ObjectID = "106"; */
+"106.title" = "小";
+
+/* Class = "NSMenuItem"; title = "Medium"; ObjectID = "107"; */
+"107.title" = "中";
+
+/* Class = "NSMenuItem"; title = "Large"; ObjectID = "108"; */
+"108.title" = "大";
+
+/* Class = "NSMenuItem"; title = "Displays"; ObjectID = "116"; */
+"116.title" = "ディスプレイ";
+
+/* Class = "NSMenuItem"; title = "VGA"; ObjectID = "117"; */
+"117.title" = "VGA";
+
+/* Class = "NSMenuItem"; title = "SVGA"; ObjectID = "118"; */
+"118.title" = "SVGA";
+
+/* Class = "NSMenuItem"; title = "XGA"; ObjectID = "119"; */
+"119.title" = "XGA";
+
+/* Class = "NSMenuItem"; title = "SXGA"; ObjectID = "120"; */
+"120.title" = "SXGA";
+
+/* Class = "NSMenuItem"; title = "UXGA"; ObjectID = "121"; */
+"121.title" = "UXGA";
+
+/* Class = "NSMenuItem"; title = "High Definition"; ObjectID = "122"; */
+"122.title" = "高解像度";
+
+/* Class = "NSMenuItem"; title = "480p"; ObjectID = "123"; */
+"123.title" = "480p";
+
+/* Class = "NSMenuItem"; title = "720p"; ObjectID = "124"; */
+"124.title" = "720p";
+
+/* Class = "NSMenuItem"; title = "1080p"; ObjectID = "125"; */
+"125.title" = "1080p";
+
+/* Class = "NSMenuItem"; title = "iPad"; ObjectID = "128"; */
+"128.title" = "iPad";
+
+/* Class = "NSMenuItem"; title = "Safari Landscape"; ObjectID = "129"; */
+"129.title" = "Safari（横）";
+
+/* Class = "NSMenuItem"; title = "Safari Portrait"; ObjectID = "130"; */
+"130.title" = "Safari（縦）";
+
+/* Class = "NSMenuItem"; title = "Safari Landscape"; ObjectID = "131"; */
+"131.title" = "Safari（横）";
+
+/* Class = "NSMenuItem"; title = "Safari Portrait"; ObjectID = "132"; */
+"132.title" = "Safari（縦）";
+
+/* Class = "NSMenuItem"; title = "Default"; ObjectID = "143"; */
+"143.title" = "デフォルト";
+
+/* Class = "NSMenuItem"; title = "Landscape"; ObjectID = "145"; */
+"145.title" = "横";
+
+/* Class = "NSMenuItem"; title = "Portrait"; ObjectID = "146"; */
+"146.title" = "縦";
+
+/* Class = "NSMenuItem"; title = "Fullscreen Landscape"; ObjectID = "147"; */
+"147.title" = "フルスクリーン（横）";
+
+/* Class = "NSMenuItem"; title = "Fullscreen Portrait"; ObjectID = "148"; */
+"148.title" = "フルスクリーン（縦）";
+
+/* Class = "NSMenuItem"; title = "Small Mobile Banner"; ObjectID = "164"; */
+"164.title" = "モバイルバナー（小）";
+
+/* Class = "NSMenuItem"; title = "Medium Mobile Banner"; ObjectID = "165"; */
+"165.title" = "モバイルバナー（中）";
+
+/* Class = "NSMenuItem"; title = "Large Mobile Banner"; ObjectID = "166"; */
+"166.title" = "モバイルバナー（大）";
+
+/* Class = "NSMenuItem"; title = "Extra Large Mobile Banner"; ObjectID = "167"; */
+"167.title" = "モバイルバナー（特大）";
+
+/* Class = "NSMenuItem"; title = "Smartphone Banner"; ObjectID = "168"; */
+"168.title" = "スマートフォンバナー";
+
+/* Class = "NSMenuItem"; title = "iBooks"; ObjectID = "170"; */
+"170.title" = "iBooks";
+
+/* Class = "NSMenuItem"; title = "Standard Landscape"; ObjectID = "171"; */
+"171.title" = "標準（横）";
+
+/* Class = "NSMenuItem"; title = "Fullscreen Landscape"; ObjectID = "172"; */
+"172.title" = "フルスクリーン（横）";
+
+/* Class = "NSMenuItem"; title = "Fullscreen Portrait"; ObjectID = "173"; */
+"173.title" = "フルスクリーン（縦）";
+
+/* Class = "NSMenuItem"; title = "Standard Portrait"; ObjectID = "174"; */
+"174.title" = "標準（縦）";
+
+/* Class = "NSMenuItem"; title = "Landscape"; ObjectID = "175"; */
+"175.title" = "横";
+
+/* Class = "NSMenuItem"; title = "Portrait"; ObjectID = "176"; */
+"176.title" = "縦";
+
+/* Class = "NSMenuItem"; title = "Safari Landscape"; ObjectID = "177"; */
+"177.title" = "Safari（横）";
+
+/* Class = "NSMenuItem"; title = "Safari Portrait"; ObjectID = "178"; */
+"178.title" = "Safari（縦）";
+
+/* Class = "NSButtonCell"; title = "Scale"; ObjectID = "188"; */
+"188.title" = "スケール";
+
+/* Class = "NSTextFieldCell"; title = "100%"; ObjectID = "194"; */
+"194.title" = "100%";
+
+/* Class = "NSButtonCell"; title = "Scale"; ObjectID = "202"; */
+"202.title" = "スケール";
+
+/* Class = "NSTextFieldCell"; title = "100%"; ObjectID = "204"; */
+"204.title" = "100%";
+
+/* Class = "NSMenuItem"; title = "Animated GIF"; ObjectID = "273"; */
+"273.title" = "アニメーション GIF";
+
+/* Class = "NSMenuItem"; title = "Tumblr"; ObjectID = "274"; */
+"274.title" = "Tumblr";
+
+/* Class = "NSMenuItem"; title = "Safari Portrait"; ObjectID = "DS9-IC-H0t"; */
+"DS9-IC-H0t.title" = "Safari（縦）";
+
+/* Class = "NSMenuItem"; title = "Large Sticker"; ObjectID = "HWz-pP-zoE"; */
+"HWz-pP-zoE.title" = "大きいステッカー";
+
+/* Class = "NSMenuItem"; title = "Safari Portrait"; ObjectID = "MgL-Fy-lkR"; */
+"MgL-Fy-lkR.title" = "Safari（縦）";
+
+/* Class = "NSMenuItem"; title = "Regular Sticker"; ObjectID = "Mn6-CB-V4w"; */
+"Mn6-CB-V4w.title" = "標準のステッカー";
+
+/* Class = "NSMenuItem"; title = "Safari Landscape"; ObjectID = "NVy-TN-ax8"; */
+"NVy-TN-ax8.title" = "Safari（横）";
+
+/* Class = "NSMenuItem"; title = "Safari Landscape"; ObjectID = "RJ2-e2-TVS"; */
+"RJ2-e2-TVS.title" = "Safari（横）";
+
+/* Class = "NSMenuItem"; title = "38mm"; ObjectID = "Ta8-Ms-QAo"; */
+"Ta8-Ms-QAo.title" = "38mm";
+
+/* Class = "NSMenuItem"; title = "Portrait"; ObjectID = "V5L-bn-meO"; */
+"V5L-bn-meO.title" = "縦";
+
+/* Class = "NSMenuItem"; title = "iPhone 6"; ObjectID = "VZa-aL-ysL"; */
+"VZa-aL-ysL.title" = "iPhone 6";
+
+/* Class = "NSButtonCell"; title = "Apply changes to all scenes"; ObjectID = "Yg6-89-ZlY"; */
+"Yg6-89-ZlY.title" = "変更をすべてのシーンに適用";
+
+/* Class = "NSMenuItem"; title = "Apple Watch"; ObjectID = "Yri-1q-yVt"; */
+"Yri-1q-yVt.title" = "Apple Watch";
+
+/* Class = "NSMenuItem"; title = "iPhone 6 Plus"; ObjectID = "ZCx-4Z-7zG"; */
+"ZCx-4Z-7zG.title" = "iPhone 6 Plus";
+
+/* Class = "NSMenuItem"; title = "Safari Landscape"; ObjectID = "aj4-OY-1rL"; */
+"aj4-OY-1rL.title" = "Safari（横）";
+
+/* Class = "NSMenuItem"; title = "Dribbble @2x"; ObjectID = "apf-EW-JXb"; */
+"apf-EW-JXb.title" = "Dribbble @2x";
+
+/* Class = "NSMenuItem"; title = "Dribbble"; ObjectID = "dtd-F6-yU8"; */
+"dtd-F6-yU8.title" = "Dribbble";
+
+/* Class = "NSMenuItem"; title = "Landscape"; ObjectID = "fIU-lz-yeD"; */
+"fIU-lz-yeD.title" = "横";
+
+/* Class = "NSMenuItem"; title = "Small Sticker"; ObjectID = "jTZ-yt-Kzf"; */
+"jTZ-yt-Kzf.title" = "小さいステッカー";
+
+/* Class = "NSMenuItem"; title = "Safari Portrait"; ObjectID = "nVW-ae-KpI"; */
+"nVW-ae-KpI.title" = "Safari（縦）";
+
+/* Class = "NSMenuItem"; title = "iPhone 5"; ObjectID = "vBh-U6-tI8"; */
+"vBh-U6-tI8.title" = "iPhone 5";
+
+/* Class = "NSMenuItem"; title = "iPad Pro"; ObjectID = "vGB-lu-hi0"; */
+"vGB-lu-hi0.title" = "iPad Pro";
+
+/* Class = "NSMenuItem"; title = "iMessage"; ObjectID = "yfI-5O-Od5"; */
+"yfI-5O-Od5.title" = "iMessage";
+

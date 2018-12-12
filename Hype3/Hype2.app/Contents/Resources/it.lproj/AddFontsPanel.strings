@@ -1,0 +1,122 @@
+/* Class = "NSWindow"; title = "Add Fonts"; ObjectID = "1"; */
+"1.title" = "Aggiungi font";
+
+/* Class = "NSButtonCell"; title = "Add Font"; ObjectID = "5"; */
+"5.title" = "Aggiungi font";
+
+/* Class = "NSButtonCell"; title = "Cancel"; ObjectID = "9"; */
+"9.title" = "Annulla";
+
+/* Class = "NSTableColumn"; headerCell.title = "Font Family"; ObjectID = "20"; */
+"20.headerCell.title" = "Famiglia font";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "23"; */
+"23.title" = "Text Cell";
+
+/* Class = "NSTableColumn"; headerCell.title = "Variant"; ObjectID = "30"; */
+"30.headerCell.title" = "Variante";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "31"; */
+"31.title" = "Text Cell";
+
+/* Class = "NSTableColumn"; headerCell.title = "Character Sets"; ObjectID = "37"; */
+"37.headerCell.title" = "Set di caratteri";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "38"; */
+"38.title" = "Text Cell";
+
+/* Class = "NSBox"; title = "Box"; ObjectID = "43"; */
+"43.title" = "Box";
+
+/* Class = "NSTextFieldCell"; title = "11"; ObjectID = "67"; */
+"67.title" = "11";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "72"; */
+"72.title" = "Text Cell";
+
+/* Class = "NSSearchFieldCell"; placeholderString = "Filter"; ObjectID = "98"; */
+"98.placeholderString" = "Filtro";
+
+/* Class = "NSSegmentedCell"; 100.ibShadowedLabels[0] = "Trending"; ObjectID = "100"; */
+"100.ibShadowedLabels[0]" = "Di tendenza";
+
+/* Class = "NSSegmentedCell"; 100.ibShadowedLabels[1] = "Alphabetical"; ObjectID = "100"; */
+"100.ibShadowedLabels[1]" = "Alfabetico";
+
+/* Class = "NSTextFieldCell"; title = "Sort:"; ObjectID = "104"; */
+"104.title" = "Ordina:";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "128"; */
+"128.title" = "OtherViews";
+
+/* Class = "NSMenuItem"; title = "Google Fonts"; ObjectID = "129"; */
+"129.title" = "Font Google";
+
+/* Class = "NSMenuItem"; title = "Custom CSS"; ObjectID = "130"; */
+"130.title" = "CSS personalizzato";
+
+/* Class = "NSTextFieldCell"; title = "Source:"; ObjectID = "135"; */
+"135.title" = "Sorgente:";
+
+/* Class = "NSTextFieldCell"; title = "Display Name:"; ObjectID = "172"; */
+"172.title" = "Nome visualizzato:";
+
+/* Class = "NSTextFieldCell"; title = "CSS Font-Family:"; ObjectID = "174"; */
+"174.title" = "Famiglia font CSS:";
+
+/* Class = "NSTextFieldCell"; title = "Embedded Head HTML:"; ObjectID = "176"; */
+"176.title" = "Intestazione HTML:";
+
+/* Class = "NSTextFieldCell"; title = "Loading Google Fonts…"; ObjectID = "195"; */
+"195.title" = "Carico font Google…";
+
+/* Class = "NSTextFieldCell"; title = "There was an error loading Google Fonts."; ObjectID = "199"; */
+"199.title" = "Errore durante il caricamento dei font Google";
+
+/* Class = "NSButtonCell"; title = "Retry"; ObjectID = "205"; */
+"205.title" = "Riprova";
+
+/* Class = "NSTextFieldCell"; title = "Add HTML <head> code such as CSS @font-face declarations or code provided by Web Font libraries (Typekit, Monotype, typography.com, etc).\n\nUse ${resourcesFolderName} to reference Resource Library files. "; ObjectID = "221"; */
+"221.title" = "Aggiungere il codice <head> HTML come le dichiarazioni @font-face CSS o il codice dalle librerie di font Web (Typekit, Monotype, ecc).
+
+Utilizzare ${resourcesFolderName} per fare riferimento ai file di libreria delle risorse. ";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "Axj-Z9-4v8"; */
+"Axj-Z9-4v8.title" = "Text Cell";
+
+/* Class = "NSButtonCell"; title = "Browse More Fonts…"; ObjectID = "Mcv-Ix-vQc"; */
+"Mcv-Ix-vQc.title" = "Vedi altri font…";
+
+/* Class = "NSTextFieldCell"; title = "There was an error loading Monotype Fonts."; ObjectID = "Sxb-n2-3ri"; */
+"Sxb-n2-3ri.title" = "Errore durante il caricamento dei font Monotype.";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "YRy-vG-ISM"; */
+"YRy-vG-ISM.title" = "Text Cell";
+
+/* Class = "NSButtonCell"; title = "OK"; ObjectID = "Zit-ox-iXQ"; */
+"Zit-ox-iXQ.title" = "OK";
+
+/* Class = "NSButtonCell"; title = "Retry"; ObjectID = "cGb-sr-NsP"; */
+"cGb-sr-NsP.title" = "Riprova";
+
+/* Class = "NSTextFieldCell"; title = "Loading Monotype Fonts…"; ObjectID = "gry-op-hEk"; */
+"gry-op-hEk.title" = "Carico font Monotype…";
+
+/* Class = "NSButtonCell"; title = "Upload…"; ObjectID = "l8j-am-Hvm"; */
+"l8j-am-Hvm.title" = "Carica...";
+
+/* Class = "NSTableColumn"; headerCell.title = "Variant"; ObjectID = "o8k-j3-4S1"; */
+"o8k-j3-4S1.headerCell.title" = "Variante";
+
+/* Class = "NSMenuItem"; title = "Monotype Fonts"; ObjectID = "of4-G2-1bU"; */
+"of4-G2-1bU.title" = "Font Monotype";
+
+/* Class = "NSWindow"; title = "Window"; ObjectID = "pAq-Oi-9fg"; */
+"pAq-Oi-9fg.title" = "Finestra";
+
+/* Class = "NSTableColumn"; headerCell.title = "Font Family"; ObjectID = "wu0-Wd-f4h"; */
+"wu0-Wd-f4h.headerCell.title" = "Famiglia font";
+
+/* Class = "NSSearchFieldCell"; placeholderString = "Filter"; ObjectID = "xRo-hv-mdp"; */
+"xRo-hv-mdp.placeholderString" = "Filtro";
+

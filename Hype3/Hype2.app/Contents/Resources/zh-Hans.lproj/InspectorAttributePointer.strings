@@ -1,0 +1,54 @@
+/* Class = "NSButtonCell"; title = "Ignore all pointer events"; ObjectID = "7K2-Po-ofa"; */
+"7K2-Po-ofa.title" = "忽略所有指针事件";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "145"; */
+"145.title" = "OtherViews";
+
+/* Class = "NSMenuItem"; title = "Default"; ObjectID = "146"; */
+"146.title" = "默认值";
+
+/* Class = "NSMenuItem"; title = "Pointer"; ObjectID = "147"; */
+"147.title" = "指针";
+
+/* Class = "NSMenuItem"; title = "Text"; ObjectID = "148"; */
+"148.title" = "文本";
+
+/* Class = "NSMenuItem"; title = "Crosshair"; ObjectID = "149"; */
+"149.title" = "十字光标";
+
+/* Class = "NSMenuItem"; title = "Help"; ObjectID = "150"; */
+"150.title" = "帮助";
+
+/* Class = "NSMenuItem"; title = "Move"; ObjectID = "151"; */
+"151.title" = "移动";
+
+/* Class = "NSMenuItem"; title = "Wait"; ObjectID = "152"; */
+"152.title" = "等待";
+
+/* Class = "NSMenuItem"; title = "None"; ObjectID = "153"; */
+"153.title" = "无";
+
+/* Class = "NSMenuItem"; title = "Automatic"; ObjectID = "156"; */
+"156.title" = "自动";
+
+/* Class = "NSTextFieldCell"; title = "Cursor"; ObjectID = "158"; */
+"158.title" = "光标";
+
+/* Class = "NSButtonCell"; title = "Allow text selection"; ObjectID = "160"; */
+"160.title" = "允许文本选择";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedIsNilPlaceholder = "Automatic"; ObjectID = "PvQ-dA-dWd"; */
+"PvQ-dA-dWd.ibShadowedIsNilPlaceholder" = "自动";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedMultipleValuesPlaceholder = "Multiple"; ObjectID = "PvQ-dA-dWd"; */
+"PvQ-dA-dWd.ibShadowedMultipleValuesPlaceholder" = "多个";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedNoSelectionPlaceholder = " "; ObjectID = "PvQ-dA-dWd"; */
+"PvQ-dA-dWd.ibShadowedNoSelectionPlaceholder" = " ";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedNotApplicablePlaceholder = "N/A"; ObjectID = "PvQ-dA-dWd"; */
+"PvQ-dA-dWd.ibShadowedNotApplicablePlaceholder" = "不适用";
+
+/* Class = "NSButton"; ibShadowedToolTip = "set pointer-events to 'none'"; ObjectID = "nLf-bX-kKl"; */
+"nLf-bX-kKl.ibShadowedToolTip" = "将指针事件设为“无”";
+

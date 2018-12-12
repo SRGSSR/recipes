@@ -1,0 +1,549 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>CategoryName</key>
+		<string>Variables de substitution</string>
+		<key>items</key>
+		<array>
+			<dict>
+				<key>title</key>
+				<string>${resourcesFolderName}</string>
+				<key>heading</key>
+				<string>${resourcesFolderName}</string>
+				<key>description</key>
+				<string>Variable de substitution pour le dossier de ressources du document. À utiliser pour faire référence à des documents ajoutés via la bibliothèque de ressources.&lt;br&gt;&lt;br&gt;Par exemple, si vous avez ajouté jquery-1.8.2.min.js à votre document à l’aide de la bibliothèque de ressources, cette ligne importera jQuery 1.8.2 dans votre document Hype, afin que vous puissiez utiliser jQuery pour afficher un aperçu de votre document Hype :&lt;div class=&quot;constants&quot;&gt;&lt;script src=&quot;${resourcesFolderName}/jquery-1.8.2.min.js&quot;&gt;&lt;/script&gt;&lt;/div&gt;</string>
+				<key>moreInfoUrlPath</key>
+				<string>resources/#referencing</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>CategoryName</key>
+		<string>Document</string>
+		<key>items</key>
+		<array>
+			<dict>
+				<key>title</key>
+				<string>hypeDocument.documentName()</string>
+				<key>heading</key>
+				<string>hypeDocument.documentName()</string>
+				<key>description</key>
+				<string>Renvoie le nom du document. Cette valeur peut être utilisée dans le HYPE.documents[documentName] global.</string>
+				<key>moreInfoUrlPath</key>
+				<string>#documentName</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>hypeDocument.documentId()</string>
+				<key>heading</key>
+				<string>hypeDocument.documentId()</string>
+				<key>description</key>
+				<string>Renvoie l’identifiant de la container div pour le document. Cette valeur peut être utilisée avec document.getElementId() pour récupérer l’élément container même.</string>
+				<key>moreInfoUrlPath</key>
+				<string>#documentId</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>hypeDocument.resourcesFolderURL()</string>
+				<key>heading</key>
+				<string>hypeDocument.resourcesFolderURL()</string>
+				<key>description</key>
+				<string>Renvoie la valeur de chaîne de l’URL du dossier de ressources du document. À utiliser pour faire référence à des ressources ajoutées via la bibliothèque de ressources.</string>
+				<key>moreInfoUrlPath</key>
+				<string>#resourcesFolderURL</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>hypeDocument.functions()</string>
+				<key>heading</key>
+				<string>hypeDocument.functions()</string>
+				<key>description</key>
+				<string>Renvoie une matrice de toutes les fonctions JavaScript définies par l’utilisateur dans le document Tumult Hype.</string>
+				<key>moreInfoUrlPath</key>
+				<string>#functions</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>hypeDocument.getElementById()</string>
+				<key>heading</key>
+				<string>hypeDocument.getElementById(id)</string>
+				<key>description</key>
+				<string>Recherche l’identifiant spécifié (introduit via l’élément « ID d’élément unique » de l’inspecteur d’identité) dans le document actuel et renvoie l’élément HTML DOM. Similaire au &apos;document.getElementById&apos; habituel, mais la version API doit être utilisée à la place, car Tumult Hype peut ré-attribuer des identifiants en cas de collision.</string>
+				<key>codeInsertion</key>
+				<string>hypeDocument.getElementById(&apos;id&apos;)</string>
+				<key>moreInfoUrlPath</key>
+				<string>#getElementById</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>hypeDocument.getElementProperty()</string>
+				<key>heading</key>
+				<string>hypeDocument.getElementProperty(element, propertyName)</string>
+				<key>description</key>
+				<string>Obtient une propriété d&apos;un élément basée sur la connaissance de temps d&apos;exécution de Hype.  &lt;br&gt;&lt;br&gt;L&apos;argument de l&apos;élément doit être un élément DOM, généralement obtenu par la fonction hypeDocument.getElementById(). &lt;br&gt;&lt;br&gt;Noms de propriété valides (guillemets nécessaires) : &lt;div class=&apos;constants&apos;&gt;&apos;top&apos;&lt;br&gt;&apos;left&apos;&lt;br&gt;&apos;width&apos;&lt;br&gt;&apos;height&apos;&lt;br&gt;&apos;rotateZ&apos;&lt;br&gt;&apos;scaleX&apos;&lt;br&gt;&apos;scaleY&apos;&lt;br&gt;&apos;opacity&apos;&lt;br&gt;&apos;z-index&apos;&lt;br&gt;&apos;background-image&apos;&lt;/div&gt;</string>
+				<key>codeInsertion</key>
+				<string>hypeDocument.getElementProperty(element, &apos;propertyName&apos;)</string>
+				<key>moreInfoUrlPath</key>
+				<string>#getElementProperty</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>hypeDocument.setElementProperty()</string>
+				<key>heading</key>
+				<string>hypeDocument.setElementProperty(element, propertyName, value, optionalDuration, optionalTimingFunctionName)</string>
+				<key>description</key>
+				<string>Définit une propriété d&apos;un élément de manière compatible avec le temps d&apos;exécution de Hype.  Si la durée optionnelle est fournie, une animation de transition est effectuée depuis la valeur actuelle jusqu&apos;à la valeur spécifiée. &lt;br&gt;&lt;br&gt;L&apos;argument de l&apos;élément doit être un élément DOM, généralement obtenu par la fonction hypeDocument.getElementById(). &lt;br&gt;&lt;br&gt;Noms de propriété valides (guillemets nécessaires) : &lt;div class=&apos;constants&apos;&gt;&apos;top&apos;&lt;br&gt;&apos;left&apos;&lt;br&gt;&apos;width&apos;&lt;br&gt;&apos;height&apos;&lt;br&gt;&apos;rotateZ&apos;&lt;br&gt;&apos;scaleX&apos;&lt;br&gt;&apos;scaleY&apos;&lt;br&gt;&apos;opacity&apos;&lt;br&gt;&apos;z-index&apos;&lt;br&gt;&apos;background-image&apos;&lt;/div&gt;La durée optionnelle est donnée en secondes ; la valeur par défaut est 0.&lt;br&gt;&lt;br&gt;Si elle n&apos;est pas fournie, la fonction de temps optionnel par défaut sera &apos;easeinout&apos; (accélération-décélération). Noms de fonctions temporelles valides (guillemets nécessaires) : &lt;div class=&apos;constants&apos;&gt;&apos;easeinout&apos;&lt;br&gt;&apos;easein&apos;&lt;br&gt;&apos;easeout&apos;&lt;br&gt;&apos;linear&apos;&lt;/div&gt;</string>
+				<key>codeInsertion</key>
+				<string>hypeDocument.setElementProperty(element, &apos;propertyName&apos;, value, 1.0, &apos;easeinout&apos;)</string>
+				<key>moreInfoUrlPath</key>
+				<string>#setElementProperty</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>hypeDocument.relayoutIfNecessary()</string>
+				<key>heading</key>
+				<string>hypeDocument.relayoutIfNecessary()</string>
+				<key>description</key>
+				<string>Indique explicitement au document de faire un relayout de tous les éléments et groupes de la scène actuelle lors de l’utilisation d’une taille souple.  À utiliser si vous avez modifié de manière externe la taille de délimitation du container principal.</string>
+				<key>moreInfoUrlPath</key>
+				<string>#relayoutIfNecessary</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>hypeDocument.triggerCustomBehaviorNamed()</string>
+				<key>heading</key>
+				<string>hypeDocument.triggerCustomBehaviorNamed(customBehaviorName)</string>
+				<key>description</key>
+				<string>Informe tout élément doté d&apos;un comportement personnalisé avec customBehaviorName d&apos;exécuter ses actions.</string>
+				<key>codeInsertion</key>
+				<string>hypeDocument.triggerCustomBehaviorNamed(&apos;customBehaviorName&apos;)</string>
+				<key>moreInfoUrlPath</key>
+				<string>#triggerCustomBehaviorNamed</string>
+				<key>proOnly</key>
+				<true/>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>CategoryName</key>
+		<string>Scènes</string>
+		<key>items</key>
+		<array>
+			<dict>
+				<key>title</key>
+				<string>hypeDocument.sceneNames()</string>
+				<key>heading</key>
+				<string>hypeDocument.sceneNames()</string>
+				<key>description</key>
+				<string>Renvoie une liste de toutes les scènes du document. Remarque : les noms de scène ne sont pas forcément uniques, car ils sont spécifiés dans l’interface de sélection de scènes. Si vous devez utiliser la fonction showSceneNamed(), assurez-vous que chaque scène possède un nom unique.</string>
+				<key>moreInfoUrlPath</key>
+				<string>#sceneNames</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>hypeDocument.currentSceneName()</string>
+				<key>heading</key>
+				<string>hypeDocument.currentSceneName()</string>
+				<key>description</key>
+				<string>Renvoie la valeur de chaîne de la scène actuellement affichée.</string>
+				<key>moreInfoUrlPath</key>
+				<string>#currentSceneName</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>hypeDocument.showSceneNamed()</string>
+				<key>heading</key>
+				<string>hypeDocument.showSceneNamed(sceneName, optionalTransition, optionalDuration)</string>
+				<key>description</key>
+				<string>Passe à la scène spécifiée. Si optionalTransition n’est pas spécifié, la transition instantanée est adoptée par défaut. &lt;br&gt;&lt;br&gt;Constantes de transitions valides :	&lt;div class=&quot;constants&quot;&gt;hypeDocument.kSceneTransitionInstant&lt;br&gt;hypeDocument.kSceneTransitionCrossfade&lt;br&gt;hypeDocument.kSceneTransitionSwap&lt;br&gt;hypeDocument.kSceneTransitionPushLeftToRight&lt;br&gt;hypeDocument.kSceneTransitionPushRightToLeft&lt;br&gt;hypeDocument.kSceneTransitionPushBottomToTop&lt;br&gt;hypeDocument.kSceneTransitionPushTopToBottom&lt;br&gt;&lt;br&gt;optionalDuration indiquée en secondes ; la valeur par défaut est  1,1.</string>
+				<key>codeInsertion</key>
+				<string>hypeDocument.showSceneNamed(&apos;sceneName&apos;, hypeDocument.kSceneTransitionCrossfade, 1.1)</string>
+				<key>moreInfoUrlPath</key>
+				<string>#showSceneNamed</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>hypeDocument.showNextScene()</string>
+				<key>heading</key>
+				<string>hypeDocument.showNextScene(optionalTransition, optionalDuration)</string>
+				<key>description</key>
+				<string>Affiche la scène suivante en fonction de l’ordre adopté dans l’interface de sélection de scènes. Si optionalTransition n’est pas spécifié, la transition instantanée est adoptée par défaut. &lt;br&gt;&lt;br&gt;Constantes de transitions valides :	&lt;div class=&quot;constants&quot;&gt;hypeDocument.kSceneTransitionInstant&lt;br&gt;hypeDocument.kSceneTransitionCrossfade&lt;br&gt;hypeDocument.kSceneTransitionSwap&lt;br&gt;hypeDocument.kSceneTransitionPushLeftToRight&lt;br&gt;hypeDocument.kSceneTransitionPushRightToLeft&lt;br&gt;hypeDocument.kSceneTransitionPushBottomToTop&lt;br&gt;hypeDocument.kSceneTransitionPushTopToBottom&lt;br&gt;&lt;br&gt;optionalDuration indiquée en secondes ; la valeur par défaut est  1,1.</string>
+				<key>codeInsertion</key>
+				<string>hypeDocument.showNextScene(hypeDocument.kSceneTransitionCrossfade, 1.1)</string>
+				<key>moreInfoUrlPath</key>
+				<string>#showNextScene</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>hypeDocument.showPreviousScene()</string>
+				<key>heading</key>
+				<string>hypeDocument.showPreviousScene(optionalTransition, optionalDuration)</string>
+				<key>description</key>
+				<string>Affiche la scène précédente en fonction de l’ordre adopté dans l’interface de sélection de scènes. Si optionalTransition n’est pas spécifié, la transition instantanée est adoptée par défaut. &lt;br&gt;&lt;br&gt;Constantes de transitions valides :	&lt;div class=&quot;constants&quot;&gt;hypeDocument.kSceneTransitionInstant&lt;br&gt;hypeDocument.kSceneTransitionCrossfade&lt;br&gt;hypeDocument.kSceneTransitionSwap&lt;br&gt;hypeDocument.kSceneTransitionPushLeftToRight&lt;br&gt;hypeDocument.kSceneTransitionPushRightToLeft&lt;br&gt;hypeDocument.kSceneTransitionPushBottomToTop&lt;br&gt;hypeDocument.kSceneTransitionPushTopToBottom&lt;br&gt;&lt;br&gt;optionalDuration indiquée en secondes ; la valeur par défaut est  1,1.</string>
+				<key>codeInsertion</key>
+				<string>hypeDocument.showPreviousScene(hypeDocument.kSceneTransitionCrossfade, 1.1)</string>
+				<key>moreInfoUrlPath</key>
+				<string>#showPreviousScene</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>CategoryName</key>
+		<string>Mises en page</string>
+		<key>items</key>
+		<array>
+			<dict>
+				<key>codeInsertion</key>
+				<string>hypeDocument.layoutsForSceneNamed(&apos;sceneName&apos;)</string>
+				<key>title</key>
+				<string>hypeDocument.layoutsForSceneNamed()</string>
+				<key>heading</key>
+				<string>hypeDocument.layoutsForSceneNamed(sceneName)</string>
+				<key>description</key>
+				<string>Renvoie la liste des informations de mise en page de la scène concernée. Les informations de mise en page sont fournies sous forme d’objet avec les clés suivantes :&lt;div class=&apos;constants&apos;&gt;&apos;name&apos;&lt;br&gt;&apos;breakpoint&apos;&lt;br&gt;&apos;width&apos;&lt;br&gt;&apos;height&apos;</string>
+				<key>moreInfoUrlPath</key>
+				<string>#hypeDocument.layoutsForSceneNamed</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>hypeDocument.currentLayoutName()</string>
+				<key>heading</key>
+				<string>hypeDocument.currentLayoutName()</string>
+				<key>description</key>
+				<string>Renvoie la valeur de chaîne du nom de la mise en page actuellement affichée.</string>
+				<key>moreInfoUrlPath</key>
+				<string>#hypeDocument.currentLayoutName</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>hypeDocument.showLayoutNamed()</string>
+				<key>heading</key>
+				<string>hypeDocument.showLayoutNamed(layoutName)</string>
+				<key>description</key>
+				<string>Passe instantanément à la mise en scène spécifiée dans la scène actuelle. La mise en page peut changer à nouveau en cas d’événement de redimensionnement, de changement de scène ou d’appel relayoutIfNecessary().&lt;br&gt;&lt;br&gt;Pour forcer des mises en page spécifiques, utilisez HYPE_eventListeners infrastructure pour écouter les événements &quot;HypeLayoutRequest&quot; et renvoyer un nom de chaîne différent en retour d’appel.</string>
+				<key>codeInsertion</key>
+				<string>hypeDocument.showLayoutNamed(&apos;layoutName&apos;)</string>
+				<key>moreInfoUrlPath</key>
+				<string>#hypeDocument.showLayoutNamed</string>
+			</dict>
+		</array>
+		<key>proOnly</key>
+		<true/>
+	</dict>
+	<dict>
+		<key>CategoryName</key>
+		<string>Timelines</string>
+		<key>items</key>
+		<array>
+			<dict>
+				<key>title</key>
+				<string>hypeDocument.startTimelineNamed()</string>
+				<key>heading</key>
+				<string>hypeDocument.startTimelineNamed(timelineName, direction)</string>
+				<key>description</key>
+				<string>Démarre la timeline spécifiée au début de la scène actuelle. Remarque : comme les timelines sont définies par l’utilisateur, elles ne sont pas forcément uniques. Si vous devez utiliser cette fonction, veillez à ce que les timelines aient chacune un nom unique au sein de chaque scène !&lt;br&gt;&lt;br&gt;Sens de lecture de la timeline :	&lt;div class=&quot;constants&quot;&gt;hypeDocument.kDirectionForward&lt;br&gt;hypeDocument.kDirectionReverse</string>
+				<key>codeInsertion</key>
+				<string>hypeDocument.startTimelineNamed(&apos;timelineName&apos;, hypeDocument.kDirectionForward)</string>
+				<key>moreInfoUrlPath</key>
+				<string>#startTimelineNamed</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>hypeDocument.pauseTimelineNamed()</string>
+				<key>heading</key>
+				<string>hypeDocument.pauseTimelineNamed(timelineName)</string>
+				<key>description</key>
+				<string>Suspend la timeline spécifiée pour la scène actuelle. Remarque : comme les timelines sont définies par l’utilisateur, elles ne sont pas forcément uniques. Si vous devez utiliser cette fonction, veillez à ce que les timelines aient chacune un nom unique au sein de chaque scène !</string>
+				<key>codeInsertion</key>
+				<string>hypeDocument.pauseTimelineNamed(&apos;timelineName&apos;)</string>
+				<key>moreInfoUrlPath</key>
+				<string>#pauseTimelineNamed</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>hypeDocument.continueTimelineNamed()</string>
+				<key>heading</key>
+				<string>hypeDocument.continueTimelineNamed(timelineName, direction, canRestartTimeline)</string>
+				<key>description</key>
+				<string>Continue la timeline spécifiée à l’endroit où elle a été interrompue pour la scène actuelle. Remarque : comme les timelines sont définies par l’utilisateur, elles ne sont pas forcément uniques. Si vous devez utiliser cette fonction, veillez à ce que les timelines aient chacune un nom unique au sein de chaque scène !&lt;br&gt;&lt;br&gt;Par défaut, continuer ne revient pas au début la timeline si celle-ci est à la fin ; pour modifier ce comportement, définissez canRestartTimeline comme vrai.&lt;br&gt;&lt;br&gt;Direction pour lire la timeline :	&lt;div class=&quot;constants&quot;&gt;hypeDocument.kDirectionForward&lt;br&gt;hypeDocument.kDirectionReverse</string>
+				<key>codeInsertion</key>
+				<string>hypeDocument.continueTimelineNamed(&apos;timelineName&apos;, hypeDocument.kDirectionForward, false)</string>
+				<key>moreInfoUrlPath</key>
+				<string>#continueTimelineNamed</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>hypeDocument.goToTimeInTimelineNamed()</string>
+				<key>heading</key>
+				<string>hypeDocument.goToTimeInTimelineNamed(timeInSeconds, timelineName)</string>
+				<key>description</key>
+				<string>Accède directement à un moment spécifique de la timeline spécifiée de la scène actuelle. Remarque : comme les timelines sont définies par l’utilisateur, elles ne sont pas forcément uniques. Si vous devez utiliser cette fonction, veillez à ce que les timelines aient chacune un nom unique au sein de chaque scène !</string>
+				<key>codeInsertion</key>
+				<string>hypeDocument.goToTimeInTimelineNamed(0, &apos;timelineName&apos;)</string>
+				<key>moreInfoUrlPath</key>
+				<string>#goToTimeInTimelineNamed</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>hypeDocument.currentTimeInTimelineNamed()</string>
+				<key>heading</key>
+				<string>hypeDocument.currentTimeInTimelineNamed(timelineName)</string>
+				<key>description</key>
+				<string>Renvoie la position temporelle actuelle de la timeline spécifiée en secondes.</string>
+				<key>codeInsertion</key>
+				<string>hypeDocument.currentTimeInTimelineNamed(&apos;timelineName&apos;)</string>
+				<key>moreInfoUrlPath</key>
+				<string>#currentTimeInTimelineNamed</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>hypeDocument.durationForTimelineNamed()</string>
+				<key>heading</key>
+				<string>hypeDocument.durationForTimelineNamed(timelineName)</string>
+				<key>description</key>
+				<string>Renvoie la durée de la timeline spécifiée en secondes.</string>
+				<key>codeInsertion</key>
+				<string>hypeDocument.durationForTimelineNamed(&apos;timelineName&apos;)</string>
+				<key>moreInfoUrlPath</key>
+				<string>#durationForTimelineNamed</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>hypeDocument.currentDirectionForTimelineNamed()</string>
+				<key>heading</key>
+				<string>hypeDocument.currentDirectionForTimelineNamed(timelineName)</string>
+				<key>description</key>
+				<string>Renvoie le sens de lecture de la timeline spécifiée.
+&lt;br&gt;&lt;br&gt;Valeurs renvoyées possibles :	&lt;div class=&quot;constants&quot;&gt;hypeDocument.kDirectionForward&lt;br&gt;hypeDocument.kDirectionReverse</string>
+				<key>codeInsertion</key>
+				<string>hypeDocument.currentDirectionForTimelineNamed(&apos;timelineName&apos;)</string>
+				<key>moreInfoUrlPath</key>
+				<string>#currentDirectionForTimelineNamed</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>hypeDocument.isPlayingTimelineNamed()</string>
+				<key>heading</key>
+				<string>hypeDocument.isPlayingTimelineNamed(timelineName)</string>
+				<key>description</key>
+				<string>Renvoie la valeur vrai si la timeline est en cours de lecture et faux si ce n’est pas le cas.</string>
+				<key>codeInsertion</key>
+				<string>hypeDocument.isPlayingTimelineNamed(&apos;timelineName&apos;)</string>
+				<key>moreInfoUrlPath</key>
+				<string>#isPlayingTimelineNamed</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>CategoryName</key>
+		<string>Symboles</string>
+		<key>items</key>
+		<array>
+			<dict>
+				<key>title</key>
+				<string>hypeDocument.getSymbolInstanceById()</string>
+				<key>heading</key>
+				<string>hypeDocument.getSymbolInstanceById(id)</string>
+				<key>description</key>
+				<string>Renvoie l&apos;instance de symbole de l&apos;élément spécifié.&lt;br&gt;&lt;br&gt;L&apos;instance de symbole peut être utilisée pour contrôler les timelines dans le symbole. Pour plus d&apos;informations, reportez-vous à la section Instances de symbole.</string>
+				<key>codeInsertion</key>
+				<string>hypeDocument.getSymbolInstanceById(&apos;id&apos;)</string>
+				<key>moreInfoUrlPath</key>
+				<string>#getSymbolInstanceById</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>hypeDocument.getSymbolInstancesByName()</string>
+				<key>heading</key>
+				<string>hypeDocument.getSymbolInstancesByName(symbolName)</string>
+				<key>description</key>
+				<string>Renvoie toutes les instances de symbole portant le nom spécifié. Un nom de symbole peut se trouver dans la bibliothèque de symboles.&lt;br&gt;&lt;br&gt;L&apos;instance de symbole peut être utilisée pour contrôler les timelines dans le symbole. Pour plus d&apos;informations, reportez-vous à la section Instances de symbole.</string>
+				<key>codeInsertion</key>
+				<string>hypeDocument.getSymbolInstancesByName(&apos;symbolName&apos;)</string>
+				<key>moreInfoUrlPath</key>
+				<string>#getSymbolInstancesByName</string>
+			</dict>
+		</array>
+		<key>proOnly</key>
+		<true/>
+	</dict>
+	<dict>
+		<key>CategoryName</key>
+		<string>Instances de symbole</string>
+		<key>items</key>
+		<array>
+			<dict>
+				<key>title</key>
+				<string>symbolInstance.getSymbolInstancesByName()</string>
+				<key>heading</key>
+				<string>symbolInstance.getSymbolInstancesByName(symbolName)</string>
+				<key>description</key>
+				<string>Renvoie toutes les instances de symbole portant le nom spécifié qui sont enfants de symbolInstance.element(). Un nom de symbole peut se trouver dans la bibliothèque de symboles.</string>
+				<key>codeInsertion</key>
+				<string>symbolInstance.getSymbolInstancesByName(&apos;symbolName&apos;)</string>
+				<key>moreInfoUrlPath</key>
+				<string>#getSymbolInstancesByNameSymbol</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>symbolInstance.symbolName()</string>
+				<key>heading</key>
+				<string>symbolInstance.symbolName()</string>
+				<key>description</key>
+				<string>Renvoie le nom du symbole.</string>
+				<key>moreInfoUrlPath</key>
+				<string>#symbolName</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>symbolInstance.element()</string>
+				<key>heading</key>
+				<string>symbolInstance.element()</string>
+				<key>description</key>
+				<string>Renvoie l&apos;élément représentant le symbole.</string>
+				<key>moreInfoUrlPath</key>
+				<string>#element-symbol</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>symbolInstance.startTimelineNamed()</string>
+				<key>heading</key>
+				<string>symbolInstance.startTimelineNamed(timelineName, direction)</string>
+				<key>description</key>
+				<string>Démarre la timeline spécifiée au début du symbole. Remarque : comme les timelines sont définies par l’utilisateur, elles ne sont pas forcément uniques. Si vous devez utiliser cette fonction, veillez à ce que les timelines aient chacune un nom unique au sein de chaque symbole!&lt;br&gt;&lt;br&gt;Sens de lecture de la timeline :	&lt;div class=&quot;constants&quot;&gt;hypeDocument.kDirectionForward&lt;br&gt;hypeDocument.kDirectionReverse</string>
+				<key>codeInsertion</key>
+				<string>symbolInstance.startTimelineNamed(&apos;timelineName&apos;, hypeDocument.kDirectionForward)</string>
+				<key>moreInfoUrlPath</key>
+				<string>#startTimelineNamedSymbol</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>symbolInstance.pauseTimelineNamed()</string>
+				<key>heading</key>
+				<string>symbolInstance.pauseTimelineNamed(timelineName)</string>
+				<key>description</key>
+				<string>Suspend la timeline spécifiée pour le symbole. Remarque : comme les timelines sont définies par l’utilisateur, elles ne sont pas forcément uniques. Si vous devez utiliser cette fonction, veillez à ce que les timelines aient chacune un nom unique au sein de chaque symbole !</string>
+				<key>codeInsertion</key>
+				<string>symbolInstance.pauseTimelineNamed(&apos;timelineName&apos;)</string>
+				<key>moreInfoUrlPath</key>
+				<string>#pauseTimelineNamedSymbol</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>symbolInstance.continueTimelineNamed()</string>
+				<key>heading</key>
+				<string>symbolInstance.continueTimelineNamed(timelineName, direction, canRestartTimeline)</string>
+				<key>description</key>
+				<string>Continue la timeline spécifiée à l’endroit où elle a été interrompue pour le symbole. Remarque : comme les timelines sont définies par l’utilisateur, elles ne sont pas forcément uniques. Si vous devez utiliser cette fonction, veillez à ce que les timelines aient chacune un nom unique au sein de chaque symbole !&lt;br&gt;&lt;br&gt;Par défaut, continuer ne revient pas au début la timeline si celle-ci est à la fin ; pour modifier ce comportement, définissez canRestartTimeline comme vrai.&lt;br&gt;&lt;br&gt;Direction pour lire la timeline :	&lt;div class=&quot;constants&quot;&gt;hypeDocument.kDirectionForward&lt;br&gt;hypeDocument.kDirectionReverse</string>
+				<key>codeInsertion</key>
+				<string>symbolInstance.continueTimelineNamed(&apos;timelineName&apos;, hypeDocument.kDirectionForward, false)</string>
+				<key>moreInfoUrlPath</key>
+				<string>#continueTimelineNamedSymbol</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>symbolInstance.goToTimeInTimelineNamed()</string>
+				<key>heading</key>
+				<string>symbolInstance.goToTimeInTimelineNamed(timeInSeconds, timelineName)</string>
+				<key>description</key>
+				<string>Accède directement à un moment spécifique de la timeline spécifiée du symbole. Remarque : comme les timelines sont définies par l’utilisateur, elles ne sont pas forcément uniques. Si vous devez utiliser cette fonction, veillez à ce que les timelines aient chacune un nom unique au sein de chaque symbole !</string>
+				<key>codeInsertion</key>
+				<string>symbolInstance.goToTimeInTimelineNamed(0, &apos;timelineName&apos;)</string>
+				<key>moreInfoUrlPath</key>
+				<string>#goToTimeInTimelineNamedSymbol</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>symbolInstance.currentTimeInTimelineNamed()</string>
+				<key>heading</key>
+				<string>symbolInstance.currentTimeInTimelineNamed(timelineName)</string>
+				<key>description</key>
+				<string>Renvoie la position temporelle actuelle de la timeline spécifiée en secondes.</string>
+				<key>codeInsertion</key>
+				<string>symbolInstance.currentTimeInTimelineNamed(&apos;timelineName&apos;)</string>
+				<key>moreInfoUrlPath</key>
+				<string>#currentTimeInTimelineNamedSymbol</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>symbolInstance.durationForTimelineNamed()</string>
+				<key>heading</key>
+				<string>symbolInstance.durationForTimelineNamed(timelineName)</string>
+				<key>description</key>
+				<string>Renvoie la durée de la timeline spécifiée en secondes.</string>
+				<key>codeInsertion</key>
+				<string>symbolInstance.durationForTimelineNamed(&apos;timelineName&apos;)</string>
+				<key>moreInfoUrlPath</key>
+				<string>#durationForTimelineNamedSymbol</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>symbolInstance.currentDirectionForTimelineNamed()</string>
+				<key>heading</key>
+				<string>symbolInstance.currentDirectionForTimelineNamed(timelineName)</string>
+				<key>description</key>
+				<string>Renvoie le sens de lecture de la timeline spécifiée.
+&lt;br&gt;&lt;br&gt;Valeurs renvoyées possibles :	&lt;div class=&quot;constants&quot;&gt;hypeDocument.kDirectionForward&lt;br&gt;hypeDocument.kDirectionReverse</string>
+				<key>codeInsertion</key>
+				<string>symbolInstance.currentDirectionForTimelineNamed(&apos;timelineName&apos;)</string>
+				<key>moreInfoUrlPath</key>
+				<string>#currentDirectionForTimelineNamedSymbol</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>symbolInstance.isPlayingTimelineNamed()</string>
+				<key>heading</key>
+				<string>symbolInstance.isPlayingTimelineNamed(timelineName)</string>
+				<key>description</key>
+				<string>Renvoie la valeur vrai si la timeline est en cours de lecture et faux si ce n’est pas le cas.</string>
+				<key>codeInsertion</key>
+				<string>symbolInstance.isPlayingTimelineNamed(&apos;timelineName&apos;)</string>
+				<key>moreInfoUrlPath</key>
+				<string>#isPlayingTimelineNamedSymbol</string>
+			</dict>
+		</array>
+		<key>proOnly</key>
+		<true/>
+	</dict>
+	<dict>
+		<key>CategoryName</key>
+		<string>Événements Glisser</string>
+		<key>items</key>
+		<array>
+			<dict>
+				<key>title</key>
+				<string>event[&apos;hypeGesturePhase&apos;]</string>
+				<key>heading</key>
+				<string>event[&apos;hypeGesturePhase&apos;]</string>
+				<key>description</key>
+				<string>En cas de rappel de l’événement « Si Glisser » avec l’action « Exécuter JavaScript… », l’objet événement indique également si le geste glisser actuel vient de commencer ou de s’achever, qu’il a été annulé ou que les coordonnées ont été actualisées. Pour obtenir cet état, accédez à la propriété hypeGesturePhase dans l’objet événement :
+&lt;div class=&quot;constants&quot;&gt;hypeDocument.kHypeGesturePhaseStart&lt;br&gt;hypeDocument.kHypeGesturePhaseMove&lt;br&gt;hypeDocument.kHypeGesturePhaseEnd&lt;br&gt;hypeDocument.kHypeGesturePhaseCancel&lt;/div&gt;</string>
+				<key>moreInfoUrlPath</key>
+				<string>#hypegesturephase</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>event[&apos;hypeGestureXPosition&apos;]</string>
+				<key>heading</key>
+				<string>event[&apos;hypeGestureXPosition&apos;]</string>
+				<key>description</key>
+				<string>Renvoie la position x actuelle d’une action glisser en cas d’utilisation de l’événement « Si Glisser » avec l’action « Exécuter JavaScript… ».</string>
+				<key>moreInfoUrlPath</key>
+				<string>#hypegesturexposition</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>event[&apos;hypeGestureYPosition&apos;]</string>
+				<key>heading</key>
+				<string>event[&apos;hypeGestureYPosition&apos;]</string>
+				<key>description</key>
+				<string>Renvoie la position y actuelle d’une action glisser en cas d’utilisation de l’événement « Si Glisser » avec l’action « Exécuter JavaScript… ».</string>
+				<key>moreInfoUrlPath</key>
+				<string>#hypegestureyposition</string>
+			</dict>
+		</array>
+	</dict>
+</array>
+</plist>

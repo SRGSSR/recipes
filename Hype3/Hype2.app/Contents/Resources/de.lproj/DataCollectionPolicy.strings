@@ -1,0 +1,9 @@
+/* Class = "NSWindow"; title = "Data Collection Policy"; ObjectID = "1"; */
+"1.title" = "Datensammlungsrichtlinie";
+
+/* Class = "NSButtonCell"; title = "OK"; ObjectID = "8"; */
+"8.title" = "OK";
+
+/* Class = "NSButtonCell"; title = "Privacy Policy"; ObjectID = "15"; */
+"15.title" = "Datenschutzrichtlinie";
+

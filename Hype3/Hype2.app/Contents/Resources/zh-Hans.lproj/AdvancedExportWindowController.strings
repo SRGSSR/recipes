@@ -1,0 +1,144 @@
+/* Class = "NSMenuItem"; title = "Default Options"; ObjectID = "0Cu-tm-HDk"; */
+"0Cu-tm-HDk.title" = "默认选项";
+
+/* Class = "NSTextFieldCell"; title = "Label"; ObjectID = "0Kg-fc-myQ"; */
+"0Kg-fc-myQ.title" = "标签";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "2pC-kb-Vlo"; */
+"2pC-kb-Vlo.title" = "Text Cell";
+
+/* Class = "NSTextFieldCell"; title = "@2x Download:"; ObjectID = "3Mz-n7-EMP"; */
+"3Mz-n7-EMP.title" = "@2x 下载：";
+
+/* Class = "NSButton"; ibShadowedToolTip = "Duplicate Slice"; ObjectID = "388-yt-FE2"; */
+"388-yt-FE2.ibShadowedToolTip" = "复制切片";
+
+/* Class = "NSButtonCell"; title = "Inline data file+loader"; ObjectID = "BLm-Sr-qjl"; */
+"BLm-Sr-qjl.title" = "内联数据文件+加载器";
+
+/* Class = "NSTextFieldCell"; placeholderString = "http://"; ObjectID = "EXi-86-u6D"; */
+"EXi-86-u6D.placeholderString" = "http://";
+
+/* Class = "NSWindow"; title = "Window"; ObjectID = "F0z-JX-Cv5"; */
+"F0z-JX-Cv5.title" = "窗口";
+
+/* Class = "NSButtonCell"; title = "Include text contents for search engines"; ObjectID = "FCl-cy-PHR"; */
+"FCl-cy-PHR.title" = "包括搜索引擎的文本内容";
+
+/* Class = "NSTextFieldCell"; title = "20k"; ObjectID = "Gdk-C1-wer"; */
+"Gdk-C1-wer.title" = "20k";
+
+/* Class = "NSButton"; ibShadowedToolTip = "Remove Slice"; ObjectID = "HPi-p7-KcH"; */
+"HPi-p7-KcH.ibShadowedToolTip" = "删除切片";
+
+/* Class = "NSButtonCell"; title = "Name as \"index.html\" (requires enclosing folder)"; ObjectID = "HTv-jw-Fco"; */
+"HTv-jw-Fco.title" = "命名为“index.html”（需要上层文件夹）";
+
+/* Class = "NSButtonCell"; title = "Export"; ObjectID = "IoJ-eT-oFZ"; */
+"IoJ-eT-oFZ.title" = "导出";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "Jac-GU-wA9"; */
+"Jac-GU-wA9.title" = "Text Cell";
+
+/* Class = "NSButton"; ibShadowedToolTip = "Add New Slice"; ObjectID = "LLU-8V-KbX"; */
+"LLU-8V-KbX.ibShadowedToolTip" = "新增切片";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "LNr-oA-kvk"; */
+"LNr-oA-kvk.title" = "Text Cell";
+
+/* Class = "NSTableColumn"; headerCell.title = "Size"; ObjectID = "LSf-4n-A1c"; */
+"LSf-4n-A1c.headerCell.title" = "大小";
+
+/* Class = "NSTableColumn"; headerCell.title = "Resource Name"; ObjectID = "M1S-mx-ThB"; */
+"M1S-mx-ThB.headerCell.title" = "资源名称";
+
+/* Class = "NSMenuItem"; title = "Reset Options for this Slice to Default"; ObjectID = "MLm-Lv-SWq"; */
+"MLm-Lv-SWq.title" = "将该切片的选项重置为默认";
+
+/* Class = "NSButtonCell"; title = "Cancel"; ObjectID = "PEr-2W-VXv"; */
+"PEr-2W-VXv.title" = "取消";
+
+/* Class = "NSTextFieldCell"; title = "22k"; ObjectID = "PXt-9o-CWS"; */
+"PXt-9o-CWS.title" = "22k";
+
+/* Class = "NSButtonCell"; title = "Also save .html file "; ObjectID = "Pf8-1o-wkZ"; */
+"Pf8-1o-wkZ.title" = "一并保存 .html 文件 ";
+
+/* Class = "NSButtonCell"; title = "None"; ObjectID = "VfS-Q6-vFh"; */
+"VfS-Q6-vFh.title" = "无";
+
+/* Class = "NSMenuItem"; title = "Item 3"; ObjectID = "WKg-l8-tG2"; */
+"WKg-l8-tG2.title" = "Item 3";
+
+/* Class = "NSMenuItem"; title = "Save Current Options for All New Slices"; ObjectID = "XB0-8a-uas"; */
+"XB0-8a-uas.title" = "针对所有新切片保存当前选项";
+
+/* Class = "NSTextFieldCell"; title = "IE Download:"; ObjectID = "Xad-DV-VMy"; */
+"Xad-DV-VMy.title" = "IE 下载：";
+
+/* Class = "NSMenuItem"; title = "Item 1"; ObjectID = "biM-bW-rOh"; */
+"biM-bW-rOh.title" = "Item 1";
+
+/* Class = "NSTextFieldCell"; title = "112k"; ObjectID = "c6E-DX-NNx"; */
+"c6E-DX-NNx.title" = "112k";
+
+/* Class = "NSTextFieldCell"; title = "Export Script:"; ObjectID = "c9X-bz-3w7"; */
+"c9X-bz-3w7.title" = "导出脚本︰";
+
+/* Class = "NSTextFieldCell"; title = "/HYPE-510.*.min.js"; ObjectID = "d9B-k9-965"; */
+"d9B-k9-965.title" = "/HYPE-510.*.min.js";
+
+/* Class = "NSMenuItem"; title = "Item 2"; ObjectID = "ddV-Kz-VWb"; */
+"ddV-Kz-VWb.title" = "Item 2";
+
+/* Class = "NSButtonCell"; title = "Create restorable document file"; ObjectID = "gTP-s8-WMq"; */
+"gTP-s8-WMq.title" = "创建可还原的文档文件";
+
+/* Class = "NSTextFieldCell"; title = "Table View Cell"; ObjectID = "h3z-HO-MA7"; */
+"h3z-HO-MA7.title" = "表格视图单元格";
+
+/* Class = "NSButtonCell"; title = "Support Internet Explorer 6-9"; ObjectID = "hDD-sw-gE8"; */
+"hDD-sw-gE8.title" = "支持 Internet Explorer 6-9";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "hOM-Pn-5Zu"; */
+"hOM-Pn-5Zu.title" = "Text Cell";
+
+/* Class = "NSTableColumn"; headerCell.title = "Include"; ObjectID = "hkk-Q2-rWq"; */
+"hkk-Q2-rWq.headerCell.title" = "包括";
+
+/* Class = "NSTextFieldCell"; title = "Slice"; ObjectID = "i7Q-B5-riM"; */
+"i7Q-B5-riM.title" = "切片";
+
+/* Class = "NSTextFieldCell"; title = "Advanced Export"; ObjectID = "kMn-LE-kcb"; */
+"kMn-LE-kcb.title" = "高级导出";
+
+/* Class = "NSTextFieldCell"; title = "@1x Download:"; ObjectID = "liZ-vK-VL4"; */
+"liZ-vK-VL4.title" = "@1x 下载：";
+
+/* Class = "NSButtonCell"; title = "Create enclosing folder"; ObjectID = "lid-ly-9Hj"; */
+"lid-ly-9Hj.title" = "创建上层文件夹";
+
+/* Class = "NSTextFieldCell"; title = "Create slices to customize what Scenes, Layouts, and Resources are included in your export. Check the box next to any slices you want to export."; ObjectID = "mY3-3D-egv"; */
+"mY3-3D-egv.title" = "创建切片来自定义要在您的导出中包含哪些场景、布局以及资源。勾选您要导出的任何切片旁边的复选框。";
+
+/* Class = "NSTableColumn"; headerCell.title = "Scenes and Layouts"; ObjectID = "mjj-QI-GJK"; */
+"mjj-QI-GJK.headerCell.title" = "场景和布局";
+
+/* Class = "NSButtonCell"; title = "Use external runtime URL:"; ObjectID = "oEe-xQ-IQj"; */
+"oEe-xQ-IQj.title" = "使用外部运行时 URL：";
+
+/* Class = "NSTextFieldCell"; title = "All Files:"; ObjectID = "pWb-gz-AwK"; */
+"pWb-gz-AwK.title" = "所有文件：";
+
+/* Class = "NSTextFieldCell"; title = "56k"; ObjectID = "pej-CB-fMV"; */
+"pej-CB-fMV.title" = "56k";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "sm5-Jx-TiI"; */
+"sm5-Jx-TiI.title" = "Text Cell";
+
+/* Class = "NSTextFieldCell"; title = "Resource name"; ObjectID = "uIr-GS-9MS"; */
+"uIr-GS-9MS.title" = "资源名称";
+
+/* Class = "NSTextFieldCell"; title = "212k"; ObjectID = "wRN-JJ-hwg"; */
+"wRN-JJ-hwg.title" = "212k";
+

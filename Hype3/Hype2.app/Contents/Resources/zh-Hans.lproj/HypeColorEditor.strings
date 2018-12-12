@@ -1,0 +1,75 @@
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "1lZ-Dz-hze"; */
+"1lZ-Dz-hze.title" = "Text Cell";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "2d6-Xr-bhc"; */
+"2d6-Xr-bhc.title" = "Text Cell";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "3ii-Ad-gui"; */
+"3ii-Ad-gui.title" = "Text Cell";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "4Nb-bM-Uvp"; */
+"4Nb-bM-Uvp.title" = "Text Cell";
+
+/* Class = "NSTableColumn"; headerCell.title = "Name"; ObjectID = "5xY-V9-E7K"; */
+"5xY-V9-E7K.headerCell.title" = "用户名";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "8iF-cF-WLx"; */
+"8iF-cF-WLx.title" = "Text Cell";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "60I-t8-dru"; */
+"60I-t8-dru.title" = "Text Cell";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "DBE-Vm-wfX"; */
+"DBE-Vm-wfX.title" = "Text Cell";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "Edf-xu-1jh"; */
+"Edf-xu-1jh.title" = "Text Cell";
+
+/* Class = "NSButtonCell"; title = "Reset Preferences"; ObjectID = "MKK-Xr-iaS"; */
+"MKK-Xr-iaS.title" = "还原偏好设置";
+
+/* Class = "NSWindow"; title = "Color Editor"; ObjectID = "QvC-M9-y7g"; */
+"QvC-M9-y7g.title" = "颜色编辑器";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "T0r-VF-lMe"; */
+"T0r-VF-lMe.title" = "Text Cell";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "d6A-bj-2eo"; */
+"d6A-bj-2eo.title" = "Text Cell";
+
+/* Class = "NSButtonCell"; title = "Duplicate"; ObjectID = "ggb-Sr-8fS"; */
+"ggb-Sr-8fS.title" = "复制";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "hi4-eR-azr"; */
+"hi4-eR-azr.title" = "Text Cell";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "kIo-ds-L2Q"; */
+"kIo-ds-L2Q.title" = "Text Cell";
+
+/* Class = "NSButtonCell"; title = "Save…"; ObjectID = "lJ3-bj-2U0"; */
+"lJ3-bj-2U0.title" = "存储…";
+
+/* Class = "NSButtonCell"; title = "Load…"; ObjectID = "lg7-aK-oFU"; */
+"lg7-aK-oFU.title" = "加载…";
+
+/* Class = "NSButtonCell"; title = "Add"; ObjectID = "m77-oz-rjH"; */
+"m77-oz-rjH.title" = "添加";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "mde-gh-ahg"; */
+"mde-gh-ahg.title" = "Text Cell";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "qcd-gS-eKZ"; */
+"qcd-gS-eKZ.title" = "Text Cell";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "stV-8J-AXL"; */
+"stV-8J-AXL.title" = "Text Cell";
+
+/* Class = "NSButtonCell"; title = "Remove"; ObjectID = "tFf-Zz-OIV"; */
+"tFf-Zz-OIV.title" = "移除";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "uQh-xI-2VZ"; */
+"uQh-xI-2VZ.title" = "Text Cell";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "vYF-3c-wXy"; */
+"vYF-3c-wXy.title" = "Text Cell";
+

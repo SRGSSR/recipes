@@ -1,0 +1,39 @@
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "38"; */
+"38.title" = "OtherViews";
+
+/* Class = "NSMenuItem"; title = "None"; ObjectID = "39"; */
+"39.title" = "Nessuno";
+
+/* Class = "NSMenuItem"; title = "Gradient"; ObjectID = "40"; */
+"40.title" = "Gradiente";
+
+/* Class = "NSMenuItem"; title = "Image"; ObjectID = "41"; */
+"41.title" = "Immagine";
+
+/* Class = "NSTextFieldCell"; title = "Fill Style"; ObjectID = "43"; */
+"43.title" = "Stile riempim.";
+
+/* Class = "NSMenuItem"; title = "Color"; ObjectID = "44"; */
+"44.title" = "Colore";
+
+/* Class = "NSTextFieldCell"; title = "360°"; ObjectID = "64"; */
+"64.title" = "360°";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "85"; */
+"85.title" = "OtherViews";
+
+/* Class = "NSMenuItem"; title = "Scale To Fit"; ObjectID = "86"; */
+"86.title" = "Adatta in scala";
+
+/* Class = "NSMenuItem"; title = "Repeat Vertically"; ObjectID = "87"; */
+"87.title" = "Ripeti in verticale";
+
+/* Class = "NSMenuItem"; title = "Repeat Horizontally"; ObjectID = "88"; */
+"88.title" = "Ripeti in orizzontale";
+
+/* Class = "NSButtonCell"; title = "Choose…"; ObjectID = "92"; */
+"92.title" = "Scegli…";
+
+/* Class = "NSMenuItem"; title = "Repeat"; ObjectID = "93"; */
+"93.title" = "Ripeti";
+

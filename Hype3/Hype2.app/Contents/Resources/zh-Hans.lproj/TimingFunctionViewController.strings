@@ -1,0 +1,51 @@
+/* Class = "NSBox"; title = "Box"; ObjectID = "8tK-PI-b3Z"; */
+"8tK-PI-b3Z.title" = "Box";
+
+/* Class = "NSButtonCell"; title = "Add to List…"; ObjectID = "9Vg-ys-Pcn"; */
+"9Vg-ys-Pcn.title" = "添加到列表…";
+
+/* Class = "NSMenuItem"; title = "Remove Timing Function"; ObjectID = "Bm6-Ap-0Y7"; */
+"Bm6-Ap-0Y7.title" = "移除定时功能";
+
+/* Class = "NSTableColumn"; headerCell.title = "TimingFunctions"; ObjectID = "EbV-DP-zD4"; */
+"EbV-DP-zD4.headerCell.title" = "定时功能";
+
+/* Class = "NSBox"; title = "Box"; ObjectID = "WlK-r5-1MN"; */
+"WlK-r5-1MN.title" = "Box";
+
+/* Class = "NSButtonCell"; title = "Update"; ObjectID = "Wp1-bL-rmY"; */
+"Wp1-bL-rmY.title" = "更新";
+
+/* Class = "NSTextFieldCell"; title = "Multiple Timing Functions"; ObjectID = "pw9-Bx-4dW"; */
+"pw9-Bx-4dW.title" = "多个定时功能";
+
+/* Class = "NSSegmentedCell"; t1o-dX-wuW.ibShadowedLabels[0] = "Cubic"; ObjectID = "t1o-dX-wuW"; */
+"t1o-dX-wuW.ibShadowedLabels[0]" = "立方型";
+
+/* Class = "NSSegmentedCell"; t1o-dX-wuW.ibShadowedLabels[1] = "Quad"; ObjectID = "t1o-dX-wuW"; */
+"t1o-dX-wuW.ibShadowedLabels[1]" = "二次型";
+
+/* Class = "NSSegmentedCell"; t1o-dX-wuW.ibShadowedLabels[2] = "Quart"; ObjectID = "t1o-dX-wuW"; */
+"t1o-dX-wuW.ibShadowedLabels[2]" = "四次型";
+
+/* Class = "NSSegmentedCell"; t1o-dX-wuW.ibShadowedLabels[3] = "Quint"; ObjectID = "t1o-dX-wuW"; */
+"t1o-dX-wuW.ibShadowedLabels[3]" = "五次型";
+
+/* Class = "NSSegmentedCell"; t1o-dX-wuW.ibShadowedLabels[4] = "Sine"; ObjectID = "t1o-dX-wuW"; */
+"t1o-dX-wuW.ibShadowedLabels[4]" = "正弦型";
+
+/* Class = "NSSegmentedCell"; t1o-dX-wuW.ibShadowedLabels[5] = "Expo"; ObjectID = "t1o-dX-wuW"; */
+"t1o-dX-wuW.ibShadowedLabels[5]" = "指数型";
+
+/* Class = "NSSegmentedCell"; t1o-dX-wuW.ibShadowedLabels[6] = "Circ"; ObjectID = "t1o-dX-wuW"; */
+"t1o-dX-wuW.ibShadowedLabels[6]" = "圆型";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "ufI-vg-2hv"; */
+"ufI-vg-2hv.title" = "Text Cell";
+
+/* Class = "NSTextFieldCell"; title = "Timing Functions"; ObjectID = "wjd-zk-hzs"; */
+"wjd-zk-hzs.title" = "定时功能";
+
+/* Class = "NSMenuItem"; title = "Set as Default Timing Function"; ObjectID = "xfi-TK-UIn"; */
+"xfi-TK-UIn.title" = "设置为默认定时功能";
+

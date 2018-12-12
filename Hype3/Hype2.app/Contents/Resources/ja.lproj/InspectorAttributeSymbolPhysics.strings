@@ -1,0 +1,42 @@
+/* Class = "CocoaBindingsConnection"; ibShadowedIsNilPlaceholder = "N/A"; ObjectID = "BBI-fI-8Gd"; */
+"BBI-fI-8Gd.ibShadowedIsNilPlaceholder" = "なし";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedMultipleValuesPlaceholder = "N/A"; ObjectID = "BBI-fI-8Gd"; */
+"BBI-fI-8Gd.ibShadowedMultipleValuesPlaceholder" = "なし";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedNoSelectionPlaceholder = " "; ObjectID = "BBI-fI-8Gd"; */
+"BBI-fI-8Gd.ibShadowedNoSelectionPlaceholder" = " ";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedNotApplicablePlaceholder = "N/A"; ObjectID = "BBI-fI-8Gd"; */
+"BBI-fI-8Gd.ibShadowedNotApplicablePlaceholder" = "なし";
+
+/* Class = "NSTextFieldCell"; title = "360°"; ObjectID = "Lyk-MV-RIz"; */
+"Lyk-MV-RIz.title" = "360°";
+
+/* Class = "NSTextFieldCell"; title = "Angle"; ObjectID = "ME3-Au-rf2"; */
+"ME3-Au-rf2.title" = "角度";
+
+/* Class = "NSTextFieldCell"; title = "Force"; ObjectID = "XBZ-cx-e8Z"; */
+"XBZ-cx-e8Z.title" = "強制";
+
+/* Class = "NSTextFieldCell"; title = "1.0"; ObjectID = "d30-g8-mUb"; */
+"d30-g8-mUb.title" = "1.0";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedIsNilPlaceholder = "N/A"; ObjectID = "heW-Ii-faf"; */
+"heW-Ii-faf.ibShadowedIsNilPlaceholder" = "なし";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedMultipleValuesPlaceholder = "N/A"; ObjectID = "heW-Ii-faf"; */
+"heW-Ii-faf.ibShadowedMultipleValuesPlaceholder" = "なし";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedNoSelectionPlaceholder = " "; ObjectID = "heW-Ii-faf"; */
+"heW-Ii-faf.ibShadowedNoSelectionPlaceholder" = " ";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedNotApplicablePlaceholder = "N/A"; ObjectID = "heW-Ii-faf"; */
+"heW-Ii-faf.ibShadowedNotApplicablePlaceholder" = "なし";
+
+/* Class = "NSButtonCell"; title = "Control gravity with device tilt"; ObjectID = "kFn-n3-wth"; */
+"kFn-n3-wth.title" = "デバイスの傾きを使って重力を制御";
+
+/* Class = "NSButtonCell"; title = "Inherit gravity"; ObjectID = "wtD-tT-WQ7"; */
+"wtD-tT-WQ7.title" = "重力を継承";
+

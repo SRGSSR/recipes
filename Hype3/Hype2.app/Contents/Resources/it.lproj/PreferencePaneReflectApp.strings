@@ -1,0 +1,18 @@
+/* Class = "NSTextFieldCell"; title = "Hype Reflect is an iOS app that allows you to instantly preview your Hype animations on iPhones and iPads."; ObjectID = "8"; */
+"8.title" = "Hype Reflect è un'app per iOS che consente di visualizzare immediatamente in anteprima le animazioni di Hype su iPhone e iPad.";
+
+/* Class = "NSButtonCell"; title = "Clear Recently Previewed Devices"; ObjectID = "27"; */
+"27.title" = "Cancella dispositivi visualizzati in anteprima di recente";
+
+/* Class = "NSTextFieldCell"; title = "Hype Reflect"; ObjectID = "29"; */
+"29.title" = "Hype Reflect";
+
+/* Class = "NSTextFieldCell"; title = "Instructions"; ObjectID = "33"; */
+"33.title" = "Istruzioni";
+
+/* Class = "NSTextFieldCell"; title = "1. Launch Hype Reflect on your iOS device"; ObjectID = "35"; */
+"35.title" = "1. Avviare Hype Reflect sul dispositivo iOS";
+
+/* Class = "NSTextFieldCell"; title = "2. Make sure your Mac and your device are on the same Wi-Fi network"; ObjectID = "41"; */
+"41.title" = "2. Assicurarsi che il computer Mac e il dispositivo siano collegati allo stesso network Wi-Fi";
+

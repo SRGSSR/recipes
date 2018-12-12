@@ -1,0 +1,36 @@
+/* Class = "NSTextFieldCell"; title = "iPad"; ObjectID = "1h1-Uh-ZAA"; */
+"1h1-Uh-ZAA.title" = "iPad";
+
+/* Class = "NSTextFieldCell"; title = "iPhone"; ObjectID = "4EB-VQ-c1V"; */
+"4EB-VQ-c1V.title" = "iPhone";
+
+/* Class = "NSTextFieldCell"; title = "Breakpoint Width:"; ObjectID = "4ii-bd-6dE"; */
+"4ii-bd-6dE.title" = "断点宽度：";
+
+/* Class = "NSTextFieldCell"; title = "1024 px"; ObjectID = "130-Yq-VEY"; */
+"130-Yq-VEY.title" = "1024 px";
+
+/* Class = "NSTextFieldCell"; title = "iPad"; ObjectID = "RQP-BN-6jb"; */
+"RQP-BN-6jb.title" = "iPad";
+
+/* Class = "NSTextFieldCell"; title = "Desktop"; ObjectID = "Y7K-GM-2Sx"; */
+"Y7K-GM-2Sx.title" = "桌面";
+
+/* Class = "NSButtonCell"; title = "Add Layout"; ObjectID = "cpy-4Q-FNf"; */
+"cpy-4Q-FNf.title" = "添加布局";
+
+/* Class = "NSTextFieldCell"; title = "320 px to 768 px"; ObjectID = "dGF-CE-f8I"; */
+"dGF-CE-f8I.title" = "320 px 至 768 px";
+
+/* Class = "NSBox"; title = "Box"; ObjectID = "fuk-te-cxn"; */
+"fuk-te-cxn.title" = "Box";
+
+/* Class = "NSTextFieldCell"; title = "768 px"; ObjectID = "jBl-kt-874"; */
+"jBl-kt-874.title" = "768 px";
+
+/* Class = "NSTextFieldCell"; title = "320 px"; ObjectID = "qeo-Xx-CFa"; */
+"qeo-Xx-CFa.title" = "320 px";
+
+/* Class = "NSTextFieldCell"; title = "1200 px"; ObjectID = "scm-KF-u1V"; */
+"scm-KF-u1V.title" = "1200 px";
+

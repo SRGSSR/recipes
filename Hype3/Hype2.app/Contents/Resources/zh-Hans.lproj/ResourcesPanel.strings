@@ -1,0 +1,120 @@
+/* Class = "NSMenuItem"; title = "Video"; ObjectID = "0fX-P6-yHu"; */
+"0fX-P6-yHu.title" = "视频";
+
+/* Class = "NSMenuItem"; title = "All"; ObjectID = "6wt-Z4-02I"; */
+"6wt-Z4-02I.title" = "所有";
+
+/* Class = "NSPopUpButton"; ibShadowedToolTip = "Show Type"; ObjectID = "7N2-84-xpF"; */
+"7N2-84-xpF.ibShadowedToolTip" = "显示类型";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "7rc-LY-rbx"; */
+"7rc-LY-rbx.title" = "OtherViews";
+
+/* Class = "NSMenuItem"; title = "Images"; ObjectID = "8rM-m6-KLC"; */
+"8rM-m6-KLC.title" = "图像";
+
+/* Class = "NSWindow"; title = "Resource Library"; ObjectID = "134"; */
+"134.title" = "资源库";
+
+/* Class = "NSTableColumn"; headerCell.title = "Name"; ObjectID = "165"; */
+"165.headerCell.title" = "用户名";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "166"; */
+"166.title" = "Text Cell";
+
+/* Class = "NSSegmentedCell"; 202.ibShadowedToolTips[0] = "Add Resource"; ObjectID = "202"; */
+"202.ibShadowedToolTips[0]" = "添加资源";
+
+/* Class = "NSSegmentedCell"; 202.ibShadowedToolTips[1] = "Remove Resource"; ObjectID = "202"; */
+"202.ibShadowedToolTips[1]" = "移除资源";
+
+/* Class = "NSSegmentedCell"; 204.ibShadowedLabels[1] = "Replace…"; ObjectID = "204"; */
+"204.ibShadowedLabels[1]" = "替换…";
+
+/* Class = "NSSegmentedCell"; 204.ibShadowedToolTips[0] = "Update from original file"; ObjectID = "204"; */
+"204.ibShadowedToolTips[0]" = "从原始文件更新";
+
+/* Class = "NSSegmentedCell"; 204.ibShadowedToolTips[1] = "Replace"; ObjectID = "204"; */
+"204.ibShadowedToolTips[1]" = "替换";
+
+/* Class = "NSButtonCell"; title = "Edit Source…"; ObjectID = "411"; */
+"411.title" = "编辑资源…";
+
+/* Class = "NSButtonCell"; title = "Remove when no longer referenced"; ObjectID = "421"; */
+"421.title" = "在不再引用时移除";
+
+/* Class = "NSButtonCell"; title = "Preload"; ObjectID = "423"; */
+"423.title" = "预加载";
+
+/* Class = "NSTextFieldCell"; title = "No Options"; ObjectID = "429"; */
+"429.title" = "无选项";
+
+/* Class = "NSTableColumn"; headerCell.title = "Size"; ObjectID = "431"; */
+"431.headerCell.title" = "大小";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "432"; */
+"432.title" = "Text Cell";
+
+/* Class = "NSButtonCell"; title = "Include in document <head>"; ObjectID = "676"; */
+"676.title" = "包含在文稿 <head> 中";
+
+/* Class = "NSButtonCell"; title = "Remove when no longer referenced"; ObjectID = "682"; */
+"682.title" = "在不再引用时移除";
+
+/* Class = "NSMenuItem"; title = "Add File…"; ObjectID = "759"; */
+"759.title" = "添加文件…";
+
+/* Class = "NSMenuItem"; title = "Add URL Reference…"; ObjectID = "760"; */
+"760.title" = "添加 URL 引用…";
+
+/* Class = "NSMenuItem"; title = "Add JavaScript Function"; ObjectID = "761"; */
+"761.title" = "添加 JavaScript 函数";
+
+/* Class = "NSSegmentedCell"; 773.ibShadowedToolTips[0] = "Quicklook"; ObjectID = "773"; */
+"773.ibShadowedToolTips[0]" = "快速查看";
+
+/* Class = "NSButtonCell"; title = "Automatically optimize when exporting"; ObjectID = "821"; */
+"821.title" = "在导出时自动优化";
+
+/* Class = "NSButtonCell"; title = "Preload"; ObjectID = "869"; */
+"869.title" = "预加载";
+
+/* Class = "NSButtonCell"; title = "Add audio/mpeg Source…"; ObjectID = "880"; */
+"880.title" = "添加音频/mpeg 源…";
+
+/* Class = "NSButtonCell"; title = "Remove when no longer referenced"; ObjectID = "886"; */
+"886.title" = "在不再引用时移除";
+
+/* Class = "NSMenuItem"; title = "Add Font…"; ObjectID = "890"; */
+"890.title" = "添加字体…";
+
+/* Class = "NSMenuItem"; title = "Fonts"; ObjectID = "CJi-g7-iGg"; */
+"CJi-g7-iGg.title" = "字体";
+
+/* Class = "NSButtonCell"; title = "Remove when no longer referenced"; ObjectID = "JoY-5W-nVl"; */
+"JoY-5W-nVl.title" = "在不再引用时移除";
+
+/* Class = "NSSearchFieldCell"; placeholderString = "Filter"; ObjectID = "Okh-Jp-kba"; */
+"Okh-Jp-kba.placeholderString" = "滤镜";
+
+/* Class = "NSMenuItem"; title = "Other Files"; ObjectID = "Sv2-h4-rRE"; */
+"Sv2-h4-rRE.title" = "其他文件";
+
+/* Class = "NSButtonCell"; title = "Edit Font..."; ObjectID = "VbT-xw-WE0"; */
+"VbT-xw-WE0.title" = "编辑字体...";
+
+/* Class = "NSButtonCell"; title = "Duplicate Symbol"; ObjectID = "Xx9-hx-mZC"; */
+"Xx9-hx-mZC.title" = "复制符号";
+
+/* Class = "NSMenuItem"; title = "Symbols"; ObjectID = "ZuA-sR-26o"; */
+"ZuA-sR-26o.title" = "符号";
+
+/* Class = "NSMenuItem"; title = "Audio"; ObjectID = "kc2-Yy-pSB"; */
+"kc2-Yy-pSB.title" = "音频";
+
+/* Class = "NSMenuItem"; title = "Functions"; ObjectID = "qnO-Px-liw"; */
+"qnO-Px-liw.title" = "函数";
+
+/* Class = "NSBox"; title = "Box"; ObjectID = "r25-H5-MQ1"; */
+"r25-H5-MQ1.title" = "Box";
+

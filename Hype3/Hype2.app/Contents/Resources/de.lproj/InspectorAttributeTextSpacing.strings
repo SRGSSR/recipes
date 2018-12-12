@@ -1,0 +1,36 @@
+/* Class = "NSTextFieldCell"; title = "88 px"; ObjectID = "39"; */
+"39.title" = "88 px";
+
+/* Class = "NSTextFieldCell"; title = "Letter Spacing"; ObjectID = "43"; */
+"43.title" = "Buchstabenabstand";
+
+/* Class = "NSTextFieldCell"; title = "Word Spacing"; ObjectID = "65"; */
+"65.title" = "Wortabstand";
+
+/* Class = "NSTextFieldCell"; title = "88 px"; ObjectID = "68"; */
+"68.title" = "88 px";
+
+/* Class = "NSTextFieldCell"; title = "Line Height"; ObjectID = "73"; */
+"73.title" = "Zeilenhöhe";
+
+/* Class = "NSTextFieldCell"; title = "0 px"; ObjectID = "76"; */
+"76.title" = "0 px";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedMultipleValuesPlaceholder = "Multiple"; ObjectID = "CVC-eX-5z9"; */
+"CVC-eX-5z9.ibShadowedMultipleValuesPlaceholder" = "Mehrere";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedNoSelectionPlaceholder = " "; ObjectID = "CVC-eX-5z9"; */
+"CVC-eX-5z9.ibShadowedNoSelectionPlaceholder" = " ";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedMultipleValuesPlaceholder = "Multiple"; ObjectID = "Vm0-x9-ffb"; */
+"Vm0-x9-ffb.ibShadowedMultipleValuesPlaceholder" = "Mehrere";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedNoSelectionPlaceholder = " "; ObjectID = "Vm0-x9-ffb"; */
+"Vm0-x9-ffb.ibShadowedNoSelectionPlaceholder" = " ";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedMultipleValuesPlaceholder = "Multiple"; ObjectID = "opU-Cb-s3E"; */
+"opU-Cb-s3E.ibShadowedMultipleValuesPlaceholder" = "Mehrere";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedNoSelectionPlaceholder = " "; ObjectID = "opU-Cb-s3E"; */
+"opU-Cb-s3E.ibShadowedNoSelectionPlaceholder" = " ";
+

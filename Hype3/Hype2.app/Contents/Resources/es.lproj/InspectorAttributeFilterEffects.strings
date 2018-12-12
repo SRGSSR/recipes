@@ -1,0 +1,87 @@
+/* Class = "NSButtonCell"; title = "Reset Filters to Default"; ObjectID = "477"; */
+"477.title" = "Restablecer filtros por omisión";
+
+/* Class = "NSTextFieldCell"; title = "1.0"; ObjectID = "479"; */
+"479.title" = "1.0";
+
+/* Class = "NSTextFieldCell"; title = "Saturation"; ObjectID = "481"; */
+"481.title" = "Saturación";
+
+/* Class = "NSTextFieldCell"; title = "1.0"; ObjectID = "483"; */
+"483.title" = "1.0";
+
+/* Class = "NSTextFieldCell"; title = "Contrast"; ObjectID = "485"; */
+"485.title" = "Contraste";
+
+/* Class = "NSTextFieldCell"; title = "Sepia"; ObjectID = "486"; */
+"486.title" = "Sepia";
+
+/* Class = "NSTextFieldCell"; title = "0%"; ObjectID = "488"; */
+"488.title" = "0%";
+
+/* Class = "NSTextFieldCell"; title = "Hue"; ObjectID = "490"; */
+"490.title" = "Matiz";
+
+/* Class = "NSTextFieldCell"; title = "0°"; ObjectID = "492"; */
+"492.title" = "0°";
+
+/* Class = "NSTextFieldCell"; title = "100%"; ObjectID = "495"; */
+"495.title" = "100%";
+
+/* Class = "NSTextFieldCell"; title = "Brightness"; ObjectID = "497"; */
+"497.title" = "Brillo";
+
+/* Class = "NSTextFieldCell"; title = "Blur"; ObjectID = "498"; */
+"498.title" = "Difuminado";
+
+/* Class = "NSTextFieldCell"; title = "0 px"; ObjectID = "500"; */
+"500.title" = "0 px";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedMultipleValuesPlaceholder = "Multiple"; ObjectID = "G42-hG-rce"; */
+"G42-hG-rce.ibShadowedMultipleValuesPlaceholder" = "Múltiple";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedNoSelectionPlaceholder = " "; ObjectID = "G42-hG-rce"; */
+"G42-hG-rce.ibShadowedNoSelectionPlaceholder" = " ";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedMultipleValuesPlaceholder = "Multiple"; ObjectID = "Pme-AJ-64y"; */
+"Pme-AJ-64y.ibShadowedMultipleValuesPlaceholder" = "Múltiple";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedNoSelectionPlaceholder = " "; ObjectID = "Pme-AJ-64y"; */
+"Pme-AJ-64y.ibShadowedNoSelectionPlaceholder" = " ";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedMultipleValuesPlaceholder = "Multiple"; ObjectID = "SaE-OJ-F6A"; */
+"SaE-OJ-F6A.ibShadowedMultipleValuesPlaceholder" = "Múltiple";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedNoSelectionPlaceholder = " "; ObjectID = "SaE-OJ-F6A"; */
+"SaE-OJ-F6A.ibShadowedNoSelectionPlaceholder" = " ";
+
+/* Class = "NSTextFieldCell"; title = "Mac OS X 10.10 and Safari 9 (or later) are required to use CSS3 Backdrop Filter Effects."; ObjectID = "YTs-zB-PfT"; */
+"YTs-zB-PfT.title" = "Se requiere Mac OS X 10.10 y Safari 9 (o posterior) para usar efectos de filtro de telón de fondo CSS3.";
+
+/* Class = "NSTextFieldCell"; title = "Apply mode"; ObjectID = "e9M-yQ-kQr"; */
+"e9M-yQ-kQr.title" = "Aplicar modo";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedMultipleValuesPlaceholder = "Multiple"; ObjectID = "eDr-1f-rPw"; */
+"eDr-1f-rPw.ibShadowedMultipleValuesPlaceholder" = "Múltiple";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedNoSelectionPlaceholder = " "; ObjectID = "eDr-1f-rPw"; */
+"eDr-1f-rPw.ibShadowedNoSelectionPlaceholder" = " ";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedMultipleValuesPlaceholder = "Multiple"; ObjectID = "oJb-1Z-5Cl"; */
+"oJb-1Z-5Cl.ibShadowedMultipleValuesPlaceholder" = "Múltiple";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedNoSelectionPlaceholder = " "; ObjectID = "oJb-1Z-5Cl"; */
+"oJb-1Z-5Cl.ibShadowedNoSelectionPlaceholder" = " ";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedMultipleValuesPlaceholder = "Multiple"; ObjectID = "ojM-zi-zdp"; */
+"ojM-zi-zdp.ibShadowedMultipleValuesPlaceholder" = "Múltiple";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedNoSelectionPlaceholder = " "; ObjectID = "ojM-zi-zdp"; */
+"ojM-zi-zdp.ibShadowedNoSelectionPlaceholder" = " ";
+
+/* Class = "NSSegmentedCell"; wlX-n4-ibA.ibShadowedLabels[0] = "Foreground"; ObjectID = "wlX-n4-ibA"; */
+"wlX-n4-ibA.ibShadowedLabels[0]" = "Primer plano";
+
+/* Class = "NSSegmentedCell"; wlX-n4-ibA.ibShadowedLabels[1] = "Backdrop"; ObjectID = "wlX-n4-ibA"; */
+"wlX-n4-ibA.ibShadowedLabels[1]" = "Telón de fondo";
+

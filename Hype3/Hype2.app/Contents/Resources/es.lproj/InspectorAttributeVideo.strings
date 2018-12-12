@@ -1,0 +1,36 @@
+/* Class = "NSButtonCell"; title = "Inline (iOS)"; ObjectID = "8rB-K4-gWP"; */
+"8rB-K4-gWP.title" = "Insertado (iOS)";
+
+/* Class = "NSButtonCell"; title = "Loop"; ObjectID = "52"; */
+"52.title" = "Bucle";
+
+/* Class = "NSButtonCell"; title = "Autoplay"; ObjectID = "53"; */
+"53.title" = "Repr. autom.";
+
+/* Class = "NSButtonCell"; title = "Muted (needed for iOS Autoplay)"; ObjectID = "61"; */
+"61.title" = "Silenciado (iOS: necesario para repr. autom.)";
+
+/* Class = "NSButtonCell"; title = "Controls"; ObjectID = "84"; */
+"84.title" = "Controles";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "114"; */
+"114.title" = "OtherViews";
+
+/* Class = "NSMenuItem"; title = "None"; ObjectID = "115"; */
+"115.title" = "Ninguno";
+
+/* Class = "NSMenuItem"; title = "Add Video File…"; ObjectID = "116"; */
+"116.title" = "Añadir archivo de vídeo…";
+
+/* Class = "NSTextFieldCell"; title = "Source group"; ObjectID = "118"; */
+"118.title" = "Grupo fuente";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "163"; */
+"163.title" = "Text Cell";
+
+/* Class = "NSTextFieldCell"; title = "MP4:"; ObjectID = "164"; */
+"164.title" = "MP4:";
+
+/* Class = "NSButtonCell"; title = "Choose…"; ObjectID = "167"; */
+"167.title" = "Elegir…";
+

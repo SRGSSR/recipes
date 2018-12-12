@@ -1,0 +1,36 @@
+/* Class = "NSMenuItem"; title = "Standard"; ObjectID = "4OA-0J-cky"; */
+"4OA-0J-cky.title" = "Estándar";
+
+/* Class = "NSTextFieldCell"; title = "Tumult Hype Trial"; ObjectID = "242"; */
+"242.title" = "Versión de prueba de Tumult Hype";
+
+/* Class = "NSButtonCell"; title = "Purchase Now"; ObjectID = "262"; */
+"262.title" = "Comprar ahora";
+
+/* Class = "NSButtonCell"; title = "Use as Trial"; ObjectID = "263"; */
+"263.title" = "Usar como prueba";
+
+/* Class = "NSTextFieldCell"; title = "You have %d days remaining in your trial."; ObjectID = "283"; */
+"283.title" = "Le quedan %d días de prueba.";
+
+/* Class = "NSTextFieldCell"; title = "This trial is fully functional but time-limited. Purchasing and providing a serial number will unlock this copy, removing the trial restriction."; ObjectID = "285"; */
+"285.title" = "Esta versión de prueba incluye todas las funciones, pero por un tiempo limitado. Puede desbloquear esta copia y eliminar las restricciones de la versión de prueba comprando el software y facilitando un número de serie.";
+
+/* Class = "NSTextFieldCell"; title = "Serial Number:"; ObjectID = "289"; */
+"289.title" = "Número de serie:";
+
+/* Class = "NSTextFieldCell"; title = "Name:"; ObjectID = "292"; */
+"292.title" = "Nombre:";
+
+/* Class = "NSButtonCell"; title = "Paste"; ObjectID = "308"; */
+"308.title" = "Pegar";
+
+/* Class = "NSMenuItem"; title = "Professional"; ObjectID = "aqd-C4-5AB"; */
+"aqd-C4-5AB.title" = "Profesional";
+
+/* Class = "NSTextFieldCell"; title = "Edition:"; ObjectID = "db1-EE-DSO"; */
+"db1-EE-DSO.title" = "Edición:";
+
+/* Class = "NSMenuItem"; title = "Learn more about Pro vs. Standard…"; ObjectID = "kB4-r9-i6Y"; */
+"kB4-r9-i6Y.title" = "Diferencias entre Pro y Estándar…";
+

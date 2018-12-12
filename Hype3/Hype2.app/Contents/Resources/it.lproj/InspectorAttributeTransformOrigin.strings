@@ -1,0 +1,27 @@
+/* Class = "CocoaBindingsConnection"; ibShadowedMultipleValuesPlaceholder = "Multiple"; ObjectID = "6in-9s-5PV"; */
+"6in-9s-5PV.ibShadowedMultipleValuesPlaceholder" = "Multiplo";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedNoSelectionPlaceholder = " "; ObjectID = "6in-9s-5PV"; */
+"6in-9s-5PV.ibShadowedNoSelectionPlaceholder" = " ";
+
+/* Class = "NSTextFieldCell"; title = "Elements animated using motion paths must have a center transform origin"; ObjectID = "9UI-uG-uiD"; */
+"9UI-uG-uiD.title" = "Gli elementi animati con percorsi di animaz. devono avere origini di trasform. al centro";
+
+/* Class = "NSTextFieldCell"; title = "50%"; ObjectID = "94"; */
+"94.title" = "50%";
+
+/* Class = "NSTextFieldCell"; title = "50%"; ObjectID = "157"; */
+"157.title" = "50%";
+
+/* Class = "NSTextFieldCell"; title = "X Offset"; ObjectID = "185"; */
+"185.title" = "Offset X";
+
+/* Class = "NSTextFieldCell"; title = "Y Offset"; ObjectID = "190"; */
+"190.title" = "Offset Y";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedMultipleValuesPlaceholder = "Multiple"; ObjectID = "kWL-Dc-ZAC"; */
+"kWL-Dc-ZAC.ibShadowedMultipleValuesPlaceholder" = "Multiplo";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedNoSelectionPlaceholder = " "; ObjectID = "kWL-Dc-ZAC"; */
+"kWL-Dc-ZAC.ibShadowedNoSelectionPlaceholder" = " ";
+

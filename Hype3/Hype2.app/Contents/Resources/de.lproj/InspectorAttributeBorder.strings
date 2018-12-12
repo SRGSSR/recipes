@@ -1,0 +1,87 @@
+/* Class = "NSTextFieldCell"; title = "88 px"; ObjectID = "6"; */
+"6.title" = "88 px";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "11"; */
+"11.title" = "OtherViews";
+
+/* Class = "NSMenuItem"; title = "None"; ObjectID = "12"; */
+"12.title" = "Ohne";
+
+/* Class = "NSMenuItem"; title = "Solid"; ObjectID = "13"; */
+"13.title" = "Durchgehend";
+
+/* Class = "NSMenuItem"; title = "Double"; ObjectID = "14"; */
+"14.title" = "Doppelt";
+
+/* Class = "NSMenuItem"; title = "Dotted"; ObjectID = "15"; */
+"15.title" = "Gepunktet";
+
+/* Class = "NSMenuItem"; title = "Dashed"; ObjectID = "16"; */
+"16.title" = "Gestrichelt";
+
+/* Class = "NSMenuItem"; title = "Groove"; ObjectID = "17"; */
+"17.title" = "Vertieft";
+
+/* Class = "NSMenuItem"; title = "Ridge"; ObjectID = "18"; */
+"18.title" = "Erhoben";
+
+/* Class = "NSMenuItem"; title = "Inset"; ObjectID = "19"; */
+"19.title" = "Abgesenkt";
+
+/* Class = "NSMenuItem"; title = "Outset"; ObjectID = "20"; */
+"20.title" = "Erhöht";
+
+/* Class = "NSButtonCell"; title = "Radio"; ObjectID = "62"; */
+"62.title" = "Optionsfeld";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedIsNilPlaceholder = "N/A"; ObjectID = "072-1s-EB2"; */
+"072-1s-EB2.ibShadowedIsNilPlaceholder" = "n. v.";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedMultipleValuesPlaceholder = "Multiple"; ObjectID = "072-1s-EB2"; */
+"072-1s-EB2.ibShadowedMultipleValuesPlaceholder" = "Mehrere";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedNoSelectionPlaceholder = " "; ObjectID = "072-1s-EB2"; */
+"072-1s-EB2.ibShadowedNoSelectionPlaceholder" = " ";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedNotApplicablePlaceholder = "N/A"; ObjectID = "072-1s-EB2"; */
+"072-1s-EB2.ibShadowedNotApplicablePlaceholder" = "n. v.";
+
+/* Class = "NSTextFieldCell"; title = "Width"; ObjectID = "73"; */
+"73.title" = "Breite";
+
+/* Class = "NSTextFieldCell"; title = "Radius"; ObjectID = "74"; */
+"74.title" = "Radius";
+
+/* Class = "NSTextFieldCell"; title = "Style"; ObjectID = "75"; */
+"75.title" = "Stil";
+
+/* Class = "NSTextFieldCell"; title = "Padding"; ObjectID = "76"; */
+"76.title" = "Abstand";
+
+/* Class = "NSTextFieldCell"; title = "88 px"; ObjectID = "97"; */
+"97.title" = "88 px";
+
+/* Class = "NSTextFieldCell"; title = "88 px"; ObjectID = "108"; */
+"108.title" = "88 px";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedNoSelectionPlaceholder = "N/A"; ObjectID = "TZB-8v-XxS"; */
+"TZB-8v-XxS.ibShadowedNoSelectionPlaceholder" = "n. v.";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedIsNilPlaceholder = "N/A"; ObjectID = "e8g-ul-tjl"; */
+"e8g-ul-tjl.ibShadowedIsNilPlaceholder" = "n. v.";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedMultipleValuesPlaceholder = "Multiple"; ObjectID = "e8g-ul-tjl"; */
+"e8g-ul-tjl.ibShadowedMultipleValuesPlaceholder" = "Mehrere";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedNoSelectionPlaceholder = " "; ObjectID = "e8g-ul-tjl"; */
+"e8g-ul-tjl.ibShadowedNoSelectionPlaceholder" = " ";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedNotApplicablePlaceholder = "N/A"; ObjectID = "e8g-ul-tjl"; */
+"e8g-ul-tjl.ibShadowedNotApplicablePlaceholder" = "n. v.";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedMultipleValuesPlaceholder = "Multiple"; ObjectID = "gkF-2w-sBy"; */
+"gkF-2w-sBy.ibShadowedMultipleValuesPlaceholder" = "Mehrere";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedNoSelectionPlaceholder = " "; ObjectID = "gkF-2w-sBy"; */
+"gkF-2w-sBy.ibShadowedNoSelectionPlaceholder" = " ";
+

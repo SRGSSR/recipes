@@ -1,0 +1,15 @@
+/* Class = "NSWindow"; title = "Window"; ObjectID = "1"; */
+"1.title" = "窗口";
+
+/* Class = "NSTabViewItem"; label = "Number"; ObjectID = "119"; */
+"119.label" = "数字";
+
+/* Class = "NSTabViewItem"; label = "Pixels"; ObjectID = "120"; */
+"120.label" = "像素";
+
+/* Class = "NSButtonCell"; title = "Cancel"; ObjectID = "147"; */
+"147.title" = "取消";
+
+/* Class = "NSButtonCell"; title = "Create"; ObjectID = "148"; */
+"148.title" = "创建";
+

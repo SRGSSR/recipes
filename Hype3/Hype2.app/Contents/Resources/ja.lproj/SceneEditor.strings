@@ -1,0 +1,171 @@
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "36"; */
+"36.title" = "Text Cell";
+
+/* Class = "NSSegmentedCell"; 37.ibShadowedToolTips[0] = "Jump to Beginning"; ObjectID = "37"; */
+"37.ibShadowedToolTips[0]" = "先頭へジャンプ";
+
+/* Class = "NSSegmentedCell"; 37.ibShadowedToolTips[1] = "Previous Frame"; ObjectID = "37"; */
+"37.ibShadowedToolTips[1]" = "前のフレーム";
+
+/* Class = "NSSegmentedCell"; 37.ibShadowedToolTips[2] = "Play/Pause"; ObjectID = "37"; */
+"37.ibShadowedToolTips[2]" = "再生／一時停止";
+
+/* Class = "NSSegmentedCell"; 37.ibShadowedToolTips[3] = "Next Frame"; ObjectID = "37"; */
+"37.ibShadowedToolTips[3]" = "次のフレーム";
+
+/* Class = "NSSegmentedCell"; 37.ibShadowedToolTips[4] = "Loop"; ObjectID = "37"; */
+"37.ibShadowedToolTips[4]" = "ループ";
+
+/* Class = "NSSegmentedCell"; 37.ibShadowedToolTips[5] = "Record"; ObjectID = "37"; */
+"37.ibShadowedToolTips[5]" = "記録";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "104"; */
+"104.title" = "OtherViews";
+
+/* Class = "NSMenuItem"; title = "Scene Timeline"; ObjectID = "105"; */
+"105.title" = "シーンタイムライン";
+
+/* Class = "NSMenuItem"; title = "Item 2"; ObjectID = "106"; */
+"106.title" = "Item 2";
+
+/* Class = "NSMenuItem"; title = "Item 3"; ObjectID = "107"; */
+"107.title" = "Item 3";
+
+/* Class = "NSMenuItem"; title = "Bring Forward"; ObjectID = "116"; */
+"116.title" = "前面へ";
+
+/* Class = "NSMenuItem"; title = "Bring to Front"; ObjectID = "124"; */
+"124.title" = "最前面へ";
+
+/* Class = "NSMenuItem"; title = "Send Backward"; ObjectID = "125"; */
+"125.title" = "背面へ";
+
+/* Class = "NSMenuItem"; title = "Send to Back"; ObjectID = "126"; */
+"126.title" = "最背面へ";
+
+/* Class = "NSMenuItem"; title = "Distribute"; ObjectID = "131"; */
+"131.title" = "均等配置";
+
+/* Class = "NSMenuItem"; title = "Align"; ObjectID = "132"; */
+"132.title" = "配置";
+
+/* Class = "NSMenuItem"; title = "Size"; ObjectID = "133"; */
+"133.title" = "サイズ";
+
+/* Class = "NSMenu"; title = "Size"; ObjectID = "134"; */
+"134.title" = "サイズ";
+
+/* Class = "NSMenuItem"; title = "Make Same Size"; ObjectID = "135"; */
+"135.title" = "同じサイズに揃える";
+
+/* Class = "NSMenuItem"; title = "Make Same Height"; ObjectID = "136"; */
+"136.title" = "同じ高さに揃える";
+
+/* Class = "NSMenuItem"; title = "Make Same Width"; ObjectID = "137"; */
+"137.title" = "同じ幅に揃える";
+
+/* Class = "NSMenu"; title = "Align"; ObjectID = "138"; */
+"138.title" = "配置";
+
+/* Class = "NSMenuItem"; title = "Middle"; ObjectID = "139"; */
+"139.title" = "上下中央";
+
+/* Class = "NSMenuItem"; title = "Center"; ObjectID = "140"; */
+"140.title" = "左右中央";
+
+/* Class = "NSMenuItem"; title = "Right"; ObjectID = "142"; */
+"142.title" = "右";
+
+/* Class = "NSMenuItem"; title = "Left"; ObjectID = "143"; */
+"143.title" = "左";
+
+/* Class = "NSMenuItem"; title = "Bottom"; ObjectID = "144"; */
+"144.title" = "下";
+
+/* Class = "NSMenuItem"; title = "Top"; ObjectID = "145"; */
+"145.title" = "上";
+
+/* Class = "NSMenu"; title = "Distribute"; ObjectID = "146"; */
+"146.title" = "均等配置";
+
+/* Class = "NSMenuItem"; title = "Vertically"; ObjectID = "147"; */
+"147.title" = "縦方向";
+
+/* Class = "NSMenuItem"; title = "Horizontally"; ObjectID = "148"; */
+"148.title" = "横方向";
+
+/* Class = "NSMenuItem"; title = "Lock"; ObjectID = "164"; */
+"164.title" = "ロック";
+
+/* Class = "NSMenuItem"; title = "Make Invisible"; ObjectID = "165"; */
+"165.title" = "不可視状態にする";
+
+/* Class = "NSMenuItem"; title = "Cut"; ObjectID = "170"; */
+"170.title" = "カット";
+
+/* Class = "NSMenuItem"; title = "Copy"; ObjectID = "171"; */
+"171.title" = "コピー";
+
+/* Class = "NSMenuItem"; title = "Paste"; ObjectID = "172"; */
+"172.title" = "ペースト";
+
+/* Class = "NSMenuItem"; title = "Delete"; ObjectID = "174"; */
+"174.title" = "削除";
+
+/* Class = "NSMenuItem"; title = "Select All"; ObjectID = "175"; */
+"175.title" = "すべてを選択";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "200"; */
+"200.title" = "Text Cell";
+
+/* Class = "NSSlider"; ibShadowedToolTip = "Modify Time Scale"; ObjectID = "205"; */
+"205.ibShadowedToolTip" = "時間スケールを変更";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "219"; */
+"219.title" = "OtherViews";
+
+/* Class = "NSMenuItem"; title = "Standard (Position + Opacity)"; ObjectID = "220"; */
+"220.title" = "標準（位置 + 不透明度）";
+
+/* Class = "NSMenuItem"; title = "Animated"; ObjectID = "221"; */
+"221.title" = "アニメ化";
+
+/* Class = "NSMenuItem"; title = "Properties"; ObjectID = "222"; */
+"222.title" = "プロパティ";
+
+/* Class = "NSMenuItem"; title = "All"; ObjectID = "258"; */
+"258.title" = "すべて";
+
+/* Class = "NSMenuItem"; title = "Paste with Animations"; ObjectID = "292"; */
+"292.title" = "アニメーションとともにペースト";
+
+/* Class = "NSMenuItem"; title = "Duplicate"; ObjectID = "298"; */
+"298.title" = "複製";
+
+/* Class = "NSMenuItem"; title = "Group"; ObjectID = "302"; */
+"302.title" = "グループ";
+
+/* Class = "NSMenuItem"; title = "Ungroup"; ObjectID = "303"; */
+"303.title" = "グループ解除";
+
+/* Class = "NSTextFieldCell"; placeholderString = "Timeline Actions"; ObjectID = "343"; */
+"343.placeholderString" = "タイムラインアクション";
+
+/* Class = "NSTextFieldCell"; title = "Timeline Actions"; ObjectID = "343"; */
+"343.title" = "タイムラインアクション";
+
+/* Class = "NSMenuItem"; title = "Reveal in Resource Library"; ObjectID = "371"; */
+"371.title" = "リソースライブラリに表示";
+
+/* Class = "NSMenuItem"; title = "Convert to Symbol"; ObjectID = "JyO-vY-ExB"; */
+"JyO-vY-ExB.title" = "シンボルに変換";
+
+/* Class = "NSMenuItem"; title = "Ease In Out"; ObjectID = "b9v-8U-QbT"; */
+"b9v-8U-QbT.title" = "イーズインアウト";
+
+/* Class = "NSMenuItem"; title = "Convert to Persistent Symbol…"; ObjectID = "gmf-oj-f2w"; */
+"gmf-oj-f2w.title" = "永続シンボルに変換…";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "mfj-vu-oUO"; */
+"mfj-vu-oUO.title" = "OtherViews";
+

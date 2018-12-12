@@ -1,0 +1,42 @@
+/* Class = "NSTextFieldCell"; title = "360°"; ObjectID = "94"; */
+"94.title" = "360°";
+
+/* Class = "NSButtonCell"; title = "Rotation follows motion path"; ObjectID = "136"; */
+"136.title" = "La rotación sigue al movimiento";
+
+/* Class = "NSTextFieldCell"; title = "360°"; ObjectID = "157"; */
+"157.title" = "360°";
+
+/* Class = "NSTextFieldCell"; title = "360°"; ObjectID = "167"; */
+"167.title" = "360°";
+
+/* Class = "NSTextFieldCell"; title = "X"; ObjectID = "181"; */
+"181.title" = "X";
+
+/* Class = "NSTextFieldCell"; title = "Y"; ObjectID = "182"; */
+"182.title" = "Y";
+
+/* Class = "NSTextFieldCell"; title = "Z"; ObjectID = "183"; */
+"183.title" = "Z";
+
+/* Class = "NSTextFieldCell"; title = "Angle"; ObjectID = "185"; */
+"185.title" = "Ángulo";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedMultipleValuesPlaceholder = "Multiple"; ObjectID = "OC0-eB-egb"; */
+"OC0-eB-egb.ibShadowedMultipleValuesPlaceholder" = "Múltiple";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedNoSelectionPlaceholder = " "; ObjectID = "OC0-eB-egb"; */
+"OC0-eB-egb.ibShadowedNoSelectionPlaceholder" = " ";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedMultipleValuesPlaceholder = "Multiple"; ObjectID = "YAG-Be-R3L"; */
+"YAG-Be-R3L.ibShadowedMultipleValuesPlaceholder" = "Múltiple";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedNoSelectionPlaceholder = " "; ObjectID = "YAG-Be-R3L"; */
+"YAG-Be-R3L.ibShadowedNoSelectionPlaceholder" = " ";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedMultipleValuesPlaceholder = "Multiple"; ObjectID = "gNY-eE-Xnv"; */
+"gNY-eE-Xnv.ibShadowedMultipleValuesPlaceholder" = "Múltiple";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedNoSelectionPlaceholder = " "; ObjectID = "gNY-eE-Xnv"; */
+"gNY-eE-Xnv.ibShadowedNoSelectionPlaceholder" = " ";
+

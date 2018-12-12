@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html${useCacheManifest}>
+  <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="chrome=1,IE=edge" />
+	<title>${title}</title>
+	<style>
+		html {
+			height:100%;
+		}
+		body {
+${ifdef bgcolor}
+			background-color:${bgcolor};
+${endif}
+			margin:0;
+			height:100%;
+		}
+	</style>
+${ifdef dashboardWidget}
+	<style>
+		#${mainContainerID} {
+			background-image:url(Default@2x.png);
+			background-size: 100% 100%;
+		}
+	</style>
+
+	<script type="text/javascript" src="AppleClasses/AppleWidget.js"></script>
+	<script type="text/javascript" charset="utf-8">
+		function widgetIsReady(hypeDocument, element, event) {
+			if(window.HYPE_loadedWidget == null) {
+				window.widget.notifyContentIsReady();
+				window.HYPE_loadedWidget = true;
+				document.getElementById("${mainContainerID}").style["background-image"] = "none";
+			}
+			return true;
+		}
+
+		if("HYPE_eventListeners" in window === false) {
+			window.HYPE_eventListeners = Array();
+		}
+		window.HYPE_eventListeners.push({"type":"HypeSceneLoad", "callback":widgetIsReady});
+	</script>
+${endif}
+${customHeadHtml}
+${ifdef inlineHypeJS}
+	<script type="text/javascript" charset="utf-8" src="${hypeJSFileName}"></script>
+${endif}
+${ifdef includeHypeWaypoints}
+	<script type="text/javascript" charset="utf-8" src="${waypointsJSFileName}"></script>
+${endif}
+  </head>
+  <body>
+	<!-- copy these lines to your document: -->
+
+	<div id="${mainContainerID}" style="margin:auto;position:relative;width:${mainContainerDivWidth}${mainContainerDivWidthUnit};height:${mainContainerDivHeight}${mainContainerDivHeightUnit};overflow:hidden;">
+${ifdef legalDisclaimer}
+		${legalDisclaimer}
+${endif}
+${ifndef inlineDocumentLoader}
+		<script type="text/javascript" charset="utf-8" src="${javascriptFileName}"></script>
+${endif}
+	</div>
+
+	<!-- end copy -->
+${ifdef inlineDocumentLoader}
+	<script type="text/javascript" charset="utf-8">
+		${inlineDocumentLoader}
+	</script>
+${endif}
+${ifdef divForSEO}
+	${divForSEO}
+${endif}
+  </body>
+</html>

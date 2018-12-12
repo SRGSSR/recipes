@@ -1,0 +1,322 @@
+.HYPE_scene div, .HYPE_scene span, .HYPE_scene applet, .HYPE_scene object, .HYPE_scene iframe,
+.HYPE_scene h1, .HYPE_scene h2, .HYPE_scene h3, .HYPE_scene h4, .HYPE_scene h5, .HYPE_scene h6, .HYPE_scene p, .HYPE_scene blockquote, .HYPE_scene pre,
+.HYPE_scene a, .HYPE_scene abbr, .HYPE_scene acronym, .HYPE_scene address, .HYPE_scene big, .HYPE_scene cite, .HYPE_scene code,
+.HYPE_scene del, .HYPE_scene dfn, .HYPE_scene em, .HYPE_scene img, .HYPE_scene ins, .HYPE_scene kbd, .HYPE_scene q, .HYPE_scene s, .HYPE_scene samp,
+.HYPE_scene small, .HYPE_scene strike, .HYPE_scene strong, .HYPE_scene sub, .HYPE_scene sup, .HYPE_scene tt, .HYPE_scene var,
+.HYPE_scene b, .HYPE_scene u, .HYPE_scene i, .HYPE_scene center,
+.HYPE_scene dl, .HYPE_scene dt, .HYPE_scene dd, .HYPE_scene ol, .HYPE_scene ul, .HYPE_scene li,
+.HYPE_scene fieldset, .HYPE_scene form, .HYPE_scene label, .HYPE_scene legend,
+.HYPE_scene table, .HYPE_scene caption, .HYPE_scene tbody, .HYPE_scene tfoot, .HYPE_scene thead, .HYPE_scene tr, .HYPE_scene th, .HYPE_scene td,
+.HYPE_scene article, .HYPE_scene aside, .HYPE_scene canvas, .HYPE_scene details, .HYPE_scene embed, 
+.HYPE_scene figure, .HYPE_scene figcaption, .HYPE_scene footer, .HYPE_scene header, .HYPE_scene hgroup, 
+.HYPE_scene menu, .HYPE_scene nav, .HYPE_scene output, .HYPE_scene ruby, .HYPE_scene section, .HYPE_scene summary,
+.HYPE_scene time, .HYPE_scene mark, .HYPE_scene audio, .HYPE_scene video {
+
+	color: inherit;
+	
+	font-size: inherit;
+	font-weight: inherit;
+	font-family: inherit;
+	font-weight: inherit;
+	font-style: inherit;
+	font-variant: inherit;
+	
+	text-decoration:inherit;
+	text-align: inherit;
+	text-transform: inherit;
+	text-indent: inherit;
+	text-shadow: inherit;
+	
+	line-height: inherit;
+	letter-spacing: inherit;
+	white-space: inherit;
+	word-spacing: inherit;
+	vertical-align: inherit;
+	
+	border: none;
+	background-color: transparent;
+	background-image: none;
+	
+	padding: 0;
+	box-sizing: content-box;
+}
+
+.HYPE_scene p {
+	display: block;
+	margin: 1em 0;
+}
+
+.HYPE_scene div, .HYPE_scene layer {
+	display: block;
+}
+
+.HYPE_scene article, .HYPE_scene aside, .HYPE_scene footer, .HYPE_scene header, .HYPE_scene hgroup, .HYPE_scene nav, .HYPE_scene section {
+	display: block;
+}
+
+.HYPE_scene blockquote {
+	display: block;
+	margin: 1em 40px;
+}
+
+.HYPE_scene figcaption {
+	display: block;
+}
+
+.HYPE_scene figure {
+	display: block;
+	margin: 1em 40px;
+}
+
+.HYPE_scene q {
+	display: inline;
+}
+
+.HYPE_scene q:before {
+	content: open-quote;
+}
+
+.HYPE_scene q:after {
+	content: close-quote;
+}
+
+.HYPE_scene center {
+	display: block;
+	text-align: center;
+}
+
+.HYPE_scene hr {
+	display: block;
+	margin: .5em auto;
+	border-style: inset;
+	border-width: 1px;
+}
+
+.HYPE_scene h1, .HYPE_scene h2, .HYPE_scene h3, .HYPE_scene h4, .HYPE_scene h5, .HYPE_scene h6 {
+	display: block;
+	margin-left: 0;
+	margin-right: 0;
+	font-weight: bold;
+}
+
+.HYPE_scene h1 {
+	font-size: 2em;
+	margin-top: .67em;
+	margin-bottom: .67em;
+}
+
+.HYPE_scene h2 {
+	font-size: 1.5em;
+	margin-top: .83em;
+	margin-bottom: .83em;
+}
+
+.HYPE_scene h3 {
+	font-size: 1.17em;
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+.HYPE_scene h4 {
+	margin-top: 1.33em;
+	margin-bottom: 1.33em;
+}
+
+.HYPE_scene h5 {
+	font-size: .83em;
+	margin-top: 1.67em;
+	margin-bottom: 1.67em;
+}
+
+.HYPE_scene h6 {
+	font-size: .67em;
+	margin-top: 2.33em;
+	margin-bottom: 2.33em;
+}
+
+.HYPE_scene table {
+	display: table;
+	border-collapse: separate;
+	border-spacing: 2px;
+	border-color: gray;
+}
+
+.HYPE_scene thead {
+	display: table-header-group;
+	vertical-align: middle;
+	border-color: inherit;
+}
+
+.HYPE_scene tbody {
+	display: table-row-group;
+	vertical-align: middle;
+	border-color: inherit;
+}
+
+.HYPE_scene tfoot {
+	display: table-footer-group;
+	vertical-align: middle;
+	border-color: inherit;
+}
+
+.HYPE_scene col {
+	display: table-column;
+}
+
+.HYPE_scene colgroup {
+	display: table-column-group;
+}
+
+.HYPE_scene tr {
+	display: table-row;
+	vertical-align: inherit;
+	border-color: inherit;
+}
+
+.HYPE_scene td, .HYPE_scene th {
+	display: table-cell;
+	vertical-align: inherit;
+}
+
+.HYPE_scene th {
+	font-weight: bold;
+}
+
+.HYPE_scene caption {
+	display: table-caption;
+	text-align: center;
+}
+
+.HYPE_scene ul, .HYPE_scene menu, .HYPE_scene dir {
+	display: block;
+	list-style-type: disc;
+	margin: 1em 0;
+	padding-left: 40px;
+}
+
+.HYPE_scene ol {
+	display: block;
+	list-style-type: decimal;
+	margin: 1em 0;
+	padding-left: 40px;
+}
+
+.HYPE_scene li {
+	display: list-item;
+	margin: 0;
+}
+
+.HYPE_scene ul ul, .HYPE_scene ol ul {
+	list-style-type: circle;
+}
+
+.HYPE_scene ol ol ul, .HYPE_scene ol ul ul, .HYPE_scene ul ol ul, .HYPE_scene ul ul ul {
+	list-style-type: square;
+}
+
+.HYPE_scene dd {
+	display: block;
+	margin-left: 40px;
+}
+
+.HYPE_scene dl {
+	display: block;
+	margin: 1em 0;
+}
+
+.HYPE_scene dt {
+	display: block;
+}
+
+.HYPE_scene ol ul, .HYPE_scene ul ol, .HYPE_scene ul ul, .HYPE_scene ol ol {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.HYPE_scene u, .HYPE_scene ins {
+	text-decoration: underline;
+}
+
+.HYPE_scene strong, .HYPE_scene b {
+	font-weight: bolder;
+}
+
+.HYPE_scene i, .HYPE_scene cite, .HYPE_scene em, .HYPE_scene var, .HYPE_scene address {
+	font-style: italic;
+}
+
+.HYPE_scene tt, .HYPE_scene code, .HYPE_scene kbd, .HYPE_scene samp {
+	font-family: monospace;
+}
+
+.HYPE_scene pre, .HYPE_scene xmp, .HYPE_scene plaintext, .HYPE_scene listing {
+	display: block;
+	font-family: monospace;
+	white-space: pre;
+	margin: 1em 0;
+}
+
+.HYPE_scene mark {
+	background-color: yellow;
+	color: black;
+}
+
+.HYPE_scene big {
+	font-size: larger;
+}
+
+.HYPE_scene small {
+	font-size: smaller;
+}
+
+.HYPE_scene s, .HYPE_scene strike, .HYPE_scene del {
+	text-decoration: line-through;
+}
+
+.HYPE_scene sub {
+	vertical-align: sub;
+	font-size: smaller;
+}
+
+.HYPE_scene sup {
+	vertical-align: super;
+	font-size: smaller;
+}
+
+.HYPE_scene nobr {
+	white-space: nowrap;
+}
+	
+.HYPE_scene a {
+	color: blue;
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.HYPE_scene a:active {
+	color: red;
+}
+
+.HYPE_scene noframes {
+	display: none;
+}
+
+.HYPE_scene frameset, .HYPE_scene frame {
+	display: block;
+}
+
+.HYPE_scene frameset {
+	border-color: inherit;
+}
+
+.HYPE_scene iframe {
+	border: 0;
+}
+
+.HYPE_scene details {
+	display: block;
+}
+
+.HYPE_scene summary {
+	display: block;
+}

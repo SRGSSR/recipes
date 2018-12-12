@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+
+body {
+	background-color: ${bgcolor};
+	margin: 15px 20px;
+	font-size: 13px;
+	font-family: 'helvetica neue';
+	color: ${textcolor};
+	font-weight: 200;
+	line-height: 1.333em;
+}
+
+a:link {
+	text-decoration: none;
+	color: ${linkcolor};
+	font-weight: normal;
+}
+
+.heading {
+	font-size: 16px;
+	font-weight: bold;
+	font-family: 'menlo';
+	white-space: nowrap;
+	margin-bottom: 1em;
+}
+
+.description {
+	margin-top: 10px;
+}
+
+.constants {
+	margin: 15px 20px;
+	font-size: 12px;
+	font-family: menlo;
+	font-weight: normal;
+}
+
+.link {
+	margin-top: 8px;
+}
+
+		</style>
+	</head>
+
+	<body>
+
+		<div class='heading'>${heading}<a href='${insertSnippetURL}' style='margin-left:5px;'><img width = "15px" height = "15px" src = "${insertSnippetButtonSrc}" align="center"></a></div>
+				
+		<div class='description'>${description}</div>
+		
+		<div class='link'><a href='${moreInfoURL}'>${localizedMoreInfoLabel}</a></div>
+
+	</body>
+</html>
+

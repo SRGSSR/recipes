@@ -1,0 +1,12 @@
+/* Class = "NSSegmentedCell"; 37.ibShadowedToolTips[0] = "Left Justified"; ObjectID = "37"; */
+"37.ibShadowedToolTips[0]" = "Giustifica a sin.";
+
+/* Class = "NSSegmentedCell"; 37.ibShadowedToolTips[1] = "Center Justified"; ObjectID = "37"; */
+"37.ibShadowedToolTips[1]" = "Giustifica al centro";
+
+/* Class = "NSSegmentedCell"; 37.ibShadowedToolTips[2] = "Right Justified"; ObjectID = "37"; */
+"37.ibShadowedToolTips[2]" = "Giustifica a destra";
+
+/* Class = "NSSegmentedCell"; 37.ibShadowedToolTips[3] = "Block Justified"; ObjectID = "37"; */
+"37.ibShadowedToolTips[3]" = "Giustifica blocco";
+

@@ -1,0 +1,24 @@
+/* Class = "NSButtonCell"; title = "Continue"; ObjectID = "1aq-23-R0L"; */
+"1aq-23-R0L.title" = "Continuer";
+
+/* Class = "NSWindow"; title = "Purchase Tumult Hype"; ObjectID = "QvC-M9-y7g"; */
+"QvC-M9-y7g.title" = "Acheter Tumult Hype";
+
+/* Class = "NSButtonCell"; title = "Cancel Order"; ObjectID = "WEG-oN-vMF"; */
+"WEG-oN-vMF.title" = "Annuler la commande";
+
+/* Class = "NSSegmentedCell"; ezI-ku-y4l.ibShadowedLabels[0] = "Tumult Store"; ObjectID = "ezI-ku-y4l"; */
+"ezI-ku-y4l.ibShadowedLabels[0]" = "Boutique Tumult";
+
+/* Class = "NSSegmentedCell"; ezI-ku-y4l.ibShadowedLabels[1] = "Education Store"; ObjectID = "ezI-ku-y4l"; */
+"ezI-ku-y4l.ibShadowedLabels[1]" = "Boutique pour l'enseignement";
+
+/* Class = "NSToolbarItem"; label = "Store"; ObjectID = "gHr-34-jXL"; */
+"gHr-34-jXL.label" = "Boutique";
+
+/* Class = "NSToolbarItem"; paletteLabel = "Store"; ObjectID = "gHr-34-jXL"; */
+"gHr-34-jXL.paletteLabel" = "Boutique";
+
+/* Class = "NSButtonCell"; title = "Open Store in Safari"; ObjectID = "so3-dZ-qkk"; */
+"so3-dZ-qkk.title" = "Ouvrir la boutique dans Safari";
+

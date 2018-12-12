@@ -1,0 +1,24 @@
+/* Class = "CocoaBindingsConnection"; ibShadowedMultipleValuesPlaceholder = "Multiple"; ObjectID = "04q-fG-Yo3"; */
+"04q-fG-Yo3.ibShadowedMultipleValuesPlaceholder" = "複数";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedNoSelectionPlaceholder = " "; ObjectID = "04q-fG-Yo3"; */
+"04q-fG-Yo3.ibShadowedNoSelectionPlaceholder" = " ";
+
+/* Class = "NSTextFieldCell"; title = "50%"; ObjectID = "132"; */
+"132.title" = "50%";
+
+/* Class = "NSTextFieldCell"; title = "Depth"; ObjectID = "154"; */
+"154.title" = "階調";
+
+/* Class = "NSTextFieldCell"; title = "0 px"; ObjectID = "161"; */
+"161.title" = "0 px";
+
+/* Class = "NSTextFieldCell"; title = "Offset"; ObjectID = "167"; */
+"167.title" = "オフセット";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedMultipleValuesPlaceholder = "Multiple"; ObjectID = "mA0-nM-4l2"; */
+"mA0-nM-4l2.ibShadowedMultipleValuesPlaceholder" = "複数";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedNoSelectionPlaceholder = " "; ObjectID = "mA0-nM-4l2"; */
+"mA0-nM-4l2.ibShadowedNoSelectionPlaceholder" = " ";
+

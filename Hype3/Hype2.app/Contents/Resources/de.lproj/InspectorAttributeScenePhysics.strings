@@ -1,0 +1,15 @@
+/* Class = "NSTextFieldCell"; title = "360°"; ObjectID = "Lyk-MV-RIz"; */
+"Lyk-MV-RIz.title" = "360°";
+
+/* Class = "NSTextFieldCell"; title = "Angle"; ObjectID = "ME3-Au-rf2"; */
+"ME3-Au-rf2.title" = "Winkel";
+
+/* Class = "NSTextFieldCell"; title = "Force"; ObjectID = "XBZ-cx-e8Z"; */
+"XBZ-cx-e8Z.title" = "Stärke";
+
+/* Class = "NSTextFieldCell"; title = "1.0"; ObjectID = "d30-g8-mUb"; */
+"d30-g8-mUb.title" = "1.0";
+
+/* Class = "NSButtonCell"; title = "Control gravity with device tilt"; ObjectID = "kFn-n3-wth"; */
+"kFn-n3-wth.title" = "Schwerkraft mit Geräteneigung kontr.";
+

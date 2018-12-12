@@ -1,0 +1,48 @@
+/* Class = "NSButtonCell"; title = "Tab index"; ObjectID = "2z6-ad-wNF"; */
+"2z6-ad-wNF.title" = "タブインデックス";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedIsNilPlaceholder = " "; ObjectID = "8fp-Gw-3Oc"; */
+"8fp-Gw-3Oc.ibShadowedIsNilPlaceholder" = " ";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedMultipleValuesPlaceholder = "Multiple"; ObjectID = "8fp-Gw-3Oc"; */
+"8fp-Gw-3Oc.ibShadowedMultipleValuesPlaceholder" = "複数";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedNoSelectionPlaceholder = " "; ObjectID = "8fp-Gw-3Oc"; */
+"8fp-Gw-3Oc.ibShadowedNoSelectionPlaceholder" = " ";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedNotApplicablePlaceholder = "N/A"; ObjectID = "8fp-Gw-3Oc"; */
+"8fp-Gw-3Oc.ibShadowedNotApplicablePlaceholder" = "なし";
+
+/* Class = "NSTextFieldCell"; title = "Alternate text"; ObjectID = "DP9-8I-rsp"; */
+"DP9-8I-rsp.title" = "代替テキスト";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedIsNilPlaceholder = "N/A"; ObjectID = "XaL-Hi-BVJ"; */
+"XaL-Hi-BVJ.ibShadowedIsNilPlaceholder" = "なし";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedMultipleValuesPlaceholder = "Multiple"; ObjectID = "XaL-Hi-BVJ"; */
+"XaL-Hi-BVJ.ibShadowedMultipleValuesPlaceholder" = "複数";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedNoSelectionPlaceholder = "N/A"; ObjectID = "XaL-Hi-BVJ"; */
+"XaL-Hi-BVJ.ibShadowedNoSelectionPlaceholder" = "なし";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedNotApplicablePlaceholder = "N/A"; ObjectID = "XaL-Hi-BVJ"; */
+"XaL-Hi-BVJ.ibShadowedNotApplicablePlaceholder" = "なし";
+
+/* Class = "NSTextFieldCell"; title = "Role"; ObjectID = "ajx-Xo-GfO"; */
+"ajx-Xo-GfO.title" = "役割";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedIsNilPlaceholder = "Help Tag and Accessibility Title"; ObjectID = "hbn-lF-lQB"; */
+"hbn-lF-lQB.ibShadowedIsNilPlaceholder" = "ヘルプタグとアクセシビリティタイトル";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedMultipleValuesPlaceholder = "Multiple"; ObjectID = "hbn-lF-lQB"; */
+"hbn-lF-lQB.ibShadowedMultipleValuesPlaceholder" = "複数";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedNoSelectionPlaceholder = " "; ObjectID = "hbn-lF-lQB"; */
+"hbn-lF-lQB.ibShadowedNoSelectionPlaceholder" = " ";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedNotApplicablePlaceholder = "N/A"; ObjectID = "hbn-lF-lQB"; */
+"hbn-lF-lQB.ibShadowedNotApplicablePlaceholder" = "なし";
+
+/* Class = "NSTextFieldCell"; title = "0"; ObjectID = "sSI-h6-qF9"; */
+"sSI-h6-qF9.title" = "0";
+

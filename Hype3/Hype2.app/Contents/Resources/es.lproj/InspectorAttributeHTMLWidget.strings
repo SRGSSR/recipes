@@ -1,0 +1,16 @@
+/* Class = "NSButtonCell"; title = "Radio"; ObjectID = "166"; */
+"166.title" = "Radio";
+
+/* Class = "NSButtonCell"; title = "Embedded HTML"; ObjectID = "167"; */
+"167.title" = "HTML incrustado";
+
+/* Class = "NSButtonCell"; title = "Specified URL"; ObjectID = "168"; */
+"168.title" = "URL especificada";
+
+/* Class = "NSButtonCell"; title = "Edit Code Snippet…"; ObjectID = "172"; */
+"172.title" = "Editar fragmento de código…";
+
+/* Class = "NSTextFieldCell"; title = "a\nb"; ObjectID = "176"; */
+"176.title" = "a
+b";
+

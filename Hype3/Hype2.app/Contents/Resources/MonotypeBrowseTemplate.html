@@ -1,0 +1,46 @@
+
+<script>
+    WFP_settings = ${wfpSettings};
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://tumult.wfp.monotype.com/v1/embed.min.js" id="wfp"></script>
+
+<script>
+
+var gPollCount = 0;
+var kPollInterval = 100;
+var kPollMaxTimeout = 10000;
+
+function wfpLoadPoll() {
+	if(window.WFP == null) {
+		if((gPollCount * kPollInterval) < kPollMaxTimeout) {
+			window.setTimeout(wfpLoadPoll, kPollInterval);
+		}
+		gPollCount += 1;
+	} else {
+		WFP.on("closed", wfpDidClose, this);
+		WFP.on("font-selected", wfpFontSelected, this);
+		WFP.on("uploaded", wfpFontUploaded, this);
+	
+		window.setTimeout(function () {
+			WFP.${functionName}({ form:'lightbox', css:{ "padding" : "0" } });
+		}, 1000);
+	}
+}
+
+function wfpDidClose() {
+	window.monotypeFontsSourceController.extrasPanelDidClose();
+}
+
+function wfpFontSelected(font_id) {
+	window.monotypeFontsSourceController.extrasPanelFontSelected_(font_id);
+}
+
+function wfpFontUploaded(data) {
+	window.monotypeFontsSourceController.extrasPanelFontUploaded_(JSON.stringify(data));
+}
+
+window.onload = (function () { wfpLoadPoll(); });
+
+</script>

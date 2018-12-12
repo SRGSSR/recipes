@@ -1,0 +1,12 @@
+/* Class = "NSButtonCell"; title = "Register"; ObjectID = "262"; */
+"262.title" = "Enregistrer";
+
+/* Class = "NSButtonCell"; title = "Cancel"; ObjectID = "263"; */
+"263.title" = "Annuler";
+
+/* Class = "NSTextFieldCell"; title = "Hype Professional Serial Number:"; ObjectID = "289"; */
+"289.title" = "Numéro de série Hype Professionel :";
+
+/* Class = "NSButtonCell"; title = "Paste"; ObjectID = "308"; */
+"308.title" = "Coller";
+

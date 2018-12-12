@@ -1,0 +1,294 @@
+/* Class = "NSMenuItem"; title = "Portrait"; ObjectID = "5Mf-jj-0EQ"; */
+"5Mf-jj-0EQ.title" = "Portrait";
+
+/* Class = "NSMenuItem"; title = "42mm"; ObjectID = "7O2-0x-Zcu"; */
+"7O2-0x-Zcu.title" = "42 mm";
+
+/* Class = "NSMenuItem"; title = "Landscape"; ObjectID = "7tZ-1f-ADu"; */
+"7tZ-1f-ADu.title" = "Paysage";
+
+/* Class = "NSMenuItem"; title = "Portrait"; ObjectID = "9Wg-n6-p01"; */
+"9Wg-n6-p01.title" = "Portrait";
+
+/* Class = "NSMenuItem"; title = "iPhone 4/3G"; ObjectID = "9mc-Eb-DiW"; */
+"9mc-Eb-DiW.title" = "iPhone 4/3G";
+
+/* Class = "NSMenuItem"; title = "Landscape"; ObjectID = "9qn-QM-KNH"; */
+"9qn-QM-KNH.title" = "Paysage";
+
+/* Class = "NSTextFieldCell"; title = "Height"; ObjectID = "42"; */
+"42.title" = "Haut.";
+
+/* Class = "NSTextFieldCell"; title = "88 px"; ObjectID = "44"; */
+"44.title" = "88 px";
+
+/* Class = "NSTextFieldCell"; title = "Width"; ObjectID = "45"; */
+"45.title" = "Larg.";
+
+/* Class = "NSTextFieldCell"; title = "1024 px"; ObjectID = "47"; */
+"47.title" = "1024 px";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "50"; */
+"50.title" = "OtherViews";
+
+/* Class = "NSMenuItem"; title = "Rectangles and Pop-Ups"; ObjectID = "52"; */
+"52.title" = "Rectangles et pop-ups";
+
+/* Class = "NSMenuItem"; title = "Full Banner"; ObjectID = "53"; */
+"53.title" = "Bannière entière";
+
+/* Class = "NSMenuItem"; title = "Half Banner"; ObjectID = "59"; */
+"59.title" = "Demi-bannière";
+
+/* Class = "NSMenuItem"; title = "Micro Bar"; ObjectID = "60"; */
+"60.title" = "Micro-barre";
+
+/* Class = "NSMenuItem"; title = "Button 1"; ObjectID = "61"; */
+"61.title" = "Button 1";
+
+/* Class = "NSMenuItem"; title = "Button 2"; ObjectID = "62"; */
+"62.title" = "Button 2";
+
+/* Class = "NSMenuItem"; title = "Vertical Banner"; ObjectID = "63"; */
+"63.title" = "Bannière verticale";
+
+/* Class = "NSMenuItem"; title = "Square Button"; ObjectID = "71"; */
+"71.title" = "Bouton carré";
+
+/* Class = "NSMenuItem"; title = "Leaderboard"; ObjectID = "72"; */
+"72.title" = "Panneau de titre";
+
+/* Class = "NSMenuItem"; title = "Wide Skyscraper"; ObjectID = "73"; */
+"73.title" = "Gratte-ciel large";
+
+/* Class = "NSMenuItem"; title = "Skyscraper"; ObjectID = "74"; */
+"74.title" = "Gratte-ciel";
+
+/* Class = "NSMenuItem"; title = "Half Page Ad"; ObjectID = "75"; */
+"75.title" = "Pub demi-page";
+
+/* Class = "NSMenuItem"; title = "Banners and Buttons"; ObjectID = "77"; */
+"77.title" = "Bannières et boutons";
+
+/* Class = "NSMenuItem"; title = "Skyscrapers"; ObjectID = "78"; */
+"78.title" = "Gratte-ciels";
+
+/* Class = "NSMenuItem"; title = "Medium Rectangle"; ObjectID = "79"; */
+"79.title" = "Rectangle moyen";
+
+/* Class = "NSMenuItem"; title = "Square Pop-Up"; ObjectID = "80"; */
+"80.title" = "Pop-up carrée";
+
+/* Class = "NSMenuItem"; title = "Vertical Rectangle"; ObjectID = "81"; */
+"81.title" = "Rectangle vertical";
+
+/* Class = "NSMenuItem"; title = "Large Rectangle"; ObjectID = "82"; */
+"82.title" = "Grand rectangle";
+
+/* Class = "NSMenuItem"; title = "Rectangle"; ObjectID = "83"; */
+"83.title" = "Rectangle";
+
+/* Class = "NSMenuItem"; title = "3:1 Rectangle"; ObjectID = "84"; */
+"84.title" = "Rectangle 3:1";
+
+/* Class = "NSMenuItem"; title = "Pop-Under"; ObjectID = "85"; */
+"85.title" = "Pop-Under";
+
+/* Class = "NSMenuItem"; title = "Preset Sizes"; ObjectID = "96"; */
+"96.title" = "Tailles par défaut";
+
+/* Class = "NSMenuItem"; title = "Web"; ObjectID = "105"; */
+"105.title" = "Web";
+
+/* Class = "NSMenuItem"; title = "Small"; ObjectID = "106"; */
+"106.title" = "Petit";
+
+/* Class = "NSMenuItem"; title = "Medium"; ObjectID = "107"; */
+"107.title" = "Moyen";
+
+/* Class = "NSMenuItem"; title = "Large"; ObjectID = "108"; */
+"108.title" = "Grand";
+
+/* Class = "NSMenuItem"; title = "Displays"; ObjectID = "116"; */
+"116.title" = "Écrans";
+
+/* Class = "NSMenuItem"; title = "VGA"; ObjectID = "117"; */
+"117.title" = "VGA";
+
+/* Class = "NSMenuItem"; title = "SVGA"; ObjectID = "118"; */
+"118.title" = "SVGA";
+
+/* Class = "NSMenuItem"; title = "XGA"; ObjectID = "119"; */
+"119.title" = "XGA";
+
+/* Class = "NSMenuItem"; title = "SXGA"; ObjectID = "120"; */
+"120.title" = "SXGA";
+
+/* Class = "NSMenuItem"; title = "UXGA"; ObjectID = "121"; */
+"121.title" = "UXGA";
+
+/* Class = "NSMenuItem"; title = "High Definition"; ObjectID = "122"; */
+"122.title" = "Haute définition";
+
+/* Class = "NSMenuItem"; title = "480p"; ObjectID = "123"; */
+"123.title" = "480p";
+
+/* Class = "NSMenuItem"; title = "720p"; ObjectID = "124"; */
+"124.title" = "720p";
+
+/* Class = "NSMenuItem"; title = "1080p"; ObjectID = "125"; */
+"125.title" = "1080p";
+
+/* Class = "NSMenuItem"; title = "iPad"; ObjectID = "128"; */
+"128.title" = "iPad";
+
+/* Class = "NSMenuItem"; title = "Safari Landscape"; ObjectID = "129"; */
+"129.title" = "Paysage Safari";
+
+/* Class = "NSMenuItem"; title = "Safari Portrait"; ObjectID = "130"; */
+"130.title" = "Portrait Safari";
+
+/* Class = "NSMenuItem"; title = "Safari Landscape"; ObjectID = "131"; */
+"131.title" = "Paysage Safari";
+
+/* Class = "NSMenuItem"; title = "Safari Portrait"; ObjectID = "132"; */
+"132.title" = "Portrait Safari";
+
+/* Class = "NSMenuItem"; title = "Default"; ObjectID = "143"; */
+"143.title" = "Par défaut";
+
+/* Class = "NSMenuItem"; title = "Landscape"; ObjectID = "145"; */
+"145.title" = "Paysage";
+
+/* Class = "NSMenuItem"; title = "Portrait"; ObjectID = "146"; */
+"146.title" = "Portrait";
+
+/* Class = "NSMenuItem"; title = "Fullscreen Landscape"; ObjectID = "147"; */
+"147.title" = "Paysage plein écran";
+
+/* Class = "NSMenuItem"; title = "Fullscreen Portrait"; ObjectID = "148"; */
+"148.title" = "Portrait plein écran";
+
+/* Class = "NSMenuItem"; title = "Small Mobile Banner"; ObjectID = "164"; */
+"164.title" = "Petite bannière mobile";
+
+/* Class = "NSMenuItem"; title = "Medium Mobile Banner"; ObjectID = "165"; */
+"165.title" = "Bannière mobile moyenne";
+
+/* Class = "NSMenuItem"; title = "Large Mobile Banner"; ObjectID = "166"; */
+"166.title" = "Grande Bannière mobile";
+
+/* Class = "NSMenuItem"; title = "Extra Large Mobile Banner"; ObjectID = "167"; */
+"167.title" = "Très grande bannière mobile";
+
+/* Class = "NSMenuItem"; title = "Smartphone Banner"; ObjectID = "168"; */
+"168.title" = "Bannière smartphone";
+
+/* Class = "NSMenuItem"; title = "iBooks"; ObjectID = "170"; */
+"170.title" = "iBooks";
+
+/* Class = "NSMenuItem"; title = "Standard Landscape"; ObjectID = "171"; */
+"171.title" = "Paysage standard";
+
+/* Class = "NSMenuItem"; title = "Fullscreen Landscape"; ObjectID = "172"; */
+"172.title" = "Paysage plein écran";
+
+/* Class = "NSMenuItem"; title = "Fullscreen Portrait"; ObjectID = "173"; */
+"173.title" = "Portrait plein écran";
+
+/* Class = "NSMenuItem"; title = "Standard Portrait"; ObjectID = "174"; */
+"174.title" = "Portrait standard";
+
+/* Class = "NSMenuItem"; title = "Landscape"; ObjectID = "175"; */
+"175.title" = "Paysage";
+
+/* Class = "NSMenuItem"; title = "Portrait"; ObjectID = "176"; */
+"176.title" = "Portrait";
+
+/* Class = "NSMenuItem"; title = "Safari Landscape"; ObjectID = "177"; */
+"177.title" = "Paysage Safari";
+
+/* Class = "NSMenuItem"; title = "Safari Portrait"; ObjectID = "178"; */
+"178.title" = "Portrait Safari";
+
+/* Class = "NSButtonCell"; title = "Scale"; ObjectID = "188"; */
+"188.title" = "Echelle";
+
+/* Class = "NSTextFieldCell"; title = "100%"; ObjectID = "194"; */
+"194.title" = "100 %";
+
+/* Class = "NSButtonCell"; title = "Scale"; ObjectID = "202"; */
+"202.title" = "Echelle";
+
+/* Class = "NSTextFieldCell"; title = "100%"; ObjectID = "204"; */
+"204.title" = "100 %";
+
+/* Class = "NSMenuItem"; title = "Animated GIF"; ObjectID = "273"; */
+"273.title" = "GIF animé";
+
+/* Class = "NSMenuItem"; title = "Tumblr"; ObjectID = "274"; */
+"274.title" = "Tumblr";
+
+/* Class = "NSMenuItem"; title = "Safari Portrait"; ObjectID = "DS9-IC-H0t"; */
+"DS9-IC-H0t.title" = "Portrait Safari";
+
+/* Class = "NSMenuItem"; title = "Large Sticker"; ObjectID = "HWz-pP-zoE"; */
+"HWz-pP-zoE.title" = "Grand sticker";
+
+/* Class = "NSMenuItem"; title = "Safari Portrait"; ObjectID = "MgL-Fy-lkR"; */
+"MgL-Fy-lkR.title" = "Portrait Safari";
+
+/* Class = "NSMenuItem"; title = "Regular Sticker"; ObjectID = "Mn6-CB-V4w"; */
+"Mn6-CB-V4w.title" = "Sticker normal";
+
+/* Class = "NSMenuItem"; title = "Safari Landscape"; ObjectID = "NVy-TN-ax8"; */
+"NVy-TN-ax8.title" = "Paysage Safari";
+
+/* Class = "NSMenuItem"; title = "Safari Landscape"; ObjectID = "RJ2-e2-TVS"; */
+"RJ2-e2-TVS.title" = "Paysage Safari";
+
+/* Class = "NSMenuItem"; title = "38mm"; ObjectID = "Ta8-Ms-QAo"; */
+"Ta8-Ms-QAo.title" = "38 mm";
+
+/* Class = "NSMenuItem"; title = "Portrait"; ObjectID = "V5L-bn-meO"; */
+"V5L-bn-meO.title" = "Portrait";
+
+/* Class = "NSMenuItem"; title = "iPhone 6"; ObjectID = "VZa-aL-ysL"; */
+"VZa-aL-ysL.title" = "iPhone 6";
+
+/* Class = "NSButtonCell"; title = "Apply changes to all scenes"; ObjectID = "Yg6-89-ZlY"; */
+"Yg6-89-ZlY.title" = "Appliquer à toutes les scènes";
+
+/* Class = "NSMenuItem"; title = "Apple Watch"; ObjectID = "Yri-1q-yVt"; */
+"Yri-1q-yVt.title" = "Apple Watch";
+
+/* Class = "NSMenuItem"; title = "iPhone 6 Plus"; ObjectID = "ZCx-4Z-7zG"; */
+"ZCx-4Z-7zG.title" = "iPhone 6 Plus";
+
+/* Class = "NSMenuItem"; title = "Safari Landscape"; ObjectID = "aj4-OY-1rL"; */
+"aj4-OY-1rL.title" = "Paysage Safari";
+
+/* Class = "NSMenuItem"; title = "Dribbble @2x"; ObjectID = "apf-EW-JXb"; */
+"apf-EW-JXb.title" = "Dribbble @2x";
+
+/* Class = "NSMenuItem"; title = "Dribbble"; ObjectID = "dtd-F6-yU8"; */
+"dtd-F6-yU8.title" = "Dribbble";
+
+/* Class = "NSMenuItem"; title = "Landscape"; ObjectID = "fIU-lz-yeD"; */
+"fIU-lz-yeD.title" = "Paysage";
+
+/* Class = "NSMenuItem"; title = "Small Sticker"; ObjectID = "jTZ-yt-Kzf"; */
+"jTZ-yt-Kzf.title" = "Petit sticker";
+
+/* Class = "NSMenuItem"; title = "Safari Portrait"; ObjectID = "nVW-ae-KpI"; */
+"nVW-ae-KpI.title" = "Portrait Safari";
+
+/* Class = "NSMenuItem"; title = "iPhone 5"; ObjectID = "vBh-U6-tI8"; */
+"vBh-U6-tI8.title" = "iPhone 5";
+
+/* Class = "NSMenuItem"; title = "iPad Pro"; ObjectID = "vGB-lu-hi0"; */
+"vGB-lu-hi0.title" = "iPad Pro";
+
+/* Class = "NSMenuItem"; title = "iMessage"; ObjectID = "yfI-5O-Od5"; */
+"yfI-5O-Od5.title" = "iMessage";
+

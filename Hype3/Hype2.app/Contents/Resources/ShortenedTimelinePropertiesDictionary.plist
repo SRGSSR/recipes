@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>animations</key>
+	<string>a</string>
+	<key>framesPerSecond</key>
+	<string>f</string>
+	<key>duration</key>
+	<string>d</string>
+	<key>encodedDuration</key>
+	<string>z</string>
+	<key>identifier</key>
+	<string>i</string>
+	<key>name</key>
+	<string>n</string>
+	<key>persistentSymbolOid</key>
+	<string>s</string>
+	<key>symbolOid</key>
+	<string>c</string>
+	<key>symbolActions</key>
+	<string>b</string>
+</dict>
+</plist>

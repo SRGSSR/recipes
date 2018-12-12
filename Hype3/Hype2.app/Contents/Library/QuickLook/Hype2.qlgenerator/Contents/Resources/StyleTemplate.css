@@ -1,0 +1,37 @@
+.HYPE_element {
+	-webkit-transform:rotateY(0);
+}
+
+video.HYPE_element {
+	-webkit-transform:none;
+}
+
+.HYPE_scene {
+	color: #000;
+	
+	font-size: 16px;
+	font-weight: normal;
+	font-family: Helvetica,Arial,Sans-Serif;
+	font-weight: normal;
+	font-style: normal;
+	font-variant: normal;
+	
+	text-decoration:none;
+	text-align: left;
+	text-transform: none;
+	text-indent: 0;
+	text-shadow: none;
+	
+	line-height: normal;
+	letter-spacing: normal;
+	white-space: normal;
+	word-spacing: normal;
+	vertical-align: baseline;
+	
+	border: none;
+	background-color: transparent;
+	background-image: none;
+	
+	-webkit-font-smoothing: antialiased;
+	-moz-backface-visibility: hidden;
+}

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>HYPE_CalculatedTop</key>
+	<string>HYP_a</string>
+	<key>HYPE_CalculatedWidth</key>
+	<string>HYP_n</string>
+	<key>HYPE_CalculatedHeight</key>
+	<string>HYP_o</string>
+	<key>HYPE_CalculatedLeft</key>
+	<string>HYP_b</string>
+	<key>HYPE_MS_background</key>
+	<string>HYP_c</string>
+	<key>HYPE_Source</key>
+	<string>HYP_d</string>
+	<key>HYPE_MS_image_loader</key>
+	<string>HYP_e</string>
+	<key>HYPE_MS_opacity5</key>
+	<string>HYP_f</string>
+	<key>HYPE_MS_opacity8</key>
+	<string>HYP_g</string>
+	<key>HYPE_MS_rotation_offset_left</key>
+	<string>HYP_h</string>
+	<key>HYPE_MS_rotation_offset_top</key>
+	<string>HYP_i</string>
+	<key>HYPE_crossfade</key>
+	<string>HYP_j</string>
+	<key>HYPE_push</key>
+	<string>HYP_k</string>
+	<key>HYPE_swap</key>
+	<string>HYP_l</string>
+	<key>HYPE_wantsTranslates</key>
+	<string>HYP_m</string>
+	<key>HYPE_PhysicsRevertedTransformOrigin</key>
+	<string>HYP_p</string>
+	<key>HYPE_IsAncestorScaled</key>
+	<string>HYP_q</string>
+	<key>HYPE_PropertyName</key>
+	<string>HYP_r</string>
+	<key>HYPE_PropertyDefaultValue</key>
+	<string>HYP_s</string>
+	<key>HYPE_CalculatedScaleXMultiplier</key>
+	<string>HYP_t</string>
+	<key>HYPE_CalculatedScaleYMultiplier</key>
+	<string>HYP_u</string>
+	<key>HYPE_page_scene</key>
+	<string>HYP_v</string>
+	<key>HYPE_AriaHidden</key>
+	<string>HYP_w</string>
+</dict>
+</plist>

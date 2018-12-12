@@ -1,0 +1,57 @@
+/* Class = "CocoaBindingsConnection"; ibShadowedIsNilPlaceholder = "N/A"; ObjectID = "1og-AT-NEi"; */
+"1og-AT-NEi.ibShadowedIsNilPlaceholder" = "不适用";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedMultipleValuesPlaceholder = "Multiple"; ObjectID = "1og-AT-NEi"; */
+"1og-AT-NEi.ibShadowedMultipleValuesPlaceholder" = "多个";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedNoSelectionPlaceholder = " "; ObjectID = "1og-AT-NEi"; */
+"1og-AT-NEi.ibShadowedNoSelectionPlaceholder" = " ";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedNotApplicablePlaceholder = "N/A"; ObjectID = "1og-AT-NEi"; */
+"1og-AT-NEi.ibShadowedNotApplicablePlaceholder" = "不适用";
+
+/* Class = "NSTextFieldCell"; title = "88 px"; ObjectID = "231"; */
+"231.title" = "88 px";
+
+/* Class = "NSTextFieldCell"; title = "Blur"; ObjectID = "243"; */
+"243.title" = "模糊度";
+
+/* Class = "NSTextFieldCell"; title = "Y"; ObjectID = "246"; */
+"246.title" = "Y";
+
+/* Class = "NSTextFieldCell"; title = "88 px"; ObjectID = "251"; */
+"251.title" = "88 px";
+
+/* Class = "NSTextFieldCell"; title = "X"; ObjectID = "252"; */
+"252.title" = "X";
+
+/* Class = "NSTextFieldCell"; title = "88 px"; ObjectID = "256"; */
+"256.title" = "88 px";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedIsNilPlaceholder = "N/A"; ObjectID = "D2b-sN-hTA"; */
+"D2b-sN-hTA.ibShadowedIsNilPlaceholder" = "不适用";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedMultipleValuesPlaceholder = "Multiple"; ObjectID = "D2b-sN-hTA"; */
+"D2b-sN-hTA.ibShadowedMultipleValuesPlaceholder" = "多个";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedNoSelectionPlaceholder = " "; ObjectID = "D2b-sN-hTA"; */
+"D2b-sN-hTA.ibShadowedNoSelectionPlaceholder" = " ";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedNotApplicablePlaceholder = "N/A"; ObjectID = "D2b-sN-hTA"; */
+"D2b-sN-hTA.ibShadowedNotApplicablePlaceholder" = "不适用";
+
+/* Class = "NSTextFieldCell"; title = "Color"; ObjectID = "d9s-t3-vBs"; */
+"d9s-t3-vBs.title" = "颜色";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedIsNilPlaceholder = "N/A"; ObjectID = "h0o-qJ-H0d"; */
+"h0o-qJ-H0d.ibShadowedIsNilPlaceholder" = "不适用";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedMultipleValuesPlaceholder = "Multiple"; ObjectID = "h0o-qJ-H0d"; */
+"h0o-qJ-H0d.ibShadowedMultipleValuesPlaceholder" = "多个";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedNoSelectionPlaceholder = " "; ObjectID = "h0o-qJ-H0d"; */
+"h0o-qJ-H0d.ibShadowedNoSelectionPlaceholder" = " ";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedNotApplicablePlaceholder = "N/A"; ObjectID = "h0o-qJ-H0d"; */
+"h0o-qJ-H0d.ibShadowedNotApplicablePlaceholder" = "不适用";
+

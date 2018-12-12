@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="user-scalable=yes, width=${width}" />
+		
+	${customHeadHtml}
+	
+	<style>
+
+		body {
+			background-image: none;
+			background-color: ${bodybgcolor};
+			margin: 0px;
+		}
+
+		.HYPE_element_container {
+			-webkit-transform: none;
+		}
+	
+		iframe {
+			pointer-events: none;
+		}
+
+		${hypeCSS}
+
+${ifdef cssReset}
+		${cssReset}
+${endif}
+
+	</style>
+	
+	<div id = "customHeadHtmlForMirrorMode">
+		${customHeadHtmlForMirrorMode}
+	</div>
+	
+${ifdef isPreviewServer}
+	<script>
+		var socket = new WebSocket("ws://${hostname}:${port}/live/${documentIdentifier}");
+		
+		/*  This may be useful for debugging in the future
+		socket.onopen = function(){ 
+			console.log("connection established");
+		}
+		*/ 
+
+		socket.onmessage = function(msg){  
+			var messageObject =  eval('(' + msg.data + ')');
+			if(messageObject["type"] == "reload") {
+				var sceneEditorDiv = document.getElementById("HypeSceneEditor");
+				sceneEditorDiv.style.position = "static";
+				sceneEditorDiv.style.margin = "auto";
+				sceneEditorDiv.style.width = "" + messageObject["width"] + "px";
+				sceneEditorDiv.style.height = "" + messageObject["height"] + "px";
+			
+				var mainContentDiv = document.getElementById("HypeMainContentDiv");
+				mainContentDiv.style.width = "" + messageObject["width"] + "px";
+				mainContentDiv.style.height = "" + messageObject["height"] + "px";
+				mainContentDiv.style.backgroundColor = messageObject["bgcolor"];
+				mainContentDiv.innerHTML = messageObject["innerHTML"];
+				
+				var customHeadHTMLDiv = document.getElementById("customHeadHtmlForMirrorMode");
+				customHeadHTMLDiv.innerHTML = messageObject["customHeadHtmlForMirrorMode"];
+			} else if(messageObject["type"] == "elementUpdate") {
+				var updateElements = messageObject["elements"];
+				for(var i = 0; i < updateElements.length; i++) {
+					var id = updateElements[i]["id"];
+					var elementUpdateType = updateElements[i]["elementUpdateType"];
+					var element = document.getElementById(id);
+					if (elementUpdateType == "fullElementUpdate") {
+						var outerHTML = updateElements[i]["outerHTML"];						
+						element.outerHTML = outerHTML;
+					} else if (elementUpdateType == "transformElementUpdate") {
+						element.style["-webkit-transform"] = updateElements[i]["webkitTransform"];
+						element.style.width = updateElements[i]["width"];
+						element.style.height = updateElements[i]["height"];
+					}
+				}
+			}
+		}
+
+	</script>
+${endif}
+
+  </head>
+  <body style="margin:0px;padding:0px;">
+    <div id = 'HypeSceneEditor' style = 'overflow: hidden; position: absolute;'>
+      <div id = 'HypeMainContentDiv' class = 'HYPE_scene' style = 'overflow: visible; position: absolute; width: ${width}; height: ${height}; background-color: ${bgcolor};'>
+      </div>
+    </div>
+  </body>
+</html>

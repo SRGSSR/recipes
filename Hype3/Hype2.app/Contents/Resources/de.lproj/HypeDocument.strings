@@ -1,0 +1,135 @@
+/* Class = "NSButtonCell"; title = "Loop playback"; ObjectID = "1X7-3h-tEZ"; */
+"1X7-3h-tEZ.title" = "Schleifenwiedergabe";
+
+/* Class = "NSTextFieldCell"; title = "Layouts"; ObjectID = "2az-bD-bhh"; */
+"2az-bD-bhh.title" = "Layouts";
+
+/* Class = "NSWindow"; title = "Window"; ObjectID = "5"; */
+"5.title" = "Fenster";
+
+/* Class = "NSTextFieldCell"; title = "Table View Cell"; ObjectID = "7fc-xt-0ju"; */
+"7fc-xt-0ju.title" = "Table View Cell";
+
+/* Class = "NSTextFieldCell"; title = "kbps"; ObjectID = "9MA-8H-Une"; */
+"9MA-8H-Une.title" = "KBit/s";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "9iL-2y-RV2"; */
+"9iL-2y-RV2.title" = "Text Cell";
+
+/* Class = "NSTabViewItem"; label = "Tab"; ObjectID = "100248"; */
+"100248.label" = "Tab";
+
+/* Class = "NSButtonCell"; title = "Also save .html file "; ObjectID = "100279"; */
+"100279.title" = "Auch HTML-Datei sichern ";
+
+/* Class = "NSButtonCell"; title = "Create enclosing folder"; ObjectID = "100281"; */
+"100281.title" = "Übergeordneten Ordner erstellen";
+
+/* Class = "NSTextFieldCell"; title = "Exporting will create a “«Filename».hyperesources” folder containing javascripts, images, video, and audio files."; ObjectID = "100289"; */
+"100289.title" = "Beim Exportieren wird ein „,Dateiname‘.hyperesources“-Ordner mit JavaScript-, Bild-, Video- und Audiodateien erstellt.";
+
+/* Class = "NSButtonCell"; title = "Include text contents for search engines"; ObjectID = "100381"; */
+"100381.title" = "Textinhalte für Suchmaschinen einschließen";
+
+/* Class = "NSMenuItem"; title = "Rectangle"; ObjectID = "100391"; */
+"100391.title" = "Rechteck";
+
+/* Class = "NSTextFieldCell"; title = "Duration:"; ObjectID = "100419"; */
+"100419.title" = "Dauer:";
+
+/* Class = "NSTextFieldCell"; title = "00:00.00"; ObjectID = "100420"; */
+"100420.title" = "00:00.00";
+
+/* Class = "NSTextFieldCell"; title = "400 px"; ObjectID = "100422"; */
+"100422.title" = "400 px";
+
+/* Class = "NSTextFieldCell"; title = "600 px"; ObjectID = "100424"; */
+"100424.title" = "600 px";
+
+/* Class = "NSTextFieldCell"; title = "Width:"; ObjectID = "100426"; */
+"100426.title" = "Breite:";
+
+/* Class = "NSTextFieldCell"; title = "Height:"; ObjectID = "100428"; */
+"100428.title" = "Höhe:";
+
+/* Class = "NSTextFieldCell"; title = "Frame rate:"; ObjectID = "100441"; */
+"100441.title" = "Framerate:";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "100445"; */
+"100445.title" = "OtherViews";
+
+/* Class = "NSMenuItem"; title = "60"; ObjectID = "100446"; */
+"100446.title" = "60";
+
+/* Class = "NSMenuItem"; title = "25"; ObjectID = "100447"; */
+"100447.title" = "25";
+
+/* Class = "NSMenuItem"; title = "15"; ObjectID = "100448"; */
+"100448.title" = "15";
+
+/* Class = "NSTextFieldCell"; title = "fps"; ObjectID = "100450"; */
+"100450.title" = "fps";
+
+/* Class = "NSMenuItem"; title = "12"; ObjectID = "100454"; */
+"100454.title" = "12";
+
+/* Class = "NSMenuItem"; title = "10"; ObjectID = "100455"; */
+"100455.title" = "10";
+
+/* Class = "NSMenuItem"; title = "8"; ObjectID = "100456"; */
+"100456.title" = "8";
+
+/* Class = "NSMenuItem"; title = "H.264"; ObjectID = "BoY-OM-hkZ"; */
+"BoY-OM-hkZ.title" = "H.264";
+
+/* Class = "NSTextFieldCell"; title = "GIF Options:"; ObjectID = "EGm-Hq-aRs"; */
+"EGm-Hq-aRs.title" = "Optionen:";
+
+/* Class = "NSMenuItem"; title = "ProRes 422"; ObjectID = "G8j-qn-zgk"; */
+"G8j-qn-zgk.title" = "ProRes 422";
+
+/* Class = "NSBox"; title = "Box"; ObjectID = "HMC-BO-uWE"; */
+"HMC-BO-uWE.title" = "Box";
+
+/* Class = "NSTextFieldCell"; title = "APNG Options:"; ObjectID = "JKA-pZ-e34"; */
+"JKA-pZ-e34.title" = "Optionen:";
+
+/* Class = "NSTextFieldCell"; title = "Scenes"; ObjectID = "MiI-8D-18D"; */
+"MiI-8D-18D.title" = "Szenen";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "RaM-pD-GW4"; */
+"RaM-pD-GW4.title" = "Text Cell";
+
+/* Class = "NSTextFieldCell"; title = "Table View Cell"; ObjectID = "ScP-mr-cIs"; */
+"ScP-mr-cIs.title" = "Table View Cell";
+
+/* Class = "NSButtonCell"; title = "Loop playback"; ObjectID = "Tp6-3j-Flb"; */
+"Tp6-3j-Flb.title" = "Schleifenwiedergabe";
+
+/* Class = "NSTextFieldCell"; title = "Bitrate:"; ObjectID = "V0u-By-FVr"; */
+"V0u-By-FVr.title" = "Bitrate:";
+
+/* Class = "NSButtonCell"; title = "Button"; ObjectID = "XJF-E0-rqY"; */
+"XJF-E0-rqY.title" = "Taste";
+
+/* Class = "NSButtonCell"; title = "Add symbol to any scenes where it is not already present"; ObjectID = "g1r-CI-DyB"; */
+"g1r-CI-DyB.title" = "Symbol zu Szenen, in denen es nicht vorhanden ist, hinzufügen";
+
+/* Class = "NSMenuItem"; title = "30"; ObjectID = "jso-6i-dX1"; */
+"jso-6i-dX1.title" = "30";
+
+/* Class = "NSTextFieldCell"; placeholderString = "Auto"; ObjectID = "mup-K1-XGG"; */
+"mup-K1-XGG.placeholderString" = "Automatisch";
+
+/* Class = "NSTextFieldCell"; title = "Codec:"; ObjectID = "npS-LS-BuC"; */
+"npS-LS-BuC.title" = "Codec:";
+
+/* Class = "NSMenuItem"; title = "24"; ObjectID = "rz5-2k-Y8u"; */
+"rz5-2k-Y8u.title" = "24";
+
+/* Class = "NSBox"; title = "Box"; ObjectID = "sUG-6X-gQF"; */
+"sUG-6X-gQF.title" = "Box";
+
+/* Class = "NSMenuItem"; title = "50"; ObjectID = "ziA-tR-eKC"; */
+"ziA-tR-eKC.title" = "50";
+

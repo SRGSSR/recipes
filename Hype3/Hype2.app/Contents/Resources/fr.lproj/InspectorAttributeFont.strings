@@ -1,0 +1,51 @@
+/* Class = "NSMenuItem"; title = "Google Fonts…"; ObjectID = "1q3-Ka-tu9"; */
+"1q3-Ka-tu9.title" = "Google Fonts…";
+
+/* Class = "NSMenuItem"; title = "Monotype Fonts…"; ObjectID = "32B-zo-zMZ"; */
+"32B-zo-zMZ.title" = "Polices Monotype…";
+
+/* Class = "NSTextFieldCell"; title = "Size"; ObjectID = "51"; */
+"51.title" = "Taille";
+
+/* Class = "NSTextFieldCell"; title = "Style"; ObjectID = "52"; */
+"52.title" = "Style";
+
+/* Class = "NSTextFieldCell"; title = "Family"; ObjectID = "53"; */
+"53.title" = "Famille";
+
+/* Class = "NSTextFieldCell"; title = "11"; ObjectID = "55"; */
+"55.title" = "11";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "60"; */
+"60.title" = "Text Cell";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "65"; */
+"65.title" = "Text Cell";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "101"; */
+"101.title" = "OtherViews";
+
+/* Class = "NSMenuItem"; title = "All Fonts"; ObjectID = "102"; */
+"102.title" = "Toutes";
+
+/* Class = "NSTextFieldCell"; title = "Color"; ObjectID = "108"; */
+"108.title" = "Coul.";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedIsNilPlaceholder = "N/A"; ObjectID = "jyv-Cg-2o1"; */
+"jyv-Cg-2o1.ibShadowedIsNilPlaceholder" = "S.o.";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedMultipleValuesPlaceholder = "Multiple"; ObjectID = "jyv-Cg-2o1"; */
+"jyv-Cg-2o1.ibShadowedMultipleValuesPlaceholder" = "Multiple";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedNoSelectionPlaceholder = " "; ObjectID = "jyv-Cg-2o1"; */
+"jyv-Cg-2o1.ibShadowedNoSelectionPlaceholder" = " ";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedNotApplicablePlaceholder = "N/A"; ObjectID = "jyv-Cg-2o1"; */
+"jyv-Cg-2o1.ibShadowedNotApplicablePlaceholder" = "S.o.";
+
+/* Class = "NSMenuItem"; title = "Custom CSS…"; ObjectID = "p0Z-vm-eMA"; */
+"p0Z-vm-eMA.title" = "CSS personnalisée…";
+
+/* Class = "NSMenuItem"; title = "Add More Fonts…"; ObjectID = "zED-na-cxi"; */
+"zED-na-cxi.title" = "Ajouter d’autres polices…";
+

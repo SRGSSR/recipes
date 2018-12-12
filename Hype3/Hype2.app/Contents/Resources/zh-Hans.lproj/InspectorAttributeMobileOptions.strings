@@ -1,0 +1,45 @@
+/* Class = "NSButtonCell"; title = "Allow user scaling"; ObjectID = "12"; */
+"12.title" = "允许用户缩放";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "30"; */
+"30.title" = "OtherViews";
+
+/* Class = "NSMenuItem"; title = "Not Set"; ObjectID = "37"; */
+"37.title" = "未设定";
+
+/* Class = "NSMenuItem"; title = "Device Width"; ObjectID = "38"; */
+"38.title" = "设备宽度";
+
+/* Class = "NSMenuItem"; title = "Document Width"; ObjectID = "39"; */
+"39.title" = "文稿宽度";
+
+/* Class = "NSTextFieldCell"; title = "Viewport width"; ObjectID = "41"; */
+"41.title" = "视区宽度";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "150"; */
+"150.title" = "OtherViews";
+
+/* Class = "NSMenuItem"; title = "Default"; ObjectID = "151"; */
+"151.title" = "默认值";
+
+/* Class = "NSMenuItem"; title = "Black"; ObjectID = "152"; */
+"152.title" = "黑色";
+
+/* Class = "NSMenuItem"; title = "Black-translucent"; ObjectID = "153"; */
+"153.title" = "黑色半透明";
+
+/* Class = "NSTextFieldCell"; title = "Status bar"; ObjectID = "154"; */
+"154.title" = "状态栏";
+
+/* Class = "NSButtonCell"; title = "Home screen web app"; ObjectID = "157"; */
+"157.title" = "主屏幕 web 应用程序";
+
+/* Class = "NSButtonCell"; title = "Use touch events"; ObjectID = "194"; */
+"194.title" = "使用触摸事件";
+
+/* Class = "NSMenuItem"; title = "Device Height"; ObjectID = "203"; */
+"203.title" = "设备高度";
+
+/* Class = "NSButtonCell"; title = "Initial scale 1.0"; ObjectID = "EHj-15-TkJ"; */
+"EHj-15-TkJ.title" = "初始缩放 1.0";
+

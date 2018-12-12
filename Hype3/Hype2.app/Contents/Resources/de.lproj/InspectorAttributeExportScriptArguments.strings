@@ -1,0 +1,12 @@
+/* Class = "NSTableColumn"; headerCell.title = "value"; ObjectID = "8RN-fS-B1y"; */
+"8RN-fS-B1y.headerCell.title" = "Wert";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "75V-ai-EBo"; */
+"75V-ai-EBo.title" = "Text Cell";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "cN5-Xg-aUR"; */
+"cN5-Xg-aUR.title" = "Text Cell";
+
+/* Class = "NSTableColumn"; headerCell.title = "key"; ObjectID = "oAN-Qo-Mxv"; */
+"oAN-Qo-Mxv.headerCell.title" = "Schlüssel";
+

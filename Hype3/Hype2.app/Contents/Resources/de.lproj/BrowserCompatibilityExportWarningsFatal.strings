@@ -1,0 +1,30 @@
+/* Class = "NSTableColumn"; headerCell.title = "Browser"; ObjectID = "27"; */
+"27.headerCell.title" = "Browser";
+
+/* Class = "NSTableColumn"; headerCell.title = "Issue"; ObjectID = "28"; */
+"28.headerCell.title" = "Problem";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "29"; */
+"29.title" = "Text Cell";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "30"; */
+"30.title" = "Text Cell";
+
+/* Class = "NSButtonCell"; alternateTitle = "Export Anyways"; ObjectID = "36"; */
+"36.alternateTitle" = "Trotzdem exportieren";
+
+/* Class = "NSButtonCell"; title = "Cancel & Manually Fix"; ObjectID = "36"; */
+"36.title" = "Abbrechen und manuell beheben";
+
+/* Class = "NSTextFieldCell"; title = "Export Errors Detected"; ObjectID = "46"; */
+"46.title" = "Exportfehler erkannt";
+
+/* Class = "NSTextFieldCell"; title = "These errors indicate fatal problems when viewing your exported document in web browsers.  They must be resolved before exporting."; ObjectID = "52"; */
+"52.title" = "Diese Fehler weisen auf schwerwiegende Probleme beim Anzeigen Ihres exportierten Dokuments in Webbrowsern hin. Sie müssen vor dem Exportieren behoben werden.";
+
+/* Class = "NSTableColumn"; headerCell.title = "Element"; ObjectID = "60"; */
+"60.headerCell.title" = "Element";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "61"; */
+"61.title" = "Text Cell";
+

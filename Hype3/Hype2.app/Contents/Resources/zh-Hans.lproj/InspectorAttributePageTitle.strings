@@ -1,0 +1,12 @@
+/* Class = "NSTextFieldCell"; placeholderString = "Automatically Generated"; ObjectID = "157"; */
+"157.placeholderString" = "自动生成";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedIsNilPlaceholder = "Automatically Generated"; ObjectID = "UBh-wU-Lev"; */
+"UBh-wU-Lev.ibShadowedIsNilPlaceholder" = "自动生成";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedNoSelectionPlaceholder = " "; ObjectID = "UBh-wU-Lev"; */
+"UBh-wU-Lev.ibShadowedNoSelectionPlaceholder" = " ";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedNotApplicablePlaceholder = "N/A"; ObjectID = "UBh-wU-Lev"; */
+"UBh-wU-Lev.ibShadowedNotApplicablePlaceholder" = "不适用";
+

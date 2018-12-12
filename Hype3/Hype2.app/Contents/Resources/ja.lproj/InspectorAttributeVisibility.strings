@@ -1,0 +1,24 @@
+/* Class = "NSTextFieldCell"; title = "50%"; ObjectID = "132"; */
+"132.title" = "50%";
+
+/* Class = "NSButtonCell"; title = "Hidden"; ObjectID = "DfR-uU-Lyb"; */
+"DfR-uU-Lyb.title" = "非表示";
+
+/* Class = "NSTextFieldCell"; title = "Opacity"; ObjectID = "Q3j-7W-1Rh"; */
+"Q3j-7W-1Rh.title" = "不透明度";
+
+/* Class = "NSButtonCell"; title = "Visible"; ObjectID = "QMB-AS-rqf"; */
+"QMB-AS-rqf.title" = "可視";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedIsNilPlaceholder = "100"; ObjectID = "a7C-et-mZE"; */
+"a7C-et-mZE.ibShadowedIsNilPlaceholder" = "100";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedMultipleValuesPlaceholder = "Multiple"; ObjectID = "a7C-et-mZE"; */
+"a7C-et-mZE.ibShadowedMultipleValuesPlaceholder" = "複数";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedNoSelectionPlaceholder = " "; ObjectID = "a7C-et-mZE"; */
+"a7C-et-mZE.ibShadowedNoSelectionPlaceholder" = " ";
+
+/* Class = "NSTextFieldCell"; title = "Display"; ObjectID = "gX2-H5-JTe"; */
+"gX2-H5-JTe.title" = "表示";
+

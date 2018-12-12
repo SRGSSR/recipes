@@ -1,0 +1,60 @@
+/* Class = "NSButtonCell"; title = "Use color picker popover"; ObjectID = "1X8-O4-t9v"; */
+"1X8-O4-t9v.title" = "カラーピッカーポップオーバーを使用";
+
+/* Class = "NSButtonCell"; title = "Enable export script logging"; ObjectID = "9uY-Jc-N8C"; */
+"9uY-Jc-N8C.title" = "書き出しスクリプトログを有効にする";
+
+/* Class = "NSMenuItem"; title = "Pro"; ObjectID = "A10-p2-wkc"; */
+"A10-p2-wkc.title" = "プロ";
+
+/* Class = "NSButtonCell"; title = "Show Color Editor…"; ObjectID = "Eg1-fX-ya0"; */
+"Eg1-fX-ya0.title" = "カラーエディタを表示…";
+
+/* Class = "NSMenuItem"; title = "Standard"; ObjectID = "F4R-tk-OgE"; */
+"F4R-tk-OgE.title" = "標準";
+
+/* Class = "NSMenuItem"; title = "Pro"; ObjectID = "GEc-Gp-yv0"; */
+"GEc-Gp-yv0.title" = "プロ";
+
+/* Class = "NSMenuItem"; title = "Gray"; ObjectID = "IMG-o7-QgU"; */
+"IMG-o7-QgU.title" = "グレイ";
+
+/* Class = "NSTextFieldCell"; title = "User Interface Theme:"; ObjectID = "MhX-di-bRP"; */
+"MhX-di-bRP.title" = "ユーザインターフェイスのテーマ：";
+
+/* Class = "NSTextFieldCell"; title = "Feature Set:"; ObjectID = "OpJ-UD-n6s"; */
+"OpJ-UD-n6s.title" = "機能セット：";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "POb-0f-xNj"; */
+"POb-0f-xNj.title" = "OtherViews";
+
+/* Class = "NSTextFieldCell"; title = "Default Shape Color:"; ObjectID = "R3V-Vk-IeQ"; */
+"R3V-Vk-IeQ.title" = "デフォルトの図形の色：";
+
+/* Class = "NSButtonCell"; title = "Use non-minified HYPE.js"; ObjectID = "Tbi-Mf-gyT"; */
+"Tbi-Mf-gyT.title" = "非縮小 HYPE.js を使用";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "Uw9-v3-GXP"; */
+"Uw9-v3-GXP.title" = "OtherViews";
+
+/* Class = "NSButtonCell"; title = "Show Web Inspector"; ObjectID = "e9t-Q6-1nM"; */
+"e9t-Q6-1nM.title" = "Web インスペクタを表示";
+
+/* Class = "NSButtonCell"; title = "Open on launch"; ObjectID = "gaM-NB-luH"; */
+"gaM-NB-luH.title" = "起動時に開く";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "gxa-J7-Gd9"; */
+"gxa-J7-Gd9.title" = "OtherViews";
+
+/* Class = "NSMenuItem"; title = "Standard"; ObjectID = "ivI-mb-xiJ"; */
+"ivI-mb-xiJ.title" = "標準";
+
+/* Class = "NSMenuItem"; title = "Blue"; ObjectID = "jFb-Jo-QSV"; */
+"jFb-Jo-QSV.title" = "青";
+
+/* Class = "NSButtonCell"; title = "Show titlebar build information"; ObjectID = "jrF-jb-MR8"; */
+"jrF-jb-MR8.title" = "タイトルバー構築情報を表示";
+
+/* Class = "NSBox"; title = "Options"; ObjectID = "llF-BC-Hh0"; */
+"llF-BC-Hh0.title" = "オプション";
+

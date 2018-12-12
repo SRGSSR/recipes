@@ -1,0 +1,144 @@
+/* Class = "NSMenuItem"; title = "Default Options"; ObjectID = "0Cu-tm-HDk"; */
+"0Cu-tm-HDk.title" = "Opzioni di default";
+
+/* Class = "NSTextFieldCell"; title = "Label"; ObjectID = "0Kg-fc-myQ"; */
+"0Kg-fc-myQ.title" = "Etichetta";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "2pC-kb-Vlo"; */
+"2pC-kb-Vlo.title" = "Text Cell";
+
+/* Class = "NSTextFieldCell"; title = "@2x Download:"; ObjectID = "3Mz-n7-EMP"; */
+"3Mz-n7-EMP.title" = "Download 2x:";
+
+/* Class = "NSButton"; ibShadowedToolTip = "Duplicate Slice"; ObjectID = "388-yt-FE2"; */
+"388-yt-FE2.ibShadowedToolTip" = "Duplica slice";
+
+/* Class = "NSButtonCell"; title = "Inline data file+loader"; ObjectID = "BLm-Sr-qjl"; */
+"BLm-Sr-qjl.title" = "File di dati in linea+utilità di caricamento";
+
+/* Class = "NSTextFieldCell"; placeholderString = "http://"; ObjectID = "EXi-86-u6D"; */
+"EXi-86-u6D.placeholderString" = "http://";
+
+/* Class = "NSWindow"; title = "Window"; ObjectID = "F0z-JX-Cv5"; */
+"F0z-JX-Cv5.title" = "Finestra";
+
+/* Class = "NSButtonCell"; title = "Include text contents for search engines"; ObjectID = "FCl-cy-PHR"; */
+"FCl-cy-PHR.title" = "Includi contenuti testuali per i motori di ricerca";
+
+/* Class = "NSTextFieldCell"; title = "20k"; ObjectID = "Gdk-C1-wer"; */
+"Gdk-C1-wer.title" = "20k";
+
+/* Class = "NSButton"; ibShadowedToolTip = "Remove Slice"; ObjectID = "HPi-p7-KcH"; */
+"HPi-p7-KcH.ibShadowedToolTip" = "Rimuovi slice";
+
+/* Class = "NSButtonCell"; title = "Name as \"index.html\" (requires enclosing folder)"; ObjectID = "HTv-jw-Fco"; */
+"HTv-jw-Fco.title" = "Denomina come \"index.html\" (richiede la cartella dell'elemento)";
+
+/* Class = "NSButtonCell"; title = "Export"; ObjectID = "IoJ-eT-oFZ"; */
+"IoJ-eT-oFZ.title" = "Esporta";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "Jac-GU-wA9"; */
+"Jac-GU-wA9.title" = "Text Cell";
+
+/* Class = "NSButton"; ibShadowedToolTip = "Add New Slice"; ObjectID = "LLU-8V-KbX"; */
+"LLU-8V-KbX.ibShadowedToolTip" = "Aggiungi nuova slice";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "LNr-oA-kvk"; */
+"LNr-oA-kvk.title" = "Text Cell";
+
+/* Class = "NSTableColumn"; headerCell.title = "Size"; ObjectID = "LSf-4n-A1c"; */
+"LSf-4n-A1c.headerCell.title" = "Dimensioni";
+
+/* Class = "NSTableColumn"; headerCell.title = "Resource Name"; ObjectID = "M1S-mx-ThB"; */
+"M1S-mx-ThB.headerCell.title" = "Nome risorsa";
+
+/* Class = "NSMenuItem"; title = "Reset Options for this Slice to Default"; ObjectID = "MLm-Lv-SWq"; */
+"MLm-Lv-SWq.title" = "Ripristina opzioni di default per questa slice";
+
+/* Class = "NSButtonCell"; title = "Cancel"; ObjectID = "PEr-2W-VXv"; */
+"PEr-2W-VXv.title" = "Annulla";
+
+/* Class = "NSTextFieldCell"; title = "22k"; ObjectID = "PXt-9o-CWS"; */
+"PXt-9o-CWS.title" = "22k";
+
+/* Class = "NSButtonCell"; title = "Also save .html file "; ObjectID = "Pf8-1o-wkZ"; */
+"Pf8-1o-wkZ.title" = "Salva anche file .html ";
+
+/* Class = "NSButtonCell"; title = "None"; ObjectID = "VfS-Q6-vFh"; */
+"VfS-Q6-vFh.title" = "Nessuno";
+
+/* Class = "NSMenuItem"; title = "Item 3"; ObjectID = "WKg-l8-tG2"; */
+"WKg-l8-tG2.title" = "Item 3";
+
+/* Class = "NSMenuItem"; title = "Save Current Options for All New Slices"; ObjectID = "XB0-8a-uas"; */
+"XB0-8a-uas.title" = "Salva opzioni correnti per tutte le nuove slice";
+
+/* Class = "NSTextFieldCell"; title = "IE Download:"; ObjectID = "Xad-DV-VMy"; */
+"Xad-DV-VMy.title" = "Download di IE:";
+
+/* Class = "NSMenuItem"; title = "Item 1"; ObjectID = "biM-bW-rOh"; */
+"biM-bW-rOh.title" = "Item 1";
+
+/* Class = "NSTextFieldCell"; title = "112k"; ObjectID = "c6E-DX-NNx"; */
+"c6E-DX-NNx.title" = "112k";
+
+/* Class = "NSTextFieldCell"; title = "Export Script:"; ObjectID = "c9X-bz-3w7"; */
+"c9X-bz-3w7.title" = "Script di esportazione:";
+
+/* Class = "NSTextFieldCell"; title = "/HYPE-510.*.min.js"; ObjectID = "d9B-k9-965"; */
+"d9B-k9-965.title" = "/HYPE-510.*.min.js";
+
+/* Class = "NSMenuItem"; title = "Item 2"; ObjectID = "ddV-Kz-VWb"; */
+"ddV-Kz-VWb.title" = "Item 2";
+
+/* Class = "NSButtonCell"; title = "Create restorable document file"; ObjectID = "gTP-s8-WMq"; */
+"gTP-s8-WMq.title" = "Crea file di documento ripristinabile";
+
+/* Class = "NSTextFieldCell"; title = "Table View Cell"; ObjectID = "h3z-HO-MA7"; */
+"h3z-HO-MA7.title" = "Table View Cell";
+
+/* Class = "NSButtonCell"; title = "Support Internet Explorer 6-9"; ObjectID = "hDD-sw-gE8"; */
+"hDD-sw-gE8.title" = "Supporto Internet Explorer 6-9";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "hOM-Pn-5Zu"; */
+"hOM-Pn-5Zu.title" = "Text Cell";
+
+/* Class = "NSTableColumn"; headerCell.title = "Include"; ObjectID = "hkk-Q2-rWq"; */
+"hkk-Q2-rWq.headerCell.title" = "Includi";
+
+/* Class = "NSTextFieldCell"; title = "Slice"; ObjectID = "i7Q-B5-riM"; */
+"i7Q-B5-riM.title" = "Slice";
+
+/* Class = "NSTextFieldCell"; title = "Advanced Export"; ObjectID = "kMn-LE-kcb"; */
+"kMn-LE-kcb.title" = "Esportazione avanzata";
+
+/* Class = "NSTextFieldCell"; title = "@1x Download:"; ObjectID = "liZ-vK-VL4"; */
+"liZ-vK-VL4.title" = "Download 1x:";
+
+/* Class = "NSButtonCell"; title = "Create enclosing folder"; ObjectID = "lid-ly-9Hj"; */
+"lid-ly-9Hj.title" = "Crea cartella dell'elemento";
+
+/* Class = "NSTextFieldCell"; title = "Create slices to customize what Scenes, Layouts, and Resources are included in your export. Check the box next to any slices you want to export."; ObjectID = "mY3-3D-egv"; */
+"mY3-3D-egv.title" = "Crea slice per personalizzare scene, layout e risorse inclusi nell'esportazione. Seleziona la casella accanto alle slice da esportare.";
+
+/* Class = "NSTableColumn"; headerCell.title = "Scenes and Layouts"; ObjectID = "mjj-QI-GJK"; */
+"mjj-QI-GJK.headerCell.title" = "Scene e layout";
+
+/* Class = "NSButtonCell"; title = "Use external runtime URL:"; ObjectID = "oEe-xQ-IQj"; */
+"oEe-xQ-IQj.title" = "Utilizza URL runtime esterno:";
+
+/* Class = "NSTextFieldCell"; title = "All Files:"; ObjectID = "pWb-gz-AwK"; */
+"pWb-gz-AwK.title" = "Tutti i file:";
+
+/* Class = "NSTextFieldCell"; title = "56k"; ObjectID = "pej-CB-fMV"; */
+"pej-CB-fMV.title" = "56k";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "sm5-Jx-TiI"; */
+"sm5-Jx-TiI.title" = "Text Cell";
+
+/* Class = "NSTextFieldCell"; title = "Resource name"; ObjectID = "uIr-GS-9MS"; */
+"uIr-GS-9MS.title" = "Nome risorsa";
+
+/* Class = "NSTextFieldCell"; title = "212k"; ObjectID = "wRN-JJ-hwg"; */
+"wRN-JJ-hwg.title" = "212k";
+

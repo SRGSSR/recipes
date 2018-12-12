@@ -1,0 +1,306 @@
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "0Cv-Ao-dNr"; */
+"0Cv-Ao-dNr.title" = "OtherViews";
+
+/* Class = "NSTextFieldCell"; title = "Action"; ObjectID = "37"; */
+"37.title" = "Azione";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "44"; */
+"44.title" = "OtherViews";
+
+/* Class = "NSMenuItem"; title = "None"; ObjectID = "45"; */
+"45.title" = "Nessuna";
+
+/* Class = "NSMenuItem"; title = "Jump to Scene…"; ObjectID = "46"; */
+"46.title" = "Vai alla scena…";
+
+/* Class = "NSMenuItem"; title = "Run JavaScript…"; ObjectID = "59"; */
+"59.title" = "Esegui JavaScript…";
+
+/* Class = "NSTextFieldCell"; title = "Scene"; ObjectID = "90"; */
+"90.title" = "Scena";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "92"; */
+"92.title" = "OtherViews";
+
+/* Class = "NSMenuItem"; title = "Next Scene"; ObjectID = "95"; */
+"95.title" = "Scena successiva";
+
+/* Class = "NSMenuItem"; title = "Last Scene"; ObjectID = "96"; */
+"96.title" = "Ultima scena";
+
+/* Class = "NSMenuItem"; title = "First Scene"; ObjectID = "98"; */
+"98.title" = "Prima scena";
+
+/* Class = "NSMenuItem"; title = "Previous Scene"; ObjectID = "100"; */
+"100.title" = "Scena precedente";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "119"; */
+"119.title" = "OtherViews";
+
+/* Class = "NSMenuItem"; title = "Crossfade"; ObjectID = "121"; */
+"121.title" = "Comparsa";
+
+/* Class = "NSMenuItem"; title = "Instant"; ObjectID = "122"; */
+"122.title" = "Istantanea";
+
+/* Class = "NSMenuItem"; title = "Swap"; ObjectID = "123"; */
+"123.title" = "Scambio";
+
+/* Class = "NSTextFieldCell"; title = "Transition"; ObjectID = "126"; */
+"126.title" = "Transizione";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "138"; */
+"138.title" = "OtherViews";
+
+/* Class = "NSMenuItem"; title = "None"; ObjectID = "141"; */
+"141.title" = "Nessuna";
+
+/* Class = "NSMenuItem"; title = "New Function…"; ObjectID = "144"; */
+"144.title" = "Nuova funzione…";
+
+/* Class = "NSTextFieldCell"; title = "Function"; ObjectID = "145"; */
+"145.title" = "Funzione";
+
+/* Class = "NSMenuItem"; title = "Go to URL…"; ObjectID = "165"; */
+"165.title" = "Vai all'URL…";
+
+/* Class = "NSTextFieldCell"; title = "URL"; ObjectID = "170"; */
+"170.title" = "URL";
+
+/* Class = "NSTextFieldCell"; placeholderString = "http://www.example.com"; ObjectID = "181"; */
+"181.placeholderString" = "http://www.esempio.com";
+
+/* Class = "NSButtonCell"; title = "Open in new window"; ObjectID = "201"; */
+"201.title" = "Apri in una nuova finestra";
+
+/* Class = "NSButton"; ibShadowedToolTip = "Show timeline"; ObjectID = "205"; */
+"205.ibShadowedToolTip" = "Mostra seq. temporale";
+
+/* Class = "NSTextFieldCell"; title = "Timeline"; ObjectID = "208"; */
+"208.title" = "Seq. temporale";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "210"; */
+"210.title" = "OtherViews";
+
+/* Class = "NSMenuItem"; title = "New Timeline…"; ObjectID = "211"; */
+"211.title" = "Nuova seq. temporale…";
+
+/* Class = "NSMenuItem"; title = "None"; ObjectID = "213"; */
+"213.title" = "Nessuna";
+
+/* Class = "NSMenuItem"; title = "Start Timeline…"; ObjectID = "218"; */
+"218.title" = "Avvia seq. temporale…";
+
+/* Class = "NSMenuItem"; title = "Push (Left to Right)"; ObjectID = "226"; */
+"226.title" = "Spinta (sinistra-destra)";
+
+/* Class = "NSMenuItem"; title = "Push (Right to Left)"; ObjectID = "230"; */
+"230.title" = "Spinta (destra-sinistra)";
+
+/* Class = "NSMenuItem"; title = "Push (Bottom to Top)"; ObjectID = "231"; */
+"231.title" = "Spinta (giù-su)";
+
+/* Class = "NSMenuItem"; title = "Push (Top to Bottom)"; ObjectID = "232"; */
+"232.title" = "Spinta (su-giù)";
+
+/* Class = "NSMenuItem"; title = "Compose Email…"; ObjectID = "269"; */
+"269.title" = "Scrivi e-mail:";
+
+/* Class = "NSTextFieldCell"; title = "Email Address"; ObjectID = "274"; */
+"274.title" = "E-mail";
+
+/* Class = "NSTextFieldCell"; placeholderString = "name@example.com"; ObjectID = "275"; */
+"275.placeholderString" = "nome@esempio.com";
+
+/* Class = "NSTextFieldCell"; title = "Subject"; ObjectID = "280"; */
+"280.title" = "Oggetto";
+
+/* Class = "NSTextFieldCell"; placeholderString = "Optional"; ObjectID = "282"; */
+"282.placeholderString" = "Facoltativo";
+
+/* Class = "NSTextFieldCell"; title = "Body"; ObjectID = "285"; */
+"285.title" = "Corpo";
+
+/* Class = "NSTextFieldCell"; placeholderString = "Optional"; ObjectID = "287"; */
+"287.placeholderString" = "Facoltativo";
+
+/* Class = "NSMenuItem"; title = "Remove"; ObjectID = "388"; */
+"388.title" = "Rimuovi";
+
+/* Class = "NSMenuItem"; title = "Pause Timeline…"; ObjectID = "457"; */
+"457.title" = "Sospendi seq. temporale…";
+
+/* Class = "NSMenuItem"; title = "Continue Timeline…"; ObjectID = "458"; */
+"458.title" = "Ripristina seq. temporale…";
+
+/* Class = "NSTextFieldCell"; title = "Time"; ObjectID = "469"; */
+"469.title" = "Tempo";
+
+/* Class = "NSTextFieldCell"; title = "00:00.00"; ObjectID = "476"; */
+"476.title" = "00:00.00";
+
+/* Class = "NSMenuItem"; title = "Go to Time in Timeline…"; ObjectID = "478"; */
+"478.title" = "Vai a un momento specifico…";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedIsNilPlaceholder = "00:00.00"; ObjectID = "482"; */
+"482.ibShadowedIsNilPlaceholder" = "00:00.00";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedIsNilPlaceholder = "Optional"; ObjectID = "485"; */
+"485.ibShadowedIsNilPlaceholder" = "Facoltativo";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedIsNilPlaceholder = "Optional"; ObjectID = "486"; */
+"486.ibShadowedIsNilPlaceholder" = "Facoltativo";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedIsNilPlaceholder = "name@example.com"; ObjectID = "487"; */
+"487.ibShadowedIsNilPlaceholder" = "nome@esempio.com";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedIsNilPlaceholder = "http://www.example.com"; ObjectID = "488"; */
+"488.ibShadowedIsNilPlaceholder" = "http://www.esempio.com";
+
+/* Class = "NSMenuItem"; title = "Control Timeline…"; ObjectID = "489"; */
+"489.title" = "Controlla seq. temporale…";
+
+/* Class = "NSMenuItem"; title = "Control Element Position"; ObjectID = "490"; */
+"490.title" = "Controlla posizione elemento";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "497"; */
+"497.title" = "OtherViews";
+
+/* Class = "NSMenuItem"; title = "Forward"; ObjectID = "498"; */
+"498.title" = "In avanti";
+
+/* Class = "NSTextFieldCell"; title = "Direction"; ObjectID = "501"; */
+"501.title" = "Direzione";
+
+/* Class = "NSMenuItem"; title = "Play Sound…"; ObjectID = "511"; */
+"511.title" = "Riproduci suono…";
+
+/* Class = "NSMenuItem"; title = "Stop Sound…"; ObjectID = "512"; */
+"512.title" = "Interrompi suono…";
+
+/* Class = "NSTextFieldCell"; title = "Sound"; ObjectID = "547"; */
+"547.title" = "Suono";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "549"; */
+"549.title" = "OtherViews";
+
+/* Class = "NSMenuItem"; title = "None"; ObjectID = "551"; */
+"551.title" = "Nessuno";
+
+/* Class = "NSMenuItem"; title = "Add Audio File…"; ObjectID = "561"; */
+"561.title" = "Aggiungi file audio…";
+
+/* Class = "NSTextFieldCell"; title = "MP4:"; ObjectID = "571"; */
+"571.title" = "MP4:";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "572"; */
+"572.title" = "Text Cell";
+
+/* Class = "NSButtonCell"; title = "Choose…"; ObjectID = "573"; */
+"573.title" = "Scegli…";
+
+/* Class = "NSTextFieldCell"; title = "Properties"; ObjectID = "578"; */
+"578.title" = "Proprietà";
+
+/* Class = "NSButtonCell"; title = "Loop"; ObjectID = "582"; */
+"582.title" = "Ciclo";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "624"; */
+"624.title" = "OtherViews";
+
+/* Class = "NSMenuItem"; title = "Add Audio File…"; ObjectID = "626"; */
+"626.title" = "Aggiungi file audio…";
+
+/* Class = "NSMenuItem"; title = "None"; ObjectID = "627"; */
+"627.title" = "Nessuno";
+
+/* Class = "NSTextFieldCell"; title = "Sound"; ObjectID = "628"; */
+"628.title" = "Suono";
+
+/* Class = "NSMenuItem"; title = "Reverse"; ObjectID = "651"; */
+"651.title" = "Al contrario";
+
+/* Class = "NSButtonCell"; title = "Continue after drag"; ObjectID = "656"; */
+"656.title" = "Continua dopo trascinam.";
+
+/* Class = "NSTextFieldCell"; title = "1.15s"; ObjectID = "664"; */
+"664.title" = "1,15 s";
+
+/* Class = "NSTextFieldCell"; title = "Duration"; ObjectID = "671"; */
+"671.title" = "Durata";
+
+/* Class = "NSButtonCell"; title = "Play in reverse"; ObjectID = "689"; */
+"689.title" = "Riproduci al contrario";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "706"; */
+"706.title" = "OtherViews";
+
+/* Class = "NSMenuItem"; title = "Vertical"; ObjectID = "709"; */
+"709.title" = "Verticale";
+
+/* Class = "NSMenuItem"; title = "Horizontal"; ObjectID = "710"; */
+"710.title" = "Orizzontale";
+
+/* Class = "NSTextFieldCell"; title = "Axis"; ObjectID = "711"; */
+"711.title" = "Asse";
+
+/* Class = "NSMenuItem"; title = "Last Scene"; ObjectID = "BZK-la-xOv"; */
+"BZK-la-xOv.title" = "Ultima scena";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "ECS-S5-d9e"; */
+"ECS-S5-d9e.title" = "OtherViews";
+
+/* Class = "NSMenuItem"; title = "Trigger Custom Behavior…"; ObjectID = "Fuv-Mm-qjM"; */
+"Fuv-Mm-qjM.title" = "Innesca comp. personalizzato…";
+
+/* Class = "NSMenuItem"; title = "Previous Scene"; ObjectID = "I0K-uZ-CUg"; */
+"I0K-uZ-CUg.title" = "Scena precedente";
+
+/* Class = "NSTextFieldCell"; title = "100 %"; ObjectID = "K1Y-eM-dSG"; */
+"K1Y-eM-dSG.title" = "100 %";
+
+/* Class = "NSButtonCell"; title = "Can restart timeline"; ObjectID = "SbR-Ef-Roj"; */
+"SbR-Ef-Roj.title" = "Può riavviare seq. temporale";
+
+/* Class = "NSButtonCell"; title = "Play in reverse"; ObjectID = "TkK-B8-UdO"; */
+"TkK-B8-UdO.title" = "Riproduci al contrario";
+
+/* Class = "NSMenuItem"; title = "Next Scene"; ObjectID = "Ucn-5O-k34"; */
+"Ucn-5O-k34.title" = "Scena successiva";
+
+/* Class = "NSTextFieldCell"; title = "Speed"; ObjectID = "W0B-4H-7cp"; */
+"W0B-4H-7cp.title" = "Velocità";
+
+/* Class = "NSMenuItem"; title = "Page to Scene…"; ObjectID = "X5M-KP-UoW"; */
+"X5M-KP-UoW.title" = "Pagina fino alla scena…";
+
+/* Class = "NSTextFieldCell"; title = "Behavior"; ObjectID = "bSD-0M-mai"; */
+"bSD-0M-mai.title" = "Comportamento";
+
+/* Class = "NSMenuItem"; title = "None"; ObjectID = "bdX-9F-9qe"; */
+"bdX-9F-9qe.title" = "Nessuno";
+
+/* Class = "NSTextFieldCell"; title = "Right"; ObjectID = "c1M-Fo-IUV"; */
+"c1M-Fo-IUV.title" = "Destra";
+
+/* Class = "NSMenuItem"; title = "Last Scene"; ObjectID = "enh-uf-f03"; */
+"enh-uf-f03.title" = "Ultima scena";
+
+/* Class = "NSMenuItem"; title = "Previous Scene"; ObjectID = "fnV-pG-jya"; */
+"fnV-pG-jya.title" = "Scena precedente";
+
+/* Class = "NSMenuItem"; title = "First Scene"; ObjectID = "g6C-gu-Djm"; */
+"g6C-gu-Djm.title" = "Prima scena";
+
+/* Class = "NSMenuItem"; title = "Next Scene"; ObjectID = "oVl-CB-w8b"; */
+"oVl-CB-w8b.title" = "Scena successiva";
+
+/* Class = "NSTextFieldCell"; title = "Left"; ObjectID = "tdR-Ug-9NJ"; */
+"tdR-Ug-9NJ.title" = "Sinistra";
+
+/* Class = "NSMenuItem"; title = "First Scene"; ObjectID = "vqW-r9-9WM"; */
+"vqW-r9-9WM.title" = "Prima scena";
+
+/* Class = "NSMenuItem"; title = "None"; ObjectID = "zWq-AC-Z0V"; */
+"zWq-AC-Z0V.title" = "Nessuno";
+

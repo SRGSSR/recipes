@@ -1,0 +1,18 @@
+/* Class = "NSButtonCell"; title = "Edit Warnings…"; ObjectID = "16"; */
+"16.title" = "Editar avisos…";
+
+/* Class = "NSButtonCell"; title = "Dismiss"; ObjectID = "19"; */
+"19.title" = "Descartar";
+
+/* Class = "NSTableColumn"; headerCell.title = "Issue"; ObjectID = "29"; */
+"29.headerCell.title" = "Problema";
+
+/* Class = "NSTableColumn"; headerCell.title = "Browser"; ObjectID = "30"; */
+"30.headerCell.title" = "Navegador";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "31"; */
+"31.title" = "Text Cell";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "32"; */
+"32.title" = "Text Cell";
+

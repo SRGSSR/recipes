@@ -1,0 +1,36 @@
+/* Class = "NSButtonCell"; title = "Join the Tumult Mailing List"; ObjectID = "239"; */
+"239.title" = "S’inscrire à la liste d’envoi Tumult";
+
+/* Class = "NSTextFieldCell"; title = "Name:"; ObjectID = "240"; */
+"240.title" = "Nom :";
+
+/* Class = "NSTextFieldCell"; title = "Email:"; ObjectID = "241"; */
+"241.title" = "E-mail :";
+
+/* Class = "NSTextFieldCell"; title = "Welcome to Hype"; ObjectID = "242"; */
+"242.title" = "Bienvenue dans Hype";
+
+/* Class = "NSButtonCell"; title = "Send anonymous usage information"; ObjectID = "243"; */
+"243.title" = "Envoyer des infos d’utilisation anonymes";
+
+/* Class = "NSTextFieldCell"; title = "The Tumult mailing list will keep you updated with product releases, updates, special offers, and more.  Please sign up so we can stay in touch!"; ObjectID = "244"; */
+"244.title" = "La liste d’envoi Tumult vous tient informé des nouveaux produits, mises à jour, offres spéciales et bien plus encore.  Inscrivez-vous pour garder le contact !";
+
+/* Class = "NSTextFieldCell"; title = "Data collected will help improve Hype."; ObjectID = "252"; */
+"252.title" = "Ces données permettront d’améliorer Hype.";
+
+/* Class = "NSButtonCell"; title = "Privacy Policy"; ObjectID = "261"; */
+"261.title" = "Politique de confidentialité";
+
+/* Class = "NSButtonCell"; title = "Sign Up Later"; ObjectID = "262"; */
+"262.title" = "S’inscrire plus tard";
+
+/* Class = "NSButtonCell"; title = "Continue"; ObjectID = "263"; */
+"263.title" = "Continuer";
+
+/* Class = "NSTextFieldCell"; title = "Always stay up-to-date with features and bug fixes from the latest releases."; ObjectID = "270"; */
+"270.title" = "Tenez-vous informé des fonctions et corrections de bugs des nouvelles versions.";
+
+/* Class = "NSButtonCell"; title = "Notify when new updates are available"; ObjectID = "271"; */
+"271.title" = "Signaler les mises à jour disponibles";
+

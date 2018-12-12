@@ -1,0 +1,15 @@
+/* Class = "NSButtonCell"; title = "Display on top during scene transition"; ObjectID = "HTN-Km-cIv"; */
+"HTN-Km-cIv.title" = "Afficher en avant lors d’une transition";
+
+/* Class = "NSButtonCell"; title = "Radio"; ObjectID = "L43-zA-JG3"; */
+"L43-zA-JG3.title" = "Radio";
+
+/* Class = "NSButtonCell"; title = "Persistent"; ObjectID = "mOe-Ij-gfb"; */
+"mOe-Ij-gfb.title" = "Persistant";
+
+/* Class = "NSButtonCell"; title = "Standard"; ObjectID = "uDF-26-6A2"; */
+"uDF-26-6A2.title" = "Standard";
+
+/* Class = "NSButtonCell"; title = "Automatically add to new scenes"; ObjectID = "uwl-TW-Ifc"; */
+"uwl-TW-Ifc.title" = "Ajouter aux nouvelles scènes";
+

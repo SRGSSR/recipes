@@ -1,0 +1,36 @@
+/* Class = "NSButtonCell"; title = "Inline (iOS)"; ObjectID = "8rB-K4-gWP"; */
+"8rB-K4-gWP.title" = "インライン（iOS）";
+
+/* Class = "NSButtonCell"; title = "Loop"; ObjectID = "52"; */
+"52.title" = "ループ";
+
+/* Class = "NSButtonCell"; title = "Autoplay"; ObjectID = "53"; */
+"53.title" = "自動再生";
+
+/* Class = "NSButtonCell"; title = "Muted (needed for iOS Autoplay)"; ObjectID = "61"; */
+"61.title" = "消音（iOS 自動再生に必要）";
+
+/* Class = "NSButtonCell"; title = "Controls"; ObjectID = "84"; */
+"84.title" = "コントロール";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "114"; */
+"114.title" = "OtherViews";
+
+/* Class = "NSMenuItem"; title = "None"; ObjectID = "115"; */
+"115.title" = "なし";
+
+/* Class = "NSMenuItem"; title = "Add Video File…"; ObjectID = "116"; */
+"116.title" = "ビデオファイルを追加…";
+
+/* Class = "NSTextFieldCell"; title = "Source group"; ObjectID = "118"; */
+"118.title" = "ソースグループ";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "163"; */
+"163.title" = "Text Cell";
+
+/* Class = "NSTextFieldCell"; title = "MP4:"; ObjectID = "164"; */
+"164.title" = "MP4：";
+
+/* Class = "NSButtonCell"; title = "Choose…"; ObjectID = "167"; */
+"167.title" = "選択…";
+

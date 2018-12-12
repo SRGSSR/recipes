@@ -1,0 +1,39 @@
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "4J1-he-jdt"; */
+"4J1-he-jdt.title" = "OtherViews";
+
+/* Class = "NSTextFieldCell"; title = "10"; ObjectID = "4qp-h1-Rh9"; */
+"4qp-h1-Rh9.title" = "10";
+
+/* Class = "NSTextFieldCell"; title = "100"; ObjectID = "B9F-tI-HKk"; */
+"B9F-tI-HKk.title" = "100";
+
+/* Class = "NSTextFieldCell"; title = "Grid Width:"; ObjectID = "CXe-XW-L6y"; */
+"CXe-XW-L6y.title" = "Gitterbreite:";
+
+/* Class = "NSButtonCell"; title = "Create Grid"; ObjectID = "Mza-rg-CBl"; */
+"Mza-rg-CBl.title" = "Gitter erstellen";
+
+/* Class = "NSWindow"; title = "Window"; ObjectID = "QvC-M9-y7g"; */
+"QvC-M9-y7g.title" = "Fenster";
+
+/* Class = "NSTextFieldCell"; title = "16"; ObjectID = "S0v-wH-BPJ"; */
+"S0v-wH-BPJ.title" = "16";
+
+/* Class = "NSMenuItem"; title = "px"; ObjectID = "V4h-P1-CF3"; */
+"V4h-P1-CF3.title" = "px";
+
+/* Class = "NSTextFieldCell"; title = "Column Gutter Width:"; ObjectID = "iOm-e2-XyU"; */
+"iOm-e2-XyU.title" = "Spaltenbundstegbreite:";
+
+/* Class = "NSTextFieldCell"; title = "px"; ObjectID = "jYn-z4-q99"; */
+"jYn-z4-q99.title" = "px";
+
+/* Class = "NSButtonCell"; title = "Cancel"; ObjectID = "rkX-32-7o0"; */
+"rkX-32-7o0.title" = "Abbrechen";
+
+/* Class = "NSMenuItem"; title = "%"; ObjectID = "wWr-lh-1JV"; */
+"wWr-lh-1JV.title" = "%";
+
+/* Class = "NSTextFieldCell"; title = "Number of Columns:"; ObjectID = "yDN-7B-S6w"; */
+"yDN-7B-S6w.title" = "Spaltenanzahl:";
+

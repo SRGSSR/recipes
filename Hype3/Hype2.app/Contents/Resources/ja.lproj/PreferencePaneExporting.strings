@@ -1,0 +1,15 @@
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "L3d-2m-Hrp"; */
+"L3d-2m-Hrp.title" = "Text Cell";
+
+/* Class = "NSButtonCell"; title = "Show in Finder"; ObjectID = "M2L-DX-bj4"; */
+"M2L-DX-bj4.title" = "Finder に表示";
+
+/* Class = "NSTextFieldCell"; title = "Export Scripts"; ObjectID = "ZSB-g4-kZR"; */
+"ZSB-g4-kZR.title" = "書き出しスクリプト";
+
+/* Class = "NSTableColumn"; headerCell.title = "Export Script File Name"; ObjectID = "fxv-tO-XPe"; */
+"fxv-tO-XPe.headerCell.title" = "書き出しスクリプトのファイル名";
+
+/* Class = "NSButtonCell"; title = "Get Export Scripts…"; ObjectID = "klQ-Ba-AbY"; */
+"klQ-Ba-AbY.title" = "書き出しスクリプトを取得...";
+

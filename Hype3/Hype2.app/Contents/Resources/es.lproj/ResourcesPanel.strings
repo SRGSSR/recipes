@@ -1,0 +1,120 @@
+/* Class = "NSMenuItem"; title = "Video"; ObjectID = "0fX-P6-yHu"; */
+"0fX-P6-yHu.title" = "Vídeo";
+
+/* Class = "NSMenuItem"; title = "All"; ObjectID = "6wt-Z4-02I"; */
+"6wt-Z4-02I.title" = "Todo";
+
+/* Class = "NSPopUpButton"; ibShadowedToolTip = "Show Type"; ObjectID = "7N2-84-xpF"; */
+"7N2-84-xpF.ibShadowedToolTip" = "Mostrar tipo";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "7rc-LY-rbx"; */
+"7rc-LY-rbx.title" = "OtherViews";
+
+/* Class = "NSMenuItem"; title = "Images"; ObjectID = "8rM-m6-KLC"; */
+"8rM-m6-KLC.title" = "Imágenes";
+
+/* Class = "NSWindow"; title = "Resource Library"; ObjectID = "134"; */
+"134.title" = "Biblioteca de recursos";
+
+/* Class = "NSTableColumn"; headerCell.title = "Name"; ObjectID = "165"; */
+"165.headerCell.title" = "Nombre";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "166"; */
+"166.title" = "Text Cell";
+
+/* Class = "NSSegmentedCell"; 202.ibShadowedToolTips[0] = "Add Resource"; ObjectID = "202"; */
+"202.ibShadowedToolTips[0]" = "Añadir recurso";
+
+/* Class = "NSSegmentedCell"; 202.ibShadowedToolTips[1] = "Remove Resource"; ObjectID = "202"; */
+"202.ibShadowedToolTips[1]" = "Suprimir recurso";
+
+/* Class = "NSSegmentedCell"; 204.ibShadowedLabels[1] = "Replace…"; ObjectID = "204"; */
+"204.ibShadowedLabels[1]" = "Reemplazar…";
+
+/* Class = "NSSegmentedCell"; 204.ibShadowedToolTips[0] = "Update from original file"; ObjectID = "204"; */
+"204.ibShadowedToolTips[0]" = "Actualizar desde el archivo original";
+
+/* Class = "NSSegmentedCell"; 204.ibShadowedToolTips[1] = "Replace"; ObjectID = "204"; */
+"204.ibShadowedToolTips[1]" = "Sustituir";
+
+/* Class = "NSButtonCell"; title = "Edit Source…"; ObjectID = "411"; */
+"411.title" = "Editar fuente…";
+
+/* Class = "NSButtonCell"; title = "Remove when no longer referenced"; ObjectID = "421"; */
+"421.title" = "Suprimir cuando ya no tenga referencias";
+
+/* Class = "NSButtonCell"; title = "Preload"; ObjectID = "423"; */
+"423.title" = "Carga previa";
+
+/* Class = "NSTextFieldCell"; title = "No Options"; ObjectID = "429"; */
+"429.title" = "Sin opciones";
+
+/* Class = "NSTableColumn"; headerCell.title = "Size"; ObjectID = "431"; */
+"431.headerCell.title" = "Tamaño";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "432"; */
+"432.title" = "Text Cell";
+
+/* Class = "NSButtonCell"; title = "Include in document <head>"; ObjectID = "676"; */
+"676.title" = "Incluir en <head> del documento";
+
+/* Class = "NSButtonCell"; title = "Remove when no longer referenced"; ObjectID = "682"; */
+"682.title" = "Suprimir cuando ya no tenga referencias";
+
+/* Class = "NSMenuItem"; title = "Add File…"; ObjectID = "759"; */
+"759.title" = "Añadir archivo…";
+
+/* Class = "NSMenuItem"; title = "Add URL Reference…"; ObjectID = "760"; */
+"760.title" = "Añadir referencia URL…";
+
+/* Class = "NSMenuItem"; title = "Add JavaScript Function"; ObjectID = "761"; */
+"761.title" = "Añadir función JavaScript";
+
+/* Class = "NSSegmentedCell"; 773.ibShadowedToolTips[0] = "Quicklook"; ObjectID = "773"; */
+"773.ibShadowedToolTips[0]" = "Vista rápida";
+
+/* Class = "NSButtonCell"; title = "Automatically optimize when exporting"; ObjectID = "821"; */
+"821.title" = "Optimizar automáticamente al exportar";
+
+/* Class = "NSButtonCell"; title = "Preload"; ObjectID = "869"; */
+"869.title" = "Carga previa";
+
+/* Class = "NSButtonCell"; title = "Add audio/mpeg Source…"; ObjectID = "880"; */
+"880.title" = "Añadir fuente audio/mpeg…";
+
+/* Class = "NSButtonCell"; title = "Remove when no longer referenced"; ObjectID = "886"; */
+"886.title" = "Suprimir cuando ya no tenga referencias";
+
+/* Class = "NSMenuItem"; title = "Add Font…"; ObjectID = "890"; */
+"890.title" = "Añadir tipo de letra…";
+
+/* Class = "NSMenuItem"; title = "Fonts"; ObjectID = "CJi-g7-iGg"; */
+"CJi-g7-iGg.title" = "Tipos de letra";
+
+/* Class = "NSButtonCell"; title = "Remove when no longer referenced"; ObjectID = "JoY-5W-nVl"; */
+"JoY-5W-nVl.title" = "Suprimir cuando ya no tenga referencias";
+
+/* Class = "NSSearchFieldCell"; placeholderString = "Filter"; ObjectID = "Okh-Jp-kba"; */
+"Okh-Jp-kba.placeholderString" = "Filtro";
+
+/* Class = "NSMenuItem"; title = "Other Files"; ObjectID = "Sv2-h4-rRE"; */
+"Sv2-h4-rRE.title" = "Otros archivos";
+
+/* Class = "NSButtonCell"; title = "Edit Font..."; ObjectID = "VbT-xw-WE0"; */
+"VbT-xw-WE0.title" = "Editar tipo de letra...";
+
+/* Class = "NSButtonCell"; title = "Duplicate Symbol"; ObjectID = "Xx9-hx-mZC"; */
+"Xx9-hx-mZC.title" = "Duplicar símbolo";
+
+/* Class = "NSMenuItem"; title = "Symbols"; ObjectID = "ZuA-sR-26o"; */
+"ZuA-sR-26o.title" = "Símbolos";
+
+/* Class = "NSMenuItem"; title = "Audio"; ObjectID = "kc2-Yy-pSB"; */
+"kc2-Yy-pSB.title" = "Audio";
+
+/* Class = "NSMenuItem"; title = "Functions"; ObjectID = "qnO-Px-liw"; */
+"qnO-Px-liw.title" = "Funciones";
+
+/* Class = "NSBox"; title = "Box"; ObjectID = "r25-H5-MQ1"; */
+"r25-H5-MQ1.title" = "Box";
+

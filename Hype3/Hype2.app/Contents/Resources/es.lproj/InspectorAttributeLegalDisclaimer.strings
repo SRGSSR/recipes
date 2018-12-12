@@ -1,0 +1,27 @@
+/* Class = "NSMenuItem"; title = "Right"; ObjectID = "DqV-o3-G1x"; */
+"DqV-o3-G1x.title" = "Derecha";
+
+/* Class = "NSMenuItem"; title = "Dark"; ObjectID = "OYu-6v-rKf"; */
+"OYu-6v-rKf.title" = "Oscuro";
+
+/* Class = "NSMenuItem"; title = "Left"; ObjectID = "ecG-wW-0w7"; */
+"ecG-wW-0w7.title" = "Izquierda";
+
+/* Class = "NSButtonCell"; title = "Show legal disclaimer"; ObjectID = "heJ-O1-2hS"; */
+"heJ-O1-2hS.title" = "Mostrar declinación de responsabilidades legales";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "loX-Uo-JSQ"; */
+"loX-Uo-JSQ.title" = "OtherViews";
+
+/* Class = "NSTextFieldCell"; title = "Theme"; ObjectID = "o9Q-9a-PNr"; */
+"o9Q-9a-PNr.title" = "Tema";
+
+/* Class = "NSMenuItem"; title = "Light"; ObjectID = "tq3-3C-pIF"; */
+"tq3-3C-pIF.title" = "Claro";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "unR-YO-H99"; */
+"unR-YO-H99.title" = "OtherViews";
+
+/* Class = "NSTextFieldCell"; title = "Position"; ObjectID = "x2B-xg-LEW"; */
+"x2B-xg-LEW.title" = "Posición";
+

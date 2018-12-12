@@ -1,0 +1,15 @@
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "145"; */
+"145.title" = "OtherViews";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedIsNilPlaceholder = "N/A"; ObjectID = "SKr-ZU-zTm"; */
+"SKr-ZU-zTm.ibShadowedIsNilPlaceholder" = "N/D";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedMultipleValuesPlaceholder = "Multiple"; ObjectID = "SKr-ZU-zTm"; */
+"SKr-ZU-zTm.ibShadowedMultipleValuesPlaceholder" = "Multiplo";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedNoSelectionPlaceholder = " "; ObjectID = "SKr-ZU-zTm"; */
+"SKr-ZU-zTm.ibShadowedNoSelectionPlaceholder" = " ";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedNotApplicablePlaceholder = "N/A"; ObjectID = "SKr-ZU-zTm"; */
+"SKr-ZU-zTm.ibShadowedNotApplicablePlaceholder" = "N/D";
+
