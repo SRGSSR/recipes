@@ -36,6 +36,23 @@
 	<string>1.0.0</string>
 	<key>ParentRecipe</key>
 	<string>com.github.srgssr.download.Hype3</string>
+	<key>ParentRecipeTrustInfo</key>
+	<dict>
+		<key>non_core_processors</key>
+		<dict/>
+		<key>parent_recipes</key>
+		<dict>
+			<key>com.github.srgssr.download.Hype3</key>
+			<dict>
+				<key>git_hash</key>
+				<string>527f1c0dc981a4a72127bbaa0fc39c95b7859f6c</string>
+				<key>path</key>
+				<string>~/GITHub/recipes/Hype3/Hype3.download.recipe</string>
+				<key>sha256_hash</key>
+				<string>ce62eab34129daab9158716430e6eef3a3015120be276370655267d747d57895</string>
+			</dict>
+		</dict>
+	</dict>
 	<key>Process</key>
 	<array>
 		<dict>
