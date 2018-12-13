@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<dict>
+		<key>Attribution</key>
+		<dict>
+			<key>Copyright</key>
+			<array>
+				<string>University of Oxford 2016</string>
+				<string>SRG SSR</string>
+			</array>
+			<key>Authors</key>
+			<dict>
+				<key>Name</key>
+				<array>
+					<string>Ben Goodstein</string>
+					<string>Antti Pettinen</string>
+				</array>
+				<key>Email</key>
+				<array>
+					<string>ben.goodstein at it.ox.ac.uk</string>
+					<string>a.pettinen at gmail.com</string>
+				</array>
+				<key>Github</key>
+				<array>
+					<string>fuzzylogiq</string>
+					<string>apettinen</string>
+				</array>
+				<key>Comment</key>
+				<string>This recipe is based on the work of Ben Goodstein, but edited to suit our purposes at SRG SSR</string>
+			</dict>
+		</dict>
+		<key>Description</key>
+		<string>Downloads the latest version of Blackmagic Desktop Video and imports it into munki</string>
+		<key>Identifier</key>
+		<string>com.github.srgssr.munki.DesktopVideo</string>
+		<key>Input</key>
+		<dict>
+			<key>MUNKI_REPO_SUBDIR</key>
+			<string>drivers/BlackmagicUniversalHardwareDriver</string>
+			<key>pkginfo</key>
+			<dict>
+				<key>catalogs</key>
+				<array>
+					<string>testing</string>
+				</array>
+				<key>category</key>
+				<string>Driver</string>
+				<key>description</key>
+				<string>This software includes everything you need to set up your DeckLink, UltraStudio and Intensity for video capture and playback.</string>
+				<key>developer</key>
+				<string>Blackmagic Design</string>
+				<key>display_name</key>
+				<string>Blackmagic Universal Hardware Driver</string>
+				<key>name</key>
+				<string>%NAME%</string>
+				<key>unattended_install</key>
+				<true/>
+				<key>RestartAction</key>
+				<string>RequireRestart</string>
+			</dict>
+		</dict>
+		<key>MinimumVersion</key>
+		<string>0.6.0</string>
+		<key>ParentRecipe</key>
+		<string>com.github.srgssr.download.DesktopVideo</string>
+		<key>Process</key>
+		<array>
+			<dict>
+				<key>Processor</key>
+				<string>Unarchiver</string>
+				<key>Arguments</key>
+				<dict>
+					<key>purge_destination</key>
+					<true/>
+				</dict>
+			</dict>
+			<dict>
+				<key>Processor</key>
+				<string>FileMover</string>
+				<key>Arguments</key>
+				<dict>
+					<key>source</key>
+					<string>%RECIPE_CACHE_DIR%/%NAME%/Blackmagic_Desktop_Video_%version%.dmg/Install Desktop Video %version%.pkg</string>
+					<key>target</key>
+					<string>%RECIPE_CACHE_DIR%/%NAME%-%version%.pkg</string>
+				</dict>
+			</dict>
+			<dict>
+				<key>Processor</key>
+				<string>MunkiImporter</string>
+				<key>Arguments</key>
+				<dict>
+					<key>pkg_path</key>
+					<string>%RECIPE_CACHE_DIR%/%NAME%-%version%.pkg</string>
+					<key>repo_subdirectory</key>
+					<string>%MUNKI_REPO_SUBDIR%</string>
+				</dict>
+			</dict>
+			<dict>
+				<key>Processor</key>
+				<string>PathDeleter</string>
+				<key>Arguments</key>
+				<dict>
+					<key>path_list</key>
+					<array>
+						<string>%RECIPE_CACHE_DIR%/%NAME%/</string>
+					</array>
+				</dict>
+			</dict>
+		</array>
+	</dict>
+</plist>

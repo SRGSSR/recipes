@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple/DTD PLIST 1.0//EN" "http://apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Attribution</key>
+	<dict>
+		<key>Copyright</key>
+		<array>
+			<string>University of Oxford 2016</string>
+			<string>SRG SSR</string>
+		</array>	
+		<key>Authors</key>
+		<dict>
+			<key>Name</key>
+			<array>
+				<string>Ben Goodstein</string>
+				<string>Antti Pettinen</string>
+			</array>
+			<key>Email</key>
+			<array>
+				<string>ben.goodstein at it.ox.ac.uk</string>
+				<string>a.pettinen at gmail.com</string>
+			</array>
+			<key>Github</key>
+			<array>
+				<string>fuzzylogiq</string>
+				<string>apettinen</string>
+			</array>
+			<key>Comment</key>
+			<string>This recipe is based on the work of Ben Goodstein, but edited to suit our purposes at SRG SSR</string>
+		</dict>
+	</dict>
+	<key>Description</key>
+	<string>Downloads the latest version of Desktop Video from Blackmagic.</string>
+	<key>Identifier</key>
+	<string>com.github.srgssr.download.DesktopVideo</string>
+	<key>Input</key>
+	<dict>
+		<key>NAME</key>
+		<string>Blackmagic_UniversalHardwareDriver</string>
+		<key>PRODUCT_NAME_PATTERN</key>
+		<string>^Desktop Video (?P&lt;version&gt;\d+\.\d+(\.\d+)?)$</string>
+	</dict>
+	<key>MinimumVersion</key>
+	<string>0.2.0</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<!-- this only works with the patched version currently! -->
+			<key>Processor</key>
+			<string>com.github.timsutton.download.davinciresolvelite11/BlackMagicURLProvider</string>
+			<key>Arguments</key>
+			<dict>
+				<key>product_name_pattern</key>
+				<string>%PRODUCT_NAME_PATTERN%</string>
+				<key>product_name</key>
+				<string>Desktop Video</string>
+			</dict> 
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>URLDownloader</string>
+			<key>Arguments</key>
+			<dict>
+				<key>filename</key>
+				<string>%NAME%-%version%.zip</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>EndOfCheckPhase</string>
+		</dict>
+	</array>
+</dict> 
+</plist>
