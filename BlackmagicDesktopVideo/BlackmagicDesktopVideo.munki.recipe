@@ -77,13 +77,15 @@
       </dict>
       <dict>
         <key>Processor</key>
-        <string>FileMover</string>
+        <string>Copier</string>
         <key>Arguments</key>
         <dict>
-          <key>source</key>
+          <key>source_path</key>
           <string>%RECIPE_CACHE_DIR%/%NAME%/Blackmagic_Desktop_Video_%version%.dmg/Install Desktop Video %version%.pkg</string>
-          <key>target</key>
+          <key>destination_path</key>
           <string>%RECIPE_CACHE_DIR%/%NAME%-%version%.pkg</string>
+					<key>overwrite</key>
+					<true/>
         </dict>
       </dict>
       <dict>

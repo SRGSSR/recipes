@@ -169,6 +169,17 @@ Use installer -showChoiceChangesXML -pkg /path/to/mpkg to see options. For more 
 					<string>%CC_VERSION_SUBSTRING%</string>
 				</dict>
 			</dict>
+			<dict>
+				<key>Processor</key>
+				<string>PathDeleter</string>
+				<key>Arguments</key>
+				<dict>
+					<key>path_list</key>
+					<array>
+						<string>%RECIPE_CACHE_DIR%/copied_mpkg</string>
+					</array>
+				</dict>
+			</dict>
     </array>
   </dict>
 </plist>
