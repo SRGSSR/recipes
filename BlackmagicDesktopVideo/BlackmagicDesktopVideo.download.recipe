@@ -30,25 +30,26 @@
 			<string>This recipe is based on the work of Ben Goodstein, but edited to suit our purposes at SRG SSR</string>
 		</dict>
 	</dict>
-	<key>Description</key>
-	<string>Downloads the latest version of Desktop Video from Blackmagic.</string>
-	<key>Identifier</key>
-	<string>com.github.srgssr.download.DesktopVideo</string>
-	<key>Input</key>
-	<dict>
-		<key>NAME</key>
-		<string>Blackmagic_UniversalHardwareDriver</string>
-		<key>PRODUCT_NAME_PATTERN</key>
-		<string>^Desktop Video (?P&lt;version&gt;\d+\.\d+(\.\d+)?)$</string>
-	</dict>
-	<key>MinimumVersion</key>
-	<string>0.2.0</string>
-	<key>Process</key>
-	<array>
+  <key>Description</key>
+  <string>Downloads the latest version of Desktop Video from Blackmagic.</string>
+  <key>Identifier</key>
+  <string>com.github.srgssr.download.DesktopVideo</string>
+  <key>Input</key>
+  <dict>
+    <key>NAME</key>
+    <string>Blackmagic_UniversalHardwareDriver</string>
+    <key>PRODUCT_NAME_PATTERN</key>
+    <string>^Desktop Video (?P&lt;version&gt;\d+\.\d+(\.\d+)?)$</string>
+  </dict>
+  <key>MinimumVersion</key>
+  <string>0.2.0</string>
+  <key>Process</key>
+  <array>
 		<dict>
 			<!-- this only works with the patched version currently! -->
 			<key>Processor</key>
-			<string>com.github.timsutton.download.davinciresolvelite11/BlackMagicURLProvider</string>
+			<!-- <string>com.github.timsutton.download.davinciresolvelite11/BlackMagicURLProvider</string> -->
+			<string>BlackMagicURLProvider</string>
 			<key>Arguments</key>
 			<dict>
 				<key>product_name_pattern</key>
@@ -57,19 +58,19 @@
 				<string>Desktop Video</string>
 			</dict> 
 		</dict>
-		<dict>
-			<key>Processor</key>
-			<string>URLDownloader</string>
-			<key>Arguments</key>
-			<dict>
-				<key>filename</key>
-				<string>%NAME%-%version%.zip</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>Processor</key>
-			<string>EndOfCheckPhase</string>
-		</dict>
-	</array>
+    <dict>
+      <key>Processor</key>
+      <string>URLDownloader</string>
+      <key>Arguments</key>
+      <dict>
+        <key>filename</key>
+        <string>%NAME%-%version%.zip</string>
+      </dict>
+    </dict>
+    <dict>
+      <key>Processor</key>
+      <string>EndOfCheckPhase</string>
+    </dict>
+  </array>
 </dict> 
 </plist>
