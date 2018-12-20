@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Attribution</key>
+	<dict>
+		<key>Copyright</key>
+		<array>
+			<string>SRG SSR</string>
+		</array>	
+		<key>Authors</key>
+		<dict>
+			<key>Name</key>
+			<array>
+				<string>Antti Pettinen</string>
+			</array>
+			<key>Email</key>
+			<array>
+				<string>a.pettinen at gmail.com</string>
+			</array>
+			<key>Github</key>
+			<array>
+				<string>apettinen</string>
+			</array>
+		</dict>
+	</dict>
+	<key>Description</key>
+	<string>Extracts the mpkg out of the Red Giant provided installer application.</string>
+	<key>Identifier</key>
+	<string>com.github.srgssr.pkg.RedGiantMagicBulletSuite</string>
+	<key>MinimumVersion</key>
+	<string>0.6.0</string>
+	<key>ParentRecipe</key>
+	<string>com.github.srgssr.download.RedGiantMagicBulletSuite</string>
+	<key>Input</key>
+	<dict>
+		<key>MPKG_NAME_GLOB</key>
+		<string>MagicBulletSuite-*.*.*_mac_*.mpkg</string>
+		<key>APP_NAME_GLOB</key>
+		<string>Magic Bullet Suite *.*.* Installer.app</string>
+		<key>APP_FOLDER_GLOB</key>
+		<string>MBSuite_Mac_Full_*.*.*</string>
+	</dict>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Processor</key>
+			<string>FileFinder</string>
+			<key>Arguments</key>
+			<dict>
+				<key>pattern</key>
+				<string>%RECIPE_CACHE_DIR%/unarchived/%APP_FOLDER_GLOB%/%APP_NAME_GLOB%/Contents/Assets/%MPKG_NAME_GLOB%</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>PkgCopier</string>
+			<key>Arguments</key>
+			<dict>
+				<key>pkg_path</key>
+				<string>%RECIPE_CACHE_DIR%/copied_mpkg/%NAME%.mpkg</string>
+				<key>source_pkg</key>
+				<string>%found_filename%</string>
+			</dict>
+		</dict>
+		<!--
+		<dict>
+			<key>Processor</key>
+			<string>PathDeleter</string>
+			<key>Arguments</key>
+			<dict>
+				<key>path_list</key>
+				<array>
+					<string>%RECIPE_CACHE_DIR%/unarchived</string>
+				</array>
+			</dict>
+		</dict>-->
+	</array>
+</dict>
+</plist>
+
