@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple/DTD PLIST 1.0//EN" "http://apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Attribution</key>
+	<dict>
+		<key>Copyright</key>
+		<array>
+			<string>SRG SSR</string>
+		</array>	
+		<key>Authors</key>
+		<dict>
+			<key>Name</key>
+			<array>
+				<string>Antti Pettinen</string>
+			</array>
+			<key>Email</key>
+			<array>
+				<string>a.pettinen at gmail.com</string>
+			</array>
+			<key>Github</key>
+			<array>
+				<string>apettinen</string>
+			</array>
+		</dict>
+	</dict>
+  <key>Description</key>
+  <string>Downloads the latest version of Red Giant Keying Suite plugin installer and verifies the code signature of the installer application.</string>
+  <key>Identifier</key>
+  <string>com.github.srgssr.download.RedGiantKeyingSuite</string>
+  <key>Input</key>
+  <dict>
+    <key>NAME</key>
+    <string>AE_RedGiantKeyingSuite</string>
+		<key>DL_URL</key>
+		<string>https://downloads.redgiant.com/redgiant/products/singlesuites/keying/KSuite_Mac_Full.zip</string>
+		<key>APP_NAME_GLOB</key>
+		<string>Keying Suite *.*.* Installer.app</string>
+		<key>APP_FOLDER_GLOB</key>
+		<string>KSuite_Mac_Full_*.*.*</string>
+  </dict>
+  <key>MinimumVersion</key>
+  <string>0.6.0</string>
+  <key>Process</key>
+  <array>
+    <dict>
+      <key>Processor</key>
+      <string>URLDownloader</string>
+			<key>Arguments</key>
+			<dict>
+				<key>url</key>
+				<string>%DL_URL%</string>
+			</dict>
+		</dict>
+    <dict>
+      <key>Processor</key>
+      <string>EndOfCheckPhase</string>
+    </dict>
+		<dict>
+			<key>Processor</key>
+			<string>Unarchiver</string>
+			<key>Arguments</key>
+			<dict>
+				<key>archive_path</key>
+				<string>%pathname%</string>
+				<key>destination_path</key>
+				<string>%RECIPE_CACHE_DIR%/unarchived/</string>
+				<key>purge_destination</key>
+				<true/>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>CodeSignatureVerifier</string>
+			<key>Arguments</key>
+			<dict>
+				<key>input_path</key>
+				<string>%RECIPE_CACHE_DIR%/unarchived/%APP_FOLDER_GLOB%/%APP_NAME_GLOB%</string>
+				<key>requirement</key>
+				<string>identifier "com.redgiant.Red-Giant-Launcher" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = D642JS68SL</string>
+				<key>deep_verification</key>
+				<true/>
+			</dict>
+		</dict>
+  </array>
+</dict> 
+</plist>
