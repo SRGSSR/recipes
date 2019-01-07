@@ -8,7 +8,7 @@
 		Examples include '2.6.1-1', '2.6.1-2', '2.8.1-1'
 	</string>
     <key>Identifier</key>
-    <string>com.github.srgssr.munki.download.qgis</string>
+    <string>com.github.srgssr.download.QGIS</string>
     <key>Input</key>
     <dict>
         <key>VERSION</key>
