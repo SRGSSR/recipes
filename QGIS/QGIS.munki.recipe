@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>Downloads QGIS disk image and imports into Munki.</string>
+    <key>Identifier</key>
+    <string>com.github.srgssr.munki.QGIS</string>
+    <key>Input</key>
+    <dict>
+        <key>MUNKI_REPO_SUBDIR</key>
+        <string>SW/KyngChaos/QGIS</string>
+        <key>NAME</key>
+        <string>QGIS</string>
+        <key>MUNKI_CATEGORY</key>
+		<string>Scientific</string>
+        <key>pkginfo</key>
+        <dict>
+            <key>catalogs</key>
+            <array>
+                <string>testing</string>
+            </array>
+            <key>category</key>
+            <string>%MUNKI_CATEGORY%</string>
+            <key>description</key>
+            <string>QGIS is an Open Source Geographic Information System</string>
+            <key>display_name</key>
+            <string>QGIS</string>
+            <key>developer</key>
+            <string>KyngChaos</string>
+            <key>name</key>
+            <string>%NAME%</string>
+			<key>preinstall_script</key>
+			<string>#!/bin/sh
+				rm -rf /Applications/QGIS.app
+			</string>
+			<key>postuninstall_script</key>
+			<string>#!/bin/sh
+				rm -rf /Applications/QGIS.app
+			</string>
+			<key>requires</key>
+			<array>
+				<string>GDAL</string>
+				<string>matplotlib</string>
+				<string>numpy</string>
+			</array>
+            <key>unattended_install</key>
+            <true/>
+        </dict>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.2.0</string>
+    <key>ParentRecipe</key>
+    <string>com.github.srgssr.download.QGIS</string>
+    <key>Process</key>
+    <array>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>source_path</key>
+				<string>%RECIPE_CACHE_DIR%/downloads/2 Install QGIS 3.pkg</string>
+				<key>destination_path</key>
+				<string>%RECIPE_CACHE_DIR%/downloads/%NAME%.pkg</string>
+			</dict>
+			<key>Processor</key>
+			<string>Copier</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>dmg_path</key>
+				<string>%RECIPE_CACHE_DIR%/%NAME%.dmg</string>
+				<key>dmg_root</key>
+				<string>%RECIPE_CACHE_DIR%/downloads/%NAME%.pkg</string>
+			</dict>
+			<key>Processor</key>
+			<string>DmgCreator</string>
+		</dict>
+        <dict>
+            <key>Arguments</key>
+            <dict>
+                <key>pkg_path</key>
+                <string>%RECIPE_CACHE_DIR%/%NAME%.dmg</string>
+                <key>repo_subdirectory</key>
+                <string>%MUNKI_REPO_SUBDIR%</string>
+            </dict>
+            <key>Processor</key>
+            <string>MunkiImporter</string>
+        </dict>
+    </array>
+</dict>
+</plist>
