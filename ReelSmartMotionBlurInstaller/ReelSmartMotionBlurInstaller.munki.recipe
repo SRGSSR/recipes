@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+		<key>Attribution</key>
+		<dict>
+			<key>Copyright</key>
+			<array>
+				<string>SRG SSR</string>
+			</array>
+			<key>Authors</key>
+			<dict>
+				<key>Name</key>
+				<array>
+					<string>Antti Pettinen</string>
+				</array>
+				<key>Email</key>
+				<array>
+					<string>a.pettinen at gmail.com</string>
+				</array>
+				<key>Github</key>
+				<array>
+					<string>apettinen</string>
+				</array>
+			</dict>
+		</dict>
+    <key>Description</key>
+		<string>Downloads, repackages, and imports into Munki the latest version of ReelSmart MotionBlur Installer.</string>
+    <key>Identifier</key>
+    <string>com.github.srgssr.munki.ReelSmartMotionBlurInstaller</string>
+    <key>Input</key>
+    <dict>
+      <key>MUNKI_REPO_SUBDIR</key>
+      <string>plugins/AfterEffects/ReelSmartMotionBlur</string>
+			<key>APP_RENAME</key>
+			<string>RSMBInstaller.app</string>
+      <key>pkginfo</key>
+      <dict>
+        <key>catalogs</key>
+        <array>
+          <string>testing</string>
+        </array>
+        <key>category</key>
+        <string>Plugins</string>
+        <key>description</key>
+				<string>Adobe AfterEffects plugin to apply natural-looking motion blur by automatically tracking every pixel.</string>
+        <key>developer</key>
+        <string>RE:Vision Effects, Inc.</string>
+        <key>display_name</key>
+        <string>ReelSmart Motion Blur</string>
+        <key>name</key>
+        <string>%NAME%</string>
+        <key>unattended_install</key>
+        <true/>
+      </dict>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.6.0</string>
+    <key>ParentRecipe</key>
+		<string>com.github.srgssr.pkg.ReelSmartMotionBlurInstaller</string>
+    <key>Process</key>
+    <array>
+			<dict>
+				<key>Processor</key>
+				<string>MunkiPkginfoMerger</string>
+				<key>Arguments</key>
+				<dict>
+					<key>additional_pkginfo</key>
+					<dict>
+						<key>postinstall_script</key>
+						<string>#!/bin/bash
+# Author: Antti Pettinen
+# License: Apache 2.0
+# Last Modified Date: 19.12.2018
+# Last Modified By: Antti Pettinen
+# Copyright 2018 SRG SSR
+#
+# Munki postinstall script to remove the installer app after succesful install
+set -euo pipefail
+
+INSTALLER_PATH="/tmp/%APP_RENAME%"
+
+if [[ -d "${INSTALLER_PATH}" ]]; then
+	echo "Found installer application, removing it..."
+	/bin/rm -rf ${INSTALLER_PATH}
+else
+	echo "${INSTALLER_PATH} not found or is not executable! Cannot proceed with removal."
+	exit 1
+fi
+echo "Removal of installer completed. Installation fully completed."
+exit 0
+						</string>
+					</dict>
+				</dict>
+			</dict>
+      <dict>
+        <key>Processor</key>
+        <string>MunkiImporter</string>
+        <key>Arguments</key>
+        <dict>
+          <key>pkg_path</key>
+          <string>%RECIPE_CACHE_DIR%/%PKG_BASENAME%-%version%.pkg</string>
+          <key>repo_subdirectory</key>
+          <string>%MUNKI_REPO_SUBDIR%</string>
+        </dict>
+      </dict>
+    </array>
+  </dict>
+</plist>

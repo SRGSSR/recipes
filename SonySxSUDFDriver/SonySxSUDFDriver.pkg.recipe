@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>Extracts the pkg out of the pkg inside the dmg inside the downloaded zip and verifies the codesignature.</string>
+	<key>Identifier</key>
+	<string>com.github.srgssr.pkg.SonySxSUDFDriver</string>
+	<key>MinimumVersion</key>
+	<string>0.6.0</string>
+	<key>ParentRecipe</key>
+	<string>com.github.srgssr.download.SonySxSUDFDriver</string>
+	<key>Input</key>
+	<dict>
+		<key>PKG_BASENAME</key>
+		<string>SxS UDF Driver Software</string>
+		<key>DMG_GLOB</key>
+		<string>SxSUDFDriver_?_?_?_mac.dmg</string>
+	</dict>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Processor</key>
+			<string>Unarchiver</string>
+			<key>Arguments</key>
+			<dict>
+					<key>archive_path</key>
+					<string>%pathname%</string>
+					<key>destination_path</key>
+					<string>%RECIPE_CACHE_DIR%/unarchived/</string>
+					<key>purge_destination</key>
+					<true/>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>FileFinder</string>
+			<key>Arguments</key>
+			<dict>
+				<key>pattern</key>
+				<string>%RECIPE_CACHE_DIR%/unarchived/%DMG_GLOB%</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>PkgCopier</string>
+			<key>Arguments</key>
+			<dict>
+				<key>pkg_path</key>
+				<string>%RECIPE_CACHE_DIR%/%NAME%.pkg</string>
+				<key>source_pkg</key>
+				<string>%found_filename%/%PKG_BASENAME%.pkg</string>
+			</dict>
+		</dict>
+		<!-- verify here, to make life easier -->
+		<dict>
+			<key>Processor</key>
+			<string>CodeSignatureVerifier</string>
+			<key>Arguments</key>
+			<dict>
+				<key>input_path</key>
+				<string>%pkg_path%</string>
+				<key>expected_authority_names</key>
+				<array>
+					<string>Developer ID Installer: Sony Corporation (M8BZ28GSX7)</string>
+					<string>Developer ID Certification Authority</string>
+          <string>Apple Root CA</string>
+				</array>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>PathDeleter</string>
+			<key>Arguments</key>
+			<dict>
+				<key>path_list</key>
+				<array>
+					<string>%RECIPE_CACHE_DIR%/unarchived</string>
+				</array>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>
+

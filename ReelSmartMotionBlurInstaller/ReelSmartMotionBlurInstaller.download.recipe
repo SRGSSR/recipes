@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple/DTD PLIST 1.0//EN" "http://apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Attribution</key>
+	<dict>
+		<key>Copyright</key>
+		<array>
+			<string>SRG SSR</string>
+		</array>	
+		<key>Authors</key>
+		<dict>
+			<key>Name</key>
+			<array>
+				<string>Antti Pettinen</string>
+			</array>
+			<key>Email</key>
+			<array>
+				<string>a.pettinen at gmail.com</string>
+			</array>
+			<key>Github</key>
+			<array>
+				<string>apettinen</string>
+			</array>
+		</dict>
+	</dict>
+  <key>Description</key>
+  <string>Downloads the latest version of ReelSmartMotion Blur plugin installer.</string>
+  <key>Identifier</key>
+  <string>com.github.srgssr.download.ReelSmartMotionBlurInstaller</string>
+  <key>Input</key>
+  <dict>
+    <key>NAME</key>
+    <string>AE_ReelSmartMotionBlurInstaller</string>
+		<key>DL_URL</key>
+		<string>https://revisionfx.s3.amazonaws.com/wp-content/uploads/RSMB6AEInstaller.dmg</string>
+		<key>APP_NAME_GLOB</key>
+		<string>RSMB6AE-*.*.*-osx-installer.app</string>
+  </dict>
+  <key>MinimumVersion</key>
+  <string>0.6.0</string>
+  <key>Process</key>
+  <array>
+    <dict>
+      <key>Processor</key>
+      <string>URLDownloader</string>
+			<key>Arguments</key>
+			<dict>
+				<key>url</key>
+				<string>%DL_URL%</string>
+			</dict>
+		</dict>
+    <dict>
+      <key>Processor</key>
+      <string>EndOfCheckPhase</string>
+    </dict>
+		<dict>
+			<key>Processor</key>
+			<string>CodeSignatureVerifier</string>
+			<key>Arguments</key>
+			<dict>
+				<key>input_path</key>
+				<string>%pathname%/%APP_NAME_GLOB%</string>
+				<key>requirement</key>
+				<string>identifier "com.revisioneffects.RSMB6AEappinstaller" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = JC43EKREZ6</string>
+				<key>deep_verification</key>
+				<true/>
+			</dict>
+		</dict>
+  </array>
+</dict> 
+</plist>

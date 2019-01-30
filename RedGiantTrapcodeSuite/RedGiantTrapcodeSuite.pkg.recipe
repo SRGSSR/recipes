@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Attribution</key>
+	<dict>
+		<key>Copyright</key>
+		<array>
+			<string>SRG SSR</string>
+		</array>	
+		<key>Authors</key>
+		<dict>
+			<key>Name</key>
+			<array>
+				<string>Antti Pettinen</string>
+			</array>
+			<key>Email</key>
+			<array>
+				<string>a.pettinen at gmail.com</string>
+			</array>
+			<key>Github</key>
+			<array>
+				<string>apettinen</string>
+			</array>
+		</dict>
+	</dict>
+	<key>Description</key>
+	<string>Creates a pkg by copying the app out of the downloaded Red Giant Trapcode Suite plugin and extracted archive, renaming it, and adding a postinstall script for actual installation.</string>
+	<key>Identifier</key>
+	<string>com.github.srgssr.pkg.RedGiantTrapcodeSuite</string>
+	<key>MinimumVersion</key>
+	<string>0.6.0</string>
+	<key>ParentRecipe</key>
+	<string>com.github.srgssr.download.RedGiantTrapcodeSuite</string>
+	<key>Input</key>
+	<dict>
+		<key>PKG_BASENAME</key>
+		<string>RGTS_Installer</string>
+		<key>APP_NAME_GLOB</key>
+		<string>Trapcode Suite *.*.* Installer.app</string>
+		<key>APP_FOLDER_GLOB</key>
+		<string>TCSuite_Mac_Full_*.*.*</string>
+		<key>APP_RENAME</key>
+		<string>RGTSInstaller.app</string>
+	</dict>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Processor</key>
+			<string>PkgRootCreator</string>
+			<key>Arguments</key>
+			<dict>
+				<key>pkgroot</key>
+				<string>%RECIPE_CACHE_DIR%/pkgroot</string>
+				<key>pkgdirs</key>
+				<dict>
+					<key>build</key>
+					<string>0750</string>
+					<key>build/private</key>
+					<string>0750</string>
+					<key>build/private/tmp</key>
+					<string>0750</string>
+					<key>scripts</key>
+					<string>0750</string>
+        </dict>
+      </dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>Copier</string>
+			<key>Arguments</key>
+			<dict>
+				<key>source_path</key>
+				<string>%RECIPE_CACHE_DIR%/unarchived/%APP_FOLDER_GLOB%/%APP_NAME_GLOB%</string>
+				<key>destination_path</key>
+				<string>%pkgroot%/build/private/tmp/%APP_RENAME%</string>
+				<key>overwrite</key>
+				<true/>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>FileCreator</string>
+			<key>Arguments</key>
+			<dict>
+				<key>file_path</key>
+				<string>%pkgroot%/scripts/postinstall</string>
+				<key>file_mode</key>
+				<string>0755</string>
+				<key>file_content</key>
+				<string>#!/bin/bash
+# Author: Antti Pettinen
+# License: Apache 2.0
+# Last Modified Date: 19.12.2018
+# Last Modified By: Antti Pettinen
+# Copyright 2018 SRG SSR
+# Better version of the install script  embedded in the original installer.app
+# under Contents/Scripts/install.sh
+set -euo pipefail
+
+INSTALLER_PATH="$3/tmp/%APP_RENAME%/Contents/MacOS/rgdeploy"
+PACKAGES_PATH="$3/tmp/%APP_RENAME%/Contents/Resources/packages"
+LOGFILE="$3/Library/Logs/redgiant-installer-$(/bin/date +%s).log"
+# Change these if needed
+INSTALLER_OPTIONS=(
+	--nofusecalls
+	"dir=${PACKAGES_PATH}"
+	"log=${LOGFILE}"
+)
+
+if [[ -x "${INSTALLER_PATH}" ]]; then
+	echo "Installer found, proceeding with install using: " "${INSTALLER_OPTIONS[@]}"
+	"${INSTALLER_PATH}" "${INSTALLER_OPTIONS[@]}"
+else
+	echo "${INSTALLER_PATH} not found or is not executable! Cannot proceed with install!"
+	exit 1
+fi
+echo "Installation complete"
+exit 0
+			</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>Versioner</string>
+			<key>Arguments</key>
+			<dict>
+				<key>input_plist_path</key>
+				<string>%pkgroot%/build/private/tmp/%APP_RENAME%/Contents/Info.plist</string>
+				<key>plist_version_key</key>
+				<string>CFBundleShortVersionString</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>PkgCreator</string>
+			<key>Arguments</key>
+			<dict>
+				<key>pkgname</key>
+				<string>%PKG_BASENAME%-%version%</string>
+				<key>pkg_request</key>
+				<dict>
+					<key>pkgroot</key>
+					<string>%pkgroot%/build</string>
+					<key>pkgdir</key>
+					<string>%RECIPE_CACHE_DIR%</string>
+					<key>id</key>
+					<string>com.redgiant.RGTSInstaller</string>
+					<key>options</key>
+					<string>purge_ds_store</string>
+					<key>version</key>
+					<string>%version%</string>
+					<key>pkgtype</key>
+					<string>flat</string>
+					<key>scripts</key>
+					<string>%pkgroot%/scripts</string>
+					<key>chown</key>
+					<array>
+						<dict>
+							<key>path</key>
+							<string>/private</string>
+							<key>user</key>
+							<string>root</string>
+							<key>group</key>
+							<string>wheel</string>
+						</dict>
+						<dict>
+							<key>path</key>
+							<string>/private/tmp</string>
+							<key>user</key>
+							<string>root</string>
+							<key>group</key>
+							<string>wheel</string>
+						</dict>
+						<dict>
+							<key>path</key>
+							<string>/private/tmp/%APP_RENAME%</string>
+							<key>user</key>
+							<string>root</string>
+							<key>group</key>
+							<string>wheel</string>
+						</dict>
+					</array>
+				</dict>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>PathDeleter</string>
+			<key>Arguments</key>
+			<dict>
+				<key>path_list</key>
+				<array>
+					<string>%RECIPE_CACHE_DIR%/build</string>
+				</array>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>
+

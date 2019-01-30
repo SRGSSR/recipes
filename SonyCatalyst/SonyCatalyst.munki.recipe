@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!--
+			This recipe requires you to download Sony Catalyst dmg from the Sony web portal
+	-->
+	<key>Description</key>
+	<string>Imports Sony Catalyst Browse and prepare as an dmg-based installer entry to Munki</string>
+	<key>Identifier</key>
+	<string>com.github.srgssr.munki.sonycatalyst</string>
+	<key>MinimumVersion</key>
+	<string>0.6.0</string>
+	<key>Input</key>
+	<dict>
+		<key>NAME</key>
+		<string>SonyCatalystBrowse</string>
+		<key>DISPLAY_NAME</key>
+		<string>Sony Catalyst Browse</string>
+		<key>MUNKI_REPO_SUBDIR</key>
+		<string>Sony/CatalystBrowse</string>
+		<key>MUNKI_CATEGORY</key>
+		<string>Utilities</string>
+		<key>MUNKI_DEVELOPER</key>
+		<string>Sony</string>
+		<key>DMG_DIR</key>
+		<string>/Users/Shared/downloads</string>
+		<key>DMG_BASENAME</key>
+		<string>CatalystBrowse_2018.2_Suite</string>
+		<key>DMG_LANGUAGE</key>
+		<string>ENG</string>
+		<key>pkginfo</key>
+		<dict>
+			<key>catalogs</key>
+			<array>
+				<string>testing</string>
+			</array>
+			<key>name</key>
+			<string>%NAME%</string>
+			<key>display_name</key>
+			<string>%DISPLAY_NAME%</string>
+			<key>category</key>
+			<string>%MUNKI_CATEGORY%</string>
+			<key>developer</key>
+			<string>%MUNKI_DEVELOPER%</string>
+			<key>description</key>
+			<string>Catalyst Browse is a media assistant that lets you browse files from your Sony camera, deck, or card reader with detailed views of individual clips; see and edit media metadata; accurately view video using source color space, and apply color correction and color looks. Once you've selected the clips you need, you can copy them to a local hard drive or connected NAS, upload to Sony Media Cloud Services Ci, transcode to a variety of formats, as well as create, ingest, and export Sony Professional Disc clip lists.</string>
+			<key>unattended_install</key>
+			<true/>
+		</dict>
+	</dict>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Processor</key>
+			<string>CodeSignatureVerifier</string>
+			<key>Arguments</key>
+			<dict>
+					<key>input_path</key>
+					<string>%DMG_DIR%/%DMG_BASENAME%_%DMG_LANGUAGE%.dmg/Catalyst Browse.app</string>
+					<key>requirement</key>
+					<string>identifier "com.sony.SonyCreativeSoftware.Browse" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "237LWLWT2Q"</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>CodeSignatureVerifier</string>
+			<key>Arguments</key>
+			<dict>
+					<key>input_path</key>
+					<string>%DMG_DIR%/%DMG_BASENAME%_%DMG_LANGUAGE%.dmg/Catalyst Prepare.app</string>
+					<key>requirement</key>
+					<string>identifier "com.sony.SonyCreativeSoftware.Catalyst-Prepare" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "237LWLWT2Q"</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>EndOfCheckPhase</string>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>Copier</string>
+			<key>Arguments</key>
+			<dict>
+				<key>destination_path</key>
+				<string>%RECIPE_CACHE_DIR%/dmgroot/Applications/Catalyst Browse.app</string>
+				<key>source_path</key>
+				<string>%DMG_DIR%/%DMG_BASENAME%_%DMG_LANGUAGE%.dmg/Catalyst Browse.app</string>
+				<key>overwrite</key>
+				<true/>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>Copier</string>
+			<key>Arguments</key>
+			<dict>
+				<key>destination_path</key>
+				<string>%RECIPE_CACHE_DIR%/dmgroot/Applications/Catalyst Prepare.app</string>
+				<key>source_path</key>
+				<string>%DMG_DIR%/%DMG_BASENAME%_%DMG_LANGUAGE%.dmg/Catalyst Prepare.app</string>
+				<key>overwrite</key>
+				<true/>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>MunkiInstallsItemsCreator</string>
+			<key>Arguments</key>
+			<dict>
+				<key>faux_root</key>
+				<string>%RECIPE_CACHE_DIR%/dmgroot/</string>
+				<key>installs_item_paths</key>
+				<array>
+					<string>/Applications/Catalyst Browse.app</string>
+					<string>/Applications/Catalyst Prepare.app</string>
+				</array>
+				<key>version_comparison_key</key>
+				<string>CFBundleShortVersionString</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>MunkiPkginfoMerger</string>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>MunkiPkginfoMerger</string>
+			<key>Arguments</key>
+			<dict>
+				<key>additional_pkginfo</key>
+				<dict>
+					<key>items_to_copy</key>
+					<array>
+						<dict>
+							<key>destination_path</key>
+							<string>/Applications</string>
+							<key>source_item</key>
+							<string>Catalyst Browse.app</string>
+							<key>mode</key>
+							<string>0755</string>
+							<key>user</key>
+							<string>root</string>
+							<key>group</key>
+							<string>wheel</string>
+						</dict>
+						<dict>
+							<key>destination_path</key>
+							<string>/Applications</string>
+							<key>source_item</key>
+							<string>Catalyst Prepare.app</string>
+							<key>mode</key>
+							<string>0755</string>
+							<key>user</key>
+							<string>root</string>
+							<key>group</key>
+							<string>wheel</string>
+						</dict>
+					</array>
+				</dict>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>MunkiImporter</string>
+			<key>Arguments</key>
+			<dict>
+				<key>pkg_path</key>
+				<string>%DMG_DIR%/%DMG_BASENAME%_%DMG_LANGUAGE%.dmg</string>
+				<key>repo_subdirectory</key>
+				<string>%MUNKI_REPO_SUBDIR%</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>PathDeleter</string>
+			<key>Arguments</key>
+			<dict>
+				<key>path_list</key>
+				<array>
+					<string>%RECIPE_CACHE_DIR%/dmgroot</string>
+				</array>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>
