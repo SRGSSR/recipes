@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>.</string>
+    <key>Identifier</key>
+    <string>com.github.srgssr.download.SEHUTNManager</string>
+    <key>Input</key>
+    <dict>
+        <key>VERSION</key>
+        <string>latest</string>
+        <key>NAME</key>
+        <string>SEHUTNManager</string>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.2.0</string>
+    <key>Process</key>
+		<array>
+			<dict>
+				<key>Processor</key>
+				<string>URLTextSearcher</string>
+				<key>Arguments</key>
+				<dict>
+					<key>url</key>
+					<string>https://www.seh-technology.com/de/service/downloads/download-dongleserver/myutn-80.html</string>
+					<key>re_pattern</key>
+					<string>(sehutnmanager-mac-[3-9\.]+.[0-9]+.[0-9]+)</string>
+					<key>result_output_var_name</key>
+					<string>url</string>
+				</dict>
+			</dict>
+		
+			<dict>
+				<key>Processor</key>
+				<string>URLDownloader</string>
+				<key>Arguments</key>
+				<dict>
+					<key>url</key>
+					<string>https://www.seh-technology.com/fileadmin/user/downloads/deviceserver/tools/%url%.zip</string>
+					<key>filename</key>
+					<string>%url%</string>
+				</dict>
+			</dict>
+            <dict>
+            <key>Arguments</key>
+            <dict>
+               <key>destination_path</key>
+               <string>%RECIPE_CACHE_DIR%/downloads/unpack</string>
+               <key>archive_path</key>
+               <string>%RECIPE_CACHE_DIR%/downloads/%filename%.zip</string>
+            </dict>
+            <key>Processor</key>
+            <string>Unarchiver</string>
+         </dict>
+		</array>
+</dict>
+</plist>
