@@ -191,7 +191,7 @@ exit 0
 			<dict>
 				<key>path_list</key>
 				<array>
-					<string>%RECIPE_CACHE_DIR%/build</string>
+					<string>%RECIPE_CACHE_DIR%/pkgroot/build</string>
 				</array>
 			</dict>
 		</dict>
