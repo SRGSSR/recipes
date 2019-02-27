@@ -43,7 +43,6 @@
 				<key>category</key>
 				<string>Driver</string>
 				<key>description</key>
-				<!-- <string>%description%</string> -->
 				<string>This installer includes all AJA hardware drivers, AJA Control Room and plug-ins for Adobe, Avid and Wirecast in a single, unified package for KONA, Io and T-TAP products.</string>
 				<key>developer</key>
 				<string>AJA</string>
