@@ -105,6 +105,8 @@
 					</array>
 				</dict>
 			</dict>
+			<key>Processor</key>
+			<string>MunkiImporter</string>
 		</array>
 	</dict>
 </plist>
