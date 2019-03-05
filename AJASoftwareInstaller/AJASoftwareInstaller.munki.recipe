@@ -5,15 +5,15 @@
 	<key>Comment</key>
 	<string>Created with Recipe Robot v1.1.2 (https://github.com/homebysix/recipe-robot)</string>
 	<key>Description</key>
-	<string>Downloads the latest version of AJA Control Room and imports it into Munki.</string>
+	<string>Downloads the latest version of AJA Software Installer and imports it into Munki.</string>
 	<key>Identifier</key>
-	<string>com.github.srgssr.recipes.munki.AJAControlRoom</string>
+	<string>com.github.srgssr.recipes.munki.AJASoftwareInstaller</string>
 	<key>Input</key>
 	<dict>
 		<key>MUNKI_REPO_SUBDIR</key>
 		<string>apps/%NAME%</string>
 		<key>NAME</key>
-		<string>AJA Control Room</string>
+		<string>AJA Software Installer</string>
 		<key>pkginfo</key>
 		<dict>
 			<key>blocking_applications</key>
@@ -36,7 +36,7 @@
 			<key>developer</key>
 			<string>AJA Video Systems</string>
 			<key>display_name</key>
-			<string>AJA Control Room</string>
+			<string>AJA Software Installer</string>
 			<key>name</key>
 			<string>%NAME%</string>
 			<key>unattended_install</key>
@@ -46,7 +46,7 @@
 	<key>MinimumVersion</key>
 	<string>1.0.0</string>
 	<key>ParentRecipe</key>
-	<string>com.github.srgssr.recipes.download.AJAControlRoom</string>
+	<string>com.github.srgssr.recipes.download.AJASoftwareInstaller</string>
 	<key>Process</key>
 	<array>
 		<dict>
