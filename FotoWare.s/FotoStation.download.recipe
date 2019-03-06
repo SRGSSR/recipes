@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Comment</key>
+	<string></string>
+	<key>Description</key>
+	<string>Downloads the latest version of FotoStation.</string>
+	<key>Identifier</key>
+	<string>com.github.srgssr.download.FotoStation</string>
+	<key>Input</key>
+	<dict>
+		
+		<key>NAME</key>
+		<string>FotoStation</string>
+	</dict>
+	<key>MinimumVersion</key>
+	<string>1.0.0</string>
+	<key>Process</key>
+	<array>
+		<dict>
+		<key>Processor</key>
+				<string>URLTextSearcher</string>
+				<key>Arguments</key>
+				<dict>
+					<key>url</key>
+					<string>https://fotostation.com/download-for-mac</string>
+					<key>re_pattern</key>
+					<string>(https:\/\/cdn.fotoware.com\/fslt\/Macintosh\/[0-9]+[0-9]+[0-9]+\/FotoStation-[0-9]+.[0-9]+-Build-[0-9]+[0-9]+[0-9]+-Installer.dmg)</string>
+					<key>result_output_var_name</key>
+					<string>url</string>
+				</dict>
+			</dict>
+			<dict>
+				<key>Processor</key>
+				<string>URLDownloader</string>
+				<key>Arguments</key>
+				<dict>
+					<key>url</key>
+					<string>%url%</string>
+					<key>filename</key>
+					<string>%NAME%.dmg</string>
+				</dict>
+			</dict>
+
+		<dict>
+			<key>Processor</key>
+			<string>EndOfCheckPhase</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>input_path</key>
+				<string>%pathname%/FotoStation.app</string>
+				<key>requirement</key>
+				<string>identifier "com.fotoware.fotostation" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = D2B87H8LYU</string>
+			</dict>
+			<key>Processor</key>
+			<string>CodeSignatureVerifier</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>input_plist_path</key>
+				<string>%pathname%/FotoStation.app/Contents/Info.plist</string>
+				<key>plist_version_key</key>
+				<string>CFBundleVersion</string>
+			</dict>
+			<key>Processor</key>
+			<string>Versioner</string>
+		</dict>
+	</array>
+</dict>
+</plist>
