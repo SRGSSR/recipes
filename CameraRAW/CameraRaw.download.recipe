@@ -7,7 +7,7 @@
 	<key>Description</key>
 	<string>Downloads the latest version of WirelessMedia.</string>
 	<key>Identifier</key>
-	<string>com.github.srgssr.recipes.download.WirelessMedia</string>
+	<string>com.github.srgssr.recipes.download.CameraRAW</string>
 	<key>Input</key>
 	<dict>
 		<key>APP_FILENAME</key>
