@@ -104,8 +104,6 @@
 		<key>choiceIdentifier</key>
 		<string>installer_choice_3</string>
 	</dict>
-
-	</dict>
 	<key>MinimumVersion</key>
 	<string>1.0.0</string>
 	<key>ParentRecipe</key>
