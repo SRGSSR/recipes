@@ -35,7 +35,7 @@
 	<key>MinimumVersion</key>
 	<string>1.0.0</string>
 	<key>ParentRecipe</key>
-	<string>com.github.brezniar.recipes.download.BaseHead</string>
+	<string>ch.srgssr.recipes.download.BaseHead</string>
 	<key>Process</key>
 	<array>
 		<dict>
