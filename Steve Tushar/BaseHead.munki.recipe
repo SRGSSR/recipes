@@ -3,19 +3,17 @@
 <plist version="1.0">
 <dict>
 	<key>Comment</key>
-	<string>Created with Recipe Robot v1.0.5 (https://github.com/homebysix/recipe-robot)</string>
+	<string>Created with Recipe Robot v1.1.2 (https://github.com/homebysix/recipe-robot)</string>
 	<key>Description</key>
-	<string>Downloads the latest version of WirelessMedia and imports it into Munki.</string>
+	<string>Downloads the latest version of BaseHead and imports it into Munki.</string>
 	<key>Identifier</key>
-	<string>com.github.srgssr.recipes.munki.WirelessMedia</string>
+	<string>ch.srgssr.recipes.munki.BaseHead</string>
 	<key>Input</key>
 	<dict>
-		<key>APP_FILENAME</key>
-		<string>CameraRaw</string>
 		<key>MUNKI_REPO_SUBDIR</key>
-		<string>SW/Adobe/CameraRAW</string>
+		<string>apps/%NAME%</string>
 		<key>NAME</key>
-		<string>CameraRAW</string>
+		<string>BaseHead</string>
 		<key>pkginfo</key>
 		<dict>
 			<key>catalogs</key>
@@ -23,21 +21,21 @@
 				<string>testing</string>
 			</array>
 			<key>description</key>
-			<string> </string>
+			<string>This is a SFX searching Beast of a program for finding your sound effects, music, and audio files used by thousand of audio professionals around the globe.</string>
 			<key>developer</key>
-			<string>Adobe</string>
+			<string>Steve Tushar</string>
 			<key>display_name</key>
-			<string>CameraRAW</string>
+			<string>BaseHead</string>
 			<key>name</key>
-			<string>SW_%NAME%</string>
+			<string>%NAME%</string>
 			<key>unattended_install</key>
 			<true/>
 		</dict>
-	</dict>
+	</dict>	
 	<key>MinimumVersion</key>
 	<string>1.0.0</string>
 	<key>ParentRecipe</key>
-	<string>com.github.srgssr.recipes.download.CameraRAW</string>
+	<string>ch.srgssr.recipes.download.BaseHead</string>
 	<key>Process</key>
 	<array>
 		<dict>
@@ -54,24 +52,10 @@
 		<dict>
 			<key>Arguments</key>
 			<dict>
-				<key>additional_pkginfo</key>
-				<dict>
-					<key>version</key>
-					<string>%version%</string>
-				</dict>
-			</dict>
-			<key>Processor</key>
-			<string>MunkiPkginfoMerger</string>
-		</dict>
-		<dict>
-			<key>Arguments</key>
-			<dict>
 				<key>pkg_path</key>
 				<string>%dmg_path%</string>
 				<key>repo_subdirectory</key>
 				<string>%MUNKI_REPO_SUBDIR%</string>
-				<key>version_comparison_key</key>
-				<string>CFBundleShortVersionString</string>
 			</dict>
 			<key>Processor</key>
 			<string>MunkiImporter</string>
