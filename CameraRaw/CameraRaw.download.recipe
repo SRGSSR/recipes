@@ -11,7 +11,7 @@
 	<key>Input</key>
 	<dict>
 		<key>DOWNLOAD_URL</key>
-		<string>http://download.adobe.com/pub/adobe/photoshop/cameraraw/mac/11.x/CameraRaw_11_3_mac.zip</string>
+		<string>http://www.adobe.com/go/acr_installer_mac</string>
 		<key>NAME</key>
 		<string>CameraRaw</string>
 	</dict>
