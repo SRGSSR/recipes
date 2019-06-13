@@ -33,7 +33,7 @@
 					<key>url</key>
 					<string>https://www.securesafe.com/de/downloads/</string>
 					<key>re_pattern</key>
-					<string>(SecureSafe_[0-9\.]+).dmg</string>
+					<string>(SecureSafe_[0-9\.]+).pkg</string>
 					<key>result_output_var_name</key>
 					<string>url</string>
 				</dict>
