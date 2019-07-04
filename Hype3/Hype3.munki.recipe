@@ -45,11 +45,11 @@
 			<key>com.github.srgssr.download.Hype3</key>
 			<dict>
 				<key>git_hash</key>
-				<string>527f1c0dc981a4a72127bbaa0fc39c95b7859f6c</string>
+				<string>5f4b68b5700bddf26e5fc55b60ce4a3462ca3569</string>
 				<key>path</key>
-				<string>~/GITHub/recipes/Hype3/Hype3.download.recipe</string>
+				<string>/Volumes/Daten/Git/recipes/Hype3/Hype3.download.recipe</string>
 				<key>sha256_hash</key>
-				<string>ce62eab34129daab9158716430e6eef3a3015120be276370655267d747d57895</string>
+				<string>28a041d7cd2bbf484a6248f10b4047007bff0e179177812dbb8944a82902d17a</string>
 			</dict>
 		</dict>
 	</dict>

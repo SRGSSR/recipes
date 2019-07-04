@@ -18,7 +18,7 @@
 		<dict>
 			<key>catalogs</key>
 			<array>
-				<string>testing</string>
+				<string>QA</string>
 			</array>
 			<key>description</key>
 			<string> </string>
@@ -27,7 +27,7 @@
 			<key>display_name</key>
 			<string>FotoStation</string>
 			<key>name</key>
-			<string>%NAME%</string>
+			<string>SW_%NAME%</string>
 			<key>unattended_install</key>
 			<true/>
 		</dict>
