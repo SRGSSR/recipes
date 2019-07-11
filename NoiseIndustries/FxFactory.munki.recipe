@@ -7,7 +7,7 @@
 	<key>Description</key>
 	<string>Downloads the latest version of FxFactory and imports it into Munki.</string>
 	<key>Identifier</key>
-	<string>ch.srgssr.pkg..munki.FxFactory</string>
+	<string>ch.srgssr.pkg.munki.FxFactory</string>
 	<key>Input</key>
 	<dict>
 		<key>MUNKI_REPO_SUBDIR</key>
@@ -40,7 +40,7 @@
 	<key>MinimumVersion</key>
 	<string>1.0.0</string>
 	<key>ParentRecipe</key>
-	<string>ch.srgssr.pkg..download.FxFactory</string>
+	<string>ch.srgssr.pkg.download.FxFactory</string>
 	<key>Process</key>
 	<array>
 		<dict>
