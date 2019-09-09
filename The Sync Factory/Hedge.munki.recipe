@@ -35,7 +35,7 @@
 	<key>MinimumVersion</key>
 	<string>1.0.0</string>
 	<key>ParentRecipe</key>
-	<string>ch.srgssr.munki..download.Hedge</string>
+	<string>ch.srgssr.recipes.download.Hedge</string>
 	<key>Process</key>
 	<array>
 		<dict>
