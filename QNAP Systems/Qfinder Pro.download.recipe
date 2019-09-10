@@ -7,7 +7,7 @@
 	<key>Description</key>
 	<string>Downloads the latest version of Qfinder Pro.</string>
 	<key>Identifier</key>
-	<string>ch.srgssr.munki..download.QfinderPro</string>
+	<string>com.github.srgssr.download.QfinderPro</string>
 	<key>Input</key>
 	<dict>
 		<key>DOWNLOAD_URL</key>
