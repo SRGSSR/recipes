@@ -39,7 +39,7 @@
 					<key>url</key>
 					<string>https://www.seh-technology.com/fileadmin/user/downloads/deviceserver/tools/%url%.zip</string>
 					<key>filename</key>
-					<string>%url%</string>
+					<string>%url%.zip</string>
 				</dict>
 			</dict>
             <dict>
