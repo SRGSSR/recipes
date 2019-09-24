@@ -58,7 +58,9 @@
 				<key>Arguments</key>
 				<dict>
 					<key>pattern</key>
-					<string>(*.pkg)</string>
+					<string>*.pkg</string>
+					<key>found_filename</key>
+					<string>file</string>
 				</dict>
 			</dict>
 			<dict>
@@ -67,7 +69,7 @@
 				<key>Arguments</key>
 				<dict>
 					<key>source</key>
-					<string>%found_filename%</string>
+					<string>%file%</string>
 					<key>target</key>
 					<string>%RECIPE_CACHE_DIR%/pkg/SEHUTNManager.pkg</string>
 				</dict>
