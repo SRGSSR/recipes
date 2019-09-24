@@ -51,7 +51,7 @@
 					<key>destination_path</key>
 					<string>%RECIPE_CACHE_DIR%/unpack</string>
 					<key>purge_destination</key>
-					</true>
+					<true/>
 				</dict>
 			</dict>
 			<dict>
