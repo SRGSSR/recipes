@@ -38,7 +38,7 @@
 					<key>url</key>
 					<string>https://www.seh-technology.com/fileadmin/user/downloads/deviceserver/tools/%url%</string>
 					<key>filename</key>
-					<string>%url%.zip</string>
+					<string>%url%</string>
 				</dict>
 			</dict>
 			<dict>
