@@ -73,7 +73,7 @@
 					<key>source</key>
 					<string>%found_filename%</string>
 					<key>target</key>
-					<string>%RECIPE_CACHE_DIR%/pkg/SEHUTNManager.pkg</string>
+					<string>%destination_path%/SEHUTNManager.pkg</string>
 				</dict>
 			</dict>
 			<dict>
