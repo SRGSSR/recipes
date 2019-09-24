@@ -47,7 +47,7 @@
 				<key>Arguments</key>
 				<dict>
 					<key>archive_path</key>
-					<string>%RECIPE_CACHE_DIR%/downloads/%filename%.zip</string>
+					<string>%RECIPE_CACHE_DIR%/downloads/%filename%</string>
 					<key>destination_path</key>
 					<string>%RECIPE_CACHE_DIR%/downloads/unpack</string>
 				</dict>
