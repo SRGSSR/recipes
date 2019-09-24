@@ -9,7 +9,7 @@
 	<key>Input</key>
 	<dict>
 		<key>MUNKI_REPO_SUBDIR</key>
-		<string>SW/SEHComputertechnikGmbH/SEHUTNManager</string>
+		<string>APP/SEHUTNManager</string>
 		<key>NAME</key>
 		<string>SEHUTNManager</string>
 		<key>MUNKI_CATEGORY</key>
