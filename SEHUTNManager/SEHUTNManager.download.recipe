@@ -50,6 +50,8 @@
 					<string>%pathname%</string>
 					<key>destination_path</key>
 					<string>%RECIPE_CACHE_DIR%/unpack</string>
+					<key>purge_destination</key>
+					<bool>true</bool>
 				</dict>
 			</dict>
 			<dict>
