@@ -54,22 +54,11 @@
 			</dict>
 			<dict>
 				<key>Processor</key>
-				<string>FileFinder</string>
-				<key>Arguments</key>
-				<dict>
-					<key>pattern</key>
-					<string>*.pkg</string>
-					<key>found_filename</key>
-					<string>file</string>
-				</dict>
-			</dict>
-			<dict>
-				<key>Processor</key>
 				<string>FileMover</string>
 				<key>Arguments</key>
 				<dict>
 					<key>source</key>
-					<string>%file%</string>
+					<string>%RECIPE_CACHE_DIR%/unpack/%url%/%url%.pkg</string>
 					<key>target</key>
 					<string>%RECIPE_CACHE_DIR%/pkg/SEHUTNManager.pkg</string>
 				</dict>
