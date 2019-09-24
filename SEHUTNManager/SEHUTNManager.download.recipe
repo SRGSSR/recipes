@@ -25,7 +25,7 @@
 					<key>url</key>
 					<string>https://www.seh-technology.com/de/service/downloads/download-dongleserver/myutn-80.html</string>
 					<key>re_pattern</key>
-					<string>(sehutnmanager-mac-[3-9\.]+.[0-9]+.[0-9]+.zip)</string>
+					<string>(sehutnmanager-mac-[3-9\.]+.[0-9]+.[0-9])</string>
 					<key>result_output_var_name</key>
 					<string>url</string>
 				</dict>
@@ -36,7 +36,7 @@
 				<key>Arguments</key>
 				<dict>
 					<key>url</key>
-					<string>https://www.seh-technology.com/fileadmin/user/downloads/deviceserver/tools/%url%</string>
+					<string>https://www.seh-technology.com/fileadmin/user/downloads/deviceserver/tools/%url%.zip</string>
 					<key>filename</key>
 					<string>%url%</string>
 				</dict>
@@ -49,7 +49,7 @@
 					<key>destination_path</key>
 					<string>%RECIPE_CACHE_DIR%/downloads/unpack</string>
 					<key>archive_path</key>
-					<string>%RECIPE_CACHE_DIR%/downloads/%filename%</string>
+					<string>%RECIPE_CACHE_DIR%/downloads/%filename%.zip</string>
 				</dict>
 			</dict>
 		</array>
