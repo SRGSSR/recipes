@@ -12,8 +12,10 @@
 	<string>com.github.srgssr.pkg.SonySxSUDFDriver</string>
 	<key>Input</key>
 	<dict>
-		<key>MUNKI_NAME</key>
+		<key>NAME</key>
 		<string>SonySxSUDFDriver</string>
+		<key>MUNKI_NAME</key>
+		<string>%NAME%</string>
 		<key>MUNKI_DISPLAY_NAME</key>
 		<string>Sony SxS UDF Driver</string>
 		<key>MUNKI_REPO_SUBDIR</key>
@@ -24,8 +26,6 @@
 		<string>Sony</string>
 		<key>MUNKI_DESCRIPTION</key>
 		<string>Die SxS UDF Driver-Software ermöglicht Lese-/Schreibzugriff auf MXF-Dateien, die im UDF-Modus auf SxS-Speicherkarte aufgezeichnet wurden.</string>
-		<key>PKG_PAYLOAD_PATH</key>
-		<string>SxS_UDF_Driver_Software.pkg/Payload</string>
 		<key>pkginfo</key>
 		<dict>
 			<key>catalogs</key>
@@ -50,75 +50,12 @@
 	<array>
 		<dict>
 			<key>Processor</key>
-			<string>FlatPkgUnpacker</string>
+			<string>FileFinder</string>
 			<key>Arguments</key>
 			<dict>
-				<key>flat_pkg_path</key>
-				<string>%pkg_path%</string>
-				<key>destination_path</key>
-				<string>%RECIPE_CACHE_DIR%/unpacked</string>
-				<key>purge_destination</key>
-				<true/>
+				<key>pattern</key>
+				<string>%RECIPE_CACHE_DIR%/%NAME%/SxSUDFDriver*.dmg</string>
 			</dict>
-		</dict>
-		<dict>
-			<key>Processor</key>
-			<string>PkgPayloadUnpacker</string>
-			<key>Arguments</key>
-			<dict>
-				<key>pkg_payload_path</key>
-				<string>%RECIPE_CACHE_DIR%/unpacked/%PKG_PAYLOAD_PATH%</string>
-				<key>destination_path</key>
-				<string>%RECIPE_CACHE_DIR%/payload/</string>
-				<key>purge_destination</key>
-				<true/>
-			</dict>
-		</dict>
-		<dict>
-			<key>Processor</key>
-			<string>MunkiInstallsItemsCreator</string>
-			<key>Arguments</key>
-			<dict>
-				<key>faux_root</key>
-				<string>%RECIPE_CACHE_DIR%/payload/</string>
-				<key>installs_item_paths</key>
-				<array>
-					<string>/Library/Extensions/SxSLogicalUnitDriverExpress.kext</string>
-					<string>/Library/Extensions/SxSLogicalUnitDriverUS10.kext</string>
-					<string>/Library/Extensions/SxSLogicalUnitDriverXQD.kext</string>
-					<string>/Library/Extensions/SxSLogicalUnitDriverXQDExpress.kext</string>
-					<string>/Library/Extensions/sxsudf_fs.kext</string>
-					<string>/Library/Filesystems/sxsudf.fs</string>
-				</array>
-				<key>version_comparison_key</key>
-				<string>CFBundleShortVersionString</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>Processor</key>
-			<string>MunkiPkginfoMerger</string>
-		</dict>
-		<!-- write version so we get the package names right -->
-		<dict>
-			<key>Processor</key>
-			<string>Versioner</string>
-			<key>Arguments</key>
-			<dict>
-				<key>input_plist_path</key>
-				<string>%RECIPE_CACHE_DIR%/payload/Library/Extensions/SxSLogicalUnitDriverExpress.kext/Contents/Info.plist</string>
-			</dict>
-		</dict>
-		<dict>
-				<key>Processor</key>
-				<string>MunkiPkginfoMerger</string>
-				<key>Arguments</key>
-				<dict>
-						<key>additional_pkginfo</key>
-						<dict>
-								<key>version</key>
-								<string>%version%</string>
-						</dict>
-				</dict>
 		</dict>
 		<dict>
 			<key>Processor</key>
@@ -126,9 +63,11 @@
 			<key>Arguments</key>
 			<dict>
 				<key>pkg_path</key>
-				<string>%RECIPE_CACHE_DIR%/%NAME%.pkg</string>
+				<string>%dmg_found_filename%</string>
 				<key>repo_subdirectory</key>
 				<string>%MUNKI_REPO_SUBDIR%</string>
+				<key>pkginfo</key>
+				<string>%pkginfo%</string>
 			</dict>
 		</dict>
 		<dict>
@@ -138,8 +77,7 @@
 			<dict>
 				<key>path_list</key>
 				<array>
-					<string>%RECIPE_CACHE_DIR%/payload</string>
-					<string>%RECIPE_CACHE_DIR%/unpacked</string>
+					<string>%RECIPE_CACHE_DIR%/%NAME%</string>
 				</array>
 			</dict>
 		</dict>
