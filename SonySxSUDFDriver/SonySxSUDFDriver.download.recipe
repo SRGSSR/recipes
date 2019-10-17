@@ -12,9 +12,9 @@
   <dict>
       <key>NAME</key>
       <string>SxSUDFDriver</string>
+      <key>URL</key>
+      <string>https://www.sonycreativesoftware.com/de/download/sxsudfdriver</string>
   </dict>
-  <key>URL</key>
-  <string>https://www.sonycreativesoftware.com/de/download/sxsudfdriver</string>
   <key>Process</key>
   <array>
     <dict>
