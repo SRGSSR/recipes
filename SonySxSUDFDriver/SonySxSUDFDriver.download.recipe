@@ -5,7 +5,7 @@
   <key>Description</key>
   <string>Downloads the specified version of the Sony SxS UDF Driver. Please note that the download URL might change and the NAME is the name of the pkg inside the dmg inside the downloaded zip. Change accordingly if needed.</string>
   <key>Identifier</key>
-  <string>com.github.apfelwerk.download.SonySxSUDFDriver</string>
+  <string>com.github.srgssr.download.SonySxSUDFDriver</string>
   <key>MinimumVersion</key>
   <string>0.6.0</string>
   <key>Input</key>
