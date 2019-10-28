@@ -35,7 +35,7 @@
 	<key>MinimumVersion</key>
 	<string>1.0.0</string>
 	<key>ParentRecipe</key>
-	<string>com.github.srgssr.download.SxSDeviceDrive</string>
+	<string>com.github.srgssr.download.SxSDeviceDriver</string>
 	<key>Process</key>
 	<array>
 		<dict>
