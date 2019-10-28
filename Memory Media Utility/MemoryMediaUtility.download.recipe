@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Description</key>
+  <string>Downloads MemoryMediaUtility</string>
+  <key>Identifier</key>
+  <string>com.github.srgssr.download.MemoryMediaUtility</string>
+  <key>MinimumVersion</key>
+  <string>0.6.0</string>
+  <key>Input</key>
+  <dict>
+      <key>NAME</key>
+      <string>MemoryMediaUtility</string>
+      <key>URL</key>
+      <string>https://www.sonycreativesoftware.com/de/memorymediautility</string>
+  </dict>
+  <key>Process</key>
+  <array>
+    <dict>
+      <key>Processor</key>
+      <string>URLTextSearcher</string>
+      <key>Arguments</key>
+      <dict>
+          <key>url</key>
+          <string>%URL%</string>
+          <key>result_output_var_name</key>
+          <string>id</string>
+          <key>re_pattern</key>
+          <string>&lt;option[^&gt;]+?value="([^"]+)".*macOS</string>
+      </dict>
+    </dict>
+    <dict>
+      <key>Processor</key>
+      <string>URLTextSearcher</string>
+      <key>Arguments</key>
+      <dict>
+          <key>url</key>
+          <string>%URL%</string>
+          <key>result_output_var_name</key>
+          <string>download_url</string>
+          <key>re_pattern</key>
+          <string>&lt;a[^&gt;]+?id=".*%id%".*href="([^"]+)"</string>
+      </dict>
+    </dict>
+    <dict>
+      <key>Processor</key>
+      <string>URLDownloader</string>
+      <key>Arguments</key>
+      <dict>
+          <key>url</key>
+          <string>https://www.sonycreativesoftware.com%download_url%</string>
+          <key>filename</key>
+          <string>%NAME%.dmg</string>
+      </dict>
+    </dict>
+  </array>
+</dict>
+</plist>

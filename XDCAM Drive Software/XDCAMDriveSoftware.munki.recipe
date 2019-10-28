@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>Downloads XDCAMDriveSoftware and imports it to Munki</string>
+	<key>Identifier</key>
+	<string>com.github.srgssr.munki.XDCAMDriveSoftware</string>
+	<key>MinimumVersion</key>
+	<string>0.6.0</string>
+	<key>ParentRecipe</key>
+	<string>com.github.srgssr.download.XDCAMDriveSoftware</string>
+	<key>Input</key>
+	<dict>
+		<key>NAME</key>
+		<string>XDCAMDriveSoftware</string>
+		<key>MUNKI_NAME</key>
+		<string>%NAME%</string>
+		<key>MUNKI_DISPLAY_NAME</key>
+		<string>XDCAM Drive Software</string>
+		<key>MUNKI_REPO_SUBDIR</key>
+		<string>Sony/XDCAMDriveSoftware</string>
+		<key>MUNKI_CATEGORY</key>
+		<string>Driver</string>
+		<key>MUNKI_DEVELOPER</key>
+		<string>Sony</string>
+		<key>MUNKI_DESCRIPTION</key>
+		<string>XDCAM Drive Software ist ein Basisdienstprogramm, mit dem Benutzer Dateien auf einem Computer, der mit einem PDW-U1/U2 Professional Disc-Laufwerk verbunden ist, lesen/schreiben können.</string>
+		<key>pkginfo</key>
+		<dict>
+			<key>catalogs</key>
+			<array>
+				<string>testing</string>
+			</array>
+			<key>name</key>
+			<string>%MUNKI_NAME%</string>
+			<key>display_name</key>
+			<string>%MUNKI_DISPLAY_NAME%</string>
+			<key>category</key>
+			<string>%MUNKI_CATEGORY%</string>
+			<key>developer</key>
+			<string>%MUNKI_DEVELOPER%</string>
+			<key>description</key>
+			<string>%MUNKI_DESCRIPTION%</string>
+			<key>RestartAction</key>
+			<string>RequireRestart</string>
+		</dict>
+	</dict>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Processor</key>
+			<string>MunkiImporter</string>
+			<key>Arguments</key>
+			<dict>
+				<key>pkg_path</key>
+				<string>%RECIPE_CACHE_DIR%/%NAME%/XDCAM Drive Software.dmg</string>
+				<key>repo_subdirectory</key>
+				<string>%MUNKI_REPO_SUBDIR%</string>
+				<key>pkginfo</key>
+				<string>%pkginfo%</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>PathDeleter</string>
+			<key>Arguments</key>
+			<dict>
+				<key>path_list</key>
+				<array>
+					<string>%RECIPE_CACHE_DIR%/%NAME%</string>
+				</array>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>

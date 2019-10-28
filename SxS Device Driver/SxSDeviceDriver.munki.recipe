@@ -3,29 +3,29 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>Downloads Sony SxS UDF Driver and imports it to Munki</string>
+	<string>Downloads Sony SxS Device Driver and imports it to Munki</string>
 	<key>Identifier</key>
-	<string>com.github.srgssr.munki.SonySxSUDFDriver</string>
+	<string>com.github.srgssr.munki.SxSDeviceDriver</string>
 	<key>MinimumVersion</key>
 	<string>0.6.0</string>
 	<key>ParentRecipe</key>
-	<string>com.github.srgssr.download.SonySxSUDFDriver</string>
+	<string>com.github.srgssr.download.SxSDeviceDriver</string>
 	<key>Input</key>
 	<dict>
 		<key>NAME</key>
-		<string>SonySxSUDFDriver</string>
+		<string>SxSDeviceDriver</string>
 		<key>MUNKI_NAME</key>
 		<string>%NAME%</string>
 		<key>MUNKI_DISPLAY_NAME</key>
-		<string>Sony SxS UDF Driver</string>
+		<string>Sony SxS Device Driver</string>
 		<key>MUNKI_REPO_SUBDIR</key>
-		<string>Sony/SxSUDFDriver</string>
+		<string>Sony/SxSDeviceDriver</string>
 		<key>MUNKI_CATEGORY</key>
 		<string>Driver</string>
 		<key>MUNKI_DEVELOPER</key>
 		<string>Sony</string>
 		<key>MUNKI_DESCRIPTION</key>
-		<string>Die SxS UDF Driver-Software ermöglicht Lese-/Schreibzugriff auf MXF-Dateien, die im UDF-Modus auf SxS-Speicherkarte aufgezeichnet wurden.</string>
+		<string>This SxS Driver is required for SBAC-T40 SxS Memory Card Thunderbolt 3 Card Reader/Writer to connect Windows PC or Mac.</string>
 		<key>pkginfo</key>
 		<dict>
 			<key>catalogs</key>
@@ -50,35 +50,15 @@
 	<array>
 		<dict>
 			<key>Processor</key>
-			<string>FileFinder</string>
-			<key>Arguments</key>
-			<dict>
-				<key>pattern</key>
-				<string>%RECIPE_CACHE_DIR%/%NAME%/SxSUDFDriver*.dmg</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>Processor</key>
 			<string>MunkiImporter</string>
 			<key>Arguments</key>
 			<dict>
 				<key>pkg_path</key>
-				<string>%found_filename%</string>
+				<string>%RECIPE_CACHE_DIR%/downlodas/SxSDeviceDriver.dmg</string>
 				<key>repo_subdirectory</key>
 				<string>%MUNKI_REPO_SUBDIR%</string>
 				<key>pkginfo</key>
 				<string>%pkginfo%</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>Processor</key>
-			<string>PathDeleter</string>
-			<key>Arguments</key>
-			<dict>
-				<key>path_list</key>
-				<array>
-					<string>%RECIPE_CACHE_DIR%/%NAME%</string>
-				</array>
 			</dict>
 		</dict>
 	</array>
