@@ -3,63 +3,51 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>Downloads Sony SxS Device Driver and imports it to Munki</string>
+	<string>Downloads the latest version of Sony SxS Device Driver and imports it into Munki.</string>
 	<key>Identifier</key>
 	<string>com.github.srgssr.munki.SxSDeviceDriver</string>
-	<key>MinimumVersion</key>
-	<string>0.6.0</string>
-	<key>ParentRecipe</key>
-	<string>com.github.srgssr.download.SxSDeviceDriver</string>
 	<key>Input</key>
 	<dict>
-		<key>NAME</key>
-		<string>SxSDeviceDriver</string>
-		<key>MUNKI_NAME</key>
-		<string>%NAME%</string>
-		<key>MUNKI_DISPLAY_NAME</key>
-		<string>Sony SxS Device Driver</string>
 		<key>MUNKI_REPO_SUBDIR</key>
 		<string>Sony/SxSDeviceDriver</string>
-		<key>MUNKI_CATEGORY</key>
-		<string>Driver</string>
-		<key>MUNKI_DEVELOPER</key>
-		<string>Sony</string>
-		<key>MUNKI_DESCRIPTION</key>
-		<string>This SxS Driver is required for SBAC-T40 SxS Memory Card Thunderbolt 3 Card Reader/Writer to connect Windows PC or Mac.</string>
+		<key>NAME</key>
+		<string>SxSDeviceDriver</string>
 		<key>pkginfo</key>
 		<dict>
 			<key>catalogs</key>
 			<array>
 				<string>testing</string>
 			</array>
-			<key>name</key>
-			<string>%MUNKI_NAME%</string>
-			<key>display_name</key>
-			<string>%MUNKI_DISPLAY_NAME%</string>
-			<key>category</key>
-			<string>%MUNKI_CATEGORY%</string>
-			<key>developer</key>
-			<string>%MUNKI_DEVELOPER%</string>
 			<key>description</key>
-			<string>%MUNKI_DESCRIPTION%</string>
-			<key>RestartAction</key>
-			<string>RequireRestart</string>
+			<string>This SxS Driver is required for SBAC-T40 SxS Memory Card Thunderbolt 3 Card Reader/Writer to connect Windows PC or Mac.</string>
+			<key>developer</key>
+			<string>Sony</string>
+			<key>display_name</key>
+			<string>Sony SxS Device Driver</string>
+			<key>name</key>
+			<string>%NAME%</string>
+			<key>category</key>
+			<string>Driver</string>
+			<key>unattended_install</key>
+			<true/>
 		</dict>
 	</dict>
+	<key>MinimumVersion</key>
+	<string>1.0.0</string>
+	<key>ParentRecipe</key>
+	<string>com.github.srgssr.download.SxSDeviceDrive</string>
 	<key>Process</key>
 	<array>
 		<dict>
-			<key>Processor</key>
-			<string>MunkiImporter</string>
 			<key>Arguments</key>
 			<dict>
 				<key>pkg_path</key>
-				<string>%RECIPE_CACHE_DIR%/downlodas/SxSDeviceDriver.dmg</string>
+				<string>%pathname%</string>
 				<key>repo_subdirectory</key>
 				<string>%MUNKI_REPO_SUBDIR%</string>
-				<key>pkginfo</key>
-				<string>%pkginfo%</string>
 			</dict>
+			<key>Processor</key>
+			<string>MunkiImporter</string>
 		</dict>
 	</array>
 </dict>
