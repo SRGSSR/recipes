@@ -3,64 +3,53 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>Downloads MemoryMediaUtility and imports it to Munki</string>
+	<string>Downloads the latest version of MemoryMediaUtility and imports it into Munki.</string>
 	<key>Identifier</key>
 	<string>com.github.srgssr.munki.MemoryMediaUtility</string>
-	<key>MinimumVersion</key>
-	<string>0.6.0</string>
-	<key>ParentRecipe</key>
-	<string>com.github.srgssr.download.MemoryMediaUtility</string>
 	<key>Input</key>
 	<dict>
-		<key>NAME</key>
-		<string>MemoryMediaUtility</string>
-		<key>MUNKI_NAME</key>
-		<string>%NAME%</string>
-		<key>MUNKI_DISPLAY_NAME</key>
-		<string>Memory Media Utility</string>
 		<key>MUNKI_REPO_SUBDIR</key>
 		<string>Sony/MemoryMediaUtility</string>
-		<key>MUNKI_CATEGORY</key>
-		<string>Driver</string>
-		<key>MUNKI_DEVELOPER</key>
-		<string>Sony</string>
-		<key>MUNKI_DESCRIPTION</key>
-		<string>Memory Media Utility is software for enhanced convenience in media management that can be used with SxS memory cards.</string>
+		<key>NAME</key>
+		<string>MemoryMediaUtility</string>
 		<key>pkginfo</key>
 		<dict>
 			<key>catalogs</key>
 			<array>
 				<string>testing</string>
 			</array>
-			<key>name</key>
-			<string>%MUNKI_NAME%</string>
-			<key>display_name</key>
-			<string>%MUNKI_DISPLAY_NAME%</string>
-			<key>category</key>
-			<string>%MUNKI_CATEGORY%</string>
-			<key>developer</key>
-			<string>%MUNKI_DEVELOPER%</string>
 			<key>description</key>
-			<string>%MUNKI_DESCRIPTION%</string>
-			<key>RestartAction</key>
-			<string>RequireRestart</string>
+			<string>Memory Media Utility is software for enhanced convenience in media management that can be used with SxS memory cards.</string>
+			<key>developer</key>
+			<string>Sony</string>
+			<key>display_name</key>
+			<string>Memory Media Utility</string>
+			<key>name</key>
+			<string>%NAME%</string>
+			<key>category</key>
+			<string>Tools</string>
+			<key>unattended_install</key>
+			<true/>
 		</dict>
 	</dict>
+	<key>MinimumVersion</key>
+	<string>1.0.0</string>
+	<key>ParentRecipe</key>
+	<string>com.github.srgssr.download.MemoryMediaUtility</string>
 	<key>Process</key>
 	<array>
 		<dict>
-			<key>Processor</key>
-			<string>MunkiImporter</string>
 			<key>Arguments</key>
 			<dict>
 				<key>pkg_path</key>
-				<string>%RECIPE_CACHE_DIR%/downloads/%NAME%.dmg</string>
+				<string>%pathname%</string>
 				<key>repo_subdirectory</key>
 				<string>%MUNKI_REPO_SUBDIR%</string>
-				<key>pkginfo</key>
-				<string>%pkginfo%</string>
 			</dict>
+			<key>Processor</key>
+			<string>MunkiImporter</string>
 		</dict>
 	</array>
 </dict>
 </plist>
+
