@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>Munki import for Octoscan</string>
+	<key>Identifier</key>
+	<string>com.github.srgssr.munki.Octoscan</string>
+	<key>Input</key>
+	<dict>
+		<key>NAME</key>
+		<string>Octoscan</string>
+		<key>ServerURL</key>
+		<string>http://youruploadserver.yourdomain:8080</string>
+		 <key>ID</key>
+        <string>com.github.octoscan</string>
+		<key>pkginfo</key>
+		<dict>
+			<key>catalogs</key>
+			<array>
+				<string>testing</string>
+			</array>
+			<key>category</key>
+			<string>Utilities</string>
+			<key>description</key>
+			<string>Unified Linux and macOS Scanner for OctoSAM Inventory</string>
+			<key>developer</key>
+			<string>Octosoft</string>
+			<key>display_name</key>
+			<string>%NAME%</string>
+			<key>minimum_os_version</key>
+			<string>10.10</string>
+			<key>name</key>
+			<string>%NAME%</string>
+			<key>unattended_install</key>
+			<true/>
+		</dict>
+	</dict>
+	<key>MiniumumVersion</key>
+	<string>1.0</string>
+	<key>ParentRecipe</key>
+	<string>com.github.srgssr.pkg.Octoscan</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Processor</key>
+			<string>MunkiImporter</string>
+		</dict>
+	</array>
+</dict>
+</plist>
