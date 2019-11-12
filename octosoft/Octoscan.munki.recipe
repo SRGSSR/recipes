@@ -45,6 +45,10 @@
 	<key>Process</key>
 	<array>
 		<dict>
+			<dict>
+				<key>repo_subdirectory</key>
+				<string>%MUNKI_REPO_SUBDIR%</string>
+			</dict>
 			<key>Processor</key>
 			<string>MunkiImporter</string>
 		</dict>
