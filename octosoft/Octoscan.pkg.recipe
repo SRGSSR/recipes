@@ -138,6 +138,39 @@ fi</string>
             <dict>
                 <key>pkg_request</key>
                 <dict>
+                    <key>chown</key>
+                    <array>
+                        <dict>
+                            <key>group</key>
+                            <string>wheel</string>
+                            <key>path</key>
+                            <string>Library</string>
+                            <key>user</key>
+                            <string>root</string>
+                            <key>mode</key>
+                            <string>0755</string>
+                        </dict>
+                        <dict>
+                            <key>group</key>
+                            <string>wheel</string>
+                            <key>path</key>
+                            <string>usr</string>
+                            <key>user</key>
+                            <string>root</string>
+                            <key>mode</key>
+                            <string>0755</string>
+                        </dict>
+                        <dict>
+                            <key>group</key>
+                            <string>wheel</string>
+                            <key>path</key>
+                            <string>usr/local/octoscan/octoscan.pyz</string>
+                            <key>user</key>
+                            <string>root</string>
+                            <key>mode</key>
+                            <string>0755</string>
+                        </dict>
+                    </array>
                     <key>id</key>
                     <string>%ID%.pkg</string>
                     <key>options</key>
