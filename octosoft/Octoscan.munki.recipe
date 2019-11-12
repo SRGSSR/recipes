@@ -45,6 +45,7 @@
 	<key>Process</key>
 	<array>
 		<dict>
+			<key>Arguments</key>
 			<dict>
 				<key>repo_subdirectory</key>
 				<string>%MUNKI_REPO_SUBDIR%</string>
