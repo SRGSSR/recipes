@@ -78,6 +78,7 @@
                             <key>mode</key>
                             <string>0755</string>
                         </dict>
+					</array>
                     <key>id</key>
                     <string>%ID%.pkg</string>
                     <key>options</key>
