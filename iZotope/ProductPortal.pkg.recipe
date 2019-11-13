@@ -39,7 +39,7 @@
             <key>Arguments</key>
             <dict>
                 <key>destination_path</key>
-                <string>%pkgroot%/payload/tmp/%pathname%/Install Product Portal.app</string>
+                <string>%pkgroot%/payload/tmp/Install Product Portal.app</string>
                 <key>source_path</key>
                 <string>%pathname%/Install Product Portal.app</string>
             </dict>
