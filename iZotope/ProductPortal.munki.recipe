@@ -7,7 +7,7 @@
 	<key>Description</key>
 	<string>Downloads the latest version of Product Portal and imports it into Munki.</string>
 	<key>Identifier</key>
-	<string>ch.srgssr.recipes.munki.ProductPortal</string>
+	<string>com.github.srgssr.recipes.munki.ProductPortal</string>
 	<key>Input</key>
 	<dict>
 		<key>APP_FILENAME</key>
@@ -37,7 +37,7 @@
 	<key>MinimumVersion</key>
 	<string>1.0.0</string>
 	<key>ParentRecipe</key>
-	<string>ch.srgssr.recipes.download.ProductPortal</string>
+	<string>com.github.srgssr.recipes.pkg.ProductPortal</string>
 	<key>Process</key>
 	<array>
 		<dict>

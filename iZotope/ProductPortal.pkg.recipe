@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>Recipe description</string>
+	<key>Identifier</key>
+	<string>com.github.srgssr.recipes.pkg.ProductPortal</string>
+	<key>Input</key>
+	<dict>
+		<key>NAME</key>
+		<string>ProductPortal</string>
+		<key>ID</key>
+        <string>ch.srgssr.ProductPortal</string>
+	</dict>
+	<key>MiniumumVersion</key>
+	<string>1.0</string>
+	<key>ParentRecipe</key>
+	<string>com.github.srgssr.recipes.download.ProductPortal</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>pkgroot</key>
+				<string>%RECIPE_CACHE_DIR%/pkgroot</string>
+				<key>pkgdirs</key>
+                <dict>
+					<key>payload/tmp</key>
+                    <string>0755</string>
+					<key>scripts</key>
+                    <string>0755</string>
+                </dict>
+			</dict>
+			<key>Processor</key>
+			<string>PkgRootCreator</string>
+		</dict>
+		<dict>
+            <key>Arguments</key>
+            <dict>
+                <key>destination_path</key>
+                <string>%pkgroot%/payload/tmp/%pathname%/Install Product Portal.app</string>
+                <key>source_path</key>
+                <string>%pathname%/Install Product Portal.app</string>
+            </dict>
+            <key>Processor</key>
+            <string>Copier</string>
+        </dict>
+		<dict>
+            <key>Arguments</key>
+            <dict>
+                <key>file_path</key>
+                <string>%pkgroot%/scripts/postinstall</string>
+				<key>file_mode</key>
+                <string>755</string>
+                <key>file_content</key>
+                <string>#!/bin/sh
+/tmp/Install\ Product\ Portal.app/Contents/MacOS/installbuilder.sh
+/bin/rm -rf /tmp/Install\ Product\ Portal.app</string>
+            </dict>
+            <key>Processor</key>
+            <string>FileCreator</string>
+        </dict>
+		<dict>
+            <key>Arguments</key>
+            <dict>
+                <key>pkg_request</key>
+                <dict>
+                    <key>chown</key>
+                    <array>
+                        <dict>
+                            <key>group</key>
+                            <string>wheel</string>
+                            <key>path</key>
+                            <string>tmp</string>
+                            <key>user</key>
+                            <string>root</string>
+                            <key>mode</key>
+                            <string>0755</string>
+                        </dict>
+                    <key>id</key>
+                    <string>%ID%.pkg</string>
+                    <key>options</key>
+                    <string>purge_ds_store</string>
+					<key>scripts</key>
+                    <string>%pkgroot%/scripts</string>
+					<key>pkgroot</key>
+                    <string>%pkgroot%/payload</string>
+                    <key>pkgdir</key>
+                    <string>%RECIPE_CACHE_DIR%</string>
+                </dict>
+                <key>pkgname</key>
+                <string>%NAME%-%version%</string>
+            </dict>
+            <key>Processor</key>
+            <string>PkgCreator</string>
+        </dict>
+	</array>
+</dict>
+</plist>

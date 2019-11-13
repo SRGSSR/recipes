@@ -7,7 +7,7 @@
 	<key>Description</key>
 	<string>Downloads the latest version of Product Portal.</string>
 	<key>Identifier</key>
-	<string>ch.srgssr.recipes.download.ProductPortal</string>
+	<string>com.github.srgssr.recipes.download.ProductPortal</string>
 	<key>Input</key>
 	<dict>
 		<key>APP_FILENAME</key>
@@ -40,7 +40,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>input_path</key>
-				<string>%pathname%/Product Portal.app</string>
+				<string>%pathname%/Install Product Portal.app</string>
 				<key>requirement</key>
 				<string>identifier "com.izotope.audioplugins.productportal" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = QGULMAPEB2</string>
 			</dict>
