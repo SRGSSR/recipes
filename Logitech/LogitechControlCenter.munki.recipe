@@ -39,7 +39,7 @@
     <key>MinimumVersion</key>
     <string>0.2.9</string>
     <key>ParentRecipe</key>
-    <string>com.github.gmarnin.download.logitechcontrolcenter</string>
+    <string>com.github.srgssr.download.logitechcontrolcenter</string>
     <key>Process</key>
     <array>
          <dict>
