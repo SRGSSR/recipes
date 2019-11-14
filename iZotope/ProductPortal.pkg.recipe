@@ -11,7 +11,7 @@
 		<key>NAME</key>
 		<string>ProductPortal</string>
 		<key>ID</key>
-        <string>ch.srgssr.ProductPortal</string>
+        <string>ch.srgssr.pkg.ProductPortal</string>
 	</dict>
 	<key>MiniumumVersion</key>
 	<string>1.0</string>
@@ -64,6 +64,21 @@
 		<dict>
             <key>Arguments</key>
             <dict>
+                <key>file_path</key>
+                <string>%pkgroot%/scripts/uninstall</string>
+				<key>file_mode</key>
+                <string>755</string>
+                <key>file_content</key>
+                <string>#!/bin/sh
+/Library/Application\ Support/iZotope/Product\ Portal/Uninstall\ Product\ Portal.app/Contents/MacOS/installbuilder.sh --mode unattended
+/usr/sbin/pkgutil --forget $ID.pkg</string>
+            </dict>
+            <key>Processor</key>
+            <string>FileCreator</string>
+        </dict>
+		<dict>
+            <key>Arguments</key>
+            <dict>
                 <key>pkg_request</key>
                 <dict>
                     <key>chown</key>
@@ -80,7 +95,7 @@
                         </dict>
 					</array>
                     <key>id</key>
-                    <string>%ID%.pkg</string>
+                    <string>%ID%</string>
                     <key>options</key>
                     <string>purge_ds_store</string>
 					<key>scripts</key>
