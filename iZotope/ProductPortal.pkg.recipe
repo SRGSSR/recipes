@@ -55,7 +55,7 @@
                 <string>755</string>
                 <key>file_content</key>
                 <string>#!/bin/sh
-/tmp/Install\ Product\ Portal.app/Contents/MacOS/installbuilder.sh
+/tmp/Install\ Product\ Portal.app/Contents/MacOS/installbuilder.sh --mode unattended 
 /bin/rm -rf /tmp/Install\ Product\ Portal.app</string>
             </dict>
             <key>Processor</key>
