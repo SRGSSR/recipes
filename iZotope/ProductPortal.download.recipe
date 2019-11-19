@@ -10,10 +10,6 @@
 	<string>com.github.srgssr.recipes.download.ProductPortal</string>
 	<key>Input</key>
 	<dict>
-		<key>APP_FILENAME</key>
-		<string>Install Product Portal</string>
-		<key>DOWNLOAD_URL</key>
-		<string>https://www.izotope.com/in-app/pp/download/mac</string>
 		<key>NAME</key>
 		<string>Product Portal</string>
 	</dict>
@@ -27,7 +23,7 @@
 				<key>filename</key>
 				<string>%NAME%.dmg</string>
 				<key>url</key>
-				<string>%DOWNLOAD_URL%</string>
+				<string>https://www.izotope.com/in-app/pp/download/mac</string>
 			</dict>
 			<key>Processor</key>
 			<string>URLDownloader</string>
