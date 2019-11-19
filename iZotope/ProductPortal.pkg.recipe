@@ -71,7 +71,7 @@
                 <key>file_content</key>
                 <string>#!/bin/sh
 /Library/Application\ Support/iZotope/Product\ Portal/Uninstall\ Product\ Portal.app/Contents/MacOS/installbuilder.sh --mode unattended
-/usr/sbin/pkgutil --forget %ID%.pkg</string>
+/usr/sbin/pkgutil --forget %ID%</string>
             </dict>
             <key>Processor</key>
             <string>FileCreator</string>
