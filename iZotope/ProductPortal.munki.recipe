@@ -30,6 +30,12 @@
 			<string>%NAME%</string>
 			<key>unattended_install</key>
 			<true/>
+			<key>uninstall_method</key>
+			<string>uninstall_script</string>
+			<key>uninstall_script</key>
+            <string>#!/bin/sh
+/Library/Application\ Support/iZotope/Product\ Portal/Uninstall\ Product\ Portal.app/Contents/MacOS/installbuilder.sh --mode unattended
+/usr/sbin/pkgutil --forget %ID%</string>
 		</dict>
 	</dict>
 	<key>MinimumVersion</key>
