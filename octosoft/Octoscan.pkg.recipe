@@ -39,7 +39,7 @@
                 <dict>
 					<key>payload/usr/local/octoscan</key>
                     <string>0755</string>
-					<key>payload/Library/LaunchDaemons</key>
+					<key>payload/Library/LaunchAgents</key>
                     <string>0755</string>
 					<key>scripts</key>
                     <string>0755</string>
@@ -81,7 +81,7 @@ fi</string>
             <key>Arguments</key>
             <dict>
                 <key>file_path</key>
-                <string>%pkgroot%/payload/Library/LaunchDaemons/%ID%.plist</string>
+                <string>%pkgroot%/payload/Library/LaunchAgents/%ID%.plist</string>
 				<key>file_mode</key>
                 <string>644</string>
                 <key>file_content</key>
@@ -101,34 +101,6 @@ fi</string>
 	&lt;integer&gt;8000&lt;/integer&gt;
 &lt;/dict&gt;
 &lt;/plist&gt;</string>
-            </dict>
-            <key>Processor</key>
-            <string>FileCreator</string>
-        </dict>
-		<dict>
-            <key>Arguments</key>
-            <dict>
-                <key>file_path</key>
-                <string>%pkgroot%/scripts/preinstall</string>
-				<key>file_mode</key>
-                <string>755</string>
-                <key>file_content</key>
-                <string>#!/bin/sh
-/bin/launchctl unload /Library/LaunchDaemons/%ID%.plist</string>
-            </dict>
-            <key>Processor</key>
-            <string>FileCreator</string>
-        </dict>
-		<dict>
-            <key>Arguments</key>
-            <dict>
-                <key>file_path</key>
-                <string>%pkgroot%/scripts/postinstall</string>
-				<key>file_mode</key>
-                <string>755</string>
-                <key>file_content</key>
-                <string>#!/bin/sh
-/bin/launchctl load /Library/LaunchDaemons/%ID%.plist</string>
             </dict>
             <key>Processor</key>
             <string>FileCreator</string>

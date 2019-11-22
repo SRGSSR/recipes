@@ -36,6 +36,8 @@
 			<string>%NAME%</string>
 			<key>unattended_install</key>
 			<true/>
+			<key>RestartAction</key>
+			<string>RequireLogout</string>
 		</dict>
 	</dict>
 	<key>MiniumumVersion</key>
