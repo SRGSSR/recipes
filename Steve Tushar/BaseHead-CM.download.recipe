@@ -3,40 +3,47 @@
 <plist version="1.0">
 <dict>
 	<key>Comment</key>
-	<string>Created with Recipe Robot v1.0.5 (https://github.com/homebysix/recipe-robot)</string>
+	<string>Created with Recipe Robot v1.1.2 (https://github.com/homebysix/recipe-robot)</string>
 	<key>Description</key>
 	<string>Downloads the latest version of BaseHead-CM.</string>
 	<key>Identifier</key>
-	<string>com.github.srgssr.download.BaseHead-CM</string>
+	<string>ch.srgssr.recipes.download.BaseHead-CM</string>
 	<key>Input</key>
 	<dict>
+		<key>DOWNLOAD_URL</key>
+		<string>https://storage.googleapis.com/basehead-downloads/BaseHead/Mac/5.x%20Installers/BaseHead%20Mac%205.2.20.pkg</string>
 		<key>NAME</key>
 		<string>BaseHead-CM</string>
-		<key>SPARKLE_FEED_URL</key>
-		<string>http://www.stevetushar.com/Downloads/BaseHead/Updates/Mac/5.1/Appcast-CM.xml</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>1.0.0</string>
 	<key>Process</key>
 	<array>
 		<dict>
-			<key>Arguments</key>
-			<dict>
-				<key>appcast_url</key>
-				<string>%SPARKLE_FEED_URL%</string>
+<key>Processor</key>
+				<string>URLTextSearcher</string>
+				<key>Arguments</key>
+				<dict>
+					<key>url</key>
+					<string>https://baseheadinc.com/index.php/downloads-mac/</string>
+					<key>re_pattern</key>
+					<string>(BaseHead%20Mac%20[5-9]+.[0-5]+.[0-99]+.pkg)</string>
+					<key>result_output_var_name</key>
+					<string>url</string>
+				</dict>
 			</dict>
-			<key>Processor</key>
-			<string>SparkleUpdateInfoProvider</string>
-		</dict>
-		<dict>
-			<key>Arguments</key>
 			<dict>
-				<key>filename</key>
-				<string>%NAME%-%version%.zip</string>
+				<key>Processor</key>
+				<string>URLDownloader</string>
+				<key>Arguments</key>
+				<dict>
+					<key>url</key>
+					<string>https://storage.googleapis.com/basehead-downloads/BaseHead/Mac/5.x%20Installers/%url%</string>
+					<key>filename</key>
+					<string>%NAME%.dmg</string>
+				</dict>
 			</dict>
-			<key>Processor</key>
-			<string>URLDownloader</string>
-		</dict>
+
 		<dict>
 			<key>Processor</key>
 			<string>EndOfCheckPhase</string>
@@ -44,37 +51,17 @@
 		<dict>
 			<key>Arguments</key>
 			<dict>
-				<key>archive_path</key>
-				<string>%pathname%</string>
-				<key>destination_path</key>
-				<string>%RECIPE_CACHE_DIR%/%NAME%</string>
-				<key>purge_destination</key>
-				<true/>
-			</dict>
-			<key>Processor</key>
-			<string>Unarchiver</string>
-		</dict>
-		<dict>
-			<key>Arguments</key>
-			<dict>
+				<key>expected_authority_names</key>
+				<array>
+					<string>Developer ID Installer: Steve Tushar (WVJ3GT3TVW)</string>
+					<string>Developer ID Certification Authority</string>
+					<string>Apple Root CA</string>
+				</array>
 				<key>input_path</key>
-				<string>%RECIPE_CACHE_DIR%/%NAME%/BaseHead-CM.app</string>
-				<key>requirement</key>
-				<string>identifier "com.basehead.BaseHead5.x" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = WVJ3GT3TVW</string>
+				<string>%pathname%</string>
 			</dict>
 			<key>Processor</key>
 			<string>CodeSignatureVerifier</string>
-		</dict>
-		<dict>
-			<key>Arguments</key>
-			<dict>
-				<key>input_plist_path</key>
-				<string>%RECIPE_CACHE_DIR%/%NAME%/BaseHead-CM.app/Contents/Info.plist</string>
-				<key>plist_version_key</key>
-				<string>CFBundleShortVersionString</string>
-			</dict>
-			<key>Processor</key>
-			<string>Versioner</string>
 		</dict>
 	</array>
 </dict>
