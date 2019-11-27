@@ -13,14 +13,14 @@
 		<key>DOWNLOAD_URL</key>
 		<string>https://storage.googleapis.com/basehead-downloads/BaseHead/Mac/5.x%20Installers/BaseHead%20Mac%205.2.20.pkg</string>
 		<key>NAME</key>
-		<string>BaseHead-CM</string>
+		<string>BaseHead</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>1.0.0</string>
 	<key>Process</key>
 	<array>
 		<dict>
-<key>Processor</key>
+			<key>Processor</key>
 				<string>URLTextSearcher</string>
 				<key>Arguments</key>
 				<dict>
@@ -43,7 +43,6 @@
 					<string>%NAME%.pkg</string>
 				</dict>
 			</dict>
-
 		<dict>
 			<key>Processor</key>
 			<string>EndOfCheckPhase</string>
