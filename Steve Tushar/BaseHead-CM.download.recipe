@@ -7,7 +7,7 @@
 	<key>Description</key>
 	<string>Downloads the latest version of BaseHead-CM.</string>
 	<key>Identifier</key>
-	<string>ch.srgssr.recipes.download.BaseHead-CM</string>
+	<string>com.github.srgssr.download.BaseHead-CM</string>
 	<key>Input</key>
 	<dict>
 		<key>DOWNLOAD_URL</key>
