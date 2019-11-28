@@ -26,7 +26,7 @@
 					<key>url</key>
 					<string>https://fotostation.com/download</string>
 					<key>re_pattern</key>
-					<string>(https:\/\/cdn.fotoware.com\/fslt\/Macintosh\/[0-9]+[0-9]+[0-9]+\/FotoStation-[0-9]+.[0-9]+-Build-[0-9]+[0-9]+[0-9]+-Installer.dmg)</string>
+					<string>(https:\/\/cdn.fotoware.com\/fslt\/Macintosh\/[0-9]+\/FotoStation-[0-9]+.[0-9]+.[0-9]+.[0-9]+.dmg)</string>
 					<key>result_output_var_name</key>
 					<string>url</string>
 				</dict>
