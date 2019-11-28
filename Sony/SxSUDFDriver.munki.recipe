@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>Downloads the latest version of SxSUDFDriver and imports it into Munki.</string>
+	<key>Identifier</key>
+	<string>com.github.srgssr.munki.SxSUDFDriver</string>
+	<key>Input</key>
+	<dict>
+		<key>MUNKI_REPO_SUBDIR</key>
+		<string>Sony/SxSUDFDriver</string>
+		<key>NAME</key>
+		<string>SxSUDFDriver</string>
+		<key>pkginfo</key>
+		<dict>
+			<key>catalogs</key>
+			<array>
+				<string>testing</string>
+			</array>
+			<key>description</key>
+			<string>Die SxS UDF Driver-Software ermöglicht Lese-/Schreibzugriff auf MXF-Dateien, die im UDF-Modus auf SxS-Speicherkarte aufgezeichnet wurden.</string>
+			<key>developer</key>
+			<string>Sony</string>
+			<key>display_name</key>
+			<string>Sony SxS UDF Driver</string>
+			<key>name</key>
+			<string>%NAME%</string>
+			<key>category</key>
+			<string>Driver</string>
+			<key>unattended_install</key>
+			<true/>
+			<key>RestartAction</key>
+			<string>RequireRestart</string>
+		</dict>
+	</dict>
+	<key>MinimumVersion</key>
+	<string>1.0.0</string>
+	<key>ParentRecipe</key>
+	<string>com.github.srgssr.download.SxSUDFDriver</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Processor</key>
+			<string>FileFinder</string>
+			<key>Arguments</key>
+			<dict>
+				<key>pattern</key>
+				<string>%RECIPE_CACHE_DIR%/%NAME%/SxSUDFDriver*.dmg</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>MunkiImporter</string>
+			<key>Arguments</key>
+			<dict>
+				<key>pkg_path</key>
+				<string>%found_filename%</string>
+				<key>repo_subdirectory</key>
+				<string>%MUNKI_REPO_SUBDIR%</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>PathDeleter</string>
+			<key>Arguments</key>
+			<dict>
+				<key>path_list</key>
+				<array>
+					<string>%RECIPE_CACHE_DIR%/%NAME%</string>
+				</array>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>

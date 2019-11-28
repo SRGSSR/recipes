@@ -2,18 +2,16 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>Comment</key>
-	<string>Created with Recipe Robot v1.0.5 (https://github.com/homebysix/recipe-robot)</string>
 	<key>Description</key>
-	<string>Downloads the latest version of Product Portal and imports it into Munki.</string>
+	<string>Downloads the latest version of Sony SxS Device Driver and imports it into Munki.</string>
 	<key>Identifier</key>
-	<string>com.github.srgssr.recipes.munki.ProductPortal</string>
+	<string>com.github.srgssr.munki.SxSDeviceDriver</string>
 	<key>Input</key>
 	<dict>
 		<key>MUNKI_REPO_SUBDIR</key>
-		<string>apps/%NAME%</string>
+		<string>Sony/SxSDeviceDriver</string>
 		<key>NAME</key>
-		<string>Product Portal</string>
+		<string>SxSDeviceDriver</string>
 		<key>pkginfo</key>
 		<dict>
 			<key>catalogs</key>
@@ -21,32 +19,30 @@
 				<string>testing</string>
 			</array>
 			<key>description</key>
-			<string> </string>
+			<string>This SxS Driver is required for SBAC-T40 SxS Memory Card Thunderbolt 3 Card Reader/Writer to connect Windows PC or Mac.</string>
 			<key>developer</key>
-			<string>iZotope, Inc.</string>
+			<string>Sony</string>
 			<key>display_name</key>
-			<string>Product Portal</string>
+			<string>Sony SxS Device Driver</string>
 			<key>name</key>
 			<string>%NAME%</string>
+			<key>category</key>
+			<string>Driver</string>
 			<key>unattended_install</key>
 			<true/>
-			<key>uninstall_method</key>
-			<string>uninstall_script</string>
-			<key>uninstall_script</key>
-            <string>#!/bin/sh
-/Library/Application\ Support/iZotope/Product\ Portal/Uninstall\ Product\ Portal.app/Contents/MacOS/installbuilder.sh --mode unattended
-/usr/sbin/pkgutil --forget %ID%</string>
 		</dict>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>1.0.0</string>
 	<key>ParentRecipe</key>
-	<string>com.github.srgssr.recipes.pkg.ProductPortal</string>
+	<string>com.github.srgssr.download.SxSDeviceDriver</string>
 	<key>Process</key>
 	<array>
 		<dict>
 			<key>Arguments</key>
 			<dict>
+				<key>pkg_path</key>
+				<string>%pathname%</string>
 				<key>repo_subdirectory</key>
 				<string>%MUNKI_REPO_SUBDIR%</string>
 			</dict>

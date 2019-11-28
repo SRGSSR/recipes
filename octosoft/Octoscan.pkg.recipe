@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>Create pkg from Octoscan pyc</string>
+	<key>Identifier</key>
+	<string>com.github.srgssr.pkg.Octoscan</string>
+	<key>Input</key>
+	<dict>
+		<key>NAME</key>
+		<string>Octoscan</string>
+		<key>ServerURL</key>
+		<string>http://youruploadserver.yourdomain:8080</string>
+		 <key>ID</key>
+        <string>com.github.octoscan</string>
+	</dict>
+	<key>MiniumumVersion</key>
+	<string>1.0</string>
+	<key>ParentRecipe</key>
+	<string>com.github.srgssr.download.Octoscan</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Processor</key>
+			<string>com.github.homebysix.VersionSplitter/VersionSplitter</string>
+			<key>Arguments</key>
+			<dict>
+				<key>split_on</key>
+				<string>_</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>pkgroot</key>
+				<string>%RECIPE_CACHE_DIR%/pkgroot</string>
+				<key>pkgdirs</key>
+                <dict>
+					<key>payload/usr/local/octoscan</key>
+                    <string>0755</string>
+					<key>payload/Library/LaunchAgents</key>
+                    <string>0755</string>
+					<key>scripts</key>
+                    <string>0755</string>
+                </dict>
+			</dict>
+			<key>Processor</key>
+			<string>PkgRootCreator</string>
+		</dict>
+		<dict>
+            <key>Arguments</key>
+            <dict>
+                <key>destination_path</key>
+                <string>%pkgroot%/payload/usr/local/octoscan/octoscan.pyz</string>
+                <key>source_path</key>
+                <string>%pathname%</string>
+            </dict>
+            <key>Processor</key>
+            <string>Copier</string>
+        </dict>
+		<dict>
+            <key>Arguments</key>
+            <dict>
+                <key>file_path</key>
+                <string>%pkgroot%/payload/usr/local/octoscan/run</string>
+				<key>file_mode</key>
+                <string>755</string>
+                <key>file_content</key>
+                <string>#!/bin/sh
+FILE=$(/usr/local/octoscan/octoscan.pyz -o /tmp)
+if curl -F "upload=@${FILE}" %ServerURL%
+then
+    rm ${FILE}
+fi</string>
+            </dict>
+            <key>Processor</key>
+            <string>FileCreator</string>
+        </dict>
+		<dict>
+            <key>Arguments</key>
+            <dict>
+                <key>file_path</key>
+                <string>%pkgroot%/payload/Library/LaunchAgents/%ID%.plist</string>
+				<key>file_mode</key>
+                <string>644</string>
+                <key>file_content</key>
+                <string>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;
+&lt;plist version="1.0"&gt;
+&lt;dict&gt;
+	&lt;key&gt;Label&lt;/key&gt;
+	&lt;string&gt;%ID%&lt;/string&gt;
+	&lt;key&gt;ProgramArguments&lt;/key&gt;
+	&lt;array&gt;
+		&lt;string&gt;/usr/local/octoscan/run&lt;/string&gt;
+	&lt;/array&gt;
+	&lt;key&gt;RunAtLoad&lt;/key&gt;
+	&lt;true/&gt;
+	&lt;key&gt;StartInterval&lt;/key&gt;
+	&lt;integer&gt;8000&lt;/integer&gt;
+&lt;/dict&gt;
+&lt;/plist&gt;</string>
+            </dict>
+            <key>Processor</key>
+            <string>FileCreator</string>
+        </dict>
+		<dict>
+            <key>Arguments</key>
+            <dict>
+                <key>pkg_request</key>
+                <dict>
+                    <key>chown</key>
+                    <array>
+                        <dict>
+                            <key>group</key>
+                            <string>wheel</string>
+                            <key>path</key>
+                            <string>Library</string>
+                            <key>user</key>
+                            <string>root</string>
+                            <key>mode</key>
+                            <string>0755</string>
+                        </dict>
+                        <dict>
+                            <key>group</key>
+                            <string>wheel</string>
+                            <key>path</key>
+                            <string>usr</string>
+                            <key>user</key>
+                            <string>root</string>
+                            <key>mode</key>
+                            <string>0755</string>
+                        </dict>
+                        <dict>
+                            <key>group</key>
+                            <string>wheel</string>
+                            <key>path</key>
+                            <string>usr/local/octoscan/octoscan.pyz</string>
+                            <key>user</key>
+                            <string>root</string>
+                            <key>mode</key>
+                            <string>0755</string>
+                        </dict>
+                    </array>
+                    <key>id</key>
+                    <string>%ID%.pkg</string>
+                    <key>options</key>
+                    <string>purge_ds_store</string>
+					<key>scripts</key>
+                    <string>%pkgroot%/scripts</string>
+					<key>pkgroot</key>
+                    <string>%pkgroot%/payload</string>
+                    <key>pkgdir</key>
+                    <string>%RECIPE_CACHE_DIR%</string>
+                </dict>
+                <key>pkgname</key>
+                <string>%NAME%-%version%</string>
+            </dict>
+            <key>Processor</key>
+            <string>PkgCreator</string>
+        </dict>
+	</array>
+</dict>
+</plist>
