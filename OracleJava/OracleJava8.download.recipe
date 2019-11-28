@@ -35,6 +35,8 @@ http://www.oracle.com/technetwork/java/javase/terms/license/index.html
             </dict>
         </dict>
         <dict>
+            <key>Processor</key>
+            <string>URLDownloader</string>
             <key>Arguments</key>
             <dict>
                 <key>request_headers</key>
@@ -42,11 +44,11 @@ http://www.oracle.com/technetwork/java/javase/terms/license/index.html
                     <key>Cookie</key>
                     <string>oraclelicense=accept-securebackup-cookie</string>
                 </dict>
+                <key>url</key>
+                <string>%result_output_var_name%</string>
                 <key>filename</key>
                 <string>%NAME%.dmg</string>
             </dict>
-            <key>Processor</key>
-            <string>URLDownloader</string>
         </dict>
         <dict>
             <key>Processor</key>
