@@ -28,6 +28,21 @@
 			<string>%NAME%</string>
 			<key>unattended_install</key>
 			<true/>
+			<key>installs</key>
+			<array>
+				<dict>
+					<key>CFBundleShortVersionString</key>
+					<string>12.1 (351)</string>
+					<key>CFBundleVersion</key>
+					<string>12.1.0f351</string>
+					<key>path</key>
+					<string>/Library/Application Support/Adobe/Plug-Ins/CC/File Formats/Camera Raw.plugin</string>
+					<key>type</key>
+					<string>bundle</string>
+					<key>version_comparison_key</key>
+					<string>CFBundleShortVersionString</string>
+				</dict>
+			</array>
 		</dict>
 	</dict>
 	<key>MinimumVersion</key>
