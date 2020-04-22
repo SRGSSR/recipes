@@ -7,11 +7,11 @@
 	<key>Description</key>
 	<string>Downloads the latest version of Avid Link.</string>
 	<key>Identifier</key>
-	<string>ch.srgssr.recipes.download.AvidLink</string>
+	<string>ch.srgssr.recipe.download.AvidLink</string>
 	<key>Input</key>
 	<dict>
 		<key>DOWNLOAD_URL</key>
-		<string>http://cdn.avid.com/AvidLink/2019.4/A6C448B5/Avid_Link_2019.4_Mac.zip</string>
+		<string>http://cdn.avid.com/AvidLink/2020.3.1/A9520772/Avid_Link_20.3.1_Mac.dmg</string>
 		<key>NAME</key>
 		<string>Avid Link</string>
 	</dict>
@@ -23,7 +23,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>filename</key>
-				<string>%NAME%.tgz</string>
+				<string>%NAME%.dmg</string>
 				<key>url</key>
 				<string>%DOWNLOAD_URL%</string>
 			</dict>
@@ -37,19 +37,6 @@
 		<dict>
 			<key>Arguments</key>
 			<dict>
-				<key>archive_path</key>
-				<string>%pathname%</string>
-				<key>destination_path</key>
-				<string>%RECIPE_CACHE_DIR%/%NAME%</string>
-				<key>purge_destination</key>
-				<true/>
-			</dict>
-			<key>Processor</key>
-			<string>Unarchiver</string>
-		</dict>
-		<dict>
-			<key>Arguments</key>
-			<dict>
 				<key>expected_authority_names</key>
 				<array>
 					<string>Developer ID Installer: Avid Technology Inc (4UYUA773XD)</string>
@@ -57,7 +44,7 @@
 					<string>Apple Root CA</string>
 				</array>
 				<key>input_path</key>
-				<string>%RECIPE_CACHE_DIR%/%NAME%/AvidLink_Installer.pkg</string>
+				<string>%pathname%/AvidLink_Installer.pkg</string>
 			</dict>
 			<key>Processor</key>
 			<string>CodeSignatureVerifier</string>
@@ -68,7 +55,7 @@
 				<key>destination_path</key>
 				<string>%RECIPE_CACHE_DIR%/unpack</string>
 				<key>flat_pkg_path</key>
-				<string>%RECIPE_CACHE_DIR%/%NAME%/AvidLink_Installer.pkg</string>
+				<string>%pathname%/AvidLink_Installer.pkg</string>
 				<key>purge_destination</key>
 				<true/>
 			</dict>
