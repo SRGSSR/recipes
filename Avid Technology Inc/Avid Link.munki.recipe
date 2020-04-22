@@ -7,7 +7,7 @@
 	<key>Description</key>
 	<string>Downloads the latest version of Avid Link and imports it into Munki.</string>
 	<key>Identifier</key>
-	<string>ch.srgssr.recipes.munki.AvidLink</string>
+	<string>ch.srgssr.recipe.munki.AvidLink</string>
 	<key>Input</key>
 	<dict>
 		<key>MUNKI_REPO_SUBDIR</key>
@@ -43,7 +43,7 @@
 	<key>MinimumVersion</key>
 	<string>1.0.0</string>
 	<key>ParentRecipe</key>
-	<string>ch.srgssr.recipes.download.AvidLink</string>
+	<string>ch.srgssr.recipe.download.AvidLink</string>
 	<key>Process</key>
 	<array>
 		<dict>
