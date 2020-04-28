@@ -7,7 +7,7 @@
 	<key>Description</key>
 	<string>Downloads the latest version of AvidLink.</string>
 	<key>Identifier</key>
-	<string>com.github.srgssr.download.AvidLink</string>
+	<string>ch.srgssr.recipe.download.AvidLink</string>
 	<key>Input</key>
 	<dict>
 		
