@@ -111,6 +111,21 @@
             </dict>
         </dict>
 
+		<!-- Create Installs item from payload/Application/BaseHead-CM.app -->
+		<dict>
+			<key>Processor</key>
+			<string>MunkiInstallsItemsCreator</string>
+			<key>Arguments</key>
+			<dict>
+				<key>faux_root</key>
+				<string>%RECIPE_CACHE_DIR%/payload</string>
+				<key>installs_item_paths</key>
+				<array>
+					<string>/Applications/BaseHead-CM.app</string>			
+				</array>		
+			</dict>
+		</dict>
+
 	<!-- Get Version from BaseHead-CM.app and merge it into pkginfo 
 		 For now the version inside the app is wrong thus this code is commented out.	
  		<dict>
