@@ -125,6 +125,10 @@
 				</array>		
 			</dict>
 		</dict>
+		<dict>
+            <key>Processor</key>
+            <string>MunkiPkginfoMerger</string>
+        </dict>   
 
 	<!-- Get Version from BaseHead-CM.app and merge it into pkginfo 
 		 For now the version inside the app is wrong thus this code is commented out.	
