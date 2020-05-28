@@ -122,6 +122,17 @@
 				<string>%RECIPE_CACHE_DIR%/payload/Applications/%NAME%-CM.app/Contents/Info.plist</string>
 			</dict>
 		</dict>
+	-->
+		<!-- Get Version from distribution package -->
+		<dict>
+			<key>Processor</key>
+			<string>com.facebook.autopkg.shared/PackageInfoVersioner</string>
+			<key>Arguments</key>
+			<dict>
+				<key>package_info_path</key>
+				<string>%RECIPE_CACHE_DIR%/unpack/%NAME%-CM.pkg/PackageInfo</string>
+			</dict>
+		</dict>
 		<dict>
 			<key>Processor</key>
 			<string>MunkiPkginfoMerger</string>
@@ -134,18 +145,6 @@
 				</dict>
 			</dict>
 		</dict>
-	-->
-		<!-- Get Version from distribution package -->
-		<dict>
-			<key>Processor</key>
-			<string>com.facebook.autopkg.shared/PackageInfoVersioner</string>
-			<key>Arguments</key>
-			<dict>
-				<key>package_info_path</key>
-				<string>%RECIPE_CACHE_DIR%/unpack/%NAME%-CM.pkg/PackageInfo</string>
-			</dict>
-		</dict>
-
         <!-- Import into Munki -->
 		<dict>
 			<key>Processor</key>
