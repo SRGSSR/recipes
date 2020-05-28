@@ -136,15 +136,15 @@
 		</dict>
 	-->
 		<!-- Get Version from distribution package -->
-        <dict>
-            <key>Processor</key>
-            <string>com.github.dataJAR-recipes.Shared Processors/DistributionPkgInfo</string>
-            <key>Arguments</key>
-            <dict>
-                <key>pkg_path</key>
-                <string>%pathname%</string>
-            </dict>
-        </dict>
+		<dict>
+			<key>Processor</key>
+			<string>com.facebook.autopkg.shared/PackageInfoVersioner</string>
+			<key>Arguments</key>
+			<dict>
+				<key>package_info_path</key>
+				<string>%RECIPE_CACHE_DIR%/unpack/%NAME%-CM.pkg/PackageInfo</string>
+			</dict>
+		</dict>
 
         <!-- Import into Munki -->
 		<dict>
