@@ -111,7 +111,8 @@
             </dict>
         </dict>
 
-		<!-- Get Version from BaseHead-CM.app and merge it into pkginfo -->
+	<!-- Get Version from BaseHead-CM.app and merge it into pkginfo 
+		 For now the version inside the app is wrong thus this code is commented out.	
  		<dict>
 			<key>Processor</key>
 			<string>Versioner</string>		
@@ -133,6 +134,17 @@
 				</dict>
 			</dict>
 		</dict>
+	-->
+		<!-- Get Version from distribution package -->
+        <dict>
+            <key>Processor</key>
+            <string>com.github.dataJAR-recipes.Shared Processors/DistributionPkgInfo</string>
+            <key>Arguments</key>
+            <dict>
+                <key>pkg_path</key>
+                <string>%pathname%</string>
+            </dict>
+        </dict>
 
         <!-- Import into Munki -->
 		<dict>
