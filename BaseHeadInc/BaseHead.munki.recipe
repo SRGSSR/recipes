@@ -121,7 +121,7 @@
 				<string>%RECIPE_CACHE_DIR%/payload</string>
 				<key>installs_item_paths</key>
 				<array>
-					<string>/Applications/BaseHead-CM.app</string>			
+					<string>/Applications/BaseHead-CM.app/Contents/MacOS/BaseHead-CM</string>			
 				</array>		
 			</dict>
 		</dict>
