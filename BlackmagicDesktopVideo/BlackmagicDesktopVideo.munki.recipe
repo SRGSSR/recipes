@@ -52,9 +52,9 @@
                 <string>Blackmagic Design</string>
                 <key>display_name</key>
                 <string>Blackmagic Desktop Video</string>
-                <key>installcheck_script</key>
-                <string>#!/bin/bash
-VERSION="11.5.1" # IN MUNKI(!) replace this with the Version AutoPkg has imported and put the item back in QA (*see comment in line 36).
+	<key>installcheck_script</key>
+	<string>#!/bin/bash
+VERSION="11.5.1" # IN MUNKI(!) replace this with the Version AutoPkg has imported and put the item back in QA (*see comment in line 32).
 IDENTIFIER=com.blackmagic-design.DesktopVideo
 PR2019="/Applications/Adobe Premiere Pro CC 2019/Adobe Premiere Pro CC 2019.app"
 PR2020="/Applications/Adobe Premiere Pro 2020/Adobe Premiere Pro 2020.app"
@@ -66,7 +66,7 @@ if [ -d "$PR2019" ]; then
     if [ ! -f "$PR2019/Contents/Settings/Editing Modes/Blackmagic Editing Modes.xml" ]; then
         # PRCC2019 is installed but XML file is missing. 
         # We assume BM Desktop Video isn't installed for this version of Premiere. 
-        INSTALL_BMDV=0
+	    INSTALL_BMDV=0
     fi
 fi
 
@@ -76,28 +76,26 @@ if [ -d "$PR2020" ]; then
     if [ ! -f "$PR2020/Contents/Settings/Editing Modes/Blackmagic Editing Modes.xml" ]; then
         # PRCC2019 is installed but XML file is missing. 
         # We assume BM Desktop Video isn't installed for this version of Premiere. 
-        INSTALL_BMDV=0
+	    INSTALL_BMDV=0
     fi
 fi
 
-# 3) Check if plugins are missing.
-# We could check for many other files, but for now we limit to this plugins.
-if [ ! -d /Library/Application\ Support/Adobe/Common/Plug-ins/7.0/MediaCore/DeckLinkDevice.bundle ]; then INSTALL_BMDV=0; fi
-if [ ! -d /Library/Application\ Support/Adobe/Common/Plug-ins/7.0/MediaCore/DeckLinkRecord.bundle ]; then INSTALL_BMDV=0; fi
-if [ ! -d /Library/Application\ Support/Adobe/Common/Plug-ins/7.0/MediaCore/DeckLinkTransmit.bundle ]; then INSTALL_BMDV=0; fi
-if [ ! -d /Library/Application\ Support/Adobe/Plug-Ins/CC/DeckLinkImportExport.plugin ]; then INSTALL_BMDV=0; fi
-
-# 4) Check if the installed version equals the version we expect to be installed.
-# * Unfortunately the requirement to check the version leads to the fact that we have to change the installcheck_script with
-# every new version AutoPKG downloads. Which strongly contraicts AutoPKGs meaning. Just change in Munki not in AutoPKG.
+# 3) If BMDV is installed what's it's version?
 pkginfo=$(pkgutil --pkg-info $IDENTIFIER 2&gt; /dev/null)
 if [ "$pkginfo" !=  "" ]; then
+    # a) Check if the installed version equals the version we expect to be installed.
+    # * Unfortunately the requirement to check the version leads to the fact that we have to change the installcheck_script with
+    # every new version AutoPKG downloads. Which strongly contraicts AutoPKGs meaning. Just change in Munki not in AutoPKG. 
     pkg_version=$(pkgutil --pkg-info $IDENTIFIER 2&gt; /dev/null | grep version | cut -d":" -f2 | cut -c2-)
     if [[ ${pkg_version:-0} &lt; $VERSION ]]; then
         INSTALL_BMDV=0
     fi
-else 
-    INSTALL_BMDV=0
+    # b) Check if plugins are missing. 
+    # We could check for many other files, but for now we limit to this plugins.  
+    if [ ! -d /Library/Application\ Support/Adobe/Common/Plug-ins/7.0/MediaCore/DeckLinkDevice.bundle ]; then INSTALL_BMDV=0; fi
+    if [ ! -d /Library/Application\ Support/Adobe/Common/Plug-ins/7.0/MediaCore/DeckLinkRecord.bundle ]; then INSTALL_BMDV=0; fi
+    if [ ! -d /Library/Application\ Support/Adobe/Common/Plug-ins/7.0/MediaCore/DeckLinkTransmit.bundle ]; then INSTALL_BMDV=0; fi
+    if [ ! -d /Library/Application\ Support/Adobe/Plug-Ins/CC/DeckLinkImportExport.plugin ]; then INSTALL_BMDV=0; fi
 fi
 
 exit $INSTALL_BMDV</string>
