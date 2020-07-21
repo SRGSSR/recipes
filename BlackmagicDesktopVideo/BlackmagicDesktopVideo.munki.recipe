@@ -54,7 +54,7 @@
                 <string>Blackmagic Desktop Video</string>
                 <key>installcheck_script</key>
                 <string>#!/bin/bash
-            VERSION="11.5.1" # IN MUNKI(!) replace this with the Version AutoPkg has imported and put the item back in QA (*see comment in line 30).
+            VERSION="%version%" # IN MUNKI(!) replace this with the Version AutoPkg has imported and put the item back in QA (*see comment in line 30).
             IDENTIFIER=com.blackmagic-design.DesktopVideo
             PR2019="/Applications/Adobe Premiere Pro CC 2019/Adobe Premiere Pro CC 2019.app"
             PR2020="/Applications/Adobe Premiere Pro 2020/Adobe Premiere Pro 2020.app"
@@ -94,6 +94,16 @@
             exit $INSTALL_BMDV</string>
                 <key>name</key>
                 <string>%NAME%</string>
+	            <key>preinstall_script</key>
+	            <string>#!/bin/bash
+UNINSTALL_UID_ROOT="/Applications/Blackmagic Desktop Video/Uninstall Desktop Video.app/Contents/Resources/uninstall_uid_root.sh"
+UNINSTALL="/Applications/Blackmagic Desktop Video/Uninstall Desktop Video.app/Contents/Resources/uninstall.sh"
+
+# check for Blackmagic uninstall scripts and run them 
+if [[ -f "$UNINSTALL_UID_ROOT"  &amp;&amp;  -f "$UNINSTALL" ]]; then 
+    "$UNINSTALL"
+    "$UNINSTALL_UID_ROOT"  
+fi</string>
                 <key>preuninstall_script</key>
                 <string>#!/bin/bash
 
