@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/local/autopkg/python
 #
 # Copyright 2014 Timothy Sutton
 #
@@ -15,13 +15,13 @@
 # limitations under the License.
 """See docstring for BlackMagicURLProvider class"""
 
+
+
 import json
 import re
-import urllib2
-
-from distutils.version import LooseVersion, StrictVersion
+from autopkglib.URLGetter import URLGetter
+from distutils.version import LooseVersion
 from operator import itemgetter
-from pprint import pprint
 
 from autopkglib import Processor, ProcessorError
 
@@ -38,7 +38,7 @@ REQUIRED_REG_KEYS = [
     "country",
 ]
 
-class BlackMagicURLProvider(Processor):
+class BlackMagicURLProvider(URLGetter):
     """Provides a version and dmg download for the Barebones product given."""
     description = __doc__
     input_variables = {
@@ -94,11 +94,8 @@ class BlackMagicURLProvider(Processor):
 
     def get_downloads_metadata(self):
         '''Return a deserialized json object from the BM downloads metadata.'''
-        try:
-            metadata = urllib2.urlopen(DOWNLOADS_URL).read()
-            json_data = json.loads(metadata)
-        except urllib2.HTTPError, ValueError:
-            raise ProcessorError("Could not parse downloads metadata.")
+        metadata = self.download(DOWNLOADS_URL, text=True)
+        json_data = json.loads(metadata)
         return json_data
 
     def main(self):
@@ -133,8 +130,7 @@ class BlackMagicURLProvider(Processor):
         # sort by version and grab the highest one
         latest_prod = sorted(
             prods,
-            key=itemgetter("version"),
-            cmp=compare_version)[-1]
+            key=lambda v:LooseVersion(v['version']))[-1]
 
         # ensure our product contains info we need
         try:
@@ -156,8 +152,7 @@ class BlackMagicURLProvider(Processor):
 
         # if this download needs registration, or we want to register
         # otherwise, ensure we've set everything
-        if latest_prod["requiresRegistration"] or \
-                self.env.get("registration_info"):
+        if latest_prod["requiresRegistration"]:
             errormsg = ("This product requires registration. Please set all "
                         "registration information in this processor using "
                         "the 'registration_info' input variable.")
@@ -176,15 +171,17 @@ class BlackMagicURLProvider(Processor):
         url = "https://www.blackmagicdesign.com/api/register/us/download/"
         url += str(download_id)
 
-        request = urllib2.Request(url, req_data)
-        request.add_header("Content-Type", "application/json;charset=UTF-8")
-        request.add_header("User-Agent", "Mozilla/5.0")
-        try:
-            result = urllib2.urlopen(request)
-            download_url = result.read()
-        except urllib2.HTTPError as exc:
-            raise ProcessorError(
-                "Could not get a download URL: %s" % exc)
+        headers = {
+            "Content-Type": "application/json;charset=UTF-8",
+            "User-Agent": "Mozilla/5.0"
+        }
+
+        curl_cmd = self.prepare_curl_cmd()
+        self.add_curl_headers(curl_cmd, headers)
+        curl_cmd.append('--data')
+        curl_cmd.append(req_data)
+        curl_cmd.append(url)
+        download_url = self.download_with_curl(curl_cmd)
 
         self.env["version"] = latest_prod["version"]
         self.env["url"] = download_url
