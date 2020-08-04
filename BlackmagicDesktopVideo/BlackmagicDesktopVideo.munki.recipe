@@ -1,115 +1,208 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-  <dict>
-		<key>Attribution</key>
-		<dict>
-			<key>Copyright</key>
-			<array>
-				<string>University of Oxford 2016</string>
-				<string>SRG SSR</string>
-			</array>
-			<key>Authors</key>
-			<dict>
-				<key>Name</key>
-				<array>
-					<string>Ben Goodstein</string>
-					<string>Antti Pettinen</string>
-				</array>
-				<key>Email</key>
-				<array>
-					<string>ben.goodstein at it.ox.ac.uk</string>
-					<string>a.pettinen at gmail.com</string>
-				</array>
-				<key>Github</key>
-				<array>
-					<string>fuzzylogiq</string>
-					<string>apettinen</string>
-				</array>
-				<key>Comment</key>
-				<string>This recipe is based on the work of Ben Goodstein, but edited to suit our purposes at SRG SSR</string>
-			</dict>
-		</dict>
-    <key>Description</key>
-    <string>Downloads the latest version of Blackmagic Desktop Video and imports it into munki</string>
-    <key>Identifier</key>
-    <string>com.github.srgssr.munki.DesktopVideo</string>
-    <key>Input</key>
     <dict>
-      <key>MUNKI_REPO_SUBDIR</key>
-      <string>drivers/BlackmagicUniversalHardwareDriver</string>
-      <key>pkginfo</key>
-      <dict>
-        <key>catalogs</key>
+        <key>Attribution</key>
+        <dict>
+            <key>Copyright</key>
+            <array>
+                <string>University of Oxford 2016</string>
+                <string>SRG SSR</string>
+            </array>
+            <key>Authors</key>
+            <dict>
+                <key>Name</key>
+                <array>
+                    <string>Ben Goodstein</string>
+                    <string>Antti Pettinen</string>
+                </array>
+                <key>Email</key>
+                <array>
+                    <string>ben.goodstein at it.ox.ac.uk</string>
+                    <string>a.pettinen at gmail.com</string>
+                </array>
+                <key>Github</key>
+                <array>
+                    <string>fuzzylogiq</string>
+                    <string>apettinen</string>
+                </array>
+                <key>Comment</key>
+                <string>This recipe is based on the work of Ben Goodstein, but edited to suit our purposes at SRG SSR</string>
+            </dict>
+        </dict>
+        <key>Description</key>
+        <string>Downloads the latest version of Blackmagic Desktop Video and imports it into munki</string>
+        <key>Identifier</key>
+        <string>com.github.srgssr.munki.DesktopVideo</string>
+        <key>Input</key>
+        <dict>
+            <key>MUNKI_REPO_SUBDIR</key>
+            <string>drivers/Blackmagic/DesktopVideo</string>
+            <key>pkginfo</key>
+            <dict>
+                <key>catalogs</key>
+                <array>
+                    <string>testing</string>
+                </array>
+                <key>category</key>
+                <string>Driver</string>
+                <key>description</key>
+                <string>This software includes everything you need to set up your DeckLink, UltraStudio and Intensity for video capture and playback.</string>
+                <key>developer</key>
+                <string>Blackmagic Design</string>
+                <key>display_name</key>
+                <string>Blackmagic Desktop Video</string>
+                <key>name</key>
+                <string>%NAME%</string>
+	            <key>preinstall_script</key>
+	            <string>#!/bin/bash
+UNINSTALL_UID_ROOT="/Applications/Blackmagic Desktop Video/Uninstall Desktop Video.app/Contents/Resources/uninstall_uid_root.sh"
+UNINSTALL="/Applications/Blackmagic Desktop Video/Uninstall Desktop Video.app/Contents/Resources/uninstall.sh"
+
+# check for Blackmagic uninstall scripts and run them 
+if [[ -f "$UNINSTALL_UID_ROOT"  &amp;&amp;  -f "$UNINSTALL" ]]; then 
+    "$UNINSTALL"
+    "$UNINSTALL_UID_ROOT"  
+fi</string>
+                <key>preuninstall_script</key>
+                <string>#!/bin/bash
+
+# Cleanup Adobe CC 2019 files
+APP="/Applications/Adobe Premiere Pro CC 2018/Adobe Premiere Pro CC 2019.app"
+APPSETTINGS="$APP/Contents/Settings/"
+if [[ -d "$APP" ]]; then
+    # Premiere
+    rm -f "$APPSETTINGS/Editing Modes/Blackmagic Editing Modes.xml"
+    rm -Rf "$APPSETTINGS/EncoderPresets/SequencePreview/e43ae329-eea5-4a04-b964-b72cf263ee81"
+    rm -Rf "$APPSETTINGS/SequencePresets/Blackmagic 2K"
+    rm -Rf "$APPSETTINGS/SequencePresets/Blackmagic 4K"
+    rm -Rf "$APPSETTINGS/SequencePresets/Blackmagic Design"
+    rm -Rf "$APPSETTINGS/SequencePresets/Blackmagic HD 720"
+    rm -Rf "$APPSETTINGS/SequencePresets/Blackmagic HD 1080"
+    rm -Rf "$APPSETTINGS/SequencePresets/Blackmagic NTSC"
+    rm -Rf "$APPSETTINGS/SequencePresets/Blackmagic PAL"
+
+    # Premiere and AfterEffects
+    PLUGINPATH="/Library/Application Support/Adobe/Common/Plug-ins/7.0/MediaCore"
+    rm -Rf "$PLUGINPATH/DeckLinkDevice.bundle"
+    rm -Rf "$PLUGINPATH/DeckLinkRecord.bundle"
+    rm -Rf "$PLUGINPATH/DeckLinkTransmit.bundle"
+
+    # Photoshop
+    rm -Rf /Library/Application\ Support/Adobe/Plug-Ins/CC/DeckLinkImportExport.plugin
+fi
+
+# Cleanup Adobe CC 2019 files, with CC2019 it's possible Premiere CC 2019 and 2020 are installed
+APP="/Applications/Adobe Premiere Pro 2020/Adobe Premiere Pro 2020.app"
+APPSETTINGS="$APP/Contents/Settings/"
+if [[ -d "$APP" ]]; then
+    # Premiere
+    rm -f "$APPSETTINGS/Editing Modes/Blackmagic Editing Modes.xml"
+    rm -Rf "$APPSETTINGS/EncoderPresets/SequencePreview/e43ae329-eea5-4a04-b964-b72cf263ee81"
+    rm -Rf "$APPSETTINGS/SequencePresets/Blackmagic 2K"
+    rm -Rf "$APPSETTINGS/SequencePresets/Blackmagic 4K"
+    rm -Rf "$APPSETTINGS/SequencePresets/Blackmagic Design"
+    rm -Rf "$APPSETTINGS/SequencePresets/Blackmagic HD 720"
+    rm -Rf "$APPSETTINGS/SequencePresets/Blackmagic HD 1080"
+    rm -Rf "$APPSETTINGS/SequencePresets/Blackmagic NTSC"
+    rm -Rf "$APPSETTINGS/SequencePresets/Blackmagic PAL"
+
+    # Premiere and AfterEffects
+    PLUGINPATH="/Library/Application Support/Adobe/Common/Plug-ins/7.0/MediaCore"
+    rm -Rf "$PLUGINPATH/DeckLinkDevice.bundle"
+    rm -Rf "$PLUGINPATH/DeckLinkRecord.bundle"
+    rm -Rf "$PLUGINPATH/DeckLinkTransmit.bundle"
+
+    # Photoshop
+    rm -Rf /Library/Application\ Support/Adobe/Plug-Ins/CC/DeckLinkImportExport.plugin
+fi</string>
+    <key>version</key>
+    <string>1.0.0.0.0 (Please edit me!)</string>
+                <key>unattended_install</key>
+                <true/>
+                <key>RestartAction</key>
+                <string>RequireRestart</string>
+            </dict>
+        </dict>
+        <key>MinimumVersion</key>
+        <string>0.6.0</string>
+        <key>ParentRecipe</key>
+        <string>com.github.srgssr.download.DesktopVideo</string>
+        <key>Process</key>
         <array>
-          <string>testing</string>
-        </array>
-        <key>category</key>
-        <string>Driver</string>
-        <key>description</key>
-        <string>This software includes everything you need to set up your DeckLink, UltraStudio and Intensity for video capture and playback.</string>
-        <key>developer</key>
-        <string>Blackmagic Design</string>
-        <key>display_name</key>
-        <string>Blackmagic Universal Hardware Driver</string>
-        <key>name</key>
-        <string>%NAME%</string>
-        <key>unattended_install</key>
-        <true/>
-				<key>RestartAction</key>
-				<string>RequireRestart</string>
-      </dict>
-    </dict>
-    <key>MinimumVersion</key>
-    <string>0.6.0</string>
-    <key>ParentRecipe</key>
-    <string>com.github.srgssr.download.DesktopVideo</string>
-    <key>Process</key>
-    <array>
-      <dict>
-        <key>Processor</key>
-        <string>Unarchiver</string>
-        <key>Arguments</key>
-        <dict>
-          <key>purge_destination</key>
-          <true/>
-        </dict>
-      </dict>
-      <dict>
-        <key>Processor</key>
-        <string>Copier</string>
-        <key>Arguments</key>
-        <dict>
-          <key>source_path</key>
-          <string>%RECIPE_CACHE_DIR%/%NAME%/Blackmagic_Desktop_Video_%version%.dmg/Install Desktop Video %version%.pkg</string>
-          <key>destination_path</key>
-          <string>%RECIPE_CACHE_DIR%/%NAME%-%version%.pkg</string>
-					<key>overwrite</key>
-					<true/>
-        </dict>
-      </dict>
-      <dict>
-        <key>Processor</key>
-        <string>MunkiImporter</string>
-        <key>Arguments</key>
-        <dict>
-          <key>pkg_path</key>
-          <string>%RECIPE_CACHE_DIR%/%NAME%-%version%.pkg</string>
-          <key>repo_subdirectory</key>
-          <string>%MUNKI_REPO_SUBDIR%</string>
-        </dict>
-      </dict>
+		<dict>
+			<key>Processor</key>
+			<string>MunkiPkginfoMerger</string>
+			<key>Arguments</key>
 			<dict>
-				<key>Processor</key>
-				<string>PathDeleter</string>
-				<key>Arguments</key>
+				<key>additional_pkginfo</key>
 				<dict>
-					<key>path_list</key>
-					<array>
-						<string>%RECIPE_CACHE_DIR%/%NAME%/</string>
-					</array>
+                    <key>installcheck_script</key>
+                    <string>#!/bin/bash
+VERSION="%version%" # IN MUNKI(!) replace this with the Version AutoPkg has imported and put the item back in QA (*see comment in line 30).
+IDENTIFIER=com.blackmagic-design.DesktopVideo
+PR2019="/Applications/Adobe Premiere Pro CC 2019/Adobe Premiere Pro CC 2019.app"
+PR2020="/Applications/Adobe Premiere Pro 2020/Adobe Premiere Pro 2020.app"
+PS2020="/Applications/Adobe Photoshop 2020/Adobe Photoshop 2020.app"
+INSTALL_BMDV=1
+
+# Check for Premiere 2019/2020
+# if PRCC2019 / PRCC2020 is installed but XML file is missing we assume BM Desktop Video isn't installed for this version of Premiere. 
+if [[ -d "$PR2019" &amp;&amp; ! -f "$PR2019/Contents/Settings/Editing Modes/Blackmagic Editing Modes.xml" ]]; then INSTALL_BMDV=0; fi
+if [[ -d "$PR2019" &amp;&amp; ! -f "$PR2020/Contents/Settings/Editing Modes/Blackmagic Editing Modes.xml" ]]; then INSTALL_BMDV=0; fi
+
+# The plugins should be installd if Premiere is installed
+if [[ -d "$PR2019" || -d "$PR2020" ]]; then
+    if [[ ! -d "/Library/Application Support/Adobe/Common/Plug-ins/7.0/MediaCore/DeckLinkDevice.bundle" ]]; then INSTALL_BMDV=0; fi
+    if [[ ! -d "/Library/Application Support/Adobe/Common/Plug-ins/7.0/MediaCore/DeckLinkRecord.bundle" ]]; then INSTALL_BMDV=0; fi
+    if [[ ! -d "/Library/Application Support/Adobe/Common/Plug-ins/7.0/MediaCore/DeckLinkTransmit.bundle" ]]; then INSTALL_BMDV=0; fi
+fi
+
+# Check for Photoshop CC 2020
+if [[ -d "$PS2020" ]]; then
+    # The plugins only installs if Photoshop is installed
+    if [[ ! -d "/Library/Application Support/Adobe/Plug-Ins/CC/DeckLinkImportExport.plugin" ]]; then INSTALL_BMDV=0; fi
+fi
+
+# Check for Version
+pkginfo=$(pkgutil --pkg-info $IDENTIFIER 2&gt; /dev/null)
+if [[ "$pkginfo" !=  "" ]]; then
+    # a) Check if the installed version equals the version we expect to be installed.
+    # * Unfortunately the requirement to check the version leads to the fact that we have to change the installcheck_script with
+    # every new version AutoPKG downloads. Which strongly contraicts AutoPKGs meaning. Just change in Munki not in AutoPKG. 
+    pkg_version=$(pkgutil --pkg-info $IDENTIFIER 2&gt; /dev/null | grep version | cut -d":" -f2 | cut -c2-)
+    if [[ ${pkg_version:-0} &lt; $VERSION ]]; then
+        INSTALL_BMDV=0
+    fi
+fi
+
+exit $INSTALL_BMDV</string>
 				</dict>
 			</dict>
-    </array>
-  </dict>
+		</dict>			
+            <dict>
+                <key>Processor</key>
+                <string>MunkiImporter</string>
+                <key>Arguments</key>
+                <dict>
+                    <key>pkg_path</key>
+                    <string>%RECIPE_CACHE_DIR%/%NAME%-%version%.pkg</string>
+                    <key>repo_subdirectory</key>
+                    <string>%MUNKI_REPO_SUBDIR%</string>
+                </dict>
+            </dict>
+            <dict>
+                <key>Processor</key>
+                <string>PathDeleter</string>
+                <key>Arguments</key>
+                <dict>
+                    <key>path_list</key>
+                    <array>
+                        <string>%RECIPE_CACHE_DIR%/dmg/</string>
+                        <string>%RECIPE_CACHE_DIR%/%NAME%-%version%.pkg</string>
+                    </array>
+                </dict>
+            </dict>
+        </array>
+    </dict>
 </plist>

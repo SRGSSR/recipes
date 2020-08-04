@@ -2,75 +2,141 @@
 <!DOCTYPE plist PUBLIC "-//Apple/DTD PLIST 1.0//EN" "http://apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>Attribution</key>
-	<dict>
-		<key>Copyright</key>
-		<array>
-			<string>University of Oxford 2016</string>
-			<string>SRG SSR</string>
-		</array>	
-		<key>Authors</key>
-		<dict>
-			<key>Name</key>
-			<array>
-				<string>Ben Goodstein</string>
-				<string>Antti Pettinen</string>
-			</array>
-			<key>Email</key>
-			<array>
-				<string>ben.goodstein at it.ox.ac.uk</string>
-				<string>a.pettinen at gmail.com</string>
-			</array>
-			<key>Github</key>
-			<array>
-				<string>fuzzylogiq</string>
-				<string>apettinen</string>
-			</array>
-			<key>Comment</key>
-			<string>This recipe is based on the work of Ben Goodstein, but edited to suit our purposes at SRG SSR</string>
-		</dict>
-	</dict>
-  <key>Description</key>
-  <string>Downloads the latest version of Desktop Video from Blackmagic.</string>
-  <key>Identifier</key>
-  <string>com.github.srgssr.download.DesktopVideo</string>
-  <key>Input</key>
-  <dict>
+    <key>Attribution</key>
+    <dict>
+        <key>Copyright</key>
+        <array>
+            <string>University of Oxford 2016</string>
+            <string>SRG SSR</string>
+        </array>    
+        <key>Authors</key>
+        <dict>
+            <key>Name</key>
+            <array>
+                <string>Ben Goodstein</string>
+                <string>Antti Pettinen</string>
+            </array>
+            <key>Email</key>
+            <array>
+                <string>ben.goodstein at it.ox.ac.uk</string>
+                <string>a.pettinen at gmail.com</string>
+            </array>
+            <key>Github</key>
+            <array>
+                <string>fuzzylogiq</string>
+                <string>apettinen</string>
+            </array>
+            <key>Comment</key>
+            <string>This recipe is based on the work of Ben Goodstein, but edited to suit our purposes at SRG SSR</string>
+        </dict>
+    </dict>
+    <key>Description</key>
+    <string>Downloads the latest version of Desktop Video from Blackmagic.</string>
+    <key>Identifier</key>
+    <string>com.github.srgssr.download.DesktopVideo</string>
+    <key>Input</key>
+    <dict>
     <key>NAME</key>
-    <string>Blackmagic_UniversalHardwareDriver</string>
+    <string>BlackmagicDesktopVideo</string>
     <key>PRODUCT_NAME_PATTERN</key>
     <string>^Desktop Video (?P&lt;version&gt;\d+\.\d+(\.\d+)?)$</string>
-  </dict>
-  <key>MinimumVersion</key>
-  <string>0.2.0</string>
-  <key>Process</key>
-  <array>
-		<dict>
-			<!-- this only works with the patched version currently! -->
-			<key>Processor</key>
-			<!-- <string>com.github.timsutton.download.davinciresolvelite11/BlackMagicURLProvider</string> -->
-			<string>BlackMagicURLProvider</string>
-			<key>Arguments</key>
-			<dict>
-				<key>product_name_pattern</key>
-				<string>%PRODUCT_NAME_PATTERN%</string>
-				<key>product_name</key>
-				<string>Desktop Video</string>
-			</dict> 
-		</dict>
-    <dict>
-      <key>Processor</key>
-      <string>URLDownloader</string>
-      <key>Arguments</key>
-      <dict>
-        <key>filename</key>
-        <string>%NAME%-%version%.zip</string>
-      </dict>
     </dict>
-    <dict>
-      <key>Processor</key>
-      <string>EndOfCheckPhase</string>
-    </dict>
-  </array>
-</dict> 
+    <key>MinimumVersion</key>
+    <string>0.2.0</string>
+    <key>Process</key>
+    <array>
+        <dict>
+            <key>Comment</key>
+            <string>this only works with the patched version currently!</string>
+            <key>Processor</key>
+            <!-- <string>com.github.timsutton.download.davinciresolvelite11/BlackMagicURLProvider</string> -->
+            <string>BlackMagicURLProvider</string>
+            <key>Arguments</key>
+            <dict>
+                <key>product_name_pattern</key>
+                <string>%PRODUCT_NAME_PATTERN%</string>
+                <key>product_name</key>
+                <string>Desktop Video</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Comment</key>
+            <string>download the zip to %RECIPE_CACHE_DIR%/downloads</string>
+            <key>Processor</key>
+            <string>URLDownloader</string>
+            <key>Arguments</key>
+            <dict>
+            <key>filename</key>
+            <string>%NAME%-%version%.zip</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>EndOfCheckPhase</string>
+        </dict>
+        <dict>
+            <key>Comment</key>
+            <string>unzip the zip file to %RECIPE_CACHE_DIR%</string>
+            <key>Processor</key>
+            <string>Unarchiver</string>
+            <key>Arguments</key>
+            <dict>
+                <key>destination_path</key>
+                <string>%RECIPE_CACHE_DIR%/dmg/</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Comment</key>
+            <string>get the name of the unzipped dmg</string>
+            <key>Processor</key>
+            <string>FileFinder</string>
+            <key>Arguments</key>
+            <dict>
+                <key>pattern</key>
+                <string>%RECIPE_CACHE_DIR%/dmg/*.dmg</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Comment</key>
+            <string>get the pkg from inside the dmg and put it into %RECIPE_CACHE_DIR%</string>
+            <key>Processor</key>
+            <string>PkgCopier</string>
+            <key>Arguments</key>
+            <dict>
+                <key>source_pkg</key>
+                <string>%found_filename%/*.pkg</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Comment</key>
+            <string>rename the pkg to a known name so we dont have to find the pkg</string>
+            <key>Processor</key>
+             <string>FileMover</string>
+             <key>Arguments</key>
+            <dict>
+                <key>source</key>
+                <string>%pkg_path%</string>
+                <key>target</key>
+                <string>%RECIPE_CACHE_DIR%/%NAME%-%version%.pkg</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Comment</key>
+            <string>check codesignature of the pkg, not perfect because checking the app would be better but, should be sufficient</string>
+            <key>Processor</key>
+            <string>CodeSignatureVerifier</string>
+            <key>Arguments</key>
+            <dict>
+                <key>input_path</key>
+                <string>%RECIPE_CACHE_DIR%/%NAME%-%version%.pkg</string>
+                <key>expected_authority_names</key>
+                <array>
+                    <string>Developer ID Installer: Blackmagic Design Inc (9ZGFBWLSYP)</string>
+                    <string>Developer ID Certification Authority</string>
+                    <string>Apple Root CA</string>
+                </array>
+            </dict>
+        </dict>    
+    </array>
+</dict>
 </plist>
