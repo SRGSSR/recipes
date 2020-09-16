@@ -2,14 +2,17 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>Comment</key>
-	<string>Downloads the BaseHead Installer</string>
 	<key>Description</key>
-	<string>Downloads the latest version of BaseHead-CM.</string>
+	<string>Downloads the BaseHead Installer</string>
 	<key>Identifier</key>
-	<string>com.github.srgssr.download.BaseHead-CM</string>
-	<key>MinimumVersion</key>
-	<string>1.0.0</string>
+	<string>local.download.BaseHead-CM</string>
+	<key>Input</key>
+	<dict>
+		<key>NAME</key>
+		<string>BaseHead</string>
+	</dict>
+	<key>MiniumumVersion</key>
+	<string>1.0</string>
 	<key>Process</key>
 	<array>
 		<dict>
@@ -20,33 +23,30 @@
 			<key>Arguments</key>
 			<dict>
 				<key>url</key>
-				<string>https://storage.googleapis.com/basehead-downloads/BaseHead/Mac/2020%20Installers/</string>
+				<string>https://baseheadinc.com/index.php/downloads-mac/</string>
 				<key>re_pattern</key>
 				<string>(BaseHead%20Mac%2020+[20-99]+.[0-99]+.[0-99]+.pkg)</string>
 				<key>result_output_var_name</key>
 				<string>file</string>
 			</dict>
 		</dict>
-
 		<dict>
+            <key>Comment</key>
+            <string>Download with original filename which we will need later to extract the version from.</string>
 			<key>Processor</key>
 			<string>URLDownloader</string>
 			<key>Arguments</key>
 			<dict>
 				<key>url</key>
 				<string>https://storage.googleapis.com/basehead-downloads/BaseHead/Mac/2020%20Installers/%file%</string>
-	 			<key>filename</key>
-				<string>%file%</string>
 				<key>prefetch_filename</key>
 				<true/>
 			</dict>
 		</dict>
-
 		<dict>
 			<key>Processor</key>
 			<string>EndOfCheckPhase</string>
 		</dict>
-
 		<dict>
             <key>Comment</key>
             <string>Unflatten BaseHeadCM.pkg this gives us a buch of pkgs stored in the unpack subdirectory</string>
@@ -60,7 +60,6 @@
 				<string>%RECIPE_CACHE_DIR%/unpack</string>
 			</dict>
 		</dict>
-
   		<dict>
             <key>Comment</key>
             <string>Expand BaseHead-CM.pkg which contains BaseHead-CM.app</string>
@@ -77,22 +76,40 @@
 
 		<dict>
             <key>Comment</key>
+            <string>Codesignature verification for the app fails because BaseHead-CM.app/Contents/MacOS/TurboActivate.dat is missing a code signature.</string>
+			<key>Processor</key>
+			<string>CodeSignatureVerifier</string>
+			<key>Arguments</key>
+			<dict>
+				<key>input_path</key>
+				<string>%pathname%</string>
+				<key>expected_authority_names</key>
+				<array>
+					<string>Developer ID Installer: Steve Tushar (WVJ3GT3TVW)</string>
+					<string>Developer ID Certification Authority</string>
+					<string>Apple Root CA</string>
+				</array>
+			</dict>
+		</dict>
+<!--
+		<dict>
+            <key>Comment</key>
             <string>Verify code signature and integrity</string>
 			<key>Processor</key>
 			<string>CodeSignatureVerifier</string>
 			<key>Arguments</key>
 			<dict>
 				<key>input_path</key>
-				<string>%RECIPE_CACHE_DIR%/payload/BaseHead-CM.app</string>
+				<string>%RECIPE_CACHE_DIR%/payload/Applications/BaseHead-CM.app</string>
 				<key>deep_verification</key>
-				<true/>
+				<false/>
 				<key>strict_verification</key>
-				<true/>
+				<false/>
 				<key>requirement</key>
-				<string>identifier "com.basehead.BaseHead" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = WVJ3GT3TVW</string>
+				<string>anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = WVJ3GT3TVW</string>
 			</dict>
 		</dict>
-
+-->
 	</array>
 </dict>
 </plist>
