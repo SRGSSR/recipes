@@ -21,7 +21,7 @@
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>https://support.logi.com/hc/en-us/articles/360025297833</string>
+                <string>https://support.logi.com/api/v2/help_center/en-us/articles.json?label_names=webcontent=productdownload</string>
                 <key>re_pattern</key>
                 <string>(https:\/\/download01\.logi\.com\/web\/ftp\/pub\/techsupport\/mouse\/mac\/lcc.*?\.zip)</string>
             </dict>
@@ -32,9 +32,9 @@
         	<key>Arguments</key>
         	<dict>
         	   <key>url</key>
-        	   <string>%url%</string>
+        	   <string>%match%</string>
         	   <key>filename</key>
-        	   <string>%NAME%.zip</string>
+        	   <string>llc.zip</string>
         	</dict>
         </dict>
         <dict>
@@ -48,43 +48,19 @@
                 <string>%RECIPE_CACHE_DIR%/LCC</string>
             </dict>
         </dict>
-                <dict>
+        <dict>
             <key>Processor</key>
             <string>EndOfCheckPhase</string>
         </dict>
-        <dict>
-			<key>Processor</key>
-			<string>Unarchiver</string>
-			<key>Arguments</key>
-			<dict>
-				<key>archive_path</key>
-				<string>%pathname%</string>
-				<key>destination_path</key>
-				<string>%RECIPE_CACHE_DIR%/%NAME%</string>
-				<key>purge_destination</key>
-				<true/>
-			</dict>
-		</dict>
         <dict>
 			<key>Processor</key>
 			<string>CodeSignatureVerifier</string>
 			<key>Arguments</key>
 			<dict>
 				<key>input_path</key>
-				<string>%RECIPE_CACHE_DIR%/%NAME%/LCC Installer.app</string>
+				<string>%RECIPE_CACHE_DIR%/LCC/LCC Installer.app</string>
 				<key>requirement</key>
-				<string>identifier "com.Logitech.Control Center.Update" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "QED4VVPZWA"</string> 
-			</dict>
-		</dict>
-		<dict>
-			<key>Processor</key>
-			<string>PathDeleter</string>
-			<key>Arguments</key>
-			<dict>
-				<key>path_list</key>
-				<array>
-				<string>%RECIPE_CACHE_DIR%/%NAME%</string>
-				</array>
+				<string>identifier "com.Logitech.ControlCenter.Update" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = QED4VVPZWA</string> 
 			</dict>
 		</dict>
     </array>
