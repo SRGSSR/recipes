@@ -37,47 +37,12 @@
 				<dict>
 					<key>url</key>
 					<string>https://www.seh-technology.com/fileadmin/user/downloads/deviceserver/tools/%url%.zip</string>
-					<key>filename</key>
-					<string>%url%.zip</string>
-				</dict>
-			</dict>
-			<dict>
-				<key>Processor</key>
-				<string>Unarchiver</string>
-				<key>Arguments</key>
-				<dict>
-					<key>archive_path</key>
-					<string>%pathname%</string>
-					<key>destination_path</key>
-					<string>%RECIPE_CACHE_DIR%/unpack</string>
-					<key>purge_destination</key>
-					<true/>
 				</dict>
 			</dict>
 			<dict>
 				<key>Processor</key>
 				<string>EndOfCheckPhase</string>
 			</dict>
-			<dict>
-				<key>Processor</key>
-				<string>FileFinder</string>
-				<key>Arguments</key>
-				<dict>
-					<key>pattern</key>
-					<string>%destination_path%/sehutnmanager-mac-*/sehutnmanager-mac-*.pkg</string>
-				</dict>
-			</dict>
-			<dict>
-				<key>Processor</key>
-				<string>FileMover</string>
-				<key>Arguments</key>
-				<dict>
-					<key>source</key>
-					<string>%found_filename%</string>
-					<key>target</key>
-					<string>%destination_path%/SEHUTNManager.pkg</string>
-				</dict>
-			</dict>
 		</array>
-</dict>
+	</dict>
 </plist>
