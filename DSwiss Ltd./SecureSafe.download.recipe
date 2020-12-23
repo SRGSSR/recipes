@@ -11,7 +11,7 @@
 	<key>Input</key>
 	<dict>
 		<key>DOWNLOAD_URL</key>
-		<string>https://www.securesafe.com/downloads/SecureSafe_2.5.0.pkg</string>
+		<string>https://www.dswiss.com/userdata/downloads/securesafe-2.8.0.pkg</string>
 		<key>NAME</key>
 		<string>SecureSafe</string>
 	</dict>
@@ -25,9 +25,9 @@
 				<key>Arguments</key>
 				<dict>
 					<key>url</key>
-					<string>https://www.securesafe.com/en/downloads/</string>
+					<string>https://www.dswiss.com/userdata/downloads/</string>
 					<key>re_pattern</key>
-					<string>(https:\/\/www.securesafe.com\/downloads\/SecureSafe_[0-9].[0-9].[0-9].pkg)</string>
+					<string>(https:\/\/www.dswiss.com\/userdata\/downloads\/SecureSafe_[0-9].[0-9].[0-9].pkg)</string>
 					<key>result_output_var_name</key>
 					<string>url</string>
 				</dict>
