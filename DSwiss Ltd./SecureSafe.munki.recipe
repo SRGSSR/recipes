@@ -3,11 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>Comment</key>
-	<string>Created with Recipe Robot v1.0.5 (https://github.com/homebysix/recipe-robot)</string>
+	<string>Created with Recipe Robot v2.2.0 (https://github.com/homebysix/recipe-robot)</string>
 	<key>Description</key>
 	<string>Downloads the latest version of SecureSafe and imports it into Munki.</string>
 	<key>Identifier</key>
-	<string>com.github.srgssr.munki.SecureSafe</string>
+	<string>com.github.srgssr..munki.SecureSafe</string>
 	<key>Input</key>
 	<dict>
 		<key>MUNKI_REPO_SUBDIR</key>
@@ -16,12 +16,17 @@
 		<string>SecureSafe</string>
 		<key>pkginfo</key>
 		<dict>
+			<key>blocking_applications</key>
+			<array>
+				<string>SecureSafe.app</string>
+				<string>uninstall_osxfuse.app</string>
+			</array>
 			<key>catalogs</key>
 			<array>
 				<string>testing</string>
 			</array>
 			<key>description</key>
-			<string> </string>
+			<string>The cloud safe simplifies online file sharing and protects documents and passwords, offering a level of security comparable to a Swiss bank.</string>
 			<key>developer</key>
 			<string>DSwiss Ltd.</string>
 			<key>display_name</key>
@@ -35,7 +40,7 @@
 	<key>MinimumVersion</key>
 	<string>1.0.0</string>
 	<key>ParentRecipe</key>
-	<string>com.github.srgssr.download.SecureSafe</string>
+	<string>com.github.srgssr..download.SecureSafe</string>
 	<key>Process</key>
 	<array>
 		<dict>

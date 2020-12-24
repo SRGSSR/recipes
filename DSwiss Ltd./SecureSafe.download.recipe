@@ -3,47 +3,31 @@
 <plist version="1.0">
 <dict>
 	<key>Comment</key>
-	<string>Created with Recipe Robot v1.1.2 (https://github.com/homebysix/recipe-robot)</string>
+	<string>Created with Recipe Robot v2.2.0 (https://github.com/homebysix/recipe-robot)</string>
 	<key>Description</key>
 	<string>Downloads the latest version of SecureSafe.</string>
 	<key>Identifier</key>
-	<string>com.github.srgssr.download.SecureSafe</string>
+	<string>com.github.srgssr..download.SecureSafe</string>
 	<key>Input</key>
 	<dict>
-		<key>DOWNLOAD_URL</key>
-		<string>https://www.dswiss.com/userdata/downloads/securesafe-2.8.0.pkg</string>
 		<key>NAME</key>
 		<string>SecureSafe</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>1.0.0</string>
-<key>Process</key>
+	<key>Process</key>
 	<array>
 		<dict>
-		<key>Processor</key>
-				<string>URLTextSearcher</string>
-				<key>Arguments</key>
-				<dict>
-					<key>url</key>
-					<string>https://www.dswiss.com/userdata/downloads/securesafe-2.8.0.pkg</string>
-					<key>re_pattern</key>
-					<string>(https:\/\/www.dswiss.com\/userdata\/downloads\/securesafe-[0-9].[0-9].[0-9].pkg)</string>
-					<key>result_output_var_name</key>
-					<string>url</string>
-				</dict>
-			</dict>
+			<key>Arguments</key>
 			<dict>
-				<key>Processor</key>
-				<string>URLDownloader</string>
-				<key>Arguments</key>
-				<dict>
-					<key>url</key>
-					<string>%url%</string>
-					<key>filename</key>
-					<string>%NAME%.pkg</string>
-				</dict>
+				<key>filename</key>
+				<string>%NAME%.pkg</string>
+				<key>url</key>
+				<string>https://www.dswiss.com/userdata/downloads/securesafe-2.8.0.pkg</string>
 			</dict>
-
+			<key>Processor</key>
+			<string>URLDownloader</string>
+		</dict>
 		<dict>
 			<key>Processor</key>
 			<string>EndOfCheckPhase</string>
