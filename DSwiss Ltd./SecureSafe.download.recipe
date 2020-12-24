@@ -7,7 +7,7 @@
 	<key>Description</key>
 	<string>Downloads the latest version of SecureSafe.</string>
 	<key>Identifier</key>
-	<string>com.github.srgssr..download.SecureSafe</string>
+	<string>com.github.srgssr.download.SecureSafe</string>
 	<key>Input</key>
 	<dict>
 		<key>NAME</key>
