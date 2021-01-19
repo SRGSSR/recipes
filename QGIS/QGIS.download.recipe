@@ -28,12 +28,16 @@
 					<key>url</key>
 					<string>https://qgis.org/downloads/macOS</string>
 					<key>re_pattern</key>
-					<string>(QGIS-macOS-[3-9\.]+-[0-9].dmg)</string>
+					<string>(QGIS-macOS-[\d]+\.[\d]+\.[\d]+-[\d]+\.dmg).*\\z</string>
+                    <key>re_flags</key>
+                    <array>
+                        <string>MULTILINE</string>
+                        <string>DOTALL</string>
+                    </array>
 					<key>result_output_var_name</key>
 					<string>url</string>
 				</dict>
 			</dict>
-		
 			<dict>
 				<key>Processor</key>
 				<string>URLDownloader</string>
@@ -45,39 +49,6 @@
 					<string>%NAME%.dmg</string>
 				</dict>
 			</dict>
-            <dict>
-            <key>Arguments</key>
-            <dict>
-               <key>destination_path</key>
-               <string>%RECIPE_CACHE_DIR%/downloads/2 Install QGIS 3.pkg</string>
-               <key>source_path</key>
-               <string>%RECIPE_CACHE_DIR%/downloads/%filename%/*</string>
-            </dict>
-            <key>Processor</key>
-            <string>Copier</string>
-         </dict>
-		<dict>
-            <key>Processor</key>
-            <string>FlatPkgUnpacker</string>
-            <key>Arguments</key>
-            <dict>
-                <key>flat_pkg_path</key>
-                <string>%RECIPE_CACHE_DIR%/downloads/%filename%/2 Install QGIS 3.pkg</string>
-                <key>destination_path</key>
-                <string>%RECIPE_CACHE_DIR%/unpack</string>
-            </dict>
-        </dict>
-		  <dict>
-            <key>Processor</key>
-            <string>PkgPayloadUnpacker</string>
-            <key>Arguments</key>
-            <dict>
-                <key>pkg_payload_path</key>
-                <string>%RECIPE_CACHE_DIR%/downloads/2 Install QGIS 3.pkg/Payload</string>
-                <key>destination_path</key>
-                <string>%RECIPE_CACHE_DIR%/downloads/</string>
-            </dict>
-        </dict>
 		</array>
-</dict>
+    </dict>
 </plist>

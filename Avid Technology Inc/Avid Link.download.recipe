@@ -10,7 +10,6 @@
 	<string>ch.srgssr.recipe.download.AvidLink</string>
 	<key>Input</key>
 	<dict>
-		
 		<key>NAME</key>
 		<string>AvidLink</string>
 	</dict>
@@ -24,9 +23,9 @@
 				<key>Arguments</key>
 				<dict>
 					<key>url</key>
-					<string>http://cdn.avid.com/AvidLink/</string>
+					<string>https://www.avid.com/products/avid-link</string>
 					<key>re_pattern</key>
-					<string>(http:\/\/cdn.avid.com\/AvidLink\/20[0-9]+[0-9]+.[0-9]+.[0-9]+\/[A-Z][0-9][A-Z][A-Z]+[0-9]+[0-9]+[A-Z][0-9]+\/Avid_Link_[0-9]+[0-9]+.[0-9]+.[0-9]+_Mac.dmg)</string>
+					<string>(https:\/\/cdn.avid.com\/AvidLink\/.+?.dmg)</string>
 					<key>result_output_var_name</key>
 					<string>url</string>
 				</dict>
