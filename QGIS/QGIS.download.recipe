@@ -3,10 +3,7 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Download recipe for QGIS. Finds and downloads a QGIS release.
-		VERSION corresponds to files at http://www.kyngchaos.com/files/software/qgis/QGIS-$VERSION.dmg
-		Examples include '2.6.1-1', '2.6.1-2', '2.8.1-1'
-	</string>
+    <string>Download recipe for QGIS LTR.</string>
     <key>Identifier</key>
     <string>com.github.srgssr.download.QGIS</string>
     <key>Input</key>
@@ -22,29 +19,11 @@
 		<array>
 			<dict>
 				<key>Processor</key>
-				<string>URLTextSearcher</string>
-				<key>Arguments</key>
-				<dict>
-					<key>url</key>
-					<string>https://qgis.org/downloads/macOS</string>
-					<key>re_pattern</key>
-					<string>(QGIS-macOS-[\d]+\.[\d]+\.[\d]+-[\d]+\.dmg).*\\z</string>
-                    <key>re_flags</key>
-                    <array>
-                        <string>MULTILINE</string>
-                        <string>DOTALL</string>
-                    </array>
-					<key>result_output_var_name</key>
-					<string>url</string>
-				</dict>
-			</dict>
-			<dict>
-				<key>Processor</key>
 				<string>URLDownloader</string>
 				<key>Arguments</key>
 				<dict>
 					<key>url</key>
-					<string>https://qgis.org/downloads/macOS/%url%</string>
+					<string>https://qgis.org/downloads/macos/qgis-macos-ltr.dmg</string>
 					<key>filename</key>
 					<string>%NAME%.dmg</string>
 				</dict>
