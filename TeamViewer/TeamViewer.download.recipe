@@ -24,8 +24,6 @@
 			<dict>
 				<key>url</key>
 				<string>%DOWNLOAD_URL%</string>
-				<key>filename</key>
-				<string>Install TeamViewer.pkg</string>
 			</dict>
 		</dict>
 		<dict>
@@ -38,7 +36,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>input_path</key>
-				<string>%pathname%/Install TeamViewer.pkg</string>
+				<string>%pathname%</string>
 				<key>expected_authority_names</key>
 				<array>
 					<string>Developer ID Installer: TeamViewer GmbH (H7UGFBUGV6)</string>
