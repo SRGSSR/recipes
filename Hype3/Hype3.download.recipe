@@ -31,7 +31,7 @@
 				<key>Arguments</key>
 				<dict>
 					<key>url</key>
-					<string>https://tumult.com/hype/download/Hype.dmg</string>
+					<string>https://static.tumult.com/hype/download/Hype-3.6.10.dmg</string>
 					<key>filename</key>
 					<string>%NAME%.dmg</string>
 			
