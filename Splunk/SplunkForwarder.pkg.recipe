@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>Description</key>
+        <string>Converts a SplunkForwarder download into a pkg.</string>
+        <key>Identifier</key>
+        <string>com.github.srgssr.pkg.SplunkForwarder</string>
+        <key>Input</key>
+        <dict>
+            <key>NAME</key>
+            <string>SplunkForwarder</string>
+            <key>PKG_ID</key>
+            <string>com.splunk.splunkforwarder</string>
+        </dict>
+        <key>MinimumVersion</key>
+        <string>0.3.1</string>
+        <key>ParentRecipe</key>
+        <string>com.github.srgssr.download.SplunkForwarder</string>
+        <key>Process</key>
+        <array>
+            <dict>
+                <key>Processor</key>
+                <string>PkgRootCreator</string>
+                <key>Arguments</key>
+                <dict>
+                    <key>pkgroot</key>
+                    <string>%RECIPE_CACHE_DIR%/%NAME%</string>
+                    <key>pkgdirs</key>
+                    <dict>
+                        <key>scripts</key>
+                        <string>0755</string>
+                        <key>payload</key>
+                        <string>0755</string>
+                        <key>payload/usr</key>
+                        <string>0755</string>
+                        <key>payload/usr/local</key>
+                        <string>0755</string>
+                        <key>payload/Library</key>
+                        <string>0755</string>
+                        <key>payload/Library/LaunchDaemons</key>
+                        <string>0755</string>
+                    </dict>
+                </dict>
+            </dict>
+            <dict>
+                <key>Processor</key>
+                <string>Unarchiver</string>
+                <key>Arguments</key>
+                <dict>
+                    <key>destination_path</key>
+                    <string>%RECIPE_CACHE_DIR%/%NAME%/payload/usr/local</string>
+                </dict>
+            </dict>
+            <dict>
+                <key>Processor</key>
+                <string>FileCreator</string>
+                <key>Arguments</key>
+                <dict>
+                    <key>file_path</key>
+                    <string>%RECIPE_CACHE_DIR%/%NAME%/payload/Library/LaunchDaemons/com.splunk.plist</string>
+                    <key>file_content</key>
+                    <string>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;
+&lt;plist version="1.0"&gt;
+&lt;dict&gt;
+    &lt;key&gt;Label&lt;/key&gt;
+    &lt;string&gt;com.splunk&lt;/string&gt;
+    &lt;key&gt;ProgramArguments&lt;/key&gt;
+    &lt;array&gt;
+        &lt;string&gt;/usr/local/splunkforwarder/bin/splunk&lt;/string&gt;
+        &lt;string&gt;start&lt;/string&gt;
+        &lt;string&gt;--accept-license&lt;/string&gt;
+        &lt;string&gt;--no-prompt&lt;/string&gt;
+        &lt;string&gt;--answer-yes&lt;/string&gt;
+    &lt;/array&gt;
+    &lt;key&gt;RunAtLoad&lt;/key&gt;
+    &lt;true/&gt;
+    &lt;key&gt;UserName&lt;/key&gt;
+    &lt;string&gt;_splunk&lt;/string&gt;
+&lt;/dict&gt;
+&lt;/plist&gt;
+</string>
+                    <key>file_mode</key>
+                    <string>0755</string>
+                </dict>
+            </dict>
+            <dict>
+                <key>Processor</key>
+                <string>FileCreator</string>
+                <key>Arguments</key>
+                <dict>
+                    <key>file_path</key>
+                    <string>%RECIPE_CACHE_DIR%/%NAME%/scripts/preinstall</string>
+                    <key>file_content</key>
+                    <string>#!/bin/bash
+PATH="/bin:/usr/bin:/sbin:/usr/sbin:/usr/local/bin"
+SPLUNK_HOME="/usr/local/splunkforwarder"
+
+if [ -x "$SPLUNK_HOME/bin/splunk" ] ; then
+    echo "This looks like an upgrade of an existing Splunk Server. Attempting to stop the installed Splunk Server..."
+    launchctl unload /Library/LaunchDaemons/com.splunk.plist 
+    $SPLUNK_HOME/bin/splunk stop
+fi
+
+# Don't exit non-zero if splunk is not running above - this is not an error condition.
+exit 0
+</string>
+                    <key>file_mode</key>
+                    <string>0755</string>
+                </dict>
+            </dict>
+            <dict>
+                <key>Processor</key>
+                <string>FileCreator</string>
+                <key>Arguments</key>
+                <dict>
+                    <key>file_path</key>
+                    <string>%RECIPE_CACHE_DIR%/%NAME%/scripts/postinstall</string>
+                    <key>file_content</key>
+                    <string>#!/bin/bash
+PATH="/bin:/usr/bin:/sbin:/usr/sbin:/usr/local/bin"
+PRODUCT=splunkforwarder
+SYSTEM=`uname -s`
+HOSTNAME=`hostname`
+ARCH=`uname -p`
+SPLUNK_HOME="/usr/local/splunkforwarder"
+
+#JIRA:SPL-44381
+URL_STRING="
+To use the Splunk Web interface, point your browser to:
+    http://$HOSTNAME:8000
+"
+echo $PRODUCT | grep -i forwarder &gt; /dev/null &amp;&amp; URL_STRING=""
+# new_builder will change the product declaration above for the forwarder packages
+
+UPGRADE=false
+
+# debian, in their infinite wisdom does not think that postinst scripts need to
+# know what version they're installing
+get_installed_version()
+{
+	VERSION=`grep '^VERSION=' "$SPLUNK_HOME/etc/splunk.version" | sed 's/^VERSION=//'`
+	if [ "x" = "x$VERSION" ] ; then
+		echo &gt;&amp;2 "Couldn't read VERSION from \$SPLUNK_HOME/etc/splunk.version, something is wrong."
+	fi
+	export VERSION
+}
+
+get_installed_build()
+{
+	BUILD=`grep '^BUILD=' "$SPLUNK_HOME/etc/splunk.version" | sed 's/^BUILD=//'`
+	if [ "x" = "x$BUILD" ] ; then
+		echo &gt;&amp;2 "Couldn't read BUILD from \$SPLUNK_HOME/etc/splunk.version, something is wrong."
+	fi
+	export BUILD
+}
+
+copy_swid_tag()
+{
+        SWID_SRC_DIR="$SPLUNK_HOME/etc"
+        SWID_DEST_DIR="/usr/share/regid.2001-12.com.splunk"
+
+        # Create dir if it doesn't exist
+        mkdir -p $SWID_DEST_DIR
+
+        if [ -e "$SPLUNK_HOME/bin/python" ]
+        then
+                cp "$SWID_SRC_DIR/regid.2001-12.com.splunk-Splunk-Enterprise.swidtag" $SWID_DEST_DIR
+        else
+                cp "$SWID_SRC_DIR/regid.2001-12.com.splunk-UniversalForwarder.swidtag" $SWID_DEST_DIR
+        fi
+}
+
+case "x$SYSTEM" in
+xLinux)
+    if [ -z "$RPM_INSTALL_PREFIX" ] ; then
+	SPLUNK_HOME="/opt/$PRODUCT"
+        PREVIOUS_PACKAGE="$2"
+	get_installed_version
+	get_installed_build
+        # if this is configure (not abort), we have a number, and the numbers
+        # don't match, it's an upgrade
+        if [ "x$1" = "xconfigure" ] &amp;&amp; [ ! "x" = "x$PREVIOUS_PACKAGE" ] &amp;&amp; [ ! "x$VERSION-$BUILD" = "x$PREVIOUS_PACKAGE" ] ; then 
+            UPGRADE=true
+        fi
+    else
+	SPLUNK_HOME="$RPM_INSTALL_PREFIX/$PRODUCT"
+        if  [ ! "x$1" = "x0" ] &amp;&amp;  [ ! "x$1" = "x1" ] ; then 
+        # not an uninstall, not a new install -&gt; upgrade
+            UPGRADE=true
+        fi
+    fi
+    ;;
+
+xDarwin)
+    # If installing in /Applications/splunk, the old OSX installer would pass us
+    # /Applications.  The newer one passes /Applications/splunk.  Work with
+    # those possibilities.
+    LAUNCHER_RSRC_PATH="$SPLUNK_HOME"/bin/Splunk.app/Contents/Resources/SPLUNK_HOME.path
+    ;;
+
+xSunOS)
+     SPLUNK_HOME="$CLIENT_BASEDIR/$PRODUCT"
+     if [ ! "x$UPDATE" = "x" ] ; then
+         UPGRADE=true
+     fi
+     ;;
+
+x*BSD)
+    SPLUNK_HOME="$PKG_PREFIX/$PRODUCT"
+    ;;
+     
+esac
+
+if [ ! -f "$SPLUNK_HOME/etc/splunk-launch.conf" ] ; then
+    sed "s%# SPLUNK_HOME=.*%SPLUNK_HOME=$SPLUNK_HOME%g" "$SPLUNK_HOME/etc/splunk-launch.conf.default" &gt; "$SPLUNK_HOME/etc/splunk-launch.conf"
+fi
+touch "$SPLUNK_HOME/ftr"
+
+
+# Build the post-install messaging in steps:
+
+# Part of the messaging for Splunk upgrades.
+if [ "$UPGRADE" = "true" ] ; then 
+echo "-------------------------------------------------------------------------
+Splunk has been updated in:
+        $SPLUNK_HOME" \
+        &gt; "$SPLUNK_HOME/ftr"
+
+# Part of the messaging for fresh installs of Splunk.
+else
+echo "-------------------------------------------------------------------------
+Splunk has been installed in:
+        $SPLUNK_HOME" \
+        &gt; "$SPLUNK_HOME/ftr"
+fi
+
+# Copy swid tag for linux only
+case "x$SYSTEM" in
+xLinux)
+	case "x$ARCH" in
+	xx86_64)
+        	copy_swid_tag
+        	;;
+	esac
+esac
+
+# OSX-only messaging (if the desktop icon is included in this package).
+if [ -f "$LAUNCHER_RSRC_PATH" ]; then
+echo "
+Double-click the \"Splunk\" icon on the Desktop to start and connect to
+Splunk.  You may want to drag this icon to the Dock.
+
+
+
+
+You can also manage Splunk manually:" \
+        &gt;&gt; "$SPLUNK_HOME/ftr"
+fi
+
+# Rest of the messaging.
+echo "
+To start Splunk, run the command:
+        $SPLUNK_HOME/bin/splunk start
+
+$URL_STRING
+
+Complete documentation is at http://docs.splunk.com/Documentation/Splunk
+-------------------------------------------------------------------------" \
+        &gt;&gt; "$SPLUNK_HOME/ftr"
+
+
+######################################
+
+# changes from init
+
+####################################
+
+splunk_user_exists=false
+if dscl . -read /Users/_splunk &gt; /dev/null 2&gt;&amp;1; then
+    splunk_user_exists=true
+fi
+
+if [ "x$splunk_user_exists" = "xfalse" ] ; then
+    dscl . -create /Groups/_splunk
+    dscl . -create /Groups/_splunk PrimaryGroupID 300
+    dscl . -create /Groups/_splunk Password \*
+    dscl . -create /Users/_splunk UniqueID 300
+    dscl . -create /Users/_splunk PrimaryGroupID 300
+    dscl . -create /Users/_splunk UserShell /usr/bin/false
+    dscl . -delete /Users/_splunk PasswordPolicyOptions
+    dscl . -delete /Users/_splunk AuthenticationAuthority
+fi
+chown -R _splunk:_splunk "$SPLUNK_HOME"
+
+exit 0
+</string>
+                    <key>file_mode</key>
+                    <string>0755</string>
+                </dict>
+            </dict>
+            <dict>
+                <key>Processor</key>
+                <string>PkgCreator</string>
+                <key>Arguments</key>
+                <dict>
+                    <key>pkg_request</key>
+                    <dict>
+                        <key>pkgroot</key>
+                        <string>%RECIPE_CACHE_DIR%/%NAME%/payload</string>
+                        <key>scripts</key>
+                        <string>%RECIPE_CACHE_DIR%/%NAME%/scripts</string>
+                        <key>pkgdir</key>
+                        <string>%RECIPE_CACHE_DIR%</string>
+                        <key>pkgname</key>
+                        <string>%NAME%-%version%</string>
+                        <key>id</key>
+                        <string>%PKG_ID%</string>
+                        <key>version</key>
+                        <string>%version%</string>
+                        <key>options</key>
+                        <string>purge_ds_store</string>
+                        <key>chown</key>
+                        <array>
+                            <dict>
+                                <key>path</key>
+                                <string>usr/local/splunkforwarder</string>
+                                <key>user</key>
+                                <string>root</string>
+                                <key>group</key>
+                                <string>wheel</string>
+                            </dict>
+                        </array>
+                    </dict>
+                </dict>
+            </dict>
+            <dict>
+                <key>Arguments</key>
+                <dict>
+                    <key>path_list</key>
+                    <array>
+                        <string>%RECIPE_CACHE_DIR%/%NAME%</string>
+                    </array>
+                </dict>
+                <key>Processor</key>
+                <string>PathDeleter</string>
+            </dict>
+        </array>
+    </dict>
+</plist>
