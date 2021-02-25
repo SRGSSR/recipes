@@ -74,6 +74,14 @@
 					<key>choiceIdentifier</key>
 					<string>installer_choice_5</string>
 				</dict>
+				<dict>
+					<key>attributeSetting</key>
+					<integer>1</integer>
+					<key>choiceAttribute</key>
+					<string>selected</string>
+					<key>choiceIdentifier</key>
+					<string>installer_choice_6</string>
+				</dict>
 			</array>
 			<key>uninstall_method</key>
 			<string>removepackages</string>
@@ -104,19 +112,6 @@
             <key>Processor</key>
             <string>MunkiPkginfoMerger</string>
         </dict>
-<!--
-		<dict>
-           <key>Comment</key>
-            <string>As the version strings in the app are incomplete we derive the version from the pkg. As of 2020.9.85 it reports 2020.9.81 - hopefully they will better in the next build.</string>
-			<key>Processor</key>
-			<string>com.facebook.autopkg.shared/PackageInfoVersioner</string>
-			<key>Arguments</key>
-			<dict>
-				<key>package_info_path</key>
-				<string>%RECIPE_CACHE_DIR%/unpack/BaseHead-CM.pkg/PackageInfo</string>
-			</dict>
-		</dict>
--->
 		<dict>
 			<key>Comment</key>
 			<string>Get the version from the download URL</string>
@@ -127,12 +122,24 @@
 				<key>url</key>
 				<string>https://baseheadinc.com/index.php/downloads-mac/</string>
 				<key>re_pattern</key>
-				<string>(202[0-9]+.[0-99]+.[0-99]+)</string>
+				<string>(BaseHead \(202[0-9]\.[0-9]+\.[0-9]+)</string>
 				<key>result_output_var_name</key>
 				<string>version</string>
 			</dict>
 		</dict>
-
+		<dict>
+			<key>Processor</key>
+			<string>com.github.homebysix.VersionSplitter/VersionSplitter</string>
+			<key>Arguments</key>
+			<dict>
+				<key>version</key>
+				<string>%version%</string>
+				<key>index</key>
+				<integer>1</integer>
+				<key>split_on</key>
+				<string>(</string>
+			</dict>
+		</dict>
 		<dict>
 			<key>Processor</key>
 			<string>MunkiPkginfoMerger</string>
@@ -145,22 +152,6 @@
 				</dict>
 			</dict>
 		</dict>
-		<dict>
-           <key>Comment</key>
-            <string>This Processor is just for testing: MunkiImport to dummy directory</string>
-			<key>Processor</key>
-			<string>MunkiImporter</string>
-			<key>Arguments</key>
-			<dict>
-				<key>pkg_path</key>
-				<string>%pathname%</string>
-				<key>MUNKI_REPO</key>
-				<string>/Users/jungeje/Downloads/DummyRepo</string>
-				<key>repo_subdirectory</key>
-				<string>%MUNKI_REPO_SUBDIR%</string>
-			</dict>
-		</dict>
-<!--
 		<dict>
 			<key>Processor</key>
 			<string>MunkiImporter</string>
@@ -184,7 +175,6 @@
 				</array>
 			</dict>		
 		</dict>
--->
 	</array>
 </dict>
 </plist>

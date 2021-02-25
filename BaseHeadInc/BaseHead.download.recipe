@@ -25,7 +25,7 @@
 				<key>url</key>
 				<string>https://baseheadinc.com/index.php/downloads-mac/</string>
 				<key>re_pattern</key>
-				<string>(BaseHead%20Mac%2020+[20-99]+.[0-99]+.[0-99]+.pkg)</string>
+				<string>(202[0-9]%20Installers\/BaseHead%20Mac%20202[0-9]\.[0-9]+\.[0-9]+\.pkg)</string>
 				<key>result_output_var_name</key>
 				<string>file</string>
 			</dict>
@@ -38,7 +38,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>url</key>
-				<string>https://storage.googleapis.com/basehead-downloads/BaseHead/Mac/2020%20Installers/%file%</string>
+				<string>https://storage.googleapis.com/basehead-downloads/BaseHead/Mac/%file%</string>
 				<key>prefetch_filename</key>
 				<true/>
 			</dict>
@@ -73,25 +73,6 @@
                 <string>%RECIPE_CACHE_DIR%/payload/</string>
             </dict>
         </dict>
-
-		<dict>
-            <key>Comment</key>
-            <string>Codesignature verification for the app fails because BaseHead-CM.app/Contents/MacOS/TurboActivate.dat is missing a code signature.</string>
-			<key>Processor</key>
-			<string>CodeSignatureVerifier</string>
-			<key>Arguments</key>
-			<dict>
-				<key>input_path</key>
-				<string>%pathname%</string>
-				<key>expected_authority_names</key>
-				<array>
-					<string>Developer ID Installer: Steve Tushar (WVJ3GT3TVW)</string>
-					<string>Developer ID Certification Authority</string>
-					<string>Apple Root CA</string>
-				</array>
-			</dict>
-		</dict>
-<!--
 		<dict>
             <key>Comment</key>
             <string>Verify code signature and integrity</string>
@@ -102,14 +83,13 @@
 				<key>input_path</key>
 				<string>%RECIPE_CACHE_DIR%/payload/Applications/BaseHead-CM.app</string>
 				<key>deep_verification</key>
-				<false/>
+				<true/>
 				<key>strict_verification</key>
-				<false/>
+				<true/>
 				<key>requirement</key>
-				<string>anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = WVJ3GT3TVW</string>
+				<string>identifier "com.basehead.BaseHead" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = WVJ3GT3TVW</string>
 			</dict>
 		</dict>
--->
 	</array>
 </dict>
 </plist>
