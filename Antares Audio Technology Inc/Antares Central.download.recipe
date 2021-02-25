@@ -3,15 +3,17 @@
 <plist version="1.0">
 <dict>
 	<key>Comment</key>
-	<string>Created with Recipe Robot v1.1.2 (https://github.com/homebysix/recipe-robot)</string>
+	<string>Get installer from Website and verify code signatures</string>
 	<key>Description</key>
 	<string>Downloads the latest version of Antares Central.</string>
 	<key>Identifier</key>
 	<string>ch.srgssr.recipe.download.AntaresCentral</string>
 	<key>Input</key>
 	<dict>
+		<key>SITE_URL</key>
+		<string>https://www.antarestech.com/laravel/rest/software-downloads/79?data=%7B%7D</string>
 		<key>DOWNLOAD_URL</key>
-		<string>https://www.antarestech.com/downloads/Auto-Tune_Pro/MAC/Auto-Tune_Pro_v9.1.0_macOS.zip</string>
+		<string>https://autotune.sfo2.digitaloceanspaces.com/Auto-Tune_Pro</string>
 		<key>NAME</key>
 		<string>Antares Central</string>
 	</dict>
@@ -20,12 +22,25 @@
 	<key>Process</key>
 	<array>
 		<dict>
+			<key>Processor</key>
+			<string>URLTextSearcher</string>
+			<key>Arguments</key>
+			<dict>
+				<key>url</key>
+				<string>%SITE_URL%</string>
+				<key>re_pattern</key>
+				<string>(Auto-Tune_Pro_v[0-9]+\.[0-9]+\.[0-9]+_macOS.zip)</string>
+				<key>result_output_var_name</key>
+				<string>url</string>
+			</dict>
+		</dict>
+		<dict>
 			<key>Arguments</key>
 			<dict>
 				<key>filename</key>
-				<string>%NAME%.tgz</string>
+				<string>%NAME%.zip</string>
 				<key>url</key>
-				<string>%DOWNLOAD_URL%</string>
+				<string>%DOWNLOAD_URL%/%url%</string>
 			</dict>
 			<key>Processor</key>
 			<string>URLDownloader</string>
@@ -34,41 +49,36 @@
 			<key>Processor</key>
 			<string>EndOfCheckPhase</string>
 		</dict>
+		<!-- unarchive and unpack the downloaded file -->
 		<dict>
 			<key>Arguments</key>
 			<dict>
 				<key>archive_path</key>
 				<string>%pathname%</string>
 				<key>destination_path</key>
-				<string>%RECIPE_CACHE_DIR%/%NAME%</string>
+				<string>%RECIPE_CACHE_DIR%/unzip</string>
 				<key>purge_destination</key>
 				<true/>
 			</dict>
 			<key>Processor</key>
 			<string>Unarchiver</string>
 		</dict>
-		<dict>
-			<key>Arguments</key>
-			<dict>
-				<key>expected_authority_names</key>
-				<array>
-					<string>Developer ID Installer: Antares Audio Technology Inc (EWQDQRUXQ8)</string>
-					<string>Developer ID Certification Authority</string>
-					<string>Apple Root CA</string>
-				</array>
-				<key>input_path</key>
-				<string>%RECIPE_CACHE_DIR%/%NAME%/Auto-Tune Pro v9.1.0.pkg</string>
-			</dict>
-			<key>Processor</key>
-			<string>CodeSignatureVerifier</string>
-		</dict>
+         <dict>
+            <key>Processor</key>
+            <string>FileFinder</string>
+            <key>Arguments</key>
+            <dict>
+               <key>pattern</key>
+               <string>%RECIPE_CACHE_DIR%/unzip/*.pkg</string>
+            </dict>
+         </dict>
 		<dict>
 			<key>Arguments</key>
 			<dict>
 				<key>destination_path</key>
 				<string>%RECIPE_CACHE_DIR%/unpack</string>
 				<key>flat_pkg_path</key>
-				<string>%RECIPE_CACHE_DIR%/%NAME%/Auto-Tune Pro v9.1.0.pkg</string>
+				<string>%found_filename%</string>
 				<key>purge_destination</key>
 				<true/>
 			</dict>
@@ -91,14 +101,151 @@
 		<dict>
 			<key>Arguments</key>
 			<dict>
-				<key>input_plist_path</key>
-				<string>%RECIPE_CACHE_DIR%/payload/Applications/Antares Audio Technologies/Antares Central.app/Contents/Info.plist</string>
-				<key>plist_version_key</key>
-				<string>CFBundleShortVersionString</string>
+				<key>destination_path</key>
+				<string>%RECIPE_CACHE_DIR%/payload</string>
+				<key>pkg_payload_path</key>
+				<string>%RECIPE_CACHE_DIR%/unpack/Auto-Tune_Pro.pkg/Payload</string>
+				<key>purge_destination</key>
+				<false/>
 			</dict>
 			<key>Processor</key>
-			<string>Versioner</string>
+			<string>PkgPayloadUnpacker</string>
 		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>destination_path</key>
+				<string>%RECIPE_CACHE_DIR%/payload</string>
+				<key>pkg_payload_path</key>
+				<string>%RECIPE_CACHE_DIR%/unpack/Auto-Key.pkg/Payload</string>
+				<key>purge_destination</key>
+				<false/>
+			</dict>
+			<key>Processor</key>
+			<string>PkgPayloadUnpacker</string>
+		</dict>
+		<!-- verify Code Signagtures -->
+		<dict>
+			<key>Comment</key>
+			<string>Check the app</string>
+			<key>Processor</key>
+			<string>CodeSignatureVerifier</string>
+			<key>Arguments</key>
+			<dict>
+				<key>input_path</key>
+				<string>%RECIPE_CACHE_DIR%/payload/Applications/Antares Audio Technologies/Antares Central.app</string>
+				<key>deep_verification</key>
+				<true/>
+				<key>strict_verification</key>
+				<true/>
+				<key>requirement</key>
+				<string>identifier "com.antarestech.antares-central" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = EWQDQRUXQ8</string>
+			</dict>
+		</dict>
+<!-- Apparently only a limited number of signatures can be verified at a time. Thus we only verify the app.
+		<dict>
+			<key>Comment</key>
+			<string>Check the Auto-Key.VST3</string>
+			<key>Processor</key>
+			<string>CodeSignatureVerifier</string>
+			<key>Arguments</key>
+			<dict>
+				<key>input_path</key>
+				<string>%RECIPE_CACHE_DIR%/payload/Library/Audio/Plug-Ins/VST3/Auto-Key.vst3</string>
+				<key>deep_verification</key>
+				<true/>
+				<key>strict_verification</key>
+				<true/>
+				<key>requirement</key>
+				<string>identifier "com.antares.autokey" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = EWQDQRUXQ8</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Comment</key>
+			<string>Check the Auto-Tune.VST3</string>
+			<key>Processor</key>
+			<string>CodeSignatureVerifier</string>
+			<key>Arguments</key>
+			<dict>
+				<key>input_path</key>
+				<string>%RECIPE_CACHE_DIR%/payload/Library/Audio/Plug-Ins/VST3/Auto-Tune.vst3</string>
+				<key>deep_verification</key>
+				<true/>
+				<key>strict_verification</key>
+				<true/>
+				<key>requirement</key>
+				<string>identifier "com.Antares.AutoTune.vst3" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = EWQDQRUXQ8</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Comment</key>
+			<string>Check the Auto-Key.component</string>
+			<key>Processor</key>
+			<string>CodeSignatureVerifier</string>
+			<key>Arguments</key>
+			<dict>
+				<key>input_path</key>
+				<string>%RECIPE_CACHE_DIR%/payload/Library/Audio/Plug-Ins/Components/Auto-Key.component</string>
+				<key>deep_verification</key>
+				<true/>
+				<key>strict_verification</key>
+				<true/>
+				<key>requirement</key>
+				<string>identifier "com.antares.autokey" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = EWQDQRUXQ8</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Comment</key>
+			<string>Check the Auto-Tune.component</string>
+			<key>Processor</key>
+			<string>CodeSignatureVerifier</string>
+			<key>Arguments</key>
+			<dict>
+				<key>input_path</key>
+				<string>%RECIPE_CACHE_DIR%/payload/Library/Audio/Plug-Ins/Components/Auto-Tune.component</string>
+				<key>deep_verification</key>
+				<true/>
+				<key>strict_verification</key>
+				<true/>
+				<key>requirement</key>
+				<string>identifier "com.Antares.vst3plugin.Auto-Tune.audiounit" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = EWQDQRUXQ8</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Comment</key>
+			<string>Check the Auto-Key.aaxplugin</string>
+			<key>Processor</key>
+			<string>CodeSignatureVerifier</string>
+			<key>Arguments</key>
+			<dict>
+				<key>input_path</key>
+				<string>%RECIPE_CACHE_DIR%/payload/Library/Application Support/Avid/Audio/Plug-Ins/Auto-Key.aaxplugin</string>
+				<key>deep_verification</key>
+				<true/>
+				<key>strict_verification</key>
+				<true/>
+				<key>requirement</key>
+				<string>identifier "com.antares.autokey" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = EWQDQRUXQ8</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Comment</key>
+			<string>Check the Auto-Tune.aaxplugin</string>
+			<key>Processor</key>
+			<string>CodeSignatureVerifier</string>
+			<key>Arguments</key>
+			<dict>
+				<key>input_path</key>
+				<string>%RECIPE_CACHE_DIR%/payload/Library/Application Support/Avid/Audio/Plug-Ins/Auto-Tune.aaxplugin</string>
+				<key>deep_verification</key>
+				<true/>
+				<key>strict_verification</key>
+				<true/>
+				<key>requirement</key>
+				<string>identifier "com.Antares.Auto-Tune.aaxplugin" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = EWQDQRUXQ8</string>
+			</dict>
+		</dict>
+-->
 	</array>
 </dict>
 </plist>
