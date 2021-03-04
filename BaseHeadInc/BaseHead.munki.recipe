@@ -5,7 +5,7 @@
 	<key>Description</key>
 	<string>Imports BaseHead into Munki</string>
 	<key>Identifier</key>
-	<string>local.munki.BaseHead</string>
+	<string>com.github.srgssr.munki.BaseHead</string>
 	<key>Input</key>
 	<dict>
 		<key>NAME</key>

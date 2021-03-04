@@ -5,7 +5,7 @@
 	<key>Description</key>
 	<string>Downloads the BaseHead Installer</string>
 	<key>Identifier</key>
-	<string>local.download.BaseHead-CM</string>
+	<string>com.github.srgssr.download.BaseHead-CM</string>
 	<key>Input</key>
 	<dict>
 		<key>NAME</key>
