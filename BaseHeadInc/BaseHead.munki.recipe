@@ -90,7 +90,7 @@
 	<key>MiniumumVersion</key>
 	<string>1.0</string>
 	<key>ParentRecipe</key>
-	<string>local.download.BaseHead-CM</string>
+	<string>com.github.srgssr.download.BaseHead-CM</string>
 	<key>Process</key>
 	<array>
 		<dict>
