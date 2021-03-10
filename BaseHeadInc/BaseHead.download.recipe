@@ -41,6 +41,8 @@
 				<string>https://storage.googleapis.com/basehead-downloads/BaseHead/Mac/%file%</string>
 				<key>prefetch_filename</key>
 				<true/>
+				<key>filename</key>
+				<string>%NAME%.pkg</string>
 			</dict>
 		</dict>
 		<dict>
@@ -49,7 +51,7 @@
 		</dict>
 		<dict>
             <key>Comment</key>
-            <string>Unflatten BaseHeadCM.pkg this gives us a buch of pkgs stored in the unpack subdirectory</string>
+            <string>Unflatten BaseHead.pkg this gives us a buch of pkgs stored in the unpack subdirectory</string>
 			<key>Processor</key>
 			<string>FlatPkgUnpacker</string>
 			<key>Arguments</key>
