@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>Download Wacom Incspace from Wacom Server</string>
+	<key>Identifier</key>
+	<string>com.github.srgssr.download.Inkspace</string>
+	<key>Input</key>
+	<dict>
+		<key>NAME</key>
+		<string>Inkspace</string>
+	</dict>
+	<key>MiniumumVersion</key>
+	<string>1.0</string>
+	<key>Process</key>
+	<array>
+		<dict>
+            <key>Comment</key>
+            <string>Download Inkspace from Wacom Server</string>
+			<key>Processor</key>
+			<string>URLDownloader</string>
+			<key>Arguments</key>
+			<dict>
+				<key>url</key>
+				<string>http://link.wacom.com/i/m?os=mac</string>
+				<key>prefetch_filename</key>
+				<true/>
+				<key>filename</key>
+				<string>%NAME%.zip</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>EndOfCheckPhase</string>
+		</dict>
+        <dict>
+            <key>Processor</key>
+            <string>StopProcessingIf</string>
+            <key>Arguments</key>
+            <dict>
+                <key>predicate</key>
+                <string>download_changed == FALSE</string>
+            </dict>
+        </dict>
+		<dict>
+            <key>Comment</key>
+            <string>unzip pathname</string>
+            <key>Processor</key>
+            <string>Unarchiver</string>
+			<key>Arguments</key>
+			<dict>
+				<key>destination_path</key>
+				<string>%RECIPE_CACHE_DIR%/payload/</string>
+			</dict>
+        </dict>	
+       <dict>
+            <key>Comment</key>
+            <string>Verify Signature of Wacom Inkspace App.app</string>
+            <key>Processor</key>
+            <string>CodeSignatureVerifier</string>
+            <key>Arguments</key>
+            <dict>
+                <key>input_path</key>
+                <string>%RECIPE_CACHE_DIR%/payload/Wacom Inkspace App.app</string>
+                <key>requirement</key>
+                <string>identifier "com.electron.wacom-inkspace-app" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = EG27766DY7</string>
+            </dict>
+        </dict>
+	</array>
+</dict>
+</plist>
