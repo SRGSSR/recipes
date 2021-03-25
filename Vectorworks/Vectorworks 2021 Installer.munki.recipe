@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Comment</key>
+	<string>Created with Recipe Robot v1.0.5 (https://github.com/homebysix/recipe-robot)</string>
+	<key>Description</key>
+	<string>Downloads the latest version of Vectorworks File Viewer 2021.</string>
+	<key>Identifier</key>
+	<string>com.github.SRGSSR.munki.VectorworksFileViewer2021</string>
+	<key>Input</key>
+	<dict>
+		<key>MUNKI_REPO_SUBDIR</key>
+		<string>apps/%NAME%</string>
+		<key>NAME</key>
+		<string>Vectorworks 2020 Viewer</string>
+		<key>pkginfo</key>
+		<dict>
+			<key>catalogs</key>
+			<array>
+				<string>testing</string>
+			</array>
+			<key>description</key>
+			<string>The Viewer is a FREE value-added benefit to Vectorworks 2020 users. The Viewer enables those who do not own the program to look at and print projects created in Vectorworks 2020. And, it allows on-line collaboration between designers and clients during the creative process. Please note that the version 2020 Viewer allows users to view Vectorworks versions 9 through 2019 files as well.</string>
+			<key>developer</key>
+			<string>Vectorworks, Inc.</string>
+			<key>installcheck_script</key>
+			<string>#!/bin/sh
+
+# Specify the app we are looking for  (app = -d)  (file = -f)
+FILE="/Applications/Vectorworks 2020 Viewer/Vectorworks Viewer 2020.app"
+
+# Test for the file/app
+if [ -d "$FILE" ]; then
+    exit 1
+else
+    exit 0
+fi</string>	
+			<key>display_name</key>
+			<string>Vectorworks 2020 Installer</string>
+			<key>name</key>
+			<string>%NAME%</string>
+			<key>unattended_install</key>
+			<true/>
+			<key>installer_type</key>
+			<string>copy_from_dmg</string>
+			<key>installs</key>
+			<array>
+				<dict>
+					<key>CFBundleIdentifier</key>
+					<string>net.nemetschek.vectorworksinstaller</string>
+					<key>CFBundleName</key>
+					<string>Vectorworks 2020 Installer</string>
+					<key>CFBundleShortVersionString</key>
+					<string>23.0.0</string>
+					<key>CFBundleVersion</key>
+					<string>23.0.0.23.0.0</string>
+					<key>minosversion</key>
+					<string>10.11.0</string>
+					<key>path</key>
+					<string>/Applications/Vectorworks 2020 Viewer/Vectorworks Viewer 2020.app</string>
+					<key>type</key>
+					<string>application</string>
+					<key>version_comparison_key</key>
+					<string>CFBundleShortVersionString</string>
+				</dict>
+			</array>
+			<key>items_to_copy</key>
+			<array>
+				<dict>
+					<key>destination_path</key>
+							<string>/private/tmp</string>
+					<key>source_item</key>
+					<string>Vectorworks 2020 Installer.app</string>
+				</dict>
+			</array>
+			<key>minimum_os_version</key>
+			<string>10.11</string>
+			<key>name</key>
+			<string>Vectorworks 2020 Viewer</string>
+			<key>postinstall_script</key>
+			<string>#!/bin/sh
+/private/tmp/Vectorworks\ 2020\ Installer.app/Contents/Resources/installer/Install\ Vectorworks2020.app/Contents/MacOS/installbuilder.sh --unattendedmodeui none --mode unattended
+
+rm -rf '/private/tmp/Vectorworks 2020 Installer.app'</string>
+			<key>uninstall_method</key>
+			<string>remove_copied_items</string>
+			<key>uninstall_script</key>
+			<string></string>
+			<key>uninstallable</key>
+			<true/>
+			<key>version</key>
+			<string>23.0.0</string>
+		</dict>
+	</dict>
+	<key>MinimumVersion</key>
+	<string>1.0.0</string>
+	<key>ParentRecipe</key>
+	<string>com.github.SRGSSR.download.VectorworksFileViewer2021</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>pkg_path</key>
+				<string>%pathname%</string>
+				<key>repo_subdirectory</key>
+				<string>%MUNKI_REPO_SUBDIR%</string>
+			</dict>
+			<key>Processor</key>
+			<string>MunkiImporter</string>
+		</dict>
+	</array>
+</dict>
+</plist>
