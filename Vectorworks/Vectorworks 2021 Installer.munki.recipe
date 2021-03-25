@@ -13,7 +13,7 @@
 		<key>MUNKI_REPO_SUBDIR</key>
 		<string>apps/%NAME%</string>
 		<key>NAME</key>
-		<string>Vectorworks 2020 Viewer</string>
+		<string>Vectorworks File Viewer 2021</string>
 		<key>pkginfo</key>
 		<dict>
 			<key>catalogs</key>
@@ -21,23 +21,11 @@
 				<string>testing</string>
 			</array>
 			<key>description</key>
-			<string>The Viewer is a FREE value-added benefit to Vectorworks 2020 users. The Viewer enables those who do not own the program to look at and print projects created in Vectorworks 2020. And, it allows on-line collaboration between designers and clients during the creative process. Please note that the version 2020 Viewer allows users to view Vectorworks versions 9 through 2019 files as well.</string>
+			<string>The Viewer is a FREE value-added benefit to Vectorworks 2021 users. The Viewer enables those who do not own the program to look at and print projects created in Vectorworks 2021. And, it allows on-line collaboration between designers and clients during the creative process. Please note that the version 2021 Viewer allows users to view Vectorworks versions 9 through 2019 files as well.</string>
 			<key>developer</key>
 			<string>Vectorworks, Inc.</string>
-			<key>installcheck_script</key>
-			<string>#!/bin/sh
-
-# Specify the app we are looking for  (app = -d)  (file = -f)
-FILE="/Applications/Vectorworks 2020 Viewer/Vectorworks Viewer 2020.app"
-
-# Test for the file/app
-if [ -d "$FILE" ]; then
-    exit 1
-else
-    exit 0
-fi</string>	
 			<key>display_name</key>
-			<string>Vectorworks 2020 Installer</string>
+			<string>Vectorworks File Viewer 2021</string>
 			<key>name</key>
 			<string>%NAME%</string>
 			<key>unattended_install</key>
