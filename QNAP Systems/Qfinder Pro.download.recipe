@@ -10,8 +10,6 @@
 	<string>com.github.srgssr.download.QfinderPro</string>
 	<key>Input</key>
 	<dict>
-		<key>DOWNLOAD_URL</key>
-		<string>https://download.qnap.com/Storage/Utility/QNAPQfinderProMac-7.1.1.0527.dmg</string>
 		<key>NAME</key>
 		<string>Qfinder Pro</string>
 	</dict>
@@ -20,12 +18,25 @@
 	<key>Process</key>
 	<array>
 		<dict>
+            <key>Processor</key>
+            <string>URLTextSearcher</string>
+            <key>Arguments</key>
+            <dict>
+                <key>url</key>
+                <string>https://www.qnap.com/en/utilities/essentials</string>
+                <key>re_pattern</key>
+                <string>(https://download.qnap.com/Storage/Utility/QNAPQfinderProMac-7.+\.dmg)</string>
+		        <key>result_output_var_name</key>
+		        <string>url</string>
+        	</dict>
+        </dict>
+		<dict>
 			<key>Arguments</key>
 			<dict>
 				<key>filename</key>
 				<string>%NAME%.dmg</string>
 				<key>url</key>
-				<string>%DOWNLOAD_URL%</string>
+				<string>%url%</string>
 			</dict>
 			<key>Processor</key>
 			<string>URLDownloader</string>
@@ -85,6 +96,29 @@
 			</dict>
 			<key>Processor</key>
 			<string>Versioner</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>dmg_root</key>
+				<string>%RECIPE_CACHE_DIR%/payload</string>
+				<key>dmg_path</key>
+				<string>%RECIPE_CACHE_DIR%/%NAME%.dmg</string>
+			</dict>
+			<key>Processor</key>
+			<string>DmgCreator</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>path_list</key>
+				<array>
+					<string>%RECIPE_CACHE_DIR%/payload</string>
+					<string>%RECIPE_CACHE_DIR%/unpack</string>
+				</array>
+			</dict>
+			<key>Processor</key>
+			<string>PathDeleter</string>
 		</dict>
 	</array>
 </dict>
