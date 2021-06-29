@@ -3,31 +3,31 @@
 <plist version="1.0">
 <dict>
 	<key>Comment</key>
-	<string>Created with Recipe Robot v1.0.5 (https://github.com/homebysix/recipe-robot)</string>
+	<string>Created by Jens Junge 2021-06-29</string>
 	<key>Description</key>
-	<string>Downloads the latest version of MediaInfo and imports it into Munki.</string>
+	<string>Downloads the latest version of MediaInfo CLI and imports it into Munki.</string>
 	<key>Identifier</key>
-	<string>ch.srgssr.pkg.munki.MediaInfo</string>
+	<string>ch.srgssr.pkg.munki.MediaInfoCLI</string>
 	<key>Input</key>
 	<dict>
 		<key>MUNKI_REPO_SUBDIR</key>
-		<string>SW/MediaInfo/MediaInfo</string>
+		<string>MediaInfo/MediaInfo</string>
 		<key>NAME</key>
 		<string>MediaInfo</string>
 		<key>pkginfo</key>
 		<dict>
 			<key>catalogs</key>
 			<array>
-				<string>QA</string>
+				<string>testing</string>
 			</array>
 			<key>description</key>
-			<string> </string>
+			<string>MediaInfo provides you with a quick access to the inner values of your audio and video files. Whether you want to glance at the set-up of tracks included in a file or you want to know all the precise details about the codecs used, MediaInfo will offer the suitable view.</string>
 			<key>developer</key>
 			<string>MediaArea.net</string>
 			<key>display_name</key>
 			<string>MediaInfo</string>
 			<key>name</key>
-			<string>SW_%NAME%</string>
+			<string>%NAME%</string>
 			<key>unattended_install</key>
 			<true/>
 		</dict>
@@ -35,9 +35,20 @@
 	<key>MinimumVersion</key>
 	<string>1.0.0</string>
 	<key>ParentRecipe</key>
-	<string>ch.srgssr.pkg.download.MediaInfo</string>
+	<string>ch.srgssr.pkg.download.MediaInfoCLI</string>
 	<key>Process</key>
 	<array>
+		<dict>
+            <key>Processor</key>
+            <string>PkgCopier</string>
+            <key>Arguments</key>
+            <dict>
+                <key>source_pkg</key>
+                <string>%pathname%/mediainfo.pkg</string>
+				<key>pkg_path</key>
+				<string>%RECIPE_CACHE_DIR%/%NAME%.pkg</string>
+            </dict>
+        </dict>
 		<dict>
 			<key>Arguments</key>
 			<dict>

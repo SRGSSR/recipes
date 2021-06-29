@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Comment</key>
+	<string>Created by Jens Junge 2021-06-29</string>
+	<key>Description</key>
+	<string>Downloads the latest version of MediaInfo CLI.</string>
+	<key>Identifier</key>
+	<string>ch.srgssr.pkg.download.MediaInfoCLI</string>
+	<key>Input</key>
+	<dict>
+		<key>DOWNLOAD_URL</key>
+		<string>https://mediaarea.net/en/MediaInfo/Download/Mac_OS</string>
+		<key>SEARCH_PATTERN</key>
+		<string>(/[0-9\.]+/MediaInfo_CLI_[0-9\.]+_Mac11.dmg)</string>
+		<key>NAME</key>
+		<string>MediaInfo</string>
+	</dict>
+	<key>MinimumVersion</key>
+	<string>1.0.5</string>
+	<key>Process</key>
+		<array>
+			<dict>
+				<key>Processor</key>
+				<string>URLTextSearcher</string>
+				<key>Arguments</key>
+				<dict>
+					<key>url</key>
+					<string>%DOWNLOAD_URL%</string>
+					<key>re_pattern</key>
+					<string>%SEARCH_PATTERN%</string>
+					<key>result_output_var_name</key>
+					<string>url</string>
+				</dict>
+			</dict>
+			<dict>
+				<key>Processor</key>
+				<string>URLDownloader</string>
+				<key>Arguments</key>
+				<dict>
+					<key>url</key>
+					<string>https://mediaarea.net/download/binary/mediainfo%url%</string>
+					<key>filename</key>
+					<string>%NAME%.dmg</string>
+				</dict>
+			</dict>
+			<dict>
+				<key>Processor</key>
+				<string>EndOfCheckPhase</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Unpack flat pkg inside dmg to unpack folder.</string>
+				<key>Processor</key>
+				<string>FlatPkgUnpacker</string>
+				<key>Arguments</key>
+				<dict>
+					<key>flat_pkg_path</key>
+					<string>%pathname%/mediainfo.pkg</string>
+					<key>destination_path</key>
+					<string>%RECIPE_CACHE_DIR%/unpack</string>
+				</dict>
+			</dict>
+			<dict>
+				<key>Processor</key>
+				<string>PkgPayloadUnpacker</string>
+				<key>Arguments</key>
+				<dict>
+					<key>pkg_payload_path</key>
+					<string>%RECIPE_CACHE_DIR%/unpack/Payload</string>
+					<key>destination_path</key>
+					<string>%RECIPE_CACHE_DIR%/payload</string>
+				</dict>
+			</dict>
+			<dict>
+				<key>Processor</key>
+				<string>CodeSignatureVerifier</string>
+				<key>Arguments</key>
+				<dict>
+					<key>input_path</key>
+					<string>%RECIPE_CACHE_DIR%/payload/usr/local/bin/mediainfo</string>
+					<key>requirement</key>
+					<string>identifier mediainfo and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = C2SZ4M9843</string>
+				</dict>
+			</dict>
+			<dict>
+				<key>Processor</key>
+				<string>PathDeleter</string>
+				<key>Arguments</key>
+				<dict>
+					<key>path_list</key>
+					<array>
+						<string>%RECIPE_CACHE_DIR%/unpack</string>
+						<string>%RECIPE_CACHE_DIR%/payload</string>
+					</array>
+				</dict>
+			</dict>
+		</array>
+</dict>
+</plist>
