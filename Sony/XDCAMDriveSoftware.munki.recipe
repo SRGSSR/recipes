@@ -30,6 +30,10 @@
 			<string>Tools</string>
 			<key>unattended_install</key>
 			<true/>
+			<key>preuninstall_script</key>
+			<string>#!/bin/sh
+DIR="/Library/Application Support/XDCAM Drive"
+/bin/rm -rf "$DIR"</string>
 		</dict>
 	</dict>
 	<key>MinimumVersion</key>
