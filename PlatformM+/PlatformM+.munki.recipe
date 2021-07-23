@@ -11,21 +11,25 @@
 	<key>Input</key>
 	<dict>
 		<key>MUNKI_REPO_SUBDIR</key>
-		<string>apps/%NAME%</string>
+		<string>SW/iCONProAudio/PlatformM+</string>
 		<key>NAME</key>
 		<string>Platform M+ and X+ iMap</string>
+		<key>MUNKI_CATEGORY</key>
+		<string>Multimedia</string>
 		<key>pkginfo</key>
 		<dict>
 			<key>catalogs</key>
 			<array>
 				<string>testing</string>
 			</array>
+			<key>category</key>
+            <string>%MUNKI_CATEGORY%</string>
 			<key>description</key>
-			<string> </string>
-			<key>developer</key>
-			<string>iCON Pro Audio</string>
+			<string>.  The Platform M+ is a MIDI control surface designed for producers, engineers and musicians who want the hands on control of real faders on a mixing console PLUS the flexibility of modern “in the box” or touchscreen digital music production within a smaller physical workspace.</string>
 			<key>display_name</key>
 			<string>Platform M+ and X+</string>
+			<key>developer</key>
+            <string>iCON Pro Audio</string>
 			<key>name</key>
 			<string>%NAME%</string>
 			<key>unattended_install</key>
@@ -42,7 +46,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>pkg_path</key>
-				<string>%RECIPE_CACHE_DIR%/%NAME%.pkg</string>
+				<string>%pathname%</string>
 				<key>repo_subdirectory</key>
 				<string>%MUNKI_REPO_SUBDIR%</string>
 			</dict>
