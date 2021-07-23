@@ -47,11 +47,34 @@
       		<key>Arguments</key>
       	<dict>
         	<key>purge_destination</key>
-			 <false/>
+			 <true/>
 			 <key>destination_path</key>
-                <string>%RECIPE_CACHE_DIR%</string>
-       		</dict>
-	  </dict>  
+                <string>%RECIPE_CACHE_DIR%/unpack</string>			 
+			</dict>
+		   </dict>
+		   <dict>
+		     <key>Comment</key>
+            <string>get the name of the unzipped pkg</string>
+            <key>Processor</key>
+            <string>FileFinder</string>
+            <key>Arguments</key>
+            <dict>
+                <key>pattern</key>
+                <string>%RECIPE_CACHE_DIR%/unpack/*.pkg</string>
+            </dict>
+			</dict>
+		<dict>
+            <key>Processor</key>
+             <string>FileMover</string>
+             <key>Arguments</key>
+        <dict>
+                <key>source</key>
+                <string>%found_filename%</string>
+                <key>target</key>
+                <string>%RECIPE_CACHE_DIR%/downloads/%NAME%.pkg</string>
+            </dict>
+	  		</dict> 
+		
 	</array>
 </dict>
 </plist>
