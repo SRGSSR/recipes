@@ -11,7 +11,7 @@
 	<key>Input</key>
 	<dict>
 		<key>NAME</key>
-		<string>Platform M+ and X+ iMap</string>
+		<string>Platform M+ and X+</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>1.0.0</string>
