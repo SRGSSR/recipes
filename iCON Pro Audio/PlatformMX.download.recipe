@@ -5,13 +5,13 @@
 	<key>Comment</key>
 	<string>Created with Recipe Robot v1.1.2 (https://github.com/homebysix/recipe-robot)</string>
 	<key>Description</key>
-	<string>Downloads the latest version of PlatformM.</string>
+	<string>Downloads the latest version of Platform M+ X+.</string>
 	<key>Identifier</key>
-	<string>com.github.srgssr.download.PlatformM+</string>
+	<string>com.github.srgssr.download.PlatformMX</string>
 	<key>Input</key>
 	<dict>
 		<key>NAME</key>
-		<string>Platform M+ and X+</string>
+		<string>PlatformMX</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>1.0.0</string>
@@ -25,7 +25,7 @@
                 <key>url</key>
                 <string>https://iconproaudio.com/product/platform-m-plus/</string>
                 <key>re_pattern</key>
-                <string>(https://s3.amazonaws.com/assets.icon-global.com/wp-content/uploads/2020/12/PlatformMPlus_and_XPlus_iMap_Mac_Setup_V2.+\.zip)</string>
+                <string>(https://s3.amazonaws.com/assets.icon-global.com/wp-content/uploads/[0-9]+\/[0-9]+/PlatformMPlus_and_XPlus_iMap_Mac_Setup_V[0-9]\.[0-9][0-9]\.zip)</string>
 		        <key>result_output_var_name</key>
 		        <string>url</string>
         	</dict>
@@ -45,60 +45,60 @@
       		<key>Processor</key>
       		<string>Unarchiver</string>
       		<key>Arguments</key>
-      	<dict>
-        	<key>purge_destination</key>
-			 <true/>
-			 <key>destination_path</key>
-                <string>%RECIPE_CACHE_DIR%/unpack</string>			 
+			<dict>
+				<key>purge_destination</key>
+				<true/>
+				<key>destination_path</key>
+				<string>%RECIPE_CACHE_DIR%/zip</string>
 			</dict>
-		   </dict>
-		   <dict>
-		     <key>Comment</key>
-            <string>get the name of the unzipped pkg</string>
+		</dict>
+		<dict>
+			<key>Comment</key>
+        	<string>get the name of the unzipped pkg</string>
             <key>Processor</key>
             <string>FileFinder</string>
             <key>Arguments</key>
             <dict>
                 <key>pattern</key>
-                <string>%RECIPE_CACHE_DIR%/unpack/*.pkg</string>
+                <string>%RECIPE_CACHE_DIR%/zip/*.pkg</string>
             </dict>
-			</dict>
-		<dict>
-            <key>Processor</key>
-             <string>FileMover</string>
-             <key>Arguments</key>
-        <dict>
-                <key>source</key>
-                <string>%found_filename%</string>
-                <key>target</key>
-                <string>%RECIPE_CACHE_DIR%/downloads/%NAME%.pkg</string>
-            </dict>
-	  		</dict> 
+		</dict>
 		<dict>
       		<key>Processor</key>
       		<string>PkgPayloadUnpacker</string>
       		<key>Arguments</key>
-      	<dict>
-        	<key>purge_destination</key>
-			 <true/>
-			  <key>pkg_payload_path</key>
-            <string>%RECIPE_CACHE_DIR%/downloads/%NAME%.pkg/Contents/Archive.pax.gz</string>	
-			<key>destination_path</key>	 
-			<string>%RECIPE_CACHE_DIR%/unarchive</string>
+      		<dict>
+				<key>purge_destination</key>
+				<true/>
+				<key>pkg_payload_path</key>
+				<string>%found_filename%/Contents/Archive.pax.gz</string>	
+				<key>destination_path</key>	 
+				<string>%RECIPE_CACHE_DIR%/unpack/Applications</string>
+			</dict>
 		</dict>
-	</dict>
-	<dict>
+		<dict>
       		<key>Processor</key>
       		<string>DmgCreator</string>
       		<key>Arguments</key>
-      	<dict>
-        	<key>dmg_root</key>
-            <string>%RECIPE_CACHE_DIR%/unarchive/</string>	
-			<key>dmg_path</key>	 
-			<string>%RECIPE_CACHE_DIR%/SW_%NAME%.dmg</string>
+      		<dict>
+				<key>dmg_root</key>
+				<string>%RECIPE_CACHE_DIR%/unpack/Applications</string>
+				<key>dmg_path</key>
+				<string>%RECIPE_CACHE_DIR%/SW_%NAME%.dmg</string>
+			</dict>
 		</dict>
-	</dict>
-		
+		<!-- No CodeSignatureVerifier here because app is not signed at all. -->
+		<dict>
+			<key>Processor</key>
+			<string>PathDeleter</string>
+			<key>Arguments</key>
+			<dict>
+				<key>path_list</key>
+				<array>
+					<string>%RECIPE_CACHE_DIR%/zip</string>
+				</array>
+			</dict>
+		</dict>
 	</array>
 </dict>
 </plist>
