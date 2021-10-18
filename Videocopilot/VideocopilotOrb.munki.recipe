@@ -21,9 +21,9 @@
 				<string>testing</string>
 			</array>
 			<key>description</key>
-			<string>The Platform M+ is a MIDI control surface designed for producers, engineers and musicians who want the hands on control of real faders on a mixing console PLUS the flexibility of modern “in the box” or touchscreen digital music production within a smaller physical workspace.</string>
+			<string>Generate infinite detail using High Fidelity bump maps. *Bump Mapping Rendered in After Effects with VC ORB!</string>
 			<key>developer</key>
-            <string>iCON Pro Audio</string>
+            <string>VideoCopilot/string>
 			<key>display_name</key>
 			<string>Videocopilot Orb</string>
 			<key>name</key>
