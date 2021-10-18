@@ -60,7 +60,18 @@
             <key>Arguments</key>
             <dict>
                 <key>pattern</key>
-                <string>%RECIPE_CACHE_DIR%/zip/*.pkg</string>
+                <string>%RECIPE_CACHE_DIR%/zip/*.dmg</string>
+            </dict>
+			</dict>
+			 <dict>
+            <key>Processor</key>
+            <string>Copier</string>
+            <key>Arguments</key>
+            <dict>
+                <key>source_path</key>
+                <string>%RECIPE_CACHE_DIR%/zip/VCOrbInstaller.dmg/VCOrbInstaller.app/Contents/Resources/AEFile.aep</string>
+                <key>destination_path</key>
+                <string>%RECIPE_CACHE_DIR%/downloads/AEFile.aep</string>
             </dict>
 		</dict>
 		<!-- No CodeSignatureVerifier here because app is not signed at all. -->
@@ -72,6 +83,7 @@
 				<key>path_list</key>
 				<array>
 					<string>%RECIPE_CACHE_DIR%/zip</string>
+					<string>%RECIPE_CACHE_DIR%/downloads/VideocopilotOrb.zip</string>
 				</array>
 			</dict>
 		</dict>
