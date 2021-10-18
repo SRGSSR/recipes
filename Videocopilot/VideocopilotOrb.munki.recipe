@@ -23,9 +23,9 @@
 			<key>description</key>
 			<string>Generate infinite detail using High Fidelity bump maps. *Bump Mapping Rendered in After Effects with VC ORB!</string>
 			<key>developer</key>
-            <string>VideoCopilot/string>
+            <string>VideoCopilot</string>
 			<key>display_name</key>
-			<string>Videocopilot Orb</string>
+			<string>VideocopilotOrb</string>
 			<key>name</key>
 			<string>%NAME%</string>
 			<key>unattended_install</key>
@@ -38,19 +38,6 @@
 	<string>com.github.srgssr.download.VideocopilotOrb</string>
 	<key>Process</key>
 	<array>
-		<dict>
-			<key>Processor</key>
-			<string>URLTextSearcher</string>
-			<key>Arguments</key>
-			<dict>
-				<key>url</key>
-				 <string>https://www.videocopilot.net/orb/</string>
-				<key>re_pattern</key>
-				<string>(https://www.videocopilot.net/dl/mFABJFXa5om/)</string>
-				<key>result_output_var_name</key>
-				<string>version</string>
-			</dict>
-		</dict>
 		<dict>
 			<key>Processor</key>
 			<string>MunkiPkginfoMerger</string>
@@ -69,10 +56,10 @@
             <key>Arguments</key>
             <dict>
                 <key>faux_root</key>
-                <string>%RECIPE_CACHE_DIR%/unpack/</string>
+                <string>%RECIPE_CACHE_DIR%/downloads/</string>
                 <key>installs_item_paths</key>
                 <array>
-                    <string>/Applications/VCOrb.app/Contents/MacOS/VCInstaller</string>
+                    <string>/Applications/Adobe/Adobe After Effects 2021/Plug-ins/VideoCopilot/VCOrb.plugin</string>
                 </array>
             </dict>
         </dict>
@@ -86,7 +73,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>pkg_path</key>
-				<string>%RECIPE_CACHE_DIR%/SW_%NAME%.dmg</string>
+				<string>%RECIPE_CACHE_DIR%/SW_%NAME%.pkg</string>
 				<key>repo_subdirectory</key>
 				<string>%MUNKI_REPO_SUBDIR%</string>
 			</dict>
