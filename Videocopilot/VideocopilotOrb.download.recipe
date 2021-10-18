@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Comment</key>
+	<string>Created with Recipe Robot v1.1.2 (https://github.com/homebysix/recipe-robot)</string>
+	<key>Description</key>
+	<string>Downloads the latest version of Platform M+ X+.</string>
+	<key>Identifier</key>
+	<string>com.github.srgssr.download.videocopilot</string>
+	<key>Input</key>
+	<dict>
+		<key>NAME</key>
+		<string>VideocopilotOrb</string>
+	</dict>
+	<key>MinimumVersion</key>
+	<string>1.0.0</string>
+	<key>Process</key>
+	<array>
+		<dict>
+            <key>Processor</key>
+            <string>URLTextSearcher</string>
+            <key>Arguments</key>
+            <dict>
+                <key>url</key>
+                <string>https://www.videocopilot.net/orb/</string>
+                <key>re_pattern</key>
+                <string>(https://www.videocopilot.net/dl/mFABJFXa5om/)</string>
+		        <key>result_output_var_name</key>
+		        <string>url</string>
+        	</dict>
+        </dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>filename</key>
+				<string>%NAME%.zip</string>
+				<key>url</key>
+				<string>%url%</string>
+			</dict>
+			<key>Processor</key>
+			<string>URLDownloader</string>
+		</dict>
+		<dict>
+      		<key>Processor</key>
+      		<string>Unarchiver</string>
+      		<key>Arguments</key>
+			<dict>
+				<key>purge_destination</key>
+				<true/>
+				<key>destination_path</key>
+				<string>%RECIPE_CACHE_DIR%/zip</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Comment</key>
+        	<string>get the name of the unzipped pkg</string>
+            <key>Processor</key>
+            <string>FileFinder</string>
+            <key>Arguments</key>
+            <dict>
+                <key>pattern</key>
+                <string>%RECIPE_CACHE_DIR%/zip/*.pkg</string>
+            </dict>
+		</dict>
+		<!-- No CodeSignatureVerifier here because app is not signed at all. -->
+		<dict>
+			<key>Processor</key>
+			<string>PathDeleter</string>
+			<key>Arguments</key>
+			<dict>
+				<key>path_list</key>
+				<array>
+					<string>%RECIPE_CACHE_DIR%/zip</string>
+				</array>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>
