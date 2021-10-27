@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>Downloads the latest version of RØDE Central.</string>
+    <key>Identifier</key>
+    <string>ch.srgssr.recipes.download.RODECentral</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>RODECentral</string>
+        <key>DOWNLOAD_URL</key>
+        <string>https://www.rode.com/wirelessgo/get_download?os=mac</string>
+    </dict>
+    <key>Process</key>
+    <array>
+        <dict>
+            <key>Arguments</key>
+            <dict>rodecentral_installation_file_mac.zip
+				<key>filename</key>
+				<string>rodecentral_installation_file_mac.zip</string>
+				<key>url</key>
+				<string>%DOWNLOAD_URL%</string>
+            </dict>
+            <key>Processor</key>
+            <string>URLDownloader</string>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>EndOfCheckPhase</string>
+        </dict>
+        <dict>
+			<key>Arguments</key>
+			<dict>
+				<key>destination_path</key>
+				<string>%RECIPE_CACHE_DIR%/unpack</string>
+				<key>purge_destination</key>
+				<true/>
+			</dict>
+			<key>Processor</key>
+			<string>Unarchiver</string>
+		</dict>
+        <dict>
+            	<key>Processor</key>
+            	<string>FileFinder</string>
+            	<key>Arguments</key>
+            	<dict>
+                	<key>pattern</key>
+                	<string>%RECIPE_CACHE_DIR%/unpack/*.pkg</string>
+            	</dict>
+		</dict>
+        <dict>
+	        <key>Processor</key>
+	        <string>FileMover</string>
+	        <key>Arguments</key>
+	        <dict>
+	            <key>source</key>
+	            <string>%found_filename%</string>
+	            <key>target</key>
+	            <string>%RECIPE_CACHE_DIR%/unpack/%NAME%.pkg</string>
+	        </dict>
+	    </dict>
+        <dict>
+            <key>Processor</key>
+            <string>FlatPkgUnpacker</string>
+            <key>Arguments</key>
+            <dict>
+                <key>flat_pkg_path</key>
+                <string>%RECIPE_CACHE_DIR%/unpack/%NAME%.pkg</string>
+                <key>destination_path</key>
+                <string>%RECIPE_CACHE_DIR%/flat</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>URLTextSearcher</string>
+            <key>Arguments</key>
+            <dict>
+                <key>url</key>
+                <string>file://localhost/%RECIPE_CACHE_DIR%/flat/Distribution</string>
+                <key>re_pattern</key>
+                <string>CFBundleShortVersionString=&quot;(?P&lt;version&gt;.*?)&quot;</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Arguments</key>
+            <dict>
+                <key>expected_authority_names</key>
+                <array>
+                    <string>Developer ID Installer: FREEDMAN ELECTRONICS PTY LTD (Z9T72PWTJA)</string>
+                    <string>Developer ID Certification Authority</string>
+                    <string>Apple Root CA</string>
+                </array>
+                <key>input_path</key>
+                <string>%RECIPE_CACHE_DIR%/unpack/%NAME%.pkg</string>
+            </dict>
+            <key>Processor</key>
+            <string>CodeSignatureVerifier</string>
+        </dict>
+    </array>
+</dict>
+</plist>
