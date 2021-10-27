@@ -23,7 +23,7 @@
             <key>category</key>
             <string>%MUNKI_CATEGORY%</string>
             <key>developer</key>
-            <string>RØDE</string>
+            <string>RODE</string>
             <key>description</key>
             <string>Unlock advanced features for the Wireless GO II with RØDE Central! This easy-to-use companion app lets you set up your device preferences, access, optimise and export recordings, activate and deactivate functions, and update your firmware.</string>
             <key>display_name</key>
