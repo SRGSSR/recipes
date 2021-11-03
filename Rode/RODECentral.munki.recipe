@@ -58,7 +58,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>input_plist_path</key>
-				<string>%RECIPE_CACHE_DIR%/unpack/%NAME%.pkg/Applications/RODE Central.app/Contents/Info.plist</string>
+				<string>%RECIPE_CACHE_DIR%/flat/RodeCentral.pkg/Applications/RODE Central.app/Contents/Info.plist</string>
 			</dict>
 		</dict>
 		<dict>
