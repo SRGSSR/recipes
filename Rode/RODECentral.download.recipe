@@ -73,17 +73,6 @@
             </dict>
         </dict>
         <dict>
-            <key>Processor</key>
-            <string>URLTextSearcher</string>
-            <key>Arguments</key>
-            <dict>
-                <key>url</key>
-                <string>file://localhost/%RECIPE_CACHE_DIR%/flat/Distribution</string>
-                <key>re_pattern</key>
-                <string>CFBundleShortVersionString=&quot;(?P&lt;version&gt;.*?)&quot;</string>
-            </dict>
-        </dict>
-        <dict>
             <key>Arguments</key>
             <dict>
                 <key>expected_authority_names</key>
