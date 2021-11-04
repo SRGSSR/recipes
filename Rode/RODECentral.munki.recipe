@@ -71,17 +71,14 @@
 				<key>input_plist_path</key>
 				<string>%RECIPE_CACHE_DIR%/payload/Applications/RODE Central.app/Contents/Info.plist</string>
 			</dict>
-		</dict>
-		<dict>
-			<key>Processor</key>
-			<string>MunkiPkginfoMerger</string>
-			<key>Arguments</key>
-			<dict>
-				<key>additional_pkginfo</key>
-				<dict>
-					<key>version</key>
-					<string>%version%</string>	
-				</dict>
+            <key>Processor</key>
+      		<string>DmgCreator</string>
+      		<key>Arguments</key>
+      		<dict>
+				<key>dmg_root</key>
+				<string>%RECIPE_CACHE_DIR%/payload/Applications</string>
+				<key>dmg_path</key>
+				<string>%RECIPE_CACHE_DIR%/SW_%NAME%.dmg</string>
 			</dict>
 		</dict>
         <dict>
