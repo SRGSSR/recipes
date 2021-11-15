@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>Downloads the latest version of DiskCatalogMaker and imports it into Munki.</string>
+	<key>Identifier</key>
+	<string>com.github.srgssr.munki.DiskCatalogMaker</string>
+	<key>Input</key>
+	<dict>
+		<key>MUNKI_REPO_SUBDIR</key>
+		<string>FUJIWARA SOFTWARE/DiskCatalogMaker</string>
+		<key>NAME</key>
+		<string>DiskCatalogMaker</string>
+		<key>pkginfo</key>
+		<dict>
+			<key>catalogs</key>
+			<array>
+				<string>testing</string>
+			</array>
+			<key>description</key>
+			<string>Trusted catalog database format for scalability and storage of huge data. </string>
+			<key>developer</key>
+			<string>FUJIWARA SOFTWARE</string>
+			<key>display_name</key>
+			<string>DiskCatalogMaker</string>
+			<key>name</key>
+			<string>%NAME%</string>
+			<key>category</key>
+			<string>Tools</string>
+			<key>unattended_install</key>
+			<true/>
+		</dict>
+	<key>MinimumVersion</key>
+	<string>1.0.0</string>
+	<key>ParentRecipe</key>
+	<string>com.github.srgssr.download.DiskCatalogMaker</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Processor</key>
+			<string>MunkiImporter</string>
+			<key>Arguments</key>
+			<dict>
+				<key>pkg_path</key>
+				<string>%RECIPE_CACHE_DIR%/downloads/%NAME%.dmg</string>
+				<key>repo_subdirectory</key>
+				<string>%MUNKI_REPO_SUBDIR%</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>PathDeleter</string>
+			<key>Arguments</key>
+			<dict>
+				<key>path_list</key>
+				<array>
+					<string>%RECIPE_CACHE_DIR%/%NAME%</string>
+				</array>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</dict>
+</plist>
+
