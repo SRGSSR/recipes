@@ -51,7 +51,7 @@
           <key>url</key>
           <string>https://www.sonycreativesoftware.com%download_url%</string>
           <key>filename</key>
-          <string>%NAME%.dmg</string>
+          <string>%NAME%.zip</string>
       </dict>
     </dict>
   </array>
