@@ -59,10 +59,10 @@
       <string>Unarchiver</string>
       <key>Arguments</key>
 			<dict>
-				<key>purge_destination</key>
-				<true/>
+			  <key>archive_path</key>
+        <string>%RECIPE_CACHE_DIR%/downloads/%NAME%.zip</string>
 				<key>destination_path</key>
-				<string>%RECIPE_CACHE_DIR%/zip</string>
+				<string>%RECIPE_CACHE_DIR%/downloads/</string>
       </dict>   
       </dict>     
   </array>
