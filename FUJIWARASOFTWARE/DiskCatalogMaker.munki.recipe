@@ -23,7 +23,7 @@
 			<key>description</key>
 			<string>Trusted catalog database format for scalability and storage of huge data. </string>
 			<key>developer</key>
-			<string>FUJIWARA SOFTWARE</string>
+			<string>FUJIWARASOFTWARE</string>
 			<key>display_name</key>
 			<string>DiskCatalogMaker</string>
 			<key>name</key>
