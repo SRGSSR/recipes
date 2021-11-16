@@ -52,8 +52,19 @@
           <string>https://www.sonycreativesoftware.com%download_url%</string>
           <key>filename</key>
           <string>%NAME%.zip</string>
-      </dict>
+      </dict>      
     </dict>
+     <dict>
+      <key>Processor</key>
+      <string>Unarchiver</string>
+      <key>Arguments</key>
+			<dict>
+				<key>purge_destination</key>
+				<true/>
+				<key>destination_path</key>
+				<string>%RECIPE_CACHE_DIR%/zip</string>
+      </dict>   
+      </dict>     
   </array>
 </dict>
 </plist>
