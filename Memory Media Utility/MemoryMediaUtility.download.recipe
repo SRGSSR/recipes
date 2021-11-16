@@ -62,7 +62,7 @@
 			  <key>archive_path</key>
         <string>%RECIPE_CACHE_DIR%/downloads/%NAME%.zip</string>
 				<key>destination_path</key>
-				<string>%RECIPE_CACHE_DIR%/downloads/</string>
+				<string>%RECIPE_CACHE_DIR%/dmg/</string>
       </dict>   
       </dict>     
   </array>
