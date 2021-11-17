@@ -39,6 +39,19 @@
 	<key>Process</key>
 	<array>
 		<dict>
+			<key>Processor</key>
+			<string>Unarchiver</string>
+		</dict>	
+		<dict>
+			<key>Processor</key>
+            <string>FileFinder</string>
+            <key>Arguments</key>
+            <dict>
+               <key>pattern</key>
+               <string>%RECIPE_CACHE_DIR%/%NAME%/*/*.pkg</string>
+            </dict>
+		</dict>
+		<dict>
 			<key>Arguments</key>
 			<dict>
 				<key>pkg_path</key>
