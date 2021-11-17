@@ -54,17 +54,7 @@
           <string>%NAME%.zip</string>
       </dict>      
     </dict>
-     <dict>
-      <key>Processor</key>
-      <string>Unarchiver</string>
-      <key>Arguments</key>
-			<dict>
-			  <key>archive_path</key>
-        <string>%RECIPE_CACHE_DIR%/downloads/%NAME%.zip</string>
-				<key>destination_path</key>
-				<string>%RECIPE_CACHE_DIR%/dmg/</string>
-      </dict>   
-      </dict>     
+    </dict>     
   </array>
 </dict>
 </plist>
