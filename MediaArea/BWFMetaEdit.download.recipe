@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Comment</key>
+	<string>Created by Jens Junge 2021-11-30</string>
+	<key>Description</key>
+	<string>Downloads BWF MetaEdit from MediaAreas's Website.</string>
+	<key>Identifier</key>
+	<string>ch.srgssr.pkg.download.BWFMetaEdit</string>
+	<key>Input</key>
+	<dict>
+		<key>DOWNLOAD_URL</key>
+		<string>https://mediaarea.net/BWFMetaEdit/Download/Mac_OS</string>
+		<key>SEARCH_PATTERN</key>
+		<string>([0-9]+\.[0-9]+/BWFMetaEdit_GUI_[0-9]+\.[0-9]+_Mac.dmg)</string>
+		<key>NAME</key>
+		<string>BWFMetaEdit</string>
+	</dict>
+	<key>MinimumVersion</key>
+	<string>1.0.5</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Processor</key>
+			<string>URLTextSearcher</string>
+			<key>Arguments</key>
+			<dict>
+				<key>url</key>
+				<string>%DOWNLOAD_URL%</string>
+				<key>re_pattern</key>
+				<string>%SEARCH_PATTERN%</string>
+				<key>result_output_var_name</key>
+				<string>url</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>URLDownloader</string>
+			<key>Arguments</key>
+			<dict>
+				<key>url</key>
+				<string>https://mediaarea.net/download/binary/bwfmetaedit-gui/%url%</string>
+				<key>filename</key>
+				<string>%NAME%.dmg</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>EndOfCheckPhase</string>
+		</dict>
+        <dict>
+            <key>Processor</key>
+            <string>StopProcessingIf</string>
+            <key>Arguments</key>
+            <dict>
+                <key>predicate</key>
+                <string>download_changed == FALSE</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>CodeSignatureVerifier</string>
+            <key>Arguments</key>
+            <dict>
+                <key>input_path</key>
+                <string>%pathname%/BWF MetaEdit.app</string>
+                <key>deep_verification</key>
+                <true/>
+                <key>strict_verification</key>
+                <true/>
+                <key>requirement</key>
+                <string>identifier "net.mediaarea.bwfmetaedit.mac" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = C2SZ4M9843</string>
+            </dict>
+        </dict>
+	</array>
+</dict>
+</plist>
