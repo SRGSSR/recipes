@@ -5,9 +5,9 @@
 	<key>Comment</key>
 	<string>Created by Jens Junge 2021-06-29</string>
 	<key>Description</key>
-	<string>Downloads the latest version of MediaInfo CLI.</string>
+	<string>Downloads the latest version of MediaInfo GUI.</string>
 	<key>Identifier</key>
-	<string>ch.srgssr.pkg.download.MediaInfoCLI</string>
+	<string>ch.srgssr.pkg.download.MediaInfoGUI</string>
 	<key>Input</key>
 	<dict>
 		<key>DOWNLOAD_URL</key>

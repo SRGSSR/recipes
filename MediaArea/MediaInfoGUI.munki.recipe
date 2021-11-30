@@ -5,9 +5,9 @@
 	<key>Comment</key>
 	<string>Created by Jens Junge 2021-06-29</string>
 	<key>Description</key>
-	<string>Downloads the latest version of MediaInfo CLI and imports it into Munki.</string>
+	<string>Downloads the latest version of MediaInfo GUI and imports it into Munki.</string>
 	<key>Identifier</key>
-	<string>ch.srgssr.pkg.munki.MediaInfoCLI</string>
+	<string>ch.srgssr.pkg.munki.MediaInfoGUI</string>
 	<key>Input</key>
 	<dict>
 		<key>MUNKI_REPO_SUBDIR</key>
@@ -35,7 +35,7 @@
 	<key>MinimumVersion</key>
 	<string>1.0.0</string>
 	<key>ParentRecipe</key>
-	<string>ch.srgssr.pkg.download.MediaInfoCLI</string>
+	<string>ch.srgssr.pkg.download.MediaInfoGUI</string>
 	<key>Process</key>
 	<array>
 		<dict>
