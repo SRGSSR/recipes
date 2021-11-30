@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>Repackages VideoCopilot ORB</string>
+	<key>Identifier</key>
+	<string>com.github.srgssr.pkg.VideoCopilotORB</string>
+	<key>Input</key>
+	<dict>
+		<key>NAME</key>
+		<string>Lenscare</string>
+	</dict>
+	<key>MiniumumVersion</key>
+	<string>1.0</string>
+	<key>ParentRecipe</key>
+	<string>com.github.srgssr.download.VideoCopilotORB</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Comment</key>
+			<string>Create a filestructure for the payload</string>
+			<key>Processor</key>
+			<string>PkgRootCreator</string>
+			<key>Arguments</key>
+			<dict>
+				<key>pkgdirs</key>
+				<dict>
+					<key>Library</key>
+					<string>01755</string>
+					<key>Library/Application Support</key>
+					<string>0755</string>
+					<key>Library/Application Support/Adobe</key>
+					<string>0755</string>
+					<key>Library/Application Support/Adobe/Common</key>
+					<string>0775</string>
+					<key>Library/Application Support/Adobe/Common/Plug-ins</key>
+					<string>0775</string>
+					<key>Library/Application Support/Adobe/Common/Plug-ins/7.0</key>
+					<string>0775</string>
+					<key>Library/Application Support/Adobe/Common/Plug-ins/7.0/MediaCore</key>
+					<string>0775</string>
+					<key>Library/Application Support/Adobe/Common/Plug-ins/7.0/MediaCore/VideoCopilot</key>
+					<string>0775</string>
+					<key>Library/Application Support/Adobe/Common/Plug-ins/7.0/MediaCore//VideoCopilot/VCOrb.plugin</key>
+					<string>0775</string>
+				</dict>
+				<key>pkgroot</key>
+				<string>%RECIPE_CACHE_DIR%/pkgroot</string>
+			</dict>
+		</dict>
+        <dict>
+            <key>Comment</key>
+            <string>Copy VC ORB plugin into the plugins folder</string>
+            <key>Processor</key>
+             <string>Copier</string>
+             <key>Arguments</key>
+            <dict>
+                <key>source_path</key>
+                <string>%RECIPE_CACHE_DIR%/unpack/VCOrb.plugin
+                <string>%RECIPE_CACHE_DIR%/pkgroot/Library/Application Support/Adobe/Common/Plug-ins/7.0/MediaCore//VideoCopilot/VCOrb.plugin</string>
+                <key>overwrite</key>
+                <true/>
+            </dict>
+        </dict>
+
+		<dict>
+            <key>Comment</key>
+            <string>Get version from filename. Has to be usefull in %pathname%</string>
+			<key>Processor</key>
+			<string>ch.srgssr.recipe.VersionExtracter/VersionExtracter</string>
+		</dict>
+		<dict>
+            <key>Comment</key>
+            <string>Create the installer package</string>
+            <key>Processor</key>
+            <string>PkgCreator</string>
+            <key>Arguments</key>
+            <dict>
+                <key>pkg_request</key>
+                <dict>
+					<key>pkgroot</key>
+                    <string>%RECIPE_CACHE_DIR%/pkgroot</string>
+                    <key>pkgdir</key>
+                    <string>%RECIPE_CACHE_DIR%</string>
+					<key>pkgname</key>
+					<string>%NAME%-%version%</string>
+                    <key>id</key>
+                    <string>ch.srgssr.pkg.lenscareCC</string>
+					<key>version</key>
+					<string>%version%</string>
+                    <key>options</key>
+                    <string>purge_ds_store</string>
+                    <key>chown</key>
+                    <array>
+                        <dict>
+                            <key>path</key>
+                            <string>Library</string>
+                            <key>user</key>
+                            <string>root</string>
+                            <key>group</key>
+                            <string>wheel</string>
+<!--
+                            <key>mode</key>
+                            <string>0775</string>
+-->
+                        </dict>
+                    </array>
+                </dict>
+            </dict>
+        </dict>
+	</array>
+</dict>
+</plist>

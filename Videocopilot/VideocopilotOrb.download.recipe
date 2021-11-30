@@ -2,12 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>Comment</key>
-	<string>Created with Recipe Robot v1.1.2 (https://github.com/homebysix/recipe-robot)</string>
 	<key>Description</key>
-	<string>Downloads the latest version of Platform M+ X+.</string>
+	<string>Downloads the latest version of VideoCopilot ORB</string>
 	<key>Identifier</key>
-	<string>com.github.srgssr.download.videocopilot</string>
+	<string>com.github.srgssr.download.VideoCopilotORB</string>
 	<key>Input</key>
 	<dict>
 		<key>NAME</key>
@@ -31,6 +29,8 @@
         	</dict>
         </dict>
 		<dict>
+			<key>Processor</key>
+			<string>URLDownloader</string>
 			<key>Arguments</key>
 			<dict>
 				<key>filename</key>
@@ -38,8 +38,6 @@
 				<key>url</key>
 				<string>%url%</string>
 			</dict>
-			<key>Processor</key>
-			<string>URLDownloader</string>
 		</dict>
 		<dict>
       		<key>Processor</key>
@@ -52,6 +50,7 @@
 				<string>%RECIPE_CACHE_DIR%/zip</string>
 			</dict>
 		</dict>
+		<!-- filefinder not needed as filenames are static with version changes
 		<dict>
 			<key>Comment</key>
         	<string>get the name of the unzipped pkg</string>
@@ -62,8 +61,9 @@
                 <key>pattern</key>
                 <string>%RECIPE_CACHE_DIR%/zip/*.dmg</string>
             </dict>
-			</dict>
-			 <dict>
+		</dict>
+		-->
+		<dict>
             <key>Processor</key>
             <string>Copier</string>
             <key>Arguments</key>
@@ -71,10 +71,28 @@
                 <key>source_path</key>
                 <string>%RECIPE_CACHE_DIR%/zip/VCOrbInstaller.dmg/VCOrbInstaller.app/Contents/Resources/VCOrb.plugin</string>
                 <key>destination_path</key>
-                <string>%RECIPE_CACHE_DIR%/downloads/VCOrb.plugin</string>
+                <string>%RECIPE_CACHE_DIR%/unpack/VCOrb.plugin</string>
             </dict>
 		</dict>
-		<!-- No CodeSignatureVerifier here because app is not signed at all. -->
+
+		<!-- Verify Code signature of the plugin -->
+		<dict>
+			<key>Processor</key>
+			<string>CodeSignatureVerifier</string>
+			<key>Arguments</key>
+			<dict>
+				<key>input_path</key>
+				<string>%RECIPE_CACHE_DIR%/unpack/VCOrb.plugin</string>
+				<key>deep_verification</key>
+				<true/>
+				<key>strict_verification</key>
+				<true/>
+				<key>requirement</key>
+				<string>identifier "net.videocopilot.VCOrb" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "462FK78NZ8"</string>
+			</dict>
+		</dict>
+
+		<!-- cleanup -->
 		<dict>
 			<key>Processor</key>
 			<string>PathDeleter</string>
@@ -83,7 +101,6 @@
 				<key>path_list</key>
 				<array>
 					<string>%RECIPE_CACHE_DIR%/zip</string>
-					<string>%RECIPE_CACHE_DIR%/downloads/VideocopilotOrb.zip</string>
 				</array>
 			</dict>
 		</dict>
