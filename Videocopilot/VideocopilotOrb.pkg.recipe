@@ -57,7 +57,8 @@
              <key>Arguments</key>
             <dict>
                 <key>source_path</key>
-                <string>%RECIPE_CACHE_DIR%/unpack/VCOrb.plugin
+                <string>%RECIPE_CACHE_DIR%/unpack/VCOrb.plugin</string>
+				<key>destination_path</key>
                 <string>%RECIPE_CACHE_DIR%/pkgroot/Library/Application Support/Adobe/Common/Plug-ins/7.0/MediaCore//VideoCopilot/VCOrb.plugin</string>
                 <key>overwrite</key>
                 <true/>
