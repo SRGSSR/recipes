@@ -4,7 +4,7 @@ MinimumVersion: '2.3'
 
 Input:
   NAME: DisplayLink Manager
-  SOFTWARE_TITLE: DisplayLink_Manager
+  SOFTWARE_TITLE: DisplayLinkManager
   BASE_URL: https://www.synaptics.com
   SEARCH_URL: products/displaylink-graphics/downloads/macos
 
