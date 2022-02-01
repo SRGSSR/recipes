@@ -5,7 +5,7 @@
     <key>Description</key>
     <string>Import PHPComposer in Munki</string>
     <key>Identifier</key>
-    <string>com.github.ygini.munki.PHPComposer</string>
+    <string>com.github.SRGSSR.munki.PHPComposer</string>
     <key>MinimumVersion</key>
     <string>0.5.0</string>
     <key>Input</key>
@@ -33,7 +33,7 @@
         </dict>
     </dict>
     <key>ParentRecipe</key>
-    <string>com.github.ygini.pkg.PHPComposer</string>
+    <string>com.github.SRGSSR.pkg.PHPComposer</string>
     <key>Process</key>
     <array>
         <dict>

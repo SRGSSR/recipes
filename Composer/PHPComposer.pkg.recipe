@@ -5,7 +5,7 @@
     <key>Description</key>
     <string>Downloads the latest version of PHPComposer and makes a pkg of it</string>
     <key>Identifier</key>
-    <string>com.github.ygini.pkg.PHPComposer</string>
+    <string>com.github.SRGSSR.pkg.PHPComposer</string>
     <key>Input</key>
     <dict>
         <key>PKG_ID</key>
@@ -14,7 +14,7 @@
     <key>MinimumVersion</key>
     <string>0.5.0</string>
     <key>ParentRecipe</key>
-    <string>com.github.ygini.download.PHPComposer</string>
+    <string>com.github.SRGSSR.download.PHPComposer</string>
     <key>Process</key>
     <array>
         <dict>
