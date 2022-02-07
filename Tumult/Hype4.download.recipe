@@ -27,7 +27,6 @@
 				<string>https://static.tumult.com/hype/download/Hype.dmg</string>
 				<key>filename</key>
 				<string>%NAME%.dmg</string>
-		
 			</dict>	
 		</dict>
 		<dict>
