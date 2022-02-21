@@ -7,7 +7,7 @@
 	<key>Description</key>
 	<string>Downloads the latest version of Vectorworks File Viewer 2022.</string>
 	<key>Identifier</key>
-	<string>com.github.SRGSSR.munki.VectorworksFileViewer2022</string>
+	<string>com.github.SRGSSR.munki.Vectorworks2022.Installer</string>
 	<key>Input</key>
 	<dict>
 		<key>MUNKI_REPO_SUBDIR</key>
