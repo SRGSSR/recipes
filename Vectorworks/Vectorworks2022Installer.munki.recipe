@@ -61,7 +61,7 @@ rm -rf '/private/tmp/Vectorworks 2022 Installer.app'</string>
 	<key>MinimumVersion</key>
 	<string>1.0.0</string>
 	<key>ParentRecipe</key>
-	<string>com.github.SRGSSR.download.VectorworksFileViewer2022</string>
+	<string>com.github.SRGSSR.download.VectorworksInstaller2022</string>
 	<key>Process</key>
 	<array>
 	<dict>
