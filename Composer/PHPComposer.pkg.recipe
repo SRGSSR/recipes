@@ -3,18 +3,18 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Downloads the latest version of PHPComposer and makes a pkg of it</string>
+    <string>Downloads the latest version of PHPcomposer and makes a pkg of it</string>
     <key>Identifier</key>
-    <string>com.github.SRGSSR.pkg.PHPComposer</string>
+    <string>com.github.SRGSSR.pkg.PHPcomposer</string>
     <key>Input</key>
     <dict>
         <key>PKG_ID</key>
-        <string>com.github.ygini.pkg.PHPComposer</string>
+        <string>com.github.ygini.pkg.PHPcomposer</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.5.0</string>
     <key>ParentRecipe</key>
-    <string>com.github.SRGSSR.download.PHPComposer</string>
+    <string>com.github.SRGSSR.download.PHPcomposer</string>
     <key>Process</key>
     <array>
         <dict>

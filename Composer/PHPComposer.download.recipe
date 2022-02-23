@@ -5,7 +5,7 @@
 	<key>Description</key>
 	<string>Downloads the latest version of Composer php command line tool.</string>
 	<key>Identifier</key>
-	<string>com.github.SRGSSR.download.PHPComposer</string>
+	<string>com.github.SRGSSR.download.PHPcomposer</string>
 	<key>Input</key>
 	<dict>
 		<key>NAME</key>

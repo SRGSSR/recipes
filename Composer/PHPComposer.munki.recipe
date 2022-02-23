@@ -3,15 +3,15 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Import PHPComposer in Munki</string>
+    <string>Import PHPcomposer in Munki</string>
     <key>Identifier</key>
-    <string>com.github.SRGSSR.munki.PHPComposer</string>
+    <string>com.github.SRGSSR.munki.PHPcomposer</string>
     <key>MinimumVersion</key>
     <string>0.5.0</string>
     <key>Input</key>
     <dict>
 		<key>MUNKI_REPO_SUBDIR</key>
-		<string>dev/phpcomposer</string>
+		<string>Composer/PHPcomposer</string>
         <key>pkginfo</key>
         <dict>
             <key>catalogs</key>
@@ -33,7 +33,7 @@
         </dict>
     </dict>
     <key>ParentRecipe</key>
-    <string>com.github.SRGSSR.pkg.PHPComposer</string>
+    <string>com.github.SRGSSR.pkg.PHPcomposer</string>
     <key>Process</key>
     <array>
         <dict>
