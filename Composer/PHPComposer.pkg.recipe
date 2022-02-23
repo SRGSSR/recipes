@@ -75,7 +75,7 @@
     					</dict>
     					<dict>
     						<key>path</key>
-                    		<string>/usr/local/bin/%NAME%.phar</string>
+                    		<string>/usr/local/bin/composer.phar</string>
     						<key>user</key>
                     		<string>root</string>
     						<key>group</key>
