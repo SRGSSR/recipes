@@ -21,7 +21,11 @@
 			<key>Arguments</key>
 			<dict>
 				<key>re_pattern</key>
+<<<<<<< HEAD
 				<string>href="(https:\/\/royaltsx-v\d\.royalapps.com\/updates\/royaltsx_.+\.dmg)" title="Download Royal TSX">Download now<\/a><\/p><string>
+=======
+				<string>href="(https://royaltsx-v4.royalapplications.com/updates/royaltsx_.+\.dmg)" title="Download Royal TSX"&gt;Download Now&lt;/a&gt;</string>
+>>>>>>> parent of 45b03f6 (Update RoyalTSX.download.recipe)
 				<key>result_output_var_name</key>
 				<string>url</string>
 				<key>url</key>
