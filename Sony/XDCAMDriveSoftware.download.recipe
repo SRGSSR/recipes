@@ -125,7 +125,7 @@
 				<key>input_path</key>
 				<string>%RECIPE_CACHE_DIR%/payload/Applications/XDCAM Drive/XDCAM Drive Monitor.app</string>
 				<key>requirement</key>
-				<string>identifier "com.sony.vfam.monitor" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = EKS2CRZPNK</string>
+				<string>identifier "com.sony.vfam.monitor" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = VH49J2FYHE</string>
 			</dict>
 		</dict>
 		<dict>
@@ -136,7 +136,7 @@
 				<key>input_path</key>
 				<string>%RECIPE_CACHE_DIR%/payload/Applications/XDCAM Drive/XDCAM Drive Utility.app</string>
 				<key>requirement</key>
-				<string>identifier "com.sony.PCUtility" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = EKS2CRZPNK</string>
+				<string>identifier "com.sony.PCUtility" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = VH49J2FYHE</string>
 			</dict>
 		</dict>
 		<dict>
@@ -147,7 +147,7 @@
 				<key>input_path</key>
 				<string>%RECIPE_CACHE_DIR%/payload/Library/Application Support/XDCAM Drive/xdcamMntHelper.app</string>
 				<key>requirement</key>
-				<string>identifier "com.sips.xdcamMntHelper" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = EKS2CRZPNK</string>
+				<string>identifier "com.sips.xdcamMntHelper" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = VH49J2FYHE</string>
 			</dict>
 		</dict>
 		<dict>
@@ -158,7 +158,7 @@
 				<key>input_path</key>
 				<string>%RECIPE_CACHE_DIR%/payload/Library/PreferencePanes/XDCAM Drive Monitor.prefPane</string>
 				<key>requirement</key>
-				<string>identifier "com.sony.vfam.monitorPref" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = EKS2CRZPNK</string>
+				<string>identifier "com.sony.vfam.monitorPref" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = VH49J2FYHE</string>
 			</dict>
 		</dict>
 		<!-- clean up -->
