@@ -44,7 +44,7 @@
 				<key>Arguments</key>
 				<dict>
 					<key>url</key>
-					<string>https://www.aja.com/assets/support/files/8316/en/%url%</string>
+					<string>https://www.aja.com/assets/support/files/8508/en/%url%</string>
 					<key>filename</key>
 					<string>%NAME%.zip</string>
 				</dict>
