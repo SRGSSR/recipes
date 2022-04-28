@@ -17,6 +17,7 @@
   </dict>
   <key>Process</key>
   <array>
+	<!-- get file from website -->
     <dict>
       <key>Processor</key>
       <string>URLTextSearcher</string>
@@ -51,9 +52,118 @@
           <key>url</key>
           <string>https://www.sonycreativesoftware.com%download_url%</string>
           <key>filename</key>
-          <string>%NAME%.dmg</string>
+          <string>%NAME%.zip</string> 
       </dict>
     </dict>
+		<!-- unpzip downloades file  -->
+		<dict>
+            <key>Comment</key>
+            <string>Get PKG from the ZIP file</string>
+            <key>Processor</key>
+            <string>Unarchiver</string>
+			<key>Arguments</key>
+			<dict>
+				<key>destination_path</key>
+				<string>%RECIPE_CACHE_DIR%/unzip</string>
+			</dict>
+        </dict>
+		<!-- unpack flat pkg and all payloads -->
+		<dict>
+            <key>Comment</key>
+            <string>Get the path and filename of the PKG</string>
+			<key>Processor</key>
+            <string>FileFinder</string>
+			<key>Arguments</key>
+			<dict>
+				<key>pattern</key>
+				<string>%RECIPE_CACHE_DIR%/unzip/*.dmg</string>
+			</dict>
+        </dict>
+        <dict>
+            <key>Comment</key>
+            <string>Unpack flat PKG to unpack folder</string>
+            <key>Processor</key>
+            <string>FlatPkgUnpacker</string>
+            <key>Arguments</key>
+            <dict>
+                <key>skip_payload</key>
+                <false/>
+                <key>flat_pkg_path</key>
+                <string>%found_filename%/SxS Device Driver Installer v*.pkg</string>
+                <key>destination_path</key>
+                <string>%RECIPE_CACHE_DIR%/unpack</string>
+            </dict>
+        </dict>
+         <dict>
+            <key>Comment</key>
+            <string>Unpack sxsMemoryCard110.pkg Payload</string>
+            <key>Processor</key>
+            <string>PkgPayloadUnpacker</string>
+            <key>Arguments</key>
+            <dict>
+                <key>pkg_payload_path</key>
+                <string>%RECIPE_CACHE_DIR%/unpack/sxsMemoryCard110.pkg/Payload</string>
+                <key>destination_path</key>
+                <string>%RECIPE_CACHE_DIR%/payload-Intel/</string>
+            </dict>
+        </dict>
+         <dict>
+            <key>Comment</key>
+            <string>Unpack sxsMemoryCard.pkg Payload</string>
+            <key>Processor</key>
+            <string>PkgPayloadUnpacker</string>
+            <key>Arguments</key>
+            <dict>
+                <key>pkg_payload_path</key>
+                <string>%RECIPE_CACHE_DIR%/unpack/sxsMemoryCard.pkg/Payload</string>
+                <key>destination_path</key>
+                <string>%RECIPE_CACHE_DIR%/payload-Apple/</string>
+            </dict>
+        </dict>
+		<!-- verify code signatures -->
+        <dict>
+            <key>Processor</key>
+            <string>CodeSignatureVerifier</string>
+            <key>Arguments</key>
+            <dict>
+                <key>input_path</key>
+                <string>%RECIPE_CACHE_DIR%/payload-Intel/SxS Memory Card.kext</string>
+                <key>deep_verification</key>
+                <true/>
+                <key>strict_verification</key>
+                <true/>
+                <key>requirement</key>
+                <string>identifier "com.sony.pci.SxS" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = VH49J2FYHE</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>CodeSignatureVerifier</string>
+            <key>Arguments</key>
+            <dict>
+                <key>input_path</key>
+                <string>%RECIPE_CACHE_DIR%/payload-Apple/SxS Memory Card.kext</string>
+                <key>deep_verification</key>
+                <true/>
+                <key>strict_verification</key>
+                <true/>
+                <key>requirement</key>
+                <string>identifier "com.sony.pci.SxS" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = VH49J2FYHE</string>
+            </dict>
+        </dict>
+		<!-- clean up -->
+        <dict>
+            <key>Processor</key>
+            <string>PathDeleter</string>
+            <key>Arguments</key>
+            <dict>
+                <key>path_list</key>
+                <array>
+                    <string>%RECIPE_CACHE_DIR%/unpack</string>
+                    <string>%RECIPE_CACHE_DIR%/payload-Intel</string>
+                </array>
+            </dict>
+        </dict>
   </array>
 </dict>
 </plist>

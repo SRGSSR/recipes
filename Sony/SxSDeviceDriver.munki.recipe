@@ -38,11 +38,43 @@
 	<string>com.github.srgssr.download.SxSDeviceDriver</string>
 	<key>Process</key>
 	<array>
+		<!-- create installs section -->
+		<dict>
+			<key>Comment</key>
+			<string>Copy kext into installs structure </string>
+			<key>Processor</key>
+			 <string>Copier</string>
+			 <key>Arguments</key>
+			<dict>
+				<key>source_path</key>
+				<string>%RECIPE_CACHE_DIR%/payload-Apple/SxS Memory Card.kext</string>
+				<key>destination_path</key>
+				<string>%RECIPE_CACHE_DIR%/root/Library/Extensions/SxS Memory Card.kext</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>MunkiInstallsItemsCreator</string>
+			<key>Arguments</key>
+			<dict>
+				<key>faux_root</key>
+				<string>%RECIPE_CACHE_DIR%/root</string>
+				<key>installs_item_paths</key>
+				<array>
+					<string>/Library/Extensions/SxS Memory Card.kext</string>
+				</array>
+			</dict>
+		</dict>
+        <dict>
+            <key>Processor</key>
+            <string>MunkiPkginfoMerger</string>
+        </dict>
+		<!-- import into Munki Repo -->
 		<dict>
 			<key>Arguments</key>
 			<dict>
 				<key>pkg_path</key>
-				<string>%pathname%</string>
+				<string>%found_filename%</string>
 				<key>repo_subdirectory</key>
 				<string>%MUNKI_REPO_SUBDIR%</string>
 			</dict>
