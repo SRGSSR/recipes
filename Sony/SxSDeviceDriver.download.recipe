@@ -81,6 +81,19 @@
         </dict>
         <dict>
             <key>Comment</key>
+            <string>rename the DMG to Standard so QA doesnt fail</string>
+            <key>Processor</key>
+             <string>FileMover</string>
+             <key>Arguments</key>
+            <dict>
+                <key>source</key>
+                <string>%found_filename%</string>
+                <key>target</key>
+                <string>%RECIPE_CACHE_DIR%/unzip/%NAME%.dmg</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Comment</key>
             <string>Unpack flat PKG to unpack folder</string>
             <key>Processor</key>
             <string>FlatPkgUnpacker</string>
@@ -89,7 +102,7 @@
                 <key>skip_payload</key>
                 <false/>
                 <key>flat_pkg_path</key>
-                <string>%found_filename%/SxS Device Driver Installer v*.pkg</string>
+                <string>%RECIPE_CACHE_DIR%/unzip/%NAME%.dmg/SxS Device Driver Installer v*.pkg</string>
                 <key>destination_path</key>
                 <string>%RECIPE_CACHE_DIR%/unpack</string>
             </dict>
