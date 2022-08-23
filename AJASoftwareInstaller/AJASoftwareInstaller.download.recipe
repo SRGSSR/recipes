@@ -33,7 +33,7 @@
 					<key>url</key>
 					<string>https://www.aja.com/products/kona-lhi#support</string>
 					<key>re_pattern</key>
-					<string>(AJA-Software-Installer_macOS_v[0-9][0-9].[0-9]_Release.zip)</string>
+					<string>(AJA-Software-Installer_macOS_v[0-9][0-9].[0-9].[0-9]_Release.zip)</string>
 					<key>result_output_var_name</key>
 					<string>url</string>
 				</dict>
