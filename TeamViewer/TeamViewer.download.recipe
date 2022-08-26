@@ -11,7 +11,7 @@
 		<key>NAME</key>
 		<string>TeamViewer</string>
 		<key>DOWNLOAD_URL</key>
-		<string>https://download.teamviewer.com/download/version_15x/CustomDesign/TeamViewer-idc6eqkuke.dmg</string>
+		<string>https://dl.teamviewer.com/download/version_15x/CustomDesign/Install%20TeamViewer-idc6eqkuke.pkg</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>0.3.1</string>
@@ -32,16 +32,46 @@
 		</dict>
 		<dict>
 			<key>Processor</key>
+			<string>FlatPkgUnpacker</string>
+			<key>Arguments</key>
+			<dict>
+				<key>flat_pkg_path</key>
+				<string>%pathname%</string>
+				<key>destination_path</key>
+				<string>%RECIPE_CACHE_DIR%/unpack</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>PkgPayloadUnpacker</string>
+			<key>Arguments</key>
+			<dict>
+				<key>pkg_payload_path</key>
+				<string>%RECIPE_CACHE_DIR%/unpack/TeamViewerApp.pkg/Payload</string>
+				<key>destination_path</key>
+				<string>%RECIPE_CACHE_DIR%/payload/Applications</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
 			<string>CodeSignatureVerifier</string>
 			<key>Arguments</key>
 			<dict>
 				<key>input_path</key>
-				<string>%pathname%/Install TeamViewer.app/Contents/Resources/Install TeamViewer.pkg</string>
-				<key>expected_authority_names</key>
+				<string>%RECIPE_CACHE_DIR%/payload/Applications/TeamViewer.app</string>
+				<key>requirement</key>
+				<string>identifier "com.teamviewer.TeamViewer" and (certificate leaf[field.1.2.840.113635.100.6.1.9] /* exists */ or certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = H7UGFBUGV6)</string>
+			</dict>
+		</dict>
+		<!-- clean up -->
+		<dict>
+			<key>Processor</key>
+			<string>PathDeleter</string>
+			<key>Arguments</key>
+			<dict>
+				<key>path_list</key>
 				<array>
-					<string>Developer ID Installer: TeamViewer Germany GmbH (H7UGFBUGV6)</string>
-					<string>Developer ID Certification Authority</string>
-					<string>Apple Root CA</string>
+					<string>%RECIPE_CACHE_DIR%/unpack</string>
 				</array>
 			</dict>
 		</dict>
