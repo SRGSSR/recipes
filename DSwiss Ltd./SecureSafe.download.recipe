@@ -27,7 +27,7 @@
 					<key>url</key>
 					<string>https://www.securesafe.com/en/downloads</string>
 					<key>re_pattern</key>
-					<string>(https:\/\/www.securesafe.com\/userdata\/downloads\/securesafe-[0-9].[0-9].[0-9].pkg)</string>
+					<string>(https:\/\/www.securesafe.com\/userdata\/downloads\/securesafe-[0-9].[0-9][0-9].[0-9].pkg)</string>
 					<key>result_output_var_name</key>
 					<string>url</string>
 				</dict>
