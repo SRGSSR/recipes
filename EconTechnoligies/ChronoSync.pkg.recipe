@@ -44,7 +44,7 @@
 					<key>pkgdir</key>
 					<string>%RECIPE_CACHE_DIR%</string>
 					<key>pkgname</key>
-					<string>%NAME%-%version%</string>
+					<string>%NAME%</string>
 					<key>id</key>
 					<string>ch.srgssr.pkg.ChronoSync</string>
 					<key>version</key>
