@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>Downloads the latest version of ChronoSync.</string>
+	<key>Comment</key>
+	<string>Created by BitsDream, inspired by homebysix.</string>
+	<key>Identifier</key>
+	<string>com.github.srgssr.download.ChronoSync</string>
+	<key>Input</key>
+	<dict>
+		<key>NAME</key>
+		<string>ChronoSync</string>
+	</dict>
+	<key>MinimumVersion</key>
+	<string>0.6.1</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>filename</key>
+				<string>%NAME%.dmg</string>
+				<key>url</key>
+				<string>https://downloads.econtechnologies.com/CS4_Download.dmg</string>
+			</dict>
+			<key>Processor</key>
+			<string>URLDownloader</string>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>EndOfCheckPhase</string>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>StopProcessingIf</string>
+			<key>Arguments</key>
+			<dict>
+				<key>predicate</key>
+				<string>download_changed == FALSE</string>
+			</dict>
+		</dict>
+		<!-- In order to check code signatures we need to unpack and expand the installer pkg. -->
+		<dict>
+			<key>Comment</key>
+			<string>Unpack flat PKG to unpack folder</string>
+			<key>Processor</key>
+			<string>FlatPkgUnpacker</string>
+			<key>Arguments</key>
+			<dict>
+				<key>skip_payload</key>
+				<false/>
+				<key>purge_destination</key>
+				<true/>
+				<key>flat_pkg_path</key>
+				<string>%pathname%/Install.pkg</string>
+				<key>destination_path</key>
+				<string>%RECIPE_CACHE_DIR%/unpack</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Comment</key>
+			<string>Unpack ChronoSync Payload</string>
+			<key>Processor</key>
+			<string>PkgPayloadUnpacker</string>
+			<key>Arguments</key>
+			<dict>
+				<key>purge_destination</key>
+				<true/>
+				<key>pkg_payload_path</key>
+				<string>%RECIPE_CACHE_DIR%/unpack/ChronoSync.pkg/Payload</string>
+				<key>destination_path</key>
+				<string>%RECIPE_CACHE_DIR%/payload/</string>
+			</dict>
+		</dict>
+		<!-- Check Code Signatures -->
+		<dict>
+			<key>Comment</key>
+			<string>Check ChronoSync.app</string>
+			<key>Processor</key>
+			<string>CodeSignatureVerifier</string>
+			<key>Arguments</key>
+			<dict>
+				<key>deep_verification</key>
+				<true/>
+				<key>strict_verification</key>
+				<true/>
+				<key>input_path</key>
+				<string>%RECIPE_CACHE_DIR%/payload/Applications/ChronoSync.app</string>
+				<key>requirement</key>
+				<string>anchor apple generic and identifier "com.econtechnologies.chronosync" and (certificate leaf[field.1.2.840.113635.100.6.1.9] /* exists */ or certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "9U697UM7YX")</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Comment</key>
+			<string>Check WakeToSyncTool</string>
+			<key>Processor</key>
+			<string>CodeSignatureVerifier</string>
+			<key>Arguments</key>
+			<dict>
+				<key>deep_verification</key>
+				<false/>
+				<key>strict_verification</key>
+				<true/>
+				<key>input_path</key>
+				<string>%RECIPE_CACHE_DIR%/payload/Library/Application Support/ChronoSync/WakeToSyncTool</string>
+				<key>requirement</key>
+				<string>identifier "WakeToSyncToolTemplate-55554944f57f8cd96cad3517ab54f2f54a199462" and (certificate leaf[field.1.2.840.113635.100.6.1.9] /* exists */ or certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "9U697UM7YX")</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Comment</key>
+			<string>Check ChronoAgentLocal.app</string>
+			<key>Processor</key>
+			<string>CodeSignatureVerifier</string>
+			<key>Arguments</key>
+			<dict>
+				<key>deep_verification</key>
+				<true/>
+				<key>strict_verification</key>
+				<true/>
+				<key>input_path</key>
+				<string>%RECIPE_CACHE_DIR%/payload/Library/Application Support/ChronoSync/ChronoAgentLocal.app</string>
+				<key>requirement</key>
+				<string>anchor apple generic and identifier "com.econtechnologies.ChronoAgentLocal" and (certificate leaf[field.1.2.840.113635.100.6.1.9] /* exists */ or certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "9U697UM7YX")</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>PathDeleter</string>
+			<key>Arguments</key>
+			<dict>
+				<key>path_list</key>
+				<array>
+					<string>%RECIPE_CACHE_DIR%/unpack</string>
+				</array>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>

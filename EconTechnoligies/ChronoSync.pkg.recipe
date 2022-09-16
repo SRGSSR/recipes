@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>Createes a package from what's in the payload directory.</string>
+	<key>Comment</key>
+	<string>Created by BitsDream, inspired by homebysix.</string>
+	<key>Identifier</key>
+	<string>com.github.srgssr.pkg.ChronoSync</string>
+	<key>Input</key>
+	<dict>
+		<key>NAME</key>
+		<string>ChronoSync</string>
+	</dict>
+	<key>MiniumumVersion</key>
+	<string>1.0</string>
+	<key>ParentRecipe</key>
+	<string>com.github.srgssr.download.ChronoSync</string>
+	<key>Process</key>
+	<array>
+			<dict>
+			<key>Comment</key>
+			<string>Get the version from ChronoSync.app </string>
+			<key>Processor</key>
+			<string>Versioner</string>
+			<key>Arguments</key>
+			<dict>
+				<key>input_plist_path</key>
+				<string>%RECIPE_CACHE_DIR%/payload/Applications/ChronoSync.app/Contents/Info.plist</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Comment</key>
+			<string>Create the installer package</string>
+			<key>Processor</key>
+			<string>PkgCreator</string>
+			<key>Arguments</key>
+			<dict>
+				<key>pkg_request</key>
+				<dict>
+					<key>pkgroot</key>
+					<string>%RECIPE_CACHE_DIR%/payload</string>
+					<key>pkgdir</key>
+					<string>%RECIPE_CACHE_DIR%</string>
+					<key>pkgname</key>
+					<string>%NAME%-%version%</string>
+					<key>id</key>
+					<string>ch.srgssr.pkg.ChronoSync</string>
+					<key>version</key>
+					<string>%version%</string>
+					<key>options</key>
+					<string>purge_ds_store</string>
+				</dict>
+			</dict>
+		</dict>
+		<dict>
+			<key>Comment</key>
+			<string>Purge payload directory</string>
+			<key>Processor</key>
+			<string>PathDeleter</string>
+			<key>Arguments</key>
+			<dict>
+				<key>path_list</key>
+				<array>
+					<string>%RECIPE_CACHE_DIR%/payload</string>
+				</array>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>
