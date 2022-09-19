@@ -34,6 +34,44 @@
 			<string>ChronoSync</string>
 			<key>name</key>
 			<string>%NAME%</string>
+			<key>postinstall_script</key>
+			<string>#!/bin/zsh
+MACADRESS=$(ifconfig en0 | awk '/ether/{print $2}' | cut -d' ' -f2 | tr -d :)
+LICENSEDIR="/Library/Application Support/ChronoSync"
+LICENSEFILE="$LICENSEDIR"/.license_04"$MACADRESS"
+mkdir -p "$LICENSEDIR"
+# Writing Licensing information. Replce with your own license.
+echo '&lt;YOUR LICENSENUMBER GOES HERE&gt;
+&lt;YOUR COMPANY NAME GOES HERE&gt;
+&lt;YOUR NAME GOES HERE&gt;
+' &gt; "$LICENSEFILE"
+
+# Some Voodoo that's in the original postinstall script just for the sake of their mind.
+chronoSyncFolder="/Library/Application Support/ChronoSync/"
+if [[ -d "$chronoSyncFolder" ]]; then
+		chown root:admin "$chronoSyncFolder"
+		chmod 0775 "$chronoSyncFolder"
+fi
+
+wakeToSyncToolPath="/Library/Application Support/ChronoSync/WakeToSyncTool"
+if [[ -d "$wakeToSyncToolPath" ]]; then
+        chown root:admin "$wakeToSyncToolPath"
+        chmod 0555 "$wakeToSyncToolPath"
+        chmod u+s "$wakeToSyncToolPath"
+fi
+
+chmod 4555 "/Library/Application Support/ChronoSync/ChronoAgentLocal.app/Contents/MacOS/ChronoAgentLocal"</string>
+			<key>preinstall_script</key>
+			<string>#!/bin/zsh
+
+# kill off all the backgrounders
+killall ChronoSyncBackgrounder
+killall "ChronoSync Scheduler"
+
+exit 0</string>
+			<key>preuninstall_script</key>
+			<string>#!/bin/bash
+/bin/rm -rf "/Library/Application Support/ChronoSync"</string>
 			<key>unattended_install</key>
 			<true/>
 		</dict>
