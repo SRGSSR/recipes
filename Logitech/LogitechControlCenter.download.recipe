@@ -2,67 +2,71 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-    <key>Description</key>
-    <string>Downloads the latest verison of Logitech Control Center.</string>
-    <key>Identifier</key>
-    <string>com.github.srgssr.download.logitechcontrolcenter</string>
-    <key>Input</key>
-        <dict>
-            <key>NAME</key>
-			<string>Logitech Control Center</string>
-        </dict>
-        <key>MinimumVersion</key>
-        <string>0.3.1</string>
-        <key>Process</key>
-        <array>
-        <dict>
-            <key>Processor</key>
-            <string>URLTextSearcher</string>
-            <key>Arguments</key>
-            <dict>
-                <key>url</key>
-                <string>https://support.logi.com/api/v2/help_center/en-us/articles.json?label_names=webcontent=productdownload</string>
-                <key>re_pattern</key>
-                <string>(https:\/\/download01\.logi\.com\/web\/ftp\/pub\/techsupport\/mouse\/mac\/lcc.*?\.zip)</string>
-            </dict>
-        </dict>
-        <dict>
-        	<key>Processor</key>
-        	<string>URLDownloader</string>
-        	<key>Arguments</key>
-        	<dict>
-        	   <key>url</key>
-        	   <string>%match%</string>
-        	   <key>filename</key>
-        	   <string>llc.zip</string>
-        	</dict>
-        </dict>
-        <dict>
-            <key>Processor</key>
-            <string>Unarchiver</string>
-            <key>Arguments</key>
-            <dict>
-                <key>purge_destination</key>
-                <true/>
-                <key>destination_path</key>
-                <string>%RECIPE_CACHE_DIR%/LCC</string>
-            </dict>
-        </dict>
-        <dict>
-            <key>Processor</key>
-            <string>EndOfCheckPhase</string>
-        </dict>
-        <dict>
-			<key>Processor</key>
-			<string>CodeSignatureVerifier</string>
+	<key>Description</key>
+	<string>Downloads the latest version of Logitech Options.</string>
+	<key>Identifier</key>
+	<string>com.github.ahousseini-recipes.download.LogitechOptions</string>
+	<key>Input</key>
+	<dict>
+		<key>NAME</key>
+		<string>Logitech Options</string>
+	</dict>
+	<key>MinimumVersion</key>
+	<string>1.0.0</string>
+	<key>Process</key>
+	<array>
+		<dict>
 			<key>Arguments</key>
 			<dict>
-				<key>input_path</key>
-				<string>%RECIPE_CACHE_DIR%/LCC/LCC Installer.app</string>
-				<key>requirement</key>
-				<string>identifier "com.Logitech.ControlCenter.Update" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = QED4VVPZWA</string> 
+				<key>filename</key>
+				<string>%NAME%.zip</string>
+				<key>url</key>
+				<string>https://download01.logi.com/web/ftp/pub/techsupport/options/options_installer.zip</string>
 			</dict>
+			<key>Processor</key>
+			<string>URLDownloader</string>
 		</dict>
-    </array>
+		<dict>
+			<key>Processor</key>
+			<string>EndOfCheckPhase</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>archive_path</key>
+				<string>%pathname%</string>
+				<key>destination_path</key>
+				<string>%RECIPE_CACHE_DIR%/%NAME%</string>
+				<key>purge_destination</key>
+				<true/>
+			</dict>
+			<key>Processor</key>
+			<string>Unarchiver</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>pattern</key>
+				<string>%RECIPE_CACHE_DIR%/%NAME%/LogiMgr Installer*.app/Contents/Resources/LogiMgr.pkg</string>
+			</dict>
+			<key>Processor</key>
+			<string>FileFinder</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>expected_authority_names</key>
+				<array>
+					<string>Developer ID Installer: Logitech Inc. (QED4VVPZWA)</string>
+					<string>Developer ID Certification Authority</string>
+					<string>Apple Root CA</string>
+				</array>
+				<key>input_path</key>
+				<string>%found_filename%</string>
+			</dict>
+			<key>Processor</key>
+			<string>CodeSignatureVerifier</string>
+		</dict>
+	</array>
 </dict>
 </plist>
