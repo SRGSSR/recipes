@@ -65,17 +65,6 @@
 		</dict>
 		<!-- unpack PKG inside DMG containing three Payloads -->
 		<dict>
-            <key>Comment</key>
-            <string>Find Payload file in the unpacked flat package.</string>
-            <key>Processor</key>
-            <string>FileFinder</string>
-			<key>Arguments</key>
-			<dict>
-				<key>pattern</key>
-				<string>%RECIPE_CACHE_DIR%/%NAME%/*.dmg</string>
-			</dict>
-			</dict>
-		<dict>
 			<key>Comment</key>
 			<string>Unpack flat pkg inside dmg to unpack folder.</string>
 			<key>Processor</key>
@@ -83,7 +72,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>flat_pkg_path</key>
-				<string>%RECIPE_CACHE_DIR%/%NAME%/XDCAMDriveSoftware_6_3_0_mac.dmg/XDCAM Drive Software.pkg</string>
+				<string>%RECIPE_CACHE_DIR%/%NAME%/%NAME%.dmg/XDCAM Drive Software.pkg</string>
 				<key>destination_path</key>
 				<string>%RECIPE_CACHE_DIR%/unpack</string>
 			</dict>
