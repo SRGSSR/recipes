@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Comment</key>
+	<string>Created by Jens Junge 2022/12</string>
+	<key>Description</key>
+	<string>Downloads Topaz Lab PhotoAI PKG from Topaz Website</string>
+	<key>Identifier</key>
+	<string>com.github.srgssr.download.PhotoAI</string>
+	<key>Input</key>
+	<dict>
+		<key>NAME</key>
+		<string>PhotoAI</string>
+		<key>DOWNLOAD_URL</key>
+		<string>https://topazlabs.com/d/photo/latest/mac/full</string>
+	</dict>
+	<key>MiniumumVersion</key>
+	<string>1.0</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Processor</key>
+			<string>URLDownloader</string>
+			<key>Arguments</key>
+			<dict>
+				<key>filename</key>
+				<string>%NAME%.pkg</string>
+				<key>url</key>
+				<string>%DOWNLOAD_URL%</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>EndOfCheckPhase</string>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>StopProcessingIf</string>
+			<key>Arguments</key>
+			<dict>
+				<key>predicate</key>
+				<string>download_changed == FALSE</string>
+			</dict>
+		</dict>
+		<!-- check code signature -->
+		<dict>
+			<key>Processor</key>
+			<string>FlatPkgUnpacker</string>
+			<key>Arguments</key>
+			<dict>
+				<key>flat_pkg_path</key>
+				<string>%pathname%</string>
+				<key>destination_path</key>
+				<string>%RECIPE_CACHE_DIR%/unpack</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>PkgPayloadUnpacker</string>
+			<key>Arguments</key>
+			<dict>
+				<key>pkg_payload_path</key>
+				<string>%RECIPE_CACHE_DIR%/unpack/Topaz_Photo_AI.pkg/payload</string>
+				<key>destination_path</key>
+				<string>%RECIPE_CACHE_DIR%/payload/</string>
+				<key>purge_destination</key>
+				<true/>
+			</dict>
+		</dict>
+
+		<dict>
+			<key>Processor</key>
+			<string>CodeSignatureVerifier</string>
+			<key>Arguments</key>
+			<dict>
+				<key>input_path</key>
+				<string>%RECIPE_CACHE_DIR%/payload/Applications/Topaz Photo AI.app</string>
+				<key>deep_verification</key>
+				<true/>
+				<key>strict_verification</key>
+				<true/>
+				<key>requirement</key>
+				<string>identifier "com.topazlabs.TopazPhotoAI" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "3G3JE37ZHF"</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>PathDeleter</string>		
+			<key>Arguments</key>
+			<dict>
+				<key>path_list</key>
+				<array>
+					<string>%RECIPE_CACHE_DIR%/unpack</string>
+					<string>%RECIPE_CACHE_DIR%/payload</string>
+				</array>
+			</dict>		
+		</dict>
+	</array>
+</dict>
+</plist>
