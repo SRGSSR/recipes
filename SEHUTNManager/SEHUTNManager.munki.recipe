@@ -40,6 +40,7 @@
 	<string>com.github.srgssr.download.SEHUTNManager</string>
 	<key>Process</key>
 	<array>
+	<!--
 		<dict>
 			<key>Processor</key>
 			<string>Unarchiver</string>
@@ -62,6 +63,7 @@
 				<string>%destination_path%/sehutnmanager-mac-*/sehutnmanager-mac-*.pkg</string>
 			</dict>
 		</dict>
+	-->
 		<dict>
 			<key>Processor</key>
 			<string>MunkiImporter</string>
@@ -78,7 +80,7 @@
             <dict>
                 <key>path_list</key>
                 <array>
-                    <string>%RECIPE_CACHE_DIR%/unpack</string>
+                    <string>%RECIPE_CACHE_DIR%/unzip</string>
                 </array>
             </dict>
             <key>Processor</key>
