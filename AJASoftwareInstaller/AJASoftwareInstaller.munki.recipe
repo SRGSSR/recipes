@@ -3,9 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>Comment</key>
-	<string>Created with Recipe Robot v1.1.2 (https://github.com/homebysix/recipe-robot)</string>
+	<string>Created with Recipe Robot v1.1.2 (https://github.com/homebysix/recipe-robot).
+			jj: 13.4.23: This recipe needs to be revised. versioner here, why dmg creator? just import pkg,
+				choice changes missing, ...</string>
 	<key>Description</key>
-	<string>Downloads the latest version of AJA Software Installer and imports it into Munki.</string>
+	<string>Imports the latest version of AJA Software Installer into Munki.</string>
 	<key>Identifier</key>
 	<string>com.github.srgssr.recipes.munki.AJASoftwareInstaller</string>
 	<key>Input</key>
@@ -49,6 +51,23 @@
 	<string>com.github.srgssr.recipes.download.AJASoftwareInstaller</string>
 	<key>Process</key>
 	<array>
+       <dict>
+            <key>Processor</key>
+            <string>MunkiInstallsItemsCreator</string>
+            <key>Arguments</key>
+            <dict>
+                <key>faux_root</key>
+                <string>%RECIPE_CACHE_DIR%/payload/</string>
+                <key>installs_item_paths</key>
+                <array>
+                    <string>/Applications/AJA ControlPanel.app</string>
+                </array>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>MunkiPkginfoMerger</string>
+        </dict>
 		<dict>
 			<key>Arguments</key>
 			<dict>

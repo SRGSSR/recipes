@@ -3,7 +3,8 @@
 <plist version="1.0">
 <dict>
 	<key>Comment</key>
-	<string>Created with Recipe Robot v1.1.2 (https://github.com/homebysix/recipe-robot)</string>
+	<string>Created with Recipe Robot v1.1.2 (https://github.com/homebysix/recipe-robot)
+			jj: 13.4.23: This recipe needs to be revised. Versioner-> munki.recipe, different Code signature verifier, ...</string>
 	<key>Description</key>
 	<string>Downloads the latest version of AJASoftwareInstaller.</string>
 	<key>Identifier</key>
