@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>Imports Steven Slate Audio VSX into Munki</string>
+	<key>Comment</key>
+	<string>Created by Jens Junge (2022/10)</string>
+	<key>Identifier</key>
+	<string>com.github.srgssr.munki.StevenSlateAudioVSX</string>
+	<key>Input</key>
+	<dict>
+		<key>NAME</key>
+		<string>StevenSlateAudioVSX</string>
+		<key>MUNKI_REPO_SUBDIR</key>
+		<string>apps/%NAME%</string>
+		<key>pkginfo</key>
+		<dict>
+			<key>catalogs</key>
+			<array>
+				<string>QA</string>
+			</array>
+			<key>category</key>
+			<string>Creative Audio</string>
+			<key>description</key>
+			<string>The easy-to-use VSX plugin uses our Binaural Perception Modeling (BPM) algorithms to precisely reproduce 3D rooms and speakers. You’ll feel as if you’re mixing on real professional speakers in real rooms. With the Level Match Bypass feature, you can compare your mix at the same level along with the VSX HD-Linear emulation, which flattens the bypassed signal.</string>
+			<key>developer</key>
+			<string>Steven Slate Audio</string>
+			<key>display_name</key>
+			<string>Steven Slate Audio VSX</string>
+			<key>minimum_os_version</key>
+			<string>10.10</string>
+			<key>name</key>
+			<string>%NAME%</string>
+			<key>unattended_install</key>
+			<false/>
+			<key>unattended_uninstall</key>
+			<false/>
+		</dict>
+	</dict>
+	<key>MiniumumVersion</key>
+	<string>1.0</string>
+	<key>ParentRecipe</key>
+	<string>com.github.srgssr.download.StevenSlateAudioVSX</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Processor</key>
+			<string>MunkiImporter</string>
+			<key>Arguments</key>
+			<dict>
+				<key>pkg_path</key>
+				<string>%pathname%</string>
+				<key>repo_subdirectory</key>
+				<string>%MUNKI_REPO_SUBDIR%</string>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>

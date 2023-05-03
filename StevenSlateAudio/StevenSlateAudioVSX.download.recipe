@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>Downloads Steveen Slates Autio VSX from DML.</string>
+	<key>Comment</key>
+	<string>Created by Jens Junge (2022/10)
+	2023-05-05, jj: moved from offline to online</string>
+	<key>Identifier</key>
+	<string>com.github.srgssr.download.StevenSlateAudioVSX</string>
+	<key>Input</key>
+	<dict>
+		<key>NAME</key>
+		<string>StevenSlateAudioVSX</string>
+	</dict>
+	<key>MiniumumVersion</key>
+	<string>1.0</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Processor</key>
+			<string>URLDownloader</string>
+			<key>Arguments</key>
+			<dict>
+				<key>filename</key>
+				<string>%NAME%.dmg</string>
+				<key>url</key>
+				<string>%url%</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>EndOfCheckPhase</string>
+		</dict>
+        <dict>
+            <key>Processor</key>
+            <string>StopProcessingIf</string>
+            <key>Arguments</key>
+            <dict>
+                <key>predicate</key>
+                <string>download_changed == FALSE</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>CodeSignatureVerifier</string>
+            <key>Arguments</key>
+            <dict>
+                <key>input_path</key>
+                <string>%pathname%/*.app</string>
+                <key>deep_verification</key>
+                <true/>
+                <key>strict_verification</key>
+                <true/>
+                <key>requirement</key>
+                <string>identifier "com.yme.slateaudio-center" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = EW526T2S96</string>
+            </dict>
+        </dict>
+	</array>
+</dict>
+</plist>
