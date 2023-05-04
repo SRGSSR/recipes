@@ -6,7 +6,7 @@
 	<string>Downloads Steveen Slates Autio VSX from DML.</string>
 	<key>Comment</key>
 	<string>Created by Jens Junge (2022/10)
-	2023-05-05, jj: moved from offline to online</string>
+	2023-05-05, jj: moved from private to public repository.</string>
 	<key>Identifier</key>
 	<string>com.github.srgssr.download.StevenSlateAudioVSX</string>
 	<key>Input</key>
