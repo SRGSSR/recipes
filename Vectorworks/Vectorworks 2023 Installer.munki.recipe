@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Comment</key>
+	<string>Created with Recipe Robot v1.0.5 (https://github.com/homebysix/recipe-robot)</string>
+	<key>Description</key>
+	<string>Downloads the latest version of Vectorworks File Viewer 2023.</string>
+	<key>Identifier</key>
+	<string>com.github.SRGSSR.munki.VectorworksFileViewer2023</string>
+	<key>Input</key>
+	<dict>
+		<key>MUNKI_REPO_SUBDIR</key>
+		<string>apps/%NAME%</string>
+		<key>NAME</key>
+		<string>Vectorworks File Viewer 2023</string>
+		<key>pkginfo</key>
+		<dict>
+			<key>catalogs</key>
+			<array>
+				<string>testing</string>
+			</array>
+			<key>description</key>
+			<string>The Viewer is a FREE value-added benefit to Vectorworks 2023 users. The Viewer enables those who do not own the program to look at and print projects created in Vectorworks 2023. And, it allows on-line collaboration between designers and clients during the creative process. Please note that the version 2023 Viewer allows users to view Vectorworks versions 9 through 2019 files as well.</string>
+			<key>developer</key>
+			<string>Vectorworks, Inc.</string>
+			<key>display_name</key>
+			<string>Vectorworks File Viewer 2023</string>
+			<key>name</key>
+			<string>VectorworksFileViewer2023</string>
+			<key>unattended_install</key>
+			<true/>
+			<key>installer_type</key>
+			<string>copy_from_dmg</string>
+			<key>items_to_copy</key>
+			<array>
+				<dict>
+					<key>destination_path</key>
+							<string>/private/tmp</string>
+					<key>source_item</key>
+					<string>Vectorworks 2023 Installer.app</string>
+				</dict>
+			</array>
+			<key>minimum_os_version</key>
+			<string>10.11</string>
+			<key>postinstall_script</key>
+			<string>#!/bin/sh
+/private/tmp/Vectorworks\ 2023\ Installer.app/Contents/Resources/installer/Install\ Vectorworks2023.app/Contents/MacOS/installbuilder.sh --unattendedmodeui none --mode unattended
+
+rm -rf '/private/tmp/Vectorworks 2023 Installer.app'</string>
+			<key>uninstall_method</key>
+			<string>uninstall_script</string>
+			<key>uninstall_script</key>
+			<string>#!/bin/sh
+/Applications/Vectorworks\ 2023\ Viewer/Uninstall.app/Contents/MacOS/installbuilder.sh --unattendedmodeui none --mode unattended
+</string>
+			<key>uninstallable</key>
+			<true/>
+		</dict>
+	</dict>
+	<key>MinimumVersion</key>
+	<string>1.0.0</string>
+	<key>ParentRecipe</key>
+	<string>com.github.SRGSSR.download.VectorworksFileViewer2023</string>
+	<key>Process</key>
+	<array>
+	<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>additional_pkginfo</key>
+				<dict>
+				<key>installs</key>
+				<array>
+					<dict>
+					<key>CFBundleIdentifier</key>
+					<string>net.nemetschek.vectorworks</string>
+					<key>CFBundleName</key>
+					<string>Vectorworks</string>
+					<key>CFBundleShortVersionString</key>
+					<string>26.0.0 (564899)</string>
+					<key>CFBundleVersion</key>
+					<string>%version%</string>
+					<key>minosversion</key>
+					<string>10.12</string>
+					<key>path</key>
+					<string>/Applications/Vectorworks 2023 Viewer/Vectorworks Viewer 2023.app</string>
+					<key>type</key>
+					<string>application</string>
+					<key>version_comparison_key</key>
+					<string>CFBundleVersion</string>
+					</dict>
+				</array>
+				</dict>
+			</dict>
+			<key>Processor</key>
+			<string>MunkiPkginfoMerger</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>pkg_path</key>
+				<string>%pathname%</string>
+				<key>repo_subdirectory</key>
+				<string>%MUNKI_REPO_SUBDIR%</string>
+			</dict>
+			<key>Processor</key>
+			<string>MunkiImporter</string>
+		</dict>
+	</array>
+</dict>
+</plist>
