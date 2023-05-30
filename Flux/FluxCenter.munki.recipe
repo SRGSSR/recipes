@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>Imports FluxCenter App into Munki.</string>
+	<key>Identifier</key>
+	<string>ch.srgssr.recipes.FluxCenter</string>
+	<key>Input</key>
+	<dict>
+		<key>NAME</key>
+		<string>FluxCenter</string>
+		<key>MUNKI_REPO_SUBDIR</key>
+		<string>Flux/%NAME%</string>
+		<key>pkginfo</key>
+		<dict>
+			<key>catalogs</key>
+			<array>
+				<string>testing</string>
+			</array>
+			<key>category</key>
+			<string>Creative Audio</string>
+			<key>description</key>
+			<string>This is teh Flux Center Software. It requires an iLok!</string>
+			<key>developer</key>
+			<string>Flux</string>
+			<key>display_name</key>
+			<string>Flux Center</string>
+			<key>minimum_os_version</key>
+			<string>10.12</string>
+			<key>name</key>
+			<string>%NAME%</string>
+			<key>notes</key>
+			<string>iLok Dongle required</string>
+			<key>unattended_install</key>
+			<true/>
+		</dict>
+	</dict>
+	<key>MiniumumVersion</key>
+	<string>1.0</string>
+	<key>ParentRecipe</key>
+	<string>ch.srgssr.recipes.download.FluxCenter</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Processor</key>
+			<string>MunkiImporter</string>
+			<key>Arguments</key>
+			<dict>
+				<key>pkg_path</key>
+				<string>%pathname%</string>
+				<key>repo_subdirectory</key>
+				<string>%MUNKI_REPO_SUBDIR%</string>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>
