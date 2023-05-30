@@ -1,63 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict>
-	<key>Description</key>
-	<string>Download Flux Center DMG from sccm_source$ share.</string>
-	<key>Identifier</key>
-	<string>ch.srgssr.recipes.download.FluxCenter</string>
-	<key>Input</key>
-	<dict>
-		<key>NAME</key>
-		<string>FluxCenter</string>
-	</dict>
-	<key>MiniumumVersion</key>
-	<string>1.0</string>
-	<key>Process</key>
-	<array>
-		<dict>
-			<key>Arguments</key>
-			<dict>
-				<key>USER</key>
-				<string>svc-gd-mainautopkg</string>
-				<key>PASSWORD</key>
-				<string>IVefo07pb0Dm</string>
-				<key>SMB_PATH</key>
-				<string>file.media.int/sccm_source$/WPaaS/_SourceTransfer/macOS</string>
-				<key>FILE_PATH</key>
-				<string>Flux Center/SRG/autopkg/_OriginalSource</string>
-			</dict>
-			<key>Processor</key>
-			<string>ch.srgssr.recipe.NetworkShareDownloader/NetworkShareDownloader</string>
-		</dict>
-		<dict>
-			<key>Processor</key>
-			<string>EndOfCheckPhase</string>
-		</dict>
+    <dict>
+        <key>Description</key>
+        <string>Downloads the latest version of Flux Center</string>
+        <key>Identifier</key>
+        <string>com.github.srgssr.download.FluxCenter</string>
+        <key>Input</key>
         <dict>
-            <key>Arguments</key>
-            <dict>
-                <key>predicate</key>
-                <string>download_changed == FALSE</string>
-            </dict>
-            <key>Processor</key>
-            <string>StopProcessingIf</string>
+            <key>NAME</key>
+            <string>FluxCenter</string>
         </dict>
-        <dict>
-            <key>Processor</key>
-            <string>CodeSignatureVerifier</string>
-            <key>Arguments</key>
+        <key>MinimumVersion</key>
+        <string>2.3</string>
+        <key>Process</key>
+        <array>
             <dict>
-                <key>input_path</key>
-                <string>%pathname%/FluxCenter.app</string>
-                <key>deep_verification</key>
-                <true/>
-                <key>strict_verification</key>
-                <true/>
-                <key>requirement</key>
-                <string>identifier "audio.flux.FluxCenter.app" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "3FVZ84E75Z"</string>
+                <key>Processor</key>
+                <string>URLDownloader</string>
+                <key>Arguments</key>
+                <dict>
+                    <key>url</key>
+                   <!-- <string>https://www.flux.audio/download/</string>--> 
+				   <string>https://flux-caffeine.s3-accelerate.amazonaws.com/files/Flux/CENTER%20%20INSTALLERS/Flux_FluxCenter_MacOS_Installer_%2823.02.0.50262%29.dmg</string>
+                    <!--<key>re_pattern</key>-->
+					<!--<string>(https:\/\/flux-caffeine\.s3-accelerate\.amazonaws\.com\/files\/Flux\/CENTER%20%20INSTALLERS\/Flux_FluxCenter_MacOS_Installer_\(23\.02\.0\.50262\)\.dmg)</string>-->
+                </dict>
             </dict>
-        </dict>
-	</array>
-</dict>
+            <dict>
+                <key>Processor</key>
+                <string>EndOfCheckPhase</string>
+            </dict>
+            <dict>
+                <key>Processor</key>
+                <string>CodeSignatureVerifier</string>
+                <key>Arguments</key>
+                <dict>
+                    <key>input_path</key>
+                    <string>%pathname%/%NAME%.app</string>
+                    <key>requirement</key>
+					<string>identifier "audio.flux.FluxCenter.app" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "3FVZ84E75Z"</string>
+                </dict>
+            </dict>
+        </array>
+    </dict>
 </plist>
