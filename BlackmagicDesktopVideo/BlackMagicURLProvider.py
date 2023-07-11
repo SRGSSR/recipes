@@ -126,7 +126,8 @@ class BlackMagicURLProvider(URLGetter):
                 # recording the version extracted by our named group in
                 # 'product_name_pattern'
                 p["version"] = match.group("version")
-                prods.append(p)
+                if p["urls"].get("Mac OS X", None):
+                    prods.append(p)
         # sort by version and grab the highest one
         latest_prod = sorted(
             prods,
