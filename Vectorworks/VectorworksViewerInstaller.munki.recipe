@@ -7,7 +7,7 @@
 	<key>Description</key>
 	<string>Downloads the latest version of Vectorworks File Viewer 2023.</string>
 	<key>Identifier</key>
-	<string>com.github.SRGSSR.munki.VectorworksFileViewer2023</string>
+	<string>com.github.SRGSSR.munki.VectorworksViewer</string>
 	<key>Input</key>
 	<dict>
 		<key>MUNKI_REPO_SUBDIR</key>
@@ -61,7 +61,7 @@ rm -rf '/private/tmp/Vectorworks 2023 Installer.app'</string>
 	<key>MinimumVersion</key>
 	<string>1.0.0</string>
 	<key>ParentRecipe</key>
-	<string>com.github.SRGSSR.download.VectorworksFileViewer2023</string>
+	<string>com.github.SRGSSR.download.VectorworksViewer</string>
 	<key>Process</key>
 	<array>
 	<dict>

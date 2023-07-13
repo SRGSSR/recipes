@@ -7,7 +7,7 @@
 	<key>Description</key>
 	<string>Downloads the latest version of Vectorworks File Viewer 2023.</string>
 	<key>Identifier</key>
-	<string>com.github.SRGSSR.download.VectorworksFileViewer2023</string>
+	<string>com.github.SRGSSR.download.VectorworksViewer</string>
 	<key>Input</key>
 	<dict>
 		<key>DOWNLOAD_URL</key>
