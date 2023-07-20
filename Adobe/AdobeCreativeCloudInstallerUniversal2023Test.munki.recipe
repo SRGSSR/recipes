@@ -88,7 +88,7 @@
 				<key>dmg_root</key>
 				<string>%RECIPE_CACHE_DIR%/dmg</string>
 				<key>dmg_path</key>
-				<string>%RECIPE_CACHE_DIR%/%VENDOR%%NAMEWITHOUTSPACES%-Universal-%version%.dmg</string>
+				<string>%RECIPE_CACHE_DIR%/AdobeCreativeCloudDesktop2023Test-%version%.dmg</string>
 			</dict>
 		</dict>
         <dict>
