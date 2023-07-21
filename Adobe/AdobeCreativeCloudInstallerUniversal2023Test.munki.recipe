@@ -176,7 +176,7 @@ exit 1</string>
 			<key>Arguments</key>
 			<dict>
 				<key>pkg_path</key>
-				<string>%RECIPE_CACHE_DIR%/%VENDOR%%NAMEWITHOUTSPACES%-Universal-%version%.dmg</string>
+				<string>%RECIPE_CACHE_DIR%/AdobeCreativeCloudDesktop2023Test-%version%.dmg</string>
 				<key>repo_subdirectory</key>
 				<string>%MUNKI_REPO_SUBDIR%</string>
 			</dict>
