@@ -3,20 +3,19 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>Download the latest version of the Adobe Creative Cloud Universal Installer from the preview server and imports it into Munki.</string>
+	<string>Download the latest version of the Adobe Creative Cloud Universal Installer from the server and imports it into Munki.</string>
 	<key>Comment</key>
 	<string>Modified by: Jens Junge
 	Modification date: 2023-07-19
 	Derived from com.github.joshua-d-miller.autopkg.munki.AdobeCreativeCloudInstallerUniversal. 
 	- Added DMG Creator as we had some issues with munki downloading the PKG.
-	- Inject Version into installcheck_script.
-	- Naming: 2023Test to PreviewServer2023</string>
+	- Inject Version into installcheck_script.</string>
 	<key>Identifier</key>
-	<string>com.github.srgssr.munki.AdobeCreativeCloudPreviewServer2023</string>
+	<string>com.github.srgssr.munki.AdobeCreativeCloudComplete2023</string>
 	<key>Input</key>
 	<dict>
 		<key>NAME</key>
-		<string>AdobeCreativeCloudPreviewServer2023</string>
+		<string>AdobeCreativeCloudComplete2023</string>
 		<key>VENDOR</key>
 		<string>Adobe</string>
 		<key>NAMEWITHOUTSPACES</key>
@@ -38,9 +37,9 @@
 			<key>category</key>
 			<string>%MUNKI_CATEGORY%</string>
 			<key>description</key>
-			<string>This is the Preview application for Adobe CC 2023 connects to the preview server.</string>
+			<string>This is the Production application for Adobe CC 2023 connects to the production server.</string>
 			<key>display_name</key>
-			<string>Adobe Creative Cloud Desktop 2023 Preview Server</string>
+			<string>Adobe Creative Cloud Complete 2023</string>
 			<key>name</key>
 			<string>%NAME%</string>
 			<key>unattended_install</key>
@@ -89,7 +88,7 @@
 				<key>dmg_root</key>
 				<string>%RECIPE_CACHE_DIR%/dmg</string>
 				<key>dmg_path</key>
-				<string>%RECIPE_CACHE_DIR%/AdobeCreativeCloudPreviewServer2023-%version%.dmg</string>
+				<string>%RECIPE_CACHE_DIR%/AdobeCreativeCloudComplete2023-%version%.dmg</string>
 			</dict>
 		</dict>
         <dict>
@@ -103,7 +102,7 @@
 					<string>#!/bin/bash
 APPPLIST="/Applications/Utilities/Adobe Creative Cloud/ACC/Creative Cloud.app/Contents/Info.plist"
 CONFIG="/Library/Application Support/Adobe/AAMUpdater/1.0/AdobeUpdater.Overrides" 
-SERVER="http://aussttest.srgssr.ch"
+SERVER="http://ausst.srgssr.ch"
 THIS_CCVERSION=2023
 VERSION=%version%
 
@@ -177,7 +176,7 @@ exit 1</string>
 			<key>Arguments</key>
 			<dict>
 				<key>pkg_path</key>
-				<string>%RECIPE_CACHE_DIR%/AdobeCreativeCloudPreviewServer2023-%version%.dmg</string>
+				<string>%RECIPE_CACHE_DIR%/AdobeCreativeCloudComplete2023-%version%.dmg</string>
 				<key>repo_subdirectory</key>
 				<string>%MUNKI_REPO_SUBDIR%</string>
 			</dict>
