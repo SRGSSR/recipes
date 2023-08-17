@@ -72,7 +72,21 @@
 	<string>com.github.rtrouton.pkg.NexThinkCollector</string>
 	<key>Process</key>
 	<array>
+        <dict>
+            <key>Processor</key>
+            <string>MunkiPkginfoMerger</string>
+            <key>Arguments</key>
+            <dict>
+                <key>additional_pkginfo</key>
+                <dict>
+                    <key>uninstaller_item_location</key>
+                    <string>SW/Nexthink/NexthinkCollectorUninstaller/Nexthink_Collector_Uninstaller_%version%.pkg</string>
+                </dict>
+            </dict>
+        </dict>
 		<dict>
+			<key>Processor</key>
+			<string>MunkiImporter</string>
 			<key>Arguments</key>
 			<dict>
 				<key>pkg_path</key>
@@ -80,8 +94,7 @@
 				<key>repo_subdirectory</key>
 				<string>%MUNKI_REPO_SUBDIR%</string>
 			</dict>
-			<key>Processor</key>
-			<string>MunkiImporter</string>
+
 		</dict>
 	</array>
 </dict>
