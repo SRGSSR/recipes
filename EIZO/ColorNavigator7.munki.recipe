@@ -37,6 +37,12 @@ autopkg repo-add hjuutilainen-recipes</string>
 			<string>10.10</string>
 			<key>name</key>
 			<string>%NAME%</string>
+			<key>postinstall_script</key>
+			<string>#!/bin/sh
+PKG="/private/tmp/ColorNavigator7.pkg"
+installer -target / -pkg "$PKG"
+rm -f "$PKG"
+exit 0</string>
 			<key>unattended_install</key>
 			<false/>
 			<key>uninstall_method</key>
@@ -46,7 +52,6 @@ autopkg repo-add hjuutilainen-recipes</string>
 #Per the "Installation Guide"
 #https://www.eizoglobal.com/support/db/files/manuals/03V27670C1/UM-03V27670C1-EN.pdf
 rm -rf "/Applications/ColorNavigator 7.app"
-			
 pkgutil --forget com.eizo.pkg.ColorNavigator7</string>
 			<key>uninstallable</key>
 			<true/>
@@ -55,7 +60,7 @@ pkgutil --forget com.eizo.pkg.ColorNavigator7</string>
 	<key>MinimumVersion</key>
 	<string>0.2.0</string>
 	<key>ParentRecipe</key>
-	<string>com.github.srgssr.download.ColorNavigator7</string>
+	<string>com.github.srgssr.pkg.ColorNavigator7</string>
 	<key>Process</key>
 	<array>
 		<dict>
@@ -115,6 +120,7 @@ pkgutil --forget com.eizo.pkg.ColorNavigator7</string>
 				<key>path_list</key>
 				<array>
 					<string>%RECIPE_CACHE_DIR%/payload</string>
+					<string>%RECIPE_CACHE_DIR%/ColorNavigator7-%version%</string>
 				</array>
 			</dict>
 		</dict>
