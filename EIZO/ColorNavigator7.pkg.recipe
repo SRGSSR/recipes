@@ -31,9 +31,12 @@
                     <key>private/tmp</key>
                     <string>1777</string>
                 </dict>
+
             </dict>
         </dict>
 		<dict>
+			<key>Processor</key>
+			<string>Copier</string>
 			<key>Arguments</key>
 			<dict>
 				<key>destination_path</key>
@@ -41,8 +44,6 @@
 				<key>source_path</key>
 				<string>%pathname%</string>
 			</dict>
-			<key>Processor</key>
-			<string>Copier</string>
 		</dict>
 		<dict>
 			<key>Processor</key>
@@ -55,13 +56,58 @@
 		</dict>
 		<dict>
 			<key>Processor</key>
-			<string>FlatPkgPacker</string>
+			<string>PkgCreator</string>
 			<key>Arguments</key>
 			<dict>
-				<key>destination_pkg</key>
-				<string>%RECIPE_CACHE_DIR%/ColorNavigator7-%version%.pkg</string>
-				<key>source_flatpkg_dir</key>
-				<string>%RECIPE_CACHE_DIR%/pkgroot</string>
+				<key>pkg_request</key>
+				<dict>
+					<key>pkgroot</key>
+					<string>%RECIPE_CACHE_DIR%/pkgroot</string>
+					<key>pkgdir</key>
+					<string>%RECIPE_CACHE_DIR%</string>
+					<key>pkgname</key>
+					<string>ColorNavigator7-%version%</string>
+					<key>version</key>
+					<string>%version%</string>
+					<key>id</key>
+					<string>com.srgssr.pkg.ColorNavigator7</string>
+					<key>options</key>
+					<string>purge_ds_store</string>
+					<key>chown</key>
+					<array>
+						<dict>
+							<key>path</key>
+							<string>private</string>
+							<key>user</key>
+							<string>root</string>
+							<key>group</key>
+							<string>wheel</string>
+							<key>mode</key>
+							<string>755</string>
+						</dict>
+						<dict>
+							<key>path</key>
+							<string>private/tmp</string>
+							<key>user</key>
+							<string>root</string>
+							<key>group</key>
+							<string>wheel</string>
+							<key>mode</key>
+							<string>1777</string>
+						</dict>
+					</array>
+				</dict>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>PathDeleter</string>
+			<key>Arguments</key>
+			<dict>
+				<key>path_list</key>
+				<array>
+					<string>%RECIPE_CACHE_DIR%/pkgroot</string>
+				</array>
 			</dict>
 		</dict>
 	</array>
