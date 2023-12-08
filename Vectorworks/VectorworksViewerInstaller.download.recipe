@@ -5,15 +5,15 @@
 	<key>Comment</key>
 	<string>Created with Recipe Robot v1.0.5 (https://github.com/homebysix/recipe-robot)</string>
 	<key>Description</key>
-	<string>Downloads the latest version of Vectorworks File Viewer 2023.</string>
+	<string>Downloads the latest version of Vectorworks File Viewer 2024.</string>
 	<key>Identifier</key>
 	<string>com.github.SRGSSR.download.VectorworksViewer</string>
 	<key>Input</key>
 	<dict>
 		<key>DOWNLOAD_URL</key>
-		<string>https://release.vectorworks.net/latest/Vectorworks/2023-NNA-eng-mac-viewer</string>
+		<string>https://release.vectorworks.net/latest/Vectorworks/2024-NNA-eng-mac-viewer</string>
 		<key>NAME</key>
-		<string>Vectorworks File Viewer 2023</string>
+		<string>Vectorworks File Viewer 2024</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>1.0.0</string>
@@ -38,9 +38,9 @@
 			<key>Arguments</key>
 			<dict>
 				<key>input_path</key>
-				<string>%pathname%/Vectorworks 2023 Installer.app</string>
+				<string>%pathname%/Vectorworks 2024 Installer.app</string>
 				<key>requirement</key>
-				<string>identifier "net.vectorworks.2023.vectorworksinstaller" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = LFNG3Q6WX2</string>
+				<string>identifier "net.vectorworks.2024.vectorworksinstaller" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = LFNG3Q6WX2</string>
 			</dict>
 			<key>Processor</key>
 			<string>CodeSignatureVerifier</string>
@@ -49,7 +49,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>input_plist_path</key>
-				<string>%pathname%/Vectorworks 2023 Installer.app/Contents/Info.plist</string>
+				<string>%pathname%/Vectorworks 2024 Installer.app/Contents/Info.plist</string>
 				<key>plist_version_key</key>
 				<string>CFBundleShortVersionString</string>
 			</dict>
