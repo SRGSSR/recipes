@@ -16,15 +16,28 @@
 	<key>Process</key>
 	<array>
 		<dict>
-			<key>Arguments</key>
-			<dict>
-				<key>filename</key>
-				<string>%NAME%.dmg</string>
-				<key>url</key>
-				<string>https://tentaclesync.com/files/downloads/ttsyncstudio-v1_34.dmg</string>
+			<key>Processor</key>
+			<string>URLTextSearcher</string>
+				<key>Arguments</key>
+				<dict>
+					<key>url</key>
+					<string>https://tentaclesync.zendesk.com/hc/en-us/articles/115003866805-Tentacle-Sync-Studio-macOS-</string>
+					<key>re_pattern</key>
+					<string>(https://tentaclesync\.com/files/downloads/ttsyncstudio-v\d+_\d+\.dmg)</string>
+					<key>result_output_var_name</key>
+					<string>url</string>
+				</dict>
 			</dict>
+			<dict>
 			<key>Processor</key>
 			<string>URLDownloader</string>
+			<key>Arguments</key>
+				<dict>
+					<key>url</key>
+					<string>%url%</string>
+					<key>filename</key>
+					<string>%NAME%.dmg</string>
+				</dict>
 		</dict>
 		<dict>
 			<key>Processor</key>
