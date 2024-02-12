@@ -25,8 +25,8 @@
                 <key>url</key>
                 <string>https://iconproaudio.com/product/platform-m-plus/</string>
                 <key>re_pattern</key>
-                <string>(https:\/\/s3\.amazonaws\.com\/assets\.iconproaudio\.com\/wp-content\/uploads\/\d{4}\/\d{2}\/\d{8}\/PlatformMPlus_and_XPlus_iMap_Mac_Setup_V\d+\.\d+\.zip)</string>
-		        <key>result_output_var_name</key>
+                <string>(https:\/\/s3\.amazonaws\.com\/assets\.iconproaudio\.com\/wp-content\/uploads\/\d{4}\/\d{2}\/\d{8}\/PlatformMPlus_and_XPlus_iMap_Mac_Setup_V(\d+\.\d+)_Beta\.zip)</string>
+				<key>result_output_var_name</key>
 		        <string>url</string>
         	</dict>
         </dict>
