@@ -5,7 +5,7 @@
 	<key>Description</key>
 	<string>Downloads the latest version of MapTilerEngine and imports it into Munki.</string>
 	<key>Identifier</key>
-	<string>com.github.srgssr.recipes.munki.MapTilerEngine</string>
+	<string>com.github.srgssr.munki.MapTilerEngine</string>
 	<key>Input</key>
 	<dict>
 		<key>MUNKI_REPO_SUBDIR</key>

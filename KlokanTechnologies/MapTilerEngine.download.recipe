@@ -5,7 +5,7 @@
 	<key>Description</key>
 	<string>Downloads the latest version of MapTiler Engine</string>
 	<key>Identifier</key>
-	<string>com.github.srgssr.recipes.download.MapTilerEngine</string>
+	<string>com.github.srgssr.download.MapTilerEngine</string>
 	<key>Input</key>
 	<dict>
 		<key>NAME</key>
