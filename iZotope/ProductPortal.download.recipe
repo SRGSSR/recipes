@@ -3,18 +3,20 @@
 <plist version="1.0">
 <dict>
 	<key>Comment</key>
-	<string>Created with Recipe Robot v1.0.5 (https://github.com/homebysix/recipe-robot)</string>
+	<string>Created with Recipe Robot v2.3.1 (https://github.com/homebysix/recipe-robot)</string>
 	<key>Description</key>
 	<string>Downloads the latest version of Product Portal.</string>
 	<key>Identifier</key>
 	<string>com.github.srgssr.recipes.download.ProductPortal</string>
 	<key>Input</key>
 	<dict>
+		<key>APP_FILENAME</key>
+		<string>Install Product Portal</string>
 		<key>NAME</key>
 		<string>Product Portal</string>
 	</dict>
 	<key>MinimumVersion</key>
-	<string>1.0.0</string>
+	<string>2.3</string>
 	<key>Process</key>
 	<array>
 		<dict>
@@ -22,11 +24,6 @@
 			<dict>
 				<key>filename</key>
 				<string>%NAME%.dmg</string>
-				<key>request_headers</key>
-				<dict>
-					<key>user-agent</key>
-					<string>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.1 Safari/605.1.15</string>
-				</dict>
 				<key>url</key>
 				<string>https://www.izotope.com/in-app/pp/download/mac</string>
 			</dict>
