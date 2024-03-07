@@ -59,11 +59,36 @@
 			<string>Unarchiver</string>
 			<key>Arguments</key>
 			<dict>
+				<key>destination_path</key>
+				<string>%RECIPE_CACHE_DIR%/%NAME%</string>
 				<key>purge_destination</key>
 				<true/>
 			</dict>
 		</dict>
-		<!-- unpack PKG inside DMG containing three Payloads -->
+		<!-- find DMG in unpacked structure and rename for further processors-->
+		<dict>
+            <key>Processor</key>
+            <string>FileFinder</string>
+            <key>Arguments</key>
+            <dict>
+               <key>pattern</key>
+               <string>%RECIPE_CACHE_DIR%/%NAME%/*/*.dmg</string>
+            </dict>
+         </dict>
+		 <dict>
+            <key>Processor</key>
+            <string>Copier</string>
+            <key>Arguments</key>
+            <dict>
+               <key>source_path</key>
+               <string>%found_filename%</string>
+			   <key>destination_path</key>
+               <string>%RECIPE_CACHE_DIR%/%NAME%/%NAME%.dmg</string>
+			   <key>overwrite</key>
+				<true/>
+            </dict>
+         </dict>
+		 <!-- unpack PKG inside DMG containing three Payloads -->
 		<dict>
 			<key>Comment</key>
 			<string>Unpack flat pkg inside dmg to unpack folder.</string>
