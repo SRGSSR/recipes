@@ -46,7 +46,7 @@
 				<key>url</key>
 				<string>https://iconproaudio.com/product/platform-m-plus/</string>
 				<key>re_pattern</key>
-				<string>"Platform M\+ iMap Mac OS Version ([0-9]\.[0-9][0-9])"</string>
+				<string>Platform M\+ iMap Mac OS Version ([0-9]\.[0-9][0-9])</string>
 				<key>result_output_var_name</key>
 				<string>version</string>
 			</dict>
