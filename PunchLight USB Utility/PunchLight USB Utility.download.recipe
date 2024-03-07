@@ -2,8 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>Comment</key>
-	<string>Created with Recipe Robot v1.1.2 (https://github.com/homebysix/recipe-robot)</string>
 	<key>Description</key>
 	<string>Downloads the latest version of PunchLight USB Utility.</string>
 	<key>Identifier</key>
@@ -12,8 +10,8 @@
 	<dict>
 		<key>APP_FILENAME</key>
 		<string>PunchLight USB utility</string>
-		<key>DOWNLOAD_URL</key>
-		<string>https://punchlight.com/system/files/PunchLightUSButilityM.zip</string>
+		<key>URL</key>
+		<string>https://www.punchlight.com/download</string>
 		<key>NAME</key>
 		<string>PunchLight USB Utility</string>
 	</dict>
@@ -22,20 +20,28 @@
 	<key>Process</key>
 	<array>
 		<dict>
+			<key>Processor</key>
+			<string>URLTextSearcher</string>
 			<key>Arguments</key>
 			<dict>
-				<key>filename</key>
-				<string>%NAME%.tgz</string>
-				<key>request_headers</key>
-				<dict>
-					<key>user-agent</key>
-					<string>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.1 Safari/605.1.15</string>
-				</dict>
-				<key>url</key>
-				<string>%DOWNLOAD_URL%</string>
+					<key>url</key>
+					<string>%URL%</string>
+					<key>result_output_var_name</key>
+					<string>download_url_adding</string>
+					<key>re_pattern</key>
+					<string>.*href="([^"]+.*USB.*dmg)"</string>
 			</dict>
+		</dict>
+		<dict>
 			<key>Processor</key>
 			<string>URLDownloader</string>
+			<key>Arguments</key>
+			<dict>
+					<key>url</key>
+					<string>https://www.punchlight.com%download_url_adding%</string>
+					<key>filename</key>
+					<string>%NAME%.dmg</string>
+			</dict>
 		</dict>
 		<dict>
 			<key>Processor</key>
