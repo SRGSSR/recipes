@@ -84,7 +84,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>pkg_path</key>
-				<string>%MUNKI_REPO_SUBDIR%/*.pkg</string>
+				<string>%MUNKI_REPO_SUBDIR%/</string>
 			</dict>
 		</dict>
 	</array>
