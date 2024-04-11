@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Identifier</key>
+	<string>com.github.srgssr.munki.AffinityDesigner2</string>
+	<key>Input</key>
+	<dict>
+		<key>LICENSE_KEY</key>
+		<string></string>
+		<key>MUNKI_REPO_SUBDIR</key>
+		<string>apps/Serif/Affinity Designer 2</string>
+		<key>NAME</key>
+		<string>Affinity Designer 2</string>
+		<key>PRODUCT</key>
+		<string>designer</string>
+		<key>disableCheckForUpdates</key>
+		<string>true</string>
+		<key>disableCrashReports</key>
+		<string>true</string>
+		<key>disableEULA</key>
+		<string>true</string>
+		<key>disableRegistration</key>
+		<string>true</string>
+		<key>pkginfo</key>
+        <key>catalogs</key>
+			<array>
+				<string>testing</string>
+			</array>
+			<key>category</key>
+			<string>Graphics</string>
+			<key>description</key>
+			<string>Affinity Designer is an incredibly accurate vector illustrator that feels fast and at home in the hands of creative professionals. It intuitively combines rock solid and crisp vector art with flexible layer management and an impressive range of high quality raster tools for finishing. With accuracy, quality and speed at the heart of every single design task, and the ability to finesse designs without switching apps, this fresh-faced multi-discipline illustrator lets creatives shine.</string>
+			<key>developer</key>
+			<string>Serif</string>
+			<key>display_name</key>
+			<string>Affinity Designer</string>
+			<key>name</key>
+			<string>%NAME%</string>
+			<key>unattended_install</key>
+			<true/>
+		</dict>
+		<key>registrationTo</key>
+		<string></string>
+		<key>signature</key>
+		<string></string>
+		<key>userCount</key>
+		<string></string>
+	</dict>
+	<key>ParentRecipe</key>
+	<string>com.github.faumac.pkg.AffinityDesigner2</string>
+	<key>ParentRecipeTrustInfo</key>
+	<dict>
+		<key>non_core_processors</key>
+		<dict/>
+		<key>parent_recipes</key>
+		<dict>
+			<key>com.github.faumac.download.AffinityDesigner2</key>
+			<dict>
+				<key>git_hash</key>
+				<string>2a968517992e60f63f0668f0e48a1f94e3ddea65</string>
+				<key>path</key>
+				<string>~/Library/AutoPkg/RecipeRepos/com.github.autopkg.faumac-recipes/Affinity Designer 2/Affinity Designer 2.download.recipe</string>
+				<key>sha256_hash</key>
+				<string>38a7f35318c6451571ef4666bb2a11ba358d79b59534049129cf049e94d3b823</string>
+			</dict>
+			<key>com.github.faumac.pkg.AffinityDesigner2</key>
+			<dict>
+				<key>git_hash</key>
+				<string>2a968517992e60f63f0668f0e48a1f94e3ddea65</string>
+				<key>path</key>
+				<string>~/Library/AutoPkg/RecipeRepos/com.github.autopkg.faumac-recipes/Affinity Designer 2/Affinity Designer 2.pkg.recipe</string>
+				<key>sha256_hash</key>
+				<string>05512c7611c77adb44b5af5780768b4876d9ff6f333c8fb3be1d277c5fbaf797</string>
+			</dict>
+		</dict>
+	</dict>
+</dict>
+</plist>
