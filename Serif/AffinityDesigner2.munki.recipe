@@ -45,7 +45,7 @@
 			<key>name</key>
 			<string>%NAME%</string>
 			<key>unattended_install</key>
-			<true/>
+			<false/>
 		</dict>
 	</dict>
 	<key>ParentRecipe</key>
@@ -76,5 +76,17 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Processor</key>
+			<string>MunkiImporter</string>
+			<key>Arguments</key>
+			<dict>
+				<key>pkg_path</key>
+				<string>%found_filename%</string>
+			</dict>
+		</dict>
+	</array>
 </dict>
 </plist>
