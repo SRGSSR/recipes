@@ -6,25 +6,31 @@
 	<string>com.github.srgssr.munki.AffinityDesigner2</string>
 	<key>Input</key>
 	<dict>
-		<key>LICENSE_KEY</key>
-		<string></string>
 		<key>MUNKI_REPO_SUBDIR</key>
 		<string>apps/Serif/Affinity Designer 2</string>
 		<key>NAME</key>
 		<string>Affinity Designer 2</string>
 		<key>PRODUCT</key>
 		<string>designer</string>
+        <key>LICENSE_KEY</key>
+		<string></string>
+        <key>registrationTo</key>
+		<string></string>
+		<key>signature</key>
+		<string></string>
+		<key>userCount</key>
+		<string></string>
 		<key>disableCheckForUpdates</key>
-		<string>true</string>
-		<key>disableCrashReports</key>
-		<string>true</string>
+		<string>true</string> <!-- true / false -->
+		<key>disableCrashReports</key> 
+		<string>true</string> <!-- true / false -->
 		<key>disableEULA</key>
-		<string>true</string>
+		<string>true</string> <!-- true / false -->
 		<key>disableRegistration</key>
-		<string>true</string>
+		<string>true</string> <!-- true / false -->
 		<key>pkginfo</key>
         <dict>
-        <key>catalogs</key>
+            <key>catalogs</key>
 			<array>
 				<string>testing</string>
 			</array>
@@ -41,12 +47,6 @@
 			<key>unattended_install</key>
 			<true/>
 		</dict>
-		<key>registrationTo</key>
-		<string></string>
-		<key>signature</key>
-		<string></string>
-		<key>userCount</key>
-		<string></string>
 	</dict>
 	<key>ParentRecipe</key>
 	<string>com.github.faumac.pkg.AffinityDesigner2</string>
