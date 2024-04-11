@@ -23,6 +23,7 @@
 		<key>disableRegistration</key>
 		<string>true</string>
 		<key>pkginfo</key>
+        <dict>
         <key>catalogs</key>
 			<array>
 				<string>testing</string>
