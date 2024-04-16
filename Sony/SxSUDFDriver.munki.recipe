@@ -3,7 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>Downloads the latest version of SxSUDFDriver and imports it into Munki.</string>
+	<string>Downloads Version 5.10 of Sony SxS Device Driver and imports it into Munki.</string>
+	<key>Comment</key>
+	<string>20240415: Modified by Michael Schuler for Version 5.10</string>
 	<key>Identifier</key>
 	<string>com.github.srgssr.munki.SxSUDFDriver</string>
 	<key>Input</key>
@@ -40,26 +42,19 @@
 	<string>com.github.srgssr.download.SxSUDFDriver</string>
 	<key>Process</key>
 	<array>
+		<!-- import into Munki Repo -->
 		<dict>
-			<key>Processor</key>
-			<string>FileFinder</string>
-			<key>Arguments</key>
-			<dict>
-				<key>pattern</key>
-				<string>%RECIPE_CACHE_DIR%/%NAME%/SxSUDFDriver*.dmg</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>Processor</key>
-			<string>MunkiImporter</string>
 			<key>Arguments</key>
 			<dict>
 				<key>pkg_path</key>
-				<string>%found_filename%</string>
+				<string>%RECIPE_CACHE_DIR%/%NAME%/%NAME%.dmg</string>
 				<key>repo_subdirectory</key>
 				<string>%MUNKI_REPO_SUBDIR%</string>
 			</dict>
+			<key>Processor</key>
+			<string>MunkiImporter</string>
 		</dict>
+		<!-- clean up -->
 		<dict>
 			<key>Processor</key>
 			<string>PathDeleter</string>
