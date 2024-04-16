@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>Downloads the latest version of Sony SxS Device Driver and imports it into Munki.</string>
+	<string>Downloads Version 5.1.0 of Sony SxS Device Driver and imports it into Munki.</string>
 	<key>Comment</key>
-	<string>20230615: Modified by Jens Junge for Version 5.0.0</string>
+	<string>20240415: Modified by Michael Schuler for Version 5.1.0</string>
 	<key>Identifier</key>
 	<string>com.github.srgssr.munki.SxSDeviceDriver</string>
 	<key>Input</key>
@@ -47,7 +47,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>pkg_path</key>
-				<string>%RECIPE_CACHE_DIR%/unzip/%NAME%.dmg</string>
+				<string>%RECIPE_CACHE_DIR%/%NAME%/%NAME%.dmg</string>
 				<key>repo_subdirectory</key>
 				<string>%MUNKI_REPO_SUBDIR%</string>
 			</dict>
@@ -62,7 +62,7 @@
 			<dict>
 				<key>path_list</key>
 				<array>
-					<string>%RECIPE_CACHE_DIR%/unzip</string>
+					<string>%RECIPE_CACHE_DIR%/%NAME%</string>
 				</array>
 			</dict>
 		</dict>

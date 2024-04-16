@@ -2,169 +2,86 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>Description</key>
-	<string>Downloads Sony SxS Device Driver</string>
 	<key>Comment</key>
-	<string>20230615: Modified by Jens Junge for Version 5.0.0</string>
+	<string>20240415: Modified by Michael Schuler for Version 5.1.0</string>
+	<key>Description</key>
+	<string>Downloads Version 5.1.0 of SxS Device Driver.</string>
 	<key>Identifier</key>
 	<string>com.github.srgssr.download.SxSDeviceDriver</string>
-	<key>MinimumVersion</key>
-	<string>0.6.0</string>
 	<key>Input</key>
 	<dict>
-			<key>NAME</key>
-			<string>SxSDeviceDriver</string>
-			<key>URL</key>
-			<string>https://www.sonycreativesoftware.com/de/sxsdriver</string>
+		<key>NAME</key>
+		<string>SxSDeviceDriver</string>
 	</dict>
+	<key>MinimumVersion</key>
+	<string>2.3</string>
 	<key>Process</key>
 	<array>
-	<!-- get file from website -->
-		<dict>
-			<key>Processor</key>
-			<string>URLTextSearcher</string>
-			<key>Arguments</key>
-			<dict>
-					<key>url</key>
-					<string>%URL%</string>
-					<key>result_output_var_name</key>
-					<string>id</string>
-					<key>re_pattern</key>
-					<string>&lt;option[^&gt;]+?value="([^"]+)".*macOS</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>Processor</key>
-			<string>URLTextSearcher</string>
-			<key>Arguments</key>
-			<dict>
-					<key>url</key>
-					<string>%URL%</string>
-					<key>result_output_var_name</key>
-					<string>download_url</string>
-					<key>re_pattern</key>
-					<string>&lt;a[^&gt;]+?id=".*%id%".*href="([^"]+)"</string>
-			</dict>
-		</dict>
 		<dict>
 			<key>Processor</key>
 			<string>URLDownloader</string>
 			<key>Arguments</key>
 			<dict>
 					<key>url</key>
-					<string>https://www.sonycreativesoftware.com%download_url%</string>
+					<string>https://download.pro.sony/24/04/G5ZVR8Qf16/SxSDeviceDriver_5_1_0_mac.zip</string>
 					<key>filename</key>
-					<string>%NAME%.zip</string> 
+					<string>%NAME%.zip</string>
 			</dict>
 		</dict>
-		<!-- unpzip downloades file  -->
 		<dict>
-						<key>Comment</key>
-						<string>Get PKG from the ZIP file</string>
-						<key>Processor</key>
-						<string>Unarchiver</string>
+			<key>Processor</key>
+			<string>EndOfCheckPhase</string>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>Unarchiver</string>
 			<key>Arguments</key>
 			<dict>
 				<key>destination_path</key>
-				<string>%RECIPE_CACHE_DIR%/unzip</string>
+				<string>%RECIPE_CACHE_DIR%/%NAME%</string>
+				<key>purge_destination</key>
+				<true/>
 			</dict>
-				</dict>
-		<!-- unpack flat pkg and all payloads -->
+		</dict>
 		<dict>
-						<key>Comment</key>
-						<string>Get the path and filename of the PKG</string>
-			<key>Processor</key>
-						<string>FileFinder</string>
+            <key>Processor</key>
+            <string>FileFinder</string>
+            <key>Arguments</key>
+            <dict>
+               <key>pattern</key>
+               <string>%RECIPE_CACHE_DIR%/%NAME%/*.dmg</string>
+            </dict>
+         </dict>
+          <dict>
+            <key>Processor</key>
+            <string>Copier</string>
+            <key>Arguments</key>
+            <dict>
+               <key>source_path</key>
+               <string>%found_filename%</string>
+			   <key>destination_path</key>
+               <string>%RECIPE_CACHE_DIR%/%NAME%/%NAME%.dmg</string>
+			   <key>overwrite</key>
+				<true/>
+            </dict>
+         </dict>
+		<dict>
 			<key>Arguments</key>
 			<dict>
-				<key>pattern</key>
-				<string>%RECIPE_CACHE_DIR%/unzip/*.dmg</string>
+				<key>expected_authority_names</key>
+				<array>
+					<string>Developer ID Installer: Sony Corporation (VH49J2FYHE)</string>
+					<string>Developer ID Certification Authority</string>
+					<string>Apple Root CA</string>
+				</array>
+				<key>input_path</key>
+				<string>%RECIPE_CACHE_DIR%/%NAME%/%NAME%.dmg/*.pkg</string>
+				<key>purge_destination</key>
+				<true/>
 			</dict>
-				</dict>
-				<dict>
-						<key>Comment</key>
-						<string>rename the DMG to Standard so QA doesnt fail</string>
-						<key>Processor</key>
-						 <string>FileMover</string>
-						 <key>Arguments</key>
-						<dict>
-								<key>source</key>
-								<string>%found_filename%</string>
-								<key>target</key>
-								<string>%RECIPE_CACHE_DIR%/unzip/%NAME%.dmg</string>
-						</dict>
-				</dict>
-				<dict>
-						<key>Comment</key>
-						<string>Unpack flat PKG to unpack folder</string>
-						<key>Processor</key>
-						<string>FlatPkgUnpacker</string>
-						<key>Arguments</key>
-						<dict>
-								<key>skip_payload</key>
-								<false/>
-								<key>flat_pkg_path</key>
-								<string>%RECIPE_CACHE_DIR%/unzip/%NAME%.dmg/SxSDeviceDriver*.pkg</string>
-								<key>destination_path</key>
-								<string>%RECIPE_CACHE_DIR%/unpack</string>
-						</dict>
-				</dict>
-				 <dict>
-						<key>Comment</key>
-						<string>Unpack SxSDKMgr.pkg Payload</string>
-						<key>Processor</key>
-						<string>PkgPayloadUnpacker</string>
-						<key>Arguments</key>
-						<dict>
-								<key>pkg_payload_path</key>
-								<string>%RECIPE_CACHE_DIR%/unpack/SxSDKMgr.pkg/Payload</string>
-								<key>destination_path</key>
-								<string>%RECIPE_CACHE_DIR%/payload/</string>
-						</dict>
-				</dict>
-				<dict>
-						<key>Processor</key>
-						<string>CodeSignatureVerifier</string>
-						<key>Arguments</key>
-						<dict>
-								<key>input_path</key>
-								<string>%RECIPE_CACHE_DIR%/payload//Applications/SxS Device Driver.app</string>
-								<key>deep_verification</key>
-								<true/>
-								<key>strict_verification</key>
-								<true/>
-								<key>requirement</key>
-								<string>anchor apple generic and identifier "com.sony.dext.pci.sxs.SxSDKManager" and (certificate leaf[field.1.2.840.113635.100.6.1.9] /* exists */ or certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = VH49J2FYHE)</string>
-						</dict>
-				</dict>
-				<dict>
-						<key>Processor</key>
-						<string>CodeSignatureVerifier</string>
-						<key>Arguments</key>
-						<dict>
-								<key>input_path</key>
-								<string>%RECIPE_CACHE_DIR%/payload/Applications/SxS Device Driver.app/Contents/Library/SystemExtensions/com.sony.dext.pci.sxs.dext</string>
-								<key>deep_verification</key>
-								<true/>
-								<key>strict_verification</key>
-								<true/>
-								<key>requirement</key>
-								<string>anchor apple generic and identifier "com.sony.dext.pci.sxs" and (certificate leaf[field.1.2.840.113635.100.6.1.9] /* exists */ or certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = VH49J2FYHE)</string>
-						</dict>
-				</dict>
-		<!-- clean up -->
-				<dict>
-						<key>Processor</key>
-						<string>PathDeleter</string>
-						<key>Arguments</key>
-						<dict>
-								<key>path_list</key>
-								<array>
-										<string>%RECIPE_CACHE_DIR%/unpack</string>
-										<string>%RECIPE_CACHE_DIR%/payload</string>
-								</array>
-						</dict>
-				</dict>
+			<key>Processor</key>
+			<string>CodeSignatureVerifier</string>
+		</dict>
 	</array>
 </dict>
 </plist>
