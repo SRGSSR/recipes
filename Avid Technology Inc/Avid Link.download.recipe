@@ -25,7 +25,7 @@
 					<key>url</key>
 					<string>https://www.avid.com/products/avid-link</string>
 					<key>re_pattern</key>
-					<string>(https:\/\/cdn.avid.com\/AvidLink\/.+?.pkg)</string>
+					<string>.*(https:\/\/cdn.avid.com\/AvidLink\/.+?.pkg)(?!.*.pkg)</string>
 					<key>result_output_var_name</key>
 					<string>url</string>
 				</dict>
