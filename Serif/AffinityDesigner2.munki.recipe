@@ -50,32 +50,6 @@
 	</dict>
 	<key>ParentRecipe</key>
 	<string>com.github.faumac.pkg.AffinityDesigner2</string>
-	<key>ParentRecipeTrustInfo</key>
-	<dict>
-		<key>non_core_processors</key>
-		<dict/>
-		<key>parent_recipes</key>
-		<dict>
-			<key>com.github.faumac.download.AffinityDesigner2</key>
-			<dict>
-				<key>git_hash</key>
-				<string>2a968517992e60f63f0668f0e48a1f94e3ddea65</string>
-				<key>path</key>
-				<string>~/Library/AutoPkg/RecipeRepos/com.github.autopkg.faumac-recipes/Affinity Designer 2/Affinity Designer 2.download.recipe</string>
-				<key>sha256_hash</key>
-				<string>38a7f35318c6451571ef4666bb2a11ba358d79b59534049129cf049e94d3b823</string>
-			</dict>
-			<key>com.github.faumac.pkg.AffinityDesigner2</key>
-			<dict>
-				<key>git_hash</key>
-				<string>2a968517992e60f63f0668f0e48a1f94e3ddea65</string>
-				<key>path</key>
-				<string>~/Library/AutoPkg/RecipeRepos/com.github.autopkg.faumac-recipes/Affinity Designer 2/Affinity Designer 2.pkg.recipe</string>
-				<key>sha256_hash</key>
-				<string>05512c7611c77adb44b5af5780768b4876d9ff6f333c8fb3be1d277c5fbaf797</string>
-			</dict>
-		</dict>
-	</dict>
 	<key>Process</key>
 	<array>
 		<dict>
@@ -84,7 +58,23 @@
 			<key>Arguments</key>
 			<dict>
 				<key>pkg_path</key>
-				<string>%MUNKI_REPO_SUBDIR%/</string>
+				<string>%pkg_path%</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Comment</key>
+			<string>Purge everything we no longer need</string>
+			<key>Processor</key>
+			<string>PathDeleter</string>
+			<key>Arguments</key>
+			<dict>
+				<key>path_list</key>
+				<array>
+					<string>%RECIPE_CACHE_DIR%/pkgroot</string>
+					<string>%RECIPE_CACHE_DIR%/scripts</string>
+					<string>%RECIPE_CACHE_DIR%/downloads/Affinity Designer 2.app</string>
+					<string>%RECIPE_CACHE_DIR%/Affinity Designer 2-%version%.pkg</string>
+				</array>
 			</dict>
 		</dict>
 	</array>
