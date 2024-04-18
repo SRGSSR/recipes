@@ -15,6 +15,7 @@
 	<string>1.0.0</string>
 	<key>Process</key>
 	<array>
+		<!-- find version number to bypass email-popup -->
 		<dict>
 			<key>Processor</key>
             <string>URLTextSearcher</string>
@@ -23,9 +24,9 @@
                 <key>url</key>
                 <string>https://www.maptiler.com/engine/download/</string>
                 <key>re_pattern</key>
-                <string>(https:\/\/maptiler\.download\/engine\/maptiler-engine-(\d+\.\d+)-app-mac\.dmg)</string>
+                <string>\bVersion.+[^0-9.](\d+\.\d+)&lt;</string>
 				<key>result_output_var_name</key>
-		        <string>url</string>
+		        <string>downloadversion</string>
 			</dict>
 		</dict>
 		<dict>
@@ -34,7 +35,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>url</key>
-				<string>%url%</string>
+				<string>https://maptiler.download/engine/maptiler-engine-%downloadversion%-app-mac.dmg</string>
 				<key>filename</key>
 				<string>%NAME%.dmg</string>
 			</dict>
