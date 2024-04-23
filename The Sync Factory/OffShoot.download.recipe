@@ -16,6 +16,10 @@
     <key>Process</key>
     <array>
 		<dict>
+			<key>Comment</key>
+			<string>Get installer DMG from website.</string>
+			<key>Processor</key>
+			<string>CURLDownloader</string>
 			<key>Arguments</key>
 			<dict>
 				<key>filename</key>
@@ -23,14 +27,16 @@
 				<key>url</key>
 				<string>https://updates.hedge.video/hedge/macos/latest/OffShoot.dmg</string>
 			</dict>
-			<key>Processor</key>
-			<string>CURLDownloader</string>
 		</dict>
 		<dict>
 			<key>Processor</key>
 			<string>EndOfCheckPhase</string>
 		</dict>
 		<dict>
+			<key>Comment</key>
+			<string>Unpack PKG inside the downloaded DMG.</string>
+			<key>Processor</key>
+			<string>FlatPkgUnpacker</string>
 			<key>Arguments</key>
 			<dict>
 				<key>destination_path</key>
@@ -40,10 +46,12 @@
 				<key>purge_destination</key>
 				<true/>
 			</dict>
-			<key>Processor</key>
-			<string>FlatPkgUnpacker</string>
 		</dict>
         <dict>
+			<key>Comment</key>
+			<string>Create empty folder structure for OffShoot.app.</string>
+            <key>Processor</key>
+            <string>PkgRootCreator</string>
             <key>Arguments</key>
             <dict>
                 <key>pkgdirs</key>
@@ -54,10 +62,12 @@
                 <key>pkgroot</key>
                 <string>%RECIPE_CACHE_DIR%/temp</string>
             </dict>
-            <key>Processor</key>
-            <string>PkgRootCreator</string>
         </dict>
 		<dict>
+			<key>Comment</key>
+			<string>Unpack Payload (OffShoot.app) inside the extracted PKG.</string>
+			<key>Processor</key>
+			<string>PkgPayloadUnpacker</string>
 			<key>Arguments</key>
 			<dict>
 				<key>destination_path</key>
@@ -67,10 +77,12 @@
 				<key>purge_destination</key>
 				<true/>
 			</dict>
-			<key>Processor</key>
-			<string>PkgPayloadUnpacker</string>
 		</dict>
 		<dict>
+			<key>Comment</key>
+			<string>Verify OffShoot.app is valid.</string>
+			<key>Processor</key>
+			<string>CodeSignatureVerifier</string>
 			<key>Arguments</key>
 			<dict>
 				<key>input_path</key>
@@ -78,18 +90,20 @@
 				<key>requirement</key>
 				<string>anchor apple generic and identifier "nl.syncfactory.Hedge.Mac" and (certificate leaf[field.1.2.840.113635.100.6.1.9] /* exists */ or certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = A43D9X8EYU)</string>
 			</dict>
-			<key>Processor</key>
-			<string>CodeSignatureVerifier</string>
 		</dict>
-		<dict>
- 			<key>Arguments</key>
- 			<dict>
- 				<key>app_path</key>
- 				<string>%pkgroot%/Applications/%NAME%.app</string>
- 			</dict>
- 			<key>Processor</key>
- 			<string>AppPkgCreator</string>
- 		</dict>
+        <dict>
+			<key>Comment</key>
+			<string>Delete everything we no longer need in order to save space.</string>
+        	<key>Processor</key>
+        	<string>PathDeleter</string>
+			<key>Arguments</key>
+			<dict>
+       	    	<key>path_list</key>
+            	<array>
+                	<string>%RECIPE_CACHE_DIR%/unpack</string>
+            	</array>
+        	</dict>
+		</dict>
     </array>
 </dict>
 </plist>
