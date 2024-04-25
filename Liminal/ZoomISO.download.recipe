@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Comment</key>
+	<string>Created by: Jens Junge</string>
+	<key>Description</key>
+	<string>Downloads the latest version of ZoomISO.</string>
+	<key>Identifier</key>
+	<string>com.github.srgssr.download.ZoomISO</string>
+	<key>Input</key>
+	<dict>
+		<key>NAME</key>
+		<string>ZoomISO</string>
+	</dict>
+	<key>MinimumVersion</key>
+	<string>1.0.0</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Comment</key>
+			<string>Scrap download URL from the download site. 
+			lJhb55s9GTLpJecFnm56CRp in the download URL apparently refers to the Liminal download area as it is identical for all downloads.</string>
+            <key>Processor</key>
+            <string>URLTextSearcher</string>
+            <key>Arguments</key>
+            <dict>
+                <key>url</key>
+                <string>https://www.liminalet.com/zoomiso-downloads/</string>
+                <key>re_pattern</key>
+				<string>(https:\/\/filedn\.com\/lJhb55s9GTLpJecFnm56CRp\/ZoomISO\/\d+\.\d+\/\d+.\d+.\d+\/ZoomISO%20v\d+.\d+.\d+%20Download\.zip)</string>
+				<key>result_output_var_name</key>
+		        <string>url</string>
+        	</dict>
+        </dict>
+		<dict>
+			<key>Comment</key>
+        	<string>Download installer from the URL scraped from the download page.</string>
+			<key>Processor</key>
+			<string>URLDownloader</string>
+			<key>Arguments</key>
+			<dict>
+				<key>filename</key>
+				<string>%NAME%.zip</string>
+				<key>url</key>
+				<string>%url%</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>EndOfCheckPhase</string>
+		</dict>
+        <dict>
+            <key>Processor</key>
+            <string>StopProcessingIf</string>
+            <key>Arguments</key>
+            <dict>
+                <key>predicate</key>
+                <string>download_changed == FALSE</string>
+            </dict>
+        </dict>
+		<dict>
+			<key>Comment</key>
+        	<string>Unzip the downloaded ZIP file.</string>
+      		<key>Processor</key>
+      		<string>Unarchiver</string>
+      		<key>Arguments</key>
+			<dict>
+				<key>purge_destination</key>
+				<true/>
+				<key>destination_path</key>
+				<string>%RECIPE_CACHE_DIR%/zip</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Comment</key>
+        	<string>Get the name of the unzipped DMG.</string>
+            <key>Processor</key>
+            <string>FileFinder</string>
+            <key>Arguments</key>
+            <dict>
+                <key>pattern</key>
+                <string>%RECIPE_CACHE_DIR%/zip/*/*.dmg</string>
+            </dict>
+		</dict>
+		<dict>
+			<key>Comment</key>
+        	<string>Verify the App is from the expected developer.</string>
+			<key>Processor</key>
+			<string>CodeSignatureVerifier</string>
+			<key>Arguments</key>
+			<dict>
+				<key>input_path</key>
+				<string>%found_filename%/*.app</string>
+				<key>requirement</key>
+				<string>anchor apple generic and identifier "com.liminal.zoomISO2" and (certificate leaf[field.1.2.840.113635.100.6.1.9] /* exists */ or certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "4398UMH669")</string>
+				<key>deep_verification</key>
+   				 <true/>
+    			<key>strict_verification</key>
+    			<true/>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>
