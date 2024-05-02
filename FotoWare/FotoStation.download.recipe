@@ -24,9 +24,9 @@
 				<key>Arguments</key>
 				<dict>
 					<key>url</key>
-					<string>https://fotostation.com/download</string>
+					<string>https://fotostation.com/download/</string>
 					<key>re_pattern</key>
-					<string>(https://cdn.fotoware.com/fotostation/Mac/.+.dmg)</string>
+					<string>(https://cdn.fotoware.com/fotostation/.*.dmg)</string>
 					<key>result_output_var_name</key>
 					<string>url</string>
 				</dict>
