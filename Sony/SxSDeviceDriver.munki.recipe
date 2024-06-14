@@ -44,6 +44,8 @@
 	<array>
 		<!-- import into Munki Repo -->
 		<dict>
+			<key>Processor</key>
+			<string>MunkiImporter</string>
 			<key>Arguments</key>
 			<dict>
 				<key>pkg_path</key>
@@ -51,8 +53,30 @@
 				<key>repo_subdirectory</key>
 				<string>%MUNKI_REPO_SUBDIR%</string>
 			</dict>
+		</dict>
+		<!-- set two recipes as optional -->
+		<dict>
+			<key>Comment</key>
+			<string>Ensure we actually imported something</string>
 			<key>Processor</key>
-			<string>MunkiImporter</string>
+			<string>StopProcessingIf</string>
+			<key>Arguments</key>
+			<dict>
+				<key>predicate</key>
+				<string>munki_repo_changed == FALSE</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>MunkiOptionalReceiptEditor</string>
+			<key>Arguments</key>
+			<dict>
+				<key>pkg_ids_set_optional_true</key>
+				<array>
+					<string>com.sony.dext.pci.sxs.UninstallKextDriver.pkg</string>
+					<string>com.sony.dext.pci.sxs.UninstallUDFDriver.pkg</string>
+				</array>
+			</dict>
 		</dict>
 		<!-- clean up -->
 		<dict>
