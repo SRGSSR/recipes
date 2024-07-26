@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>This pkg recipe is derived from homevysix' recipt but modified in a way that it prepares a Business Edition deploy image.
+Downloads the major version of Parallels Desktop specified by MAJOR_VERSION and creates a package. This recipe has been tested with major versions 10 through 18.
+This recipe differs from the one in keeleysam-recipes because it offers code signature verification, does not require a ParallelsURLProvider processor, and also includes pkg and install recipes.
+Input variable tips:
+- For major versions 10 through 15 or 17 through 18, leave the PLATFORM_ARCH blank in your override.
+- For major version 16, set the PLATFORM_ARCH in your override to either "intel" or "m1" depending on your desired architecture.</string>
+	<key>Identifier</key>
+	<string>com.github.srgssr.pkg.ParallelsDesktopBusiness</string>
+	<key>Input</key>
+	<dict>
+		<key>BUNDLE_ID</key>
+		<string>com.parallels.desktop.installer</string>
+		<key>NAME</key>
+		<string>Parallels Desktop</string>
+	</dict>
+	<key>MinimumVersion</key>
+	<string>0.6.1</string>
+	<key>ParentRecipe</key>
+	<string>com.github.srgssr.download.ParallelsDesktopBusiness</string>
+	<key>Process</key>
+	<array>
+		<!-- prepare Autodeploy Package-->
+		<dict>
+            <key>Comment</key>
+            <string>unzip the Autodeploy package</string>
+            <key>Processor</key>
+            <string>Unarchiver</string>
+			<key>Arguments</key>
+			<dict>
+				<key>archive_path</key>
+				<string>%RECIPE_CACHE_DIR%/downloads/pd-autodeploy.zip</string>
+				<key>destination_path</key>
+				<string>%RECIPE_CACHE_DIR%/unzip/</string>
+				<key>archive_format</key>
+				<string>zip</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Comment</key>
+			<string>Create a directory in which we can copy the Autodeploy pkg. Copier doesnt create its target directory.</string>
+			<key>Processor</key>
+			<string>PkgRootCreator</string>
+			<key>Arguments</key>
+			<dict>
+				<key>pkgdirs</key>
+				<dict/>
+				<key>pkgroot</key>
+				<string>%RECIPE_CACHE_DIR%/pkgroot</string>
+			</dict>
+		</dict>
+		<dict>
+            <key>Comment</key>
+            <string>find the Autodeploy package</string>
+            <key>Processor</key>
+            <string>FileFinder</string>
+			<key>Arguments</key>
+			<dict>
+				<key>pattern</key>
+				<string>%RECIPE_CACHE_DIR%/unzip/*/Parallels Desktop Autodeploy.pkg</string>
+			</dict>
+        </dict>
+        <dict>
+            <key>Comment</key>
+            <string>copy Autodeploy PKG</string>
+            <key>Processor</key>
+             <string>Copier</string>
+             <key>Arguments</key>
+            <dict>
+                <key>source_path</key>
+                <string>%found_filename%</string>
+                <key>destination_path</key>
+                <string>%RECIPE_CACHE_DIR%/pkgroot/Parallels Desktop Autodeploy.pkg</string>
+                <key>overwrite</key>
+                <true/>
+            </dict>
+        </dict>
+		<dict>
+            <key>Comment</key>
+            <string>get the version of the downloades Parallels Desktop Installer</string>
+			<key>Processor</key>
+			<string>Versioner</string>
+			<key>Arguments</key>
+			<dict>
+				<key>input_plist_path</key>
+				<string>%pathname%/Parallels Desktop.app/Contents/Info.plist</string>
+				<key>plist_version_key</key>
+				<string>CFBundleShortVersionString</string>
+			</dict>
+		</dict>
+		<dict>
+            <key>Comment</key>
+            <string>creqate configuration file with serial number</string>
+			<key>Processor</key>
+			<string>FileCreator</string>
+			<key>Arguments</key>
+			<dict>
+				<key>file_content</key>
+				<string>license_key="6J9FTE-QCMRJQ-RESAJN-2Z3ZYJ-WFNJFP"
+vm_register_mode="Private"
+vm_reset_hwid="yes"
+#vm_deploy_mode="Copy"
+vm_deploy_mode="Move"
+vm_destination_folder="/Users/Shared/Parallels"
+vm_set_hv_mode_apple_forcibly_since_macos_11_0="yes"
+updates_auto_check="0"
+updates_auto_download="off"
+cep_participation="off"
+show_developers_menu="no"</string>
+				<key>file_mode</key>
+				<string>0755</string>
+				<key>file_path</key>
+				<string>%RECIPE_CACHE_DIR%/pkgroot/Parallels Desktop Autodeploy.pkg/License Key and Configuration/deploy.cfg</string>
+			</dict>
+		</dict>
+        <dict>
+            <key>Comment</key>
+            <string>copy Parallels Desktop DMG</string>
+            <key>Processor</key>
+             <string>Copier</string>
+             <key>Arguments</key>
+            <dict>
+                <key>source_path</key>
+                <string>%RECIPE_CACHE_DIR%/downloads/%NAME%-%MAJOR_VERSION%%PLATFORM_ARCH%.dmg</string>
+                <key>destination_path</key>
+                <string>%RECIPE_CACHE_DIR%/pkgroot/Parallels Desktop Autodeploy.pkg/Parallels Desktop DMG/%NAME%-%MAJOR_VERSION%%PLATFORM_ARCH%.dmg</string>
+                <key>overwrite</key>
+                <true/>
+            </dict>
+        </dict>
+		<dict>
+            <key>Comment</key>
+            <string>Create flat Package from pkgroot</string>
+			<key>Processor</key>
+			<string>PkgCreator</string>
+			<key>Arguments</key>
+			<dict>
+				<key>pkg_request</key>
+				<dict>
+					<key>chown</key>
+					<array/>
+					<key>id</key>
+					<string>%BUNDLE_ID%</string>
+					<key>options</key>
+					<string>purge_ds_store</string>
+					<key>pkgname</key>
+					<string>%NAME%-%version%</string>
+					<key>pkgroot</key>
+					<string>%RECIPE_CACHE_DIR%/pkgroot/Parallels Desktop Autodeploy.pkg</string>
+					<key>pkgtype</key>
+					<string>flat</string>
+					<key>version</key>
+					<string>%version%</string>
+				</dict>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>PathDeleter</string>
+			<key>Arguments</key>
+			<dict>
+				<key>path_list</key>
+				<array>
+					<string>%RECIPE_CACHE_DIR%/unzip</string>
+				</array>
+			</dict>
+		</dict>
+<!--
+		<dict>
+			<key>Processor</key>
+			<string>PkgRootCreator</string>
+			<key>Arguments</key>
+			<dict>
+				<key>pkgdirs</key>
+				<dict/>
+				<key>pkgroot</key>
+				<string>%RECIPE_CACHE_DIR%/pkgroot</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>PkgRootCreator</string>
+			<key>Arguments</key>
+			<dict>
+				<key>pkgdirs</key>
+				<dict/>
+				<key>pkgroot</key>
+				<string>%RECIPE_CACHE_DIR%/Scripts</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>destination_path</key>
+				<string>%RECIPE_CACHE_DIR%/Scripts/%NAME%.dmg</string>
+				<key>overwrite</key>
+				<true/>
+				<key>source_path</key>
+				<string>%pathname%</string>
+			</dict>
+			<key>Processor</key>
+			<string>Copier</string>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>FileCreator</string>
+			<key>Arguments</key>
+			<dict>
+				<key>file_content</key>
+				<string>#!/bin/bash
+
+###################################################################################################
+# Script Name:  install_ParallelsDesktop.sh
+# By:  Zack Thompson / Created:  8/1/2017
+# Version:  1.0 / Updated:  8/1/2017 / By:  ZT
+#
+# Description:  This script installs the Parallels Desktop {MAJOR VERSION} downloaded by AutoPkg.
+#
+###################################################################################################
+
+/bin/echo "**************************************************"
+/bin/echo 'Starting PostInstall Script'
+/bin/echo "**************************************************"
+
+if [[ $3 != "/" ]]; then
+    /bin/echo "[ERROR] Target disk is not the startup disk."
+    exit 1
+fi
+
+# Set working directory
+pkgDir=$(/usr/bin/dirname $0)
+
+# Check if Parallels Desktop is currently installed...
+if [[ -e /Applications/Parallels\ Desktop.app ]]; then
+    /bin/echo "Parallels Desktop is currently installed; removing this instance before continuing..."
+   	/Applications/Parallels\ Desktop.app/Contents/MacOS/Uninstaller remove
+    /bin/echo "Parallels Desktop has been removed."
+fi
+
+# Get the filename of the .dmg file (allows this script to be used with different versions).
+ParallelsDMG=$(/bin/ls $pkgDir | /usr/bin/grep .dmg)
+
+# Mounting the .dmg found...
+/bin/echo "Mounting ${ParallelsDMG}..."
+/usr/bin/hdiutil attach "${ParallelsDMG}" -nobrowse -noverify -noautoopen
+/bin/sleep 2
+
+# Get the name of the mount (allows this script to be used with different versions).
+ParallelsMount=$(/bin/ls /Volumes/ | /usr/bin/grep Parallels)
+
+# Install Parallels Desktop.app...
+/bin/echo "Installing ${ParallelsMount}..."
+/Volumes/"${ParallelsMount}"/Parallels\ Desktop.app/Contents/MacOS/inittool install -t /Applications/Parallels\ Desktop.app
+/bin/sleep 2
+/bin/echo "${ParallelsMount} has been installed!"
+
+# Ejecting the .dmg...
+/usr/bin/hdiutil eject /Volumes/"${ParallelsMount}"
+
+/bin/echo "**************************************************"
+/bin/echo 'PostInstall Script Finished'
+/bin/echo "**************************************************"
+
+exit 0</string>
+				<key>file_mode</key>
+				<string>0755</string>
+				<key>file_path</key>
+				<string>%RECIPE_CACHE_DIR%/Scripts/postinstall</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>pkg_request</key>
+				<dict>
+					<key>chown</key>
+					<array/>
+					<key>id</key>
+					<string>%BUNDLE_ID%</string>
+					<key>options</key>
+					<string>purge_ds_store</string>
+					<key>pkgname</key>
+					<string>%NAME%-%version%</string>
+					<key>pkgroot</key>
+					<string>%RECIPE_CACHE_DIR%/pkgroot</string>
+					<key>pkgtype</key>
+					<string>flat</string>
+					<key>scripts</key>
+					<string>Scripts</string>
+					<key>version</key>
+					<string>%version%</string>
+				</dict>
+			</dict>
+			<key>Processor</key>
+			<string>PkgCreator</string>
+		</dict>
+-->
+	</array>
+</dict>
+</plist>

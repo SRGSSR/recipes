@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>This download recipe is derived from homevysix' recipt but modified in a way that it prepares a Business Edition deploy image.
+
+Downloads the major version of Parallels Desktop specified by MAJOR_VERSION. This recipe has been tested with major versions 10 through 19.
+This recipe differs from the one in keeleysam-recipes because it offers code signature verification, does not require a ParallelsURLProvider processor, and also includes pkg and install recipes.
+Input variable tips:
+- For major versions 10 through 15 or 17 through 19, leave the PLATFORM_ARCH blank in your override.
+- For major version 16, set the PLATFORM_ARCH in your override to either "intel" or "m1" depending on your desired architecture.
+</string>
+	<key>Identifier</key>
+	<string>com.github.srgssr.download.ParallelsDesktopBusiness</string>
+	<key>Input</key>
+	<dict>
+		<key>MAJOR_VERSION</key>
+		<string>19</string>
+		<key>NAME</key>
+		<string>Parallels Desktop Business</string>
+		<key>PLATFORM_ARCH</key>
+		<string></string>
+	</dict>
+	<key>MinimumVersion</key>
+	<string>1.4</string>
+	<key>Process</key>
+	<array>
+		<!-- Download and prepare Autodeploy package -->
+		<dict>
+            <key>Comment</key>
+            <string>Download Autodeploy package</string>
+			<key>Processor</key>
+			<string>URLDownloader</string>
+			<key>Arguments</key>
+			<dict>
+				<key>filename</key>
+				<string>pd-autodeploy.zip</string>
+				<key>url</key>
+				<string>https://download.parallels.com/desktop/tools/pd-autodeploy.zip</string>
+			</dict>
+		</dict>
+		<!-- Download Parallels Installer DMG -->
+		<dict>
+            <key>Comment</key>
+            <string>get the download URL of the Installer</string>
+			<key>Processor</key>
+			<string>URLTextSearcher</string>
+			<key>Arguments</key>
+			<dict>
+				<key>re_flags</key>
+				<array>
+					<string>IGNORECASE</string>
+				</array>
+				<key>re_pattern</key>
+				<string>(file|DMG)\": \"(?P&lt;url_version&gt;https.*)\"[\n\s\}\,]*\"name\": \"Parallels Desktop %MAJOR_VERSION% for Mac( Image|( with (Apple )?%PLATFORM_ARCH% (chip|processor)))?\"</string>
+				<key>result_output_var_name</key>
+				<string>url_version</string>
+				<key>url</key>
+				<string>https://download.parallels.com/website_links/desktop/%MAJOR_VERSION%/builds-en_US.json</string>
+			</dict>
+		</dict>
+		<dict>
+            <key>Comment</key>
+            <string>download the Installer</string>
+			<key>Processor</key>
+			<string>URLDownloader</string>
+			<key>Arguments</key>
+			<dict>
+				<key>url</key>
+				<string>%url_version%</string>
+				<key>filename</key>
+				<string>%NAME%-%MAJOR_VERSION%%PLATFORM_ARCH%.dmg</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>EndOfCheckPhase</string>
+		</dict>
+		<!-- security check the downloades PD installer -->
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>input_path</key>
+				<string>%pathname%/Parallels Desktop.app</string>
+				<key>requirement</key>
+				<string>anchor apple generic and (certificate leaf[field.1.2.840.113635.100.6.1.9] /* exists */ or certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "4C6364ACXT")</string>
+			</dict>
+			<key>Processor</key>
+			<string>CodeSignatureVerifier</string>
+		</dict>
+
+
+	</array>
+</dict>
+</plist>
