@@ -16,7 +16,7 @@ Input variable tips:
 		<key>BUNDLE_ID</key>
 		<string>com.parallels.desktop.installer</string>
 		<key>NAME</key>
-		<string>Parallels Desktop</string>
+		<string>ParallelsDesktopBusiness</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>0.6.1</string>
