@@ -68,7 +68,7 @@ fi</string>
                 <string>#!/bin/bash
 
 # Cleanup Adobe CC 2019 files
-APP="/Applications/Adobe Premiere Pro CC 2018/Adobe Premiere Pro CC 2019.app"
+APP="/Applications/Adobe Premiere Pro CC 2019/Adobe Premiere Pro CC 2019.app"
 APPSETTINGS="$APP/Contents/Settings/"
 if [[ -d "$APP" ]]; then
     # Premiere
@@ -139,27 +139,39 @@ fi</string>
 				<dict>
                     <key>installcheck_script</key>
                     <string>#!/bin/bash
-VERSION="%version%" # IN MUNKI(!) replace this with the Version AutoPkg has imported and put the item back in QA (*see comment in line 30).
+# This script has to be put into the MunkiPkginfoMerger inside munki recipe, 
+# not into the override because we need to inject the %version% variable.
+VERSION="%version%" 
 IDENTIFIER=com.blackmagic-design.DesktopVideo
-PR2019="/Applications/Adobe Premiere Pro CC 2019/Adobe Premiere Pro CC 2019.app"
 PR2020="/Applications/Adobe Premiere Pro 2020/Adobe Premiere Pro 2020.app"
+PR2021="/Applications/Adobe Premiere Pro 2021/Adobe Premiere Pro 2021.app"
+PR2022="/Applications/Adobe Premiere Pro 2022/Adobe Premiere Pro 2022.app"
+PR2023="/Applications/Adobe Premiere Pro 2023/Adobe Premiere Pro 2023.app"
+PR2024="/Applications/Adobe Premiere Pro 2024/Adobe Premiere Pro 2024.app"
 PS2020="/Applications/Adobe Photoshop 2020/Adobe Photoshop 2020.app"
+PS2021="/Applications/Adobe Photoshop 2021/Adobe Photoshop 2021.app"
+PS2022="/Applications/Adobe Photoshop 2022/Adobe Photoshop 2022.app"
+PS2023="/Applications/Adobe Photoshop 2023/Adobe Photoshop 2023.app"
+PS2024="/Applications/Adobe Photoshop 2024/Adobe Photoshop 2024.app"
 INSTALL_BMDV=1
 
-# Check for Premiere 2019/2020
-# if PRCC2019 / PRCC2020 is installed but XML file is missing we assume BM Desktop Video isn't installed for this version of Premiere. 
-if [[ -d "$PR2019" &amp;&amp; ! -f "$PR2019/Contents/Settings/Editing Modes/Blackmagic Editing Modes.xml" ]]; then INSTALL_BMDV=0; fi
-if [[ -d "$PR2019" &amp;&amp; ! -f "$PR2020/Contents/Settings/Editing Modes/Blackmagic Editing Modes.xml" ]]; then INSTALL_BMDV=0; fi
+# Check for Premiere 2020 t0 2024
+# if PRCC2020 to PRCC2024 is installed but XML file is missing we assume BM Desktop Video isn't installed for this version of Premiere. 
+if [[ -d "$PR2020" &amp;&amp; ! -f "$PR2020/Contents/Settings/Editing Modes/Blackmagic Editing Modes.xml" ]]; then INSTALL_BMDV=0; fi
+if [[ -d "$PR2021" &amp;&amp; ! -f "$PR2021/Contents/Settings/Editing Modes/Blackmagic Editing Modes.xml" ]]; then INSTALL_BMDV=0; fi
+if [[ -d "$PR2022" &amp;&amp; ! -f "$PR2022/Contents/Settings/Editing Modes/Blackmagic Editing Modes.xml" ]]; then INSTALL_BMDV=0; fi
+if [[ -d "$PR2023" &amp;&amp; ! -f "$PR2023/Contents/Settings/Editing Modes/Blackmagic Editing Modes.xml" ]]; then INSTALL_BMDV=0; fi
+if [[ -d "$PR2024" &amp;&amp; ! -f "$PR2024/Contents/Settings/Editing Modes/Blackmagic Editing Modes.xml" ]]; then INSTALL_BMDV=0; fi
 
-# The plugins should be installd if Premiere is installed
-if [[ -d "$PR2019" || -d "$PR2020" ]]; then
+# The plugins should be installd too if Premiere is installed
+if [[ -d "$PR2020" || -d "$PR2021" || -d "$PR2022" || -d "$PR2023" || -d "$PR2024" ]]; then
     if [[ ! -d "/Library/Application Support/Adobe/Common/Plug-ins/7.0/MediaCore/DeckLinkDevice.bundle" ]]; then INSTALL_BMDV=0; fi
     if [[ ! -d "/Library/Application Support/Adobe/Common/Plug-ins/7.0/MediaCore/DeckLinkRecord.bundle" ]]; then INSTALL_BMDV=0; fi
     if [[ ! -d "/Library/Application Support/Adobe/Common/Plug-ins/7.0/MediaCore/DeckLinkTransmit.bundle" ]]; then INSTALL_BMDV=0; fi
 fi
 
-# Check for Photoshop CC 2020
-if [[ -d "$PS2020" ]]; then
+# Check for Photoshop CC 2020 to 2024
+if [[ -d "$PS2020" || -d "$PS2021" || -d "$PS2022" || -d "$PS2023" || -d "$PS2024" ]]; then
     # The plugins only installs if Photoshop is installed
     if [[ ! -d "/Library/Application Support/Adobe/Plug-Ins/CC/DeckLinkImportExport.plugin" ]]; then INSTALL_BMDV=0; fi
 fi
@@ -167,9 +179,7 @@ fi
 # Check for Version
 pkginfo=$(pkgutil --pkg-info $IDENTIFIER 2&gt; /dev/null)
 if [[ "$pkginfo" !=  "" ]]; then
-    # a) Check if the installed version equals the version we expect to be installed.
-    # * Unfortunately the requirement to check the version leads to the fact that we have to change the installcheck_script with
-    # every new version AutoPKG downloads. Which strongly contraicts AutoPKGs meaning. Just change in Munki not in AutoPKG. 
+    # Check if the installed version lower than this version.
     pkg_version=$(pkgutil --pkg-info $IDENTIFIER 2&gt; /dev/null | grep version | cut -d":" -f2 | cut -c2-)
     if [[ ${pkg_version:-0} &lt; $VERSION ]]; then
         INSTALL_BMDV=0
