@@ -40,9 +40,9 @@
 			<key>category</key>
 			<string>%MUNKI_CATEGORY%</string>
 			<key>description</key>
-			<string>This is the Preview application for Adobe CC 2024 connects to the preview server.</string>
+			<string>This is the Preview application for Adobe CC 5 connects to the preview server.</string>
 			<key>display_name</key>
-			<string>Adobe Creative Cloud Desktop 2024 Preview Server</string>
+			<string>Adobe Creative Cloud Desktop 2025 Preview Server</string>
 			<key>name</key>
 			<string>%NAME%</string>
 			<key>unattended_install</key>
@@ -106,7 +106,7 @@
 APPPLIST="/Applications/Utilities/Adobe Creative Cloud/ACC/Creative Cloud.app/Contents/Info.plist"
 CONFIG="/Library/Application Support/Adobe/AAMUpdater/1.0/AdobeUpdater.Overrides" 
 SERVER=%AUSST_SERVER%
-THIS_CCVERSION=2024
+THIS_CCVERSION=2025
 VERSION=%version%
 
 # Taken from: https://stackoverflow.com/questions/4023830/how-to-compare-two-strings-in-dot-separated-version-format-in-bash/4025065#4025065
