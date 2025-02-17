@@ -23,7 +23,7 @@
 					<key>url</key>
 					<string>https://www.flux.audio/download/</string>
 					<key>re_pattern</key>
-					<string>(https:\/\/flux-caffeine\.s3.+?amazonaws\.com\/files\/Flux\/CENTER%20%20INSTALLERS\/Flux_FluxCenter_MacOS_Installer_.+?\.dmg)</string>
+					<string>(https:\/\/flux-caffeine\.s3.+?amazonaws\.com\/files\/Flux\/CENTER%20%20INSTALLERS\/FluxCenter_Macosx_Installer_.+?\.dmg)</string>
 					<key>result_output_var_name</key>
 					<string>url</string>
 				</dict>
