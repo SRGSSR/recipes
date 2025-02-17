@@ -13,7 +13,7 @@
       <key>NAME</key>
       <string>MemoryMediaUtility</string>
       <key>URL</key>
-      <string>https://www.sonycreativesoftware.com/de/memorymediautility</string>
+      <string>https://www.sony.ch/de/electronics/support/results?query=memory+media+utility+mac</string>
   </dict>
   <key>Process</key>
   <array>
@@ -27,7 +27,7 @@
           <key>result_output_var_name</key>
           <string>id</string>
           <key>re_pattern</key>
-          <string>&lt;option[^&gt;]+?value="([^"]+)".*macOS</string>
+          <string>(?&lt;=electronics\/support\/software\/)(\d+)(?=.*\bMac\b)</string>
       </dict>
     </dict>
     <dict>
@@ -36,20 +36,33 @@
       <key>Arguments</key>
       <dict>
           <key>url</key>
-          <string>%URL%</string>
+          <string>https://www.sony.ch/de/electronics/support/software/%id%</string>
           <key>result_output_var_name</key>
-          <string>download_url</string>
+          <string>download_url_with_backslashes</string>
           <key>re_pattern</key>
-          <string>&lt;a[^&gt;]+?id=".*%id%".*href="([^"]+)"</string>
+          <string>"(https:\\\/\\\/download\.pro\.sony[^"]*MemoryMediaUtility[^"]*mac\.zip)"</string>
       </dict>
     </dict>
+    <dict>
+    <key>Arguments</key>
+    <dict>
+        <key>find</key>
+        <string>\</string>
+        <key>input_string</key>
+        <string>%download_url_with_backslashes%</string>
+        <key>replace</key>
+        <string></string>
+    </dict>
+    <key>Processor</key>
+    <string>com.github.homebysix.FindAndReplace/FindAndReplace</string>
+</dict>
     <dict>
       <key>Processor</key>
       <string>URLDownloader</string>
       <key>Arguments</key>
       <dict>
           <key>url</key>
-          <string>https://www.sonycreativesoftware.com%download_url%</string>
+          <string>%output_string%</string>
           <key>filename</key>
           <string>%NAME%.zip</string>
       </dict>      
