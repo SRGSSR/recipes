@@ -29,7 +29,7 @@
 					<key>result_output_var_name</key>
 					<string>download_url_adding</string>
 					<key>re_pattern</key>
-					<string>.*href="([^"]+.*USB.*dmg)"</string>
+					<string>(?:.*href=.)(.*PunchLightUSButilityM\.dmg)</string>
 			</dict>
 		</dict>
 		<dict>
