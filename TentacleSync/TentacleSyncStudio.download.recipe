@@ -21,9 +21,9 @@
 				<key>Arguments</key>
 				<dict>
 					<key>url</key>
-					<string>https://tentaclesync.zendesk.com/hc/en-us/articles/115003866805-Tentacle-Sync-Studio-macOS-</string>
+					<string>https://tentaclesync.com/downloads/tentacle-sync-studio-macos</string>
 					<key>re_pattern</key>
-					<string>(https://tentaclesync\.com/files/downloads/ttsyncstudio-v\d+_\d+\.dmg)</string>
+					<string>(ttsyncstudio-v\d+_\d+\.dmg)</string>
 					<key>result_output_var_name</key>
 					<string>url</string>
 				</dict>
@@ -34,7 +34,7 @@
 			<key>Arguments</key>
 				<dict>
 					<key>url</key>
-					<string>%url%</string>
+					<string>https://cms.tentaclesync.com/assets/downloads/download-files/%url%</string>
 					<key>filename</key>
 					<string>%NAME%.dmg</string>
 				</dict>
