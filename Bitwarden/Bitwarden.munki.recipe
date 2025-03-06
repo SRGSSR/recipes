@@ -9,7 +9,7 @@
     <key>MinimumVersion</key>
     <string>1.0</string>
     <key>ParentRecipe</key>
-    <string>ch.srgssr.recipes.download.download.Bitwarden</string>
+    <string>ch.srgssr.recipes.download.Bitwarden</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
