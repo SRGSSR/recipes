@@ -2,57 +2,53 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-    <key>Description</key>
-    <string>Downloads and imports latest Bitwarden Desktop DMG into Munki.</string>
-    <key>Identifier</key>
-    <string>ch.srgssr.recipes.munki.Bitwarden</string>
-    <key>MinimumVersion</key>
-    <string>1.0</string>
-    <key>ParentRecipe</key>
-    <string>ch.srgssr.recipes.download.Bitwarden</string>
-    <key>Input</key>
-    <dict>
-        <key>NAME</key>
-        <string>Bitwarden</string>
-        <key>DEVELOPER</key>
-        <string>Bitwarden Inc.</string>
-        <key>MUNKI_REPO_SUBDIR</key>
+	<key>Description</key>
+	<string>Downloads and imports latest Bitwarden Desktop DMG into Munki.</string>
+	<key>Identifier</key>
+	<string>ch.srgssr.recipes.munki.Bitwarden</string>
+	<key>Input</key>
+	<dict>
+		<key>MUNKI_REPO_SUBDIR</key>
         <string>apps/%NAME%</string>
-    </dict>
-    <key>Process</key>
-    <array>
-        <dict>
-            <key>Processor</key>
-            <string>MunkiImporter</string>
-            <key>Arguments</key>
-            <dict>
-                <key>pkg_path</key>
+		<key>NAME</key>
+        <string>Bitwarden</string>
+		<key>pkginfo</key>
+		<dict>
+			<key>catalogs</key>
+			<array>
+				<string>testing</string>
+			</array>
+			<key>description</key>
+			<string>Bitwarden is a free and open-source password manager.</string>
+			<key>developer</key>
+			<string>Bitwarden Inc.</string>
+			<key>display_name</key>
+			<string>%NAME%</string>
+			<key>name</key>
+			<string>%NAME%</string>
+			<key>category</key>
+			<string>Utilities</string>
+			<key>unattended_install</key>
+			<true/>
+		</dict>
+	</dict>
+	<key>MinimumVersion</key>
+	<string>1.0.0</string>
+	<key>ParentRecipe</key>
+	<string>ch.srgssr.recipes.download.Bitwarden</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Processor</key>
+			<string>MunkiImporter</string>
+			<key>Arguments</key>
+			<dict>
+				 <key>pkg_path</key>
                 <string>%RECIPE_CACHE_DIR%/downloads/%NAME%.dmg</string>
-                <key>repo_subdirectory</key>
-                <string>%MUNKI_REPO_SUBDIR%</string>
-                <key>pkginfo</key>
-                <dict>
-                    <key>name</key>
-                    <string>%NAME%</string>
-                    <key>display_name</key>
-                    <string>%NAME%</string>
-                    <key>description</key>
-                    <string>Bitwarden is a free and open-source password manager.</string>
-                    <key>version</key>
-                    <string>%version%</string>
-                    <key>developer</key>
-                    <string>%DEVELOPER%</string>
-                    <key>category</key>
-                    <string>Utilities</string>
-                    <key>minimum_os_version</key>
-                    <string>12.0</string>
-                    <key>autoremove</key>
-                    <true/>
-                    <key>unattended_install</key>
-                    <true/>
-                </dict>
-            </dict>
-        </dict>
-    </array>
+				<key>repo_subdirectory</key>
+				<string>%MUNKI_REPO_SUBDIR%</string>
+			</dict>
+		</dict>
+	</array>
 </dict>
 </plist>
