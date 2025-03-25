@@ -1,5 +1,5 @@
 Description: Downloads the latest version of LiveEdit.
-Identifier: ch.srgssr.download.LiveEdit
+Identifier: com.github.srgssr.download.LiveEdit
 Input:
   NAME: LiveEdit
 MinimumVersion: "2.3"
