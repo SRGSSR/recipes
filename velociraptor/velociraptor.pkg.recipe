@@ -5,7 +5,7 @@
     <key>Description</key>
     <string>Downloads the latest version of Velociraptor and creates a package that installs to /usr/local/velociraptor/</string>
     <key>Identifier</key>
-    <string>com.github.autopkg.pkg.velociraptor</string>
+    <string>com.github.srgssr.pkg.velociraptor</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
@@ -54,7 +54,7 @@
             <key>Arguments</key>
             <dict>
                 <key>file_path</key>
-                <string>%RECIPE_CACHE_DIR%/postinstall</string>
+                <string>%RECIPE_CACHE_DIR%/scripts/postinstall</string>
                 <key>file_content</key>
                 <string>#!/bin/bash
 
@@ -80,10 +80,7 @@ exit 0</string>
                     <key>id</key>
                     <string>com.velocidex.velociraptor</string>
                     <key>scripts</key>
-                    <dict>
-                        <key>postinstall</key>
-                        <string>%RECIPE_CACHE_DIR%/postinstall</string>
-                    </dict>
+                    <string>%RECIPE_CACHE_DIR%/scripts</string>
                     <key>pkgdir</key>
                     <string>%RECIPE_CACHE_DIR%</string>
                     <key>pkgroot</key>
