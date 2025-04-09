@@ -80,35 +80,17 @@ exit 0</string>
                     <key>id</key>
                     <string>com.velocidex.velociraptor</string>
                     <key>options</key>
-                    <string>purge_ds_store</string>
+                    <dict>
+                        <key>pkgdir</key>
+                        <string>%RECIPE_CACHE_DIR%</string>
+                    </dict>
+                    <key>pkgroot</key>
+                    <string>%RECIPE_CACHE_DIR%/pkgroot</string>
                     <key>scripts</key>
                     <dict>
                         <key>postinstall</key>
                         <string>%RECIPE_CACHE_DIR%/postinstall</string>
                     </dict>
-                    <key>chown</key>
-                    <array>
-                        <dict>
-                            <key>path</key>
-                            <string>usr</string>
-                            <key>user</key>
-                            <string>root</string>
-                            <key>group</key>
-                            <string>wheel</string>
-                            <key>mode</key>
-                            <string>0755</string>
-                        </dict>
-                        <dict>
-                            <key>path</key>
-                            <string>usr/local/velociraptor/velociraptor</string>
-                            <key>user</key>
-                            <string>root</string>
-                            <key>group</key>
-                            <string>wheel</string>
-                            <key>mode</key>
-                            <string>0755</string>
-                        </dict>
-                    </array>
                 </dict>
             </dict>
         </dict>
