@@ -5,7 +5,7 @@
     <key>Description</key>
     <string>Downloads the latest version of Velociraptor and creates a package that installs to /usr/local/velociraptor/</string>
     <key>Identifier</key>
-    <string>com.github.srgssr.recipes.pkg.velociraptor</string>
+    <string>com.github.autopkg.pkg.velociraptor</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
@@ -14,7 +14,7 @@
     <key>MinimumVersion</key>
     <string>1.0.0</string>
     <key>ParentRecipe</key>
-    <string>com.github.srgssr.download.velociraptor</string>
+    <string>com.github.autopkg.download.velociraptor</string>
     <key>Process</key>
     <array>
         <dict>
@@ -90,11 +90,23 @@ exit 0</string>
                     <array>
                         <dict>
                             <key>path</key>
-                            <string>usr/local/velociraptor</string>
+                            <string>usr</string>
                             <key>user</key>
                             <string>root</string>
                             <key>group</key>
                             <string>wheel</string>
+                            <key>mode</key>
+                            <string>0755</string>
+                        </dict>
+                        <dict>
+                            <key>path</key>
+                            <string>usr/local/velociraptor/velociraptor</string>
+                            <key>user</key>
+                            <string>root</string>
+                            <key>group</key>
+                            <string>wheel</string>
+                            <key>mode</key>
+                            <string>0755</string>
                         </dict>
                     </array>
                 </dict>
