@@ -32,6 +32,8 @@
                     <string>0755</string>
                     <key>usr/local/velociraptor</key>
                     <string>0755</string>
+                    <key>scripts</key>
+                    <string>0755</string>
                 </dict>
             </dict>
         </dict>
