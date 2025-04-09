@@ -79,18 +79,15 @@ exit 0</string>
                     <string>%version%</string>
                     <key>id</key>
                     <string>com.velocidex.velociraptor</string>
-                    <key>options</key>
-                    <dict>
-                        <key>pkgdir</key>
-                        <string>%RECIPE_CACHE_DIR%</string>
-                    </dict>
-                    <key>pkgroot</key>
-                    <string>%RECIPE_CACHE_DIR%/pkgroot</string>
                     <key>scripts</key>
                     <dict>
                         <key>postinstall</key>
                         <string>%RECIPE_CACHE_DIR%/postinstall</string>
                     </dict>
+                    <key>pkgdir</key>
+                    <string>%RECIPE_CACHE_DIR%</string>
+                    <key>pkgroot</key>
+                    <string>%RECIPE_CACHE_DIR%/pkgroot</string>
                 </dict>
             </dict>
         </dict>
