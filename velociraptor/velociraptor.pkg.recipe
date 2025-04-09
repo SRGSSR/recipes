@@ -17,6 +17,7 @@
     <string>com.github.srgssr.download.velociraptor</string>
     <key>Process</key>
     <array>
+        <!-- Step 1: Create all necessary directories -->
         <dict>
             <key>Processor</key>
             <string>PkgRootCreator</string>
@@ -37,6 +38,8 @@
                 </dict>
             </dict>
         </dict>
+
+        <!-- Step 2: Copy the downloaded Velociraptor binary -->
         <dict>
             <key>Processor</key>
             <string>Copier</string>
@@ -50,6 +53,8 @@
                 <true/>
             </dict>
         </dict>
+
+        <!-- Step 3: Write the postinstall script -->
         <dict>
             <key>Processor</key>
             <string>FileCreator</string>
@@ -68,6 +73,8 @@ exit 0</string>
                 <string>0755</string>
             </dict>
         </dict>
+
+        <!-- Step 4: Create the final .pkg -->
         <dict>
             <key>Processor</key>
             <string>PkgCreator</string>
