@@ -61,7 +61,7 @@
             <key>Arguments</key>
             <dict>
                 <key>file_path</key>
-                <string>%RECIPE_CACHE_DIR%/scripts/postinstall</string>
+                <string>%RECIPE_CACHE_DIR%/pkgroot/scripts/postinstall</string>
                 <key>file_content</key>
                 <string>#!/bin/bash
 
@@ -89,7 +89,7 @@ exit 0</string>
                     <key>id</key>
                     <string>com.velocidex.velociraptor</string>
                     <key>scripts</key>
-                    <string>%RECIPE_CACHE_DIR%/scripts</string>
+                    <string>%RECIPE_CACHE_DIR%/pkgroot/scripts</string>
                     <key>pkgdir</key>
                     <string>%RECIPE_CACHE_DIR%</string>
                     <key>pkgroot</key>
