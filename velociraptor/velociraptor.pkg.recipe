@@ -67,7 +67,7 @@
             </dict>
         </dict>
 
-        <!-- Step 4: get version from %pathnaem% -->
+        <!-- Step 4: get version from %pathname% -->
         <dict>
             <key>Processor</key>
             <string>com.github.jazzace.processors/TextSearcher</string>
