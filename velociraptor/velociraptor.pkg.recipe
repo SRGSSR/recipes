@@ -10,6 +10,8 @@
     <dict>
         <key>NAME</key>
         <string>Velociraptor</string>
+        <key>VERSION_REGEX</key>
+        <string>v(\d+\.\d+\.\d+)</string>
     </dict>
     <key>MinimumVersion</key>
     <string>1.0.0</string>
@@ -33,8 +35,6 @@
                     <string>0755</string>
                     <key>usr/local/velociraptor</key>
                     <string>0755</string>
-                    <key>scripts</key>
-                    <string>0755</string>
                 </dict>
             </dict>
         </dict>
@@ -54,32 +54,32 @@
             </dict>
         </dict>
 
-        <!-- Step 3: Create the postinstall script -->
+        <!-- Step 3: Make Velociraptor executable -->
         <dict>
             <key>Processor</key>
-            <string>FileCreator</string>
+            <string>com.github.jessepeterson.munki.PortfolioClient10/ModeChanger</string>
             <key>Arguments</key>
             <dict>
-                <key>file_path</key>
-                <string>%RECIPE_CACHE_DIR%/pkgroot/scripts/postinstall</string>
-                <key>file_content</key>
-                <string>#!/bin/bash
-
-# Make the velociraptor binary executable
-chmod 755 /usr/local/velociraptor/velociraptor
-
-exit 0</string>
-                <key>file_mode</key>
-                <string>0755</string>
+                <key>filename</key>
+                <string>%RECIPE_CACHE_DIR%/pkgroot/usr/local/velociraptor/velociraptor</string>
+                <key>mode</key>
+                <string>755</string>
             </dict>
         </dict>
 
-        <!-- Step 4: Extract full version number from filename -->
+        <!-- Step 4: get version from %pathnaem% -->
         <dict>
-            <key>Comment</key>
-            <string>Extract version from the downloaded file name</string>
             <key>Processor</key>
-            <string>ch.srgssr.recipe.VersionExtracter/VersionExtracter</string>
+            <string>com.github.jazzace.processors/TextSearcher</string>
+            <key>Arguments</key>
+            <dict>
+                <key>re_pattern</key>
+                <string>%VERSION_REGEX%</string>
+                <key>text_in</key>
+                <string>%pathname%</string>
+                <key>result_output_var_name</key>
+                <string>version</string>
+            </dict>
         </dict>
 
         <!-- Step 5: Build the .pkg -->
@@ -96,8 +96,6 @@ exit 0</string>
                     <string>%version%</string>
                     <key>id</key>
                     <string>com.velocidex.velociraptor</string>
-                    <key>scripts</key>
-                    <string>%RECIPE_CACHE_DIR%/pkgroot/scripts</string>
                     <key>pkgdir</key>
                     <string>%RECIPE_CACHE_DIR%</string>
                     <key>pkgroot</key>
@@ -105,6 +103,19 @@ exit 0</string>
                 </dict>
             </dict>
         </dict>
+
+        <!-- Step 6: Clean-up what we no longer need to save space. -->
+		<dict>
+			<key>Processor</key>
+			<string>PathDeleter</string>		
+			<key>Arguments</key>
+			<dict>
+				<key>path_list</key>
+				<array>
+				    <string>%RECIPE_CACHE_DIR%/pkgroot</string>
+				</array>
+			</dict>		
+		</dict>	
     </array>
 </dict>
 </plist>
