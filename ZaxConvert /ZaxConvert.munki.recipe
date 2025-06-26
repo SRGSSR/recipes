@@ -33,20 +33,21 @@
     <key>MinimumVersion</key>
     <string>1.0.0</string>
     <key>ParentRecipe</key>
-    <string>com.github.srgssr.recipes.download.ZaxConvert</string>
+    <string>com.github.srgssr.download.ZaxConvert</string>
     <key>Process</key>
     <array>
         <dict>
+            <key>Processor</key>
+            <string>MunkiImporter</string>
             <key>Arguments</key>
             <dict>
-                <key>app_path</key>
+                <key>pkg_path</key>
                 <string>%RECIPE_CACHE_DIR%/source/%NAME%.app</string>
                 <key>repo_subdirectory</key>
                 <string>%MUNKI_REPO_SUBDIR%</string>
             </dict>
-            <key>Processor</key>
-            <string>MunkiImporter</string>
         </dict>
+        <!--
 		<dict>
 			<key>Arguments</key>
 			<dict>
@@ -60,6 +61,7 @@
 			<key>Processor</key>
 			<string>MunkiImporter</string>
 		</dict>
+        -->
     </array>
 </dict>
 </plist>
