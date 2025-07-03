@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Comment</key>
+	<string>Created with Christoph Keller</string>
+	<key>Description</key>
+	<string>Downloads the latest LAME pkg from buanzo.org</string>
+	<key>Identifier</key>
+	<string>com.github.srgssr.download.lame</string>
+	<key>Input</key>
+	<dict>
+		<key>NAME</key>
+		<string>lame</string>
+	</dict>
+	<key>MinimumVersion</key>
+	<string>1.0.0</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Processor</key>
+			<string>URLDownloader</string>
+			<key>Arguments</key>
+			<dict>
+				<key>url</key>
+				<string>https://lame.buanzo.org/lame_64bit_osx.pkg</string>
+				<key>filename</key>
+				<string>lame_64bit_osx.pkg</string>
+				<key>download_path</key>
+				<string>%RECIPE_CACHE_DIR%</string>
+			</dict>
+		</dict>
+
+		<dict>
+			<key>Processor</key>
+			<string>EndOfCheckPhase</string>
+		</dict>
+
+		<!-- Optional: Code signature verification – must be adapted to real codesign identity -->
+		<!-- Placeholder requirement removed unless we confirm LAME is signed -->
+		<!--
+		<dict>
+			<key>Processor</key>
+			<string>CodeSignatureVerifier</string>
+			<key>Arguments</key>
+			<dict>
+				<key>input_path</key>
+				<string>%pathname%</string>
+				<key>deep_verification</key>
+				<true/>
+				<key>strict_verification</key>
+				<true/>
+				<key>requirement</key>
+				<string>identifier "org.lame.mp3" and anchor apple generic</string>
+			</dict>
+		</dict>
+		-->
+
+	</array>
+</dict>
+</plist>
