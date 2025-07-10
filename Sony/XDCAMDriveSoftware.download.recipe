@@ -28,6 +28,11 @@
           <string>id</string>
           <key>re_pattern</key>
           <string>(?&lt;=electronics\/support\/software\/)(\d+)(?=.*_mac)</string>
+          <key>request_headers</key>
+    		<dict>
+      			<key>user-agent</key>
+				<string>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4.1 Safari/605.1.15</string>
+    		</dict>
       </dict>
     </dict>
     <dict>
@@ -40,7 +45,7 @@
           <key>result_output_var_name</key>
           <string>download_url_with_backslashes</string>
           <key>re_pattern</key>
-          <string>"(https:\\\/\\\/download\.pro\.sony[^"]*XDCAMDriveSoftware[^"]*mac\.zip)"</string>
+          <string>(https:\\/\\/download\.pro\.sony.*_mac\.zip)</string>
       </dict>
     </dict>
     <dict>
