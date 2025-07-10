@@ -12,8 +12,6 @@
 	<dict>
 			<key>NAME</key>
 			<string>XDCAMDriveSoftware</string>
-			<key>URL</key>
-			<string>https://www.sony.ch/de/electronics/support/results?query=xdcam</string>
 	</dict>
   <key>Process</key>
   <array>
@@ -23,7 +21,7 @@
       <key>Arguments</key>
       <dict>
           <key>url</key>
-          <string>%URL%</string>
+          <string>https://www.sony.ch/de/electronics/support/downloads/results?query=Software%3A+xdcam</string>
           <key>result_output_var_name</key>
           <string>id</string>
           <key>re_pattern</key>
@@ -90,7 +88,7 @@
             <key>Arguments</key>
             <dict>
                <key>pattern</key>
-               <string>%RECIPE_CACHE_DIR%/%NAME%/*/*.dmg</string>
+               <string>%RECIPE_CACHE_DIR%/%NAME%/*.dmg</string>
             </dict>
          </dict>
 		 <dict>
