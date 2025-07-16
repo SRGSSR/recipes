@@ -106,7 +106,7 @@
 				<key>input_path</key>
 				<string>%RECIPE_CACHE_DIR%/payload/Library/Application Support/ChronoSync/WakeToSyncTool</string>
 				<key>requirement</key>
-				<string>identifier "WakeToSyncToolTemplate-55554944f57f8cd96cad3517ab54f2f54a199462" and (certificate leaf[field.1.2.840.113635.100.6.1.9] /* exists */ or certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "9U697UM7YX")</string>
+				<string>anchor apple generic and identifier "WakeToSyncToolTemplate-5555494421076fa1b1bf35c8880746062012e197" and (certificate leaf[field.1.2.840.113635.100.6.1.9] /* exists */ or certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "9U697UM7YX")</string>
 			</dict>
 		</dict>
 		<dict>
