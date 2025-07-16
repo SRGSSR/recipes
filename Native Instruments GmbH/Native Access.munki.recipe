@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>Comment</key>
-	<string>Created with Recipe Robot v1.0.5 (https://github.com/homebysix/recipe-robot)</string>
+	<string>20250703: Rewrite by Jens Junge</string>
 	<key>Description</key>
-	<string>Downloads the latest version of Native Access and imports it into Munki.</string>
+	<string>Imports the latest version of Native Access into Munki.</string>
 	<key>Identifier</key>
 	<string>com.github.srgssr.munki.NativeAccess</string>
 	<key>Input</key>
@@ -13,15 +13,17 @@
 		<key>MUNKI_REPO_SUBDIR</key>
 		<string>apps/%NAME%</string>
 		<key>NAME</key>
-		<string>Native Access</string>
+		<string>NativeAccess</string>
 		<key>pkginfo</key>
 		<dict>
 			<key>catalogs</key>
 			<array>
 				<string>testing</string>
 			</array>
+			<key>category</key>
+			<string>Audio</string>
 			<key>description</key>
-			<string> </string>
+			<string>Erleben Sie eine komfortable neue Art der Verwaltung Ihrer Tools zur Musikproduktion Native Access heute noch herunterladen und installieren.</string>
 			<key>developer</key>
 			<string>Native Instruments GmbH</string>
 			<key>display_name</key>
@@ -30,65 +32,143 @@
 			<string>%NAME%</string>
 			<key>unattended_install</key>
 			<true/>
-				<key>postinstall_script</key>
-					<string>#!/bin/sh
-				/bin/cp /Applications/Native\ Access.app/Contents/Library/LaunchServices/com.native-instruments.NativeAccess.Helper2 /Library/PrivilegedHelperTools</string>
-					<key>preinstall_script</key>
-					<string>#!/bin/sh
-				/bin/cat &lt;&lt;EOF &gt; "/Library/LaunchDaemons/com.native-instruments.NativeAccess.Helper2.plist"
-				&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-				&lt;!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;
-				&lt;plist version="1.0"&gt;
-				&lt;dict&gt;
-					&lt;key&gt;Label&lt;/key&gt;
-					&lt;string&gt;com.native-instruments.NativeAccess.Helper2&lt;/string&gt;
-					&lt;key&gt;MachServices&lt;/key&gt;
-					&lt;dict&gt;
-						&lt;key&gt;com.native-instruments.NativeAccess.Helper2&lt;/key&gt;
-						&lt;true/&gt;
-					&lt;/dict&gt;
-					&lt;key&gt;Program&lt;/key&gt;
-					&lt;string&gt;/Library/PrivilegedHelperTools/com.native-instruments.NativeAccess.Helper2&lt;/string&gt;
-					&lt;key&gt;ProgramArguments&lt;/key&gt;
-					&lt;array&gt;
-						&lt;string&gt;/Library/PrivilegedHelperTools/com.native-instruments.NativeAccess.Helper2&lt;/string&gt;
-					&lt;/array&gt;
-				&lt;/dict&gt;
-				&lt;/plist&gt;
-				EOF</string>
+			<key>postinstall_script</key>
+			<string>#!/bin/bash
+HELPER2_TOOL="/Library/PrivilegedHelperTools/com.native-instruments.NativeAccess.Helper2"
+HELPER2_LAUNCHDAEMON="/Library/LaunchDaemons/com.native-instruments.NativeAccess.Helper2.plist"
+HELPER2_ID="com.native-instruments.NativeAccess.Helper2"
+
+chown root:wheel "$HELPER2_TOOL"
+chmod 755 "$HELPER2_TOOL"
+
+chown root:wheel "$HELPER2_LAUNCHDAEMON"
+chmod 644 "$HELPER2_LAUNCHDAEMON"
+
+# check if launchd is loaded
+if ! launchctl list | grep -q "$HELPER2_ID"; then
+    echo "LaunchDaemon '$HELPER2_ID' not running. Will be started..."
+    if launchctl bootstrap system "$HELPER2_LAUNCHDAEMON"; then
+        echo "launchd successfully started"
+    else
+        echo "Error starting launchd"
+        exit 1
+    fi
+else
+    echo "launchd '$HELPER2_ID' already active"
+fi
+
+# Maybe (but how) recreate IDs in: /Library/Application Support/SW_NativeAccess/Library/Preferences/com.native-instruments.Shared.plist
+
+# script varibles
+APPID=SW_NativeAccess
+OUTSET_MODE=login-once # [ login-once | login-privileged-once | login-every | login-privileged-every ]
+OUTSET_SCRIPT="/usr/local/outset/$OUTSET_MODE/$APPID.sh"
+OUTSET_DATA="/Library/Application Support/$APPID"
+
+# write outset postscript
+/bin/cat &lt;&lt;EOF &gt; "$OUTSET_SCRIPT"
+#!/bin/zsh
+# Your Script Code goes here ...
+# copy outset data to user:
+cp -Rf "$OUTSET_DATA/" "\$HOME/"
+
+# ----------------- Do not change below this line! ------------
+exit 0
+EOF
+
+# Uncomment if you need to update previous versions or rerun the script.
+# /usr/local/outset/outset --add-override "$OUTSET_SCRIPT"
+
+# ----------------- Do not change below this line! ------------
+#outset executable
+/bin/chmod 755 $OUTSET_SCRIPT
+
+# run outset for current user
+ONDEMAND_SCRIPT="/usr/local/outset/on-demand/runOutset.sh"
+/bin/echo '#!/bin/bash' &gt; "$ONDEMAND_SCRIPT"
+/bin/echo "/usr/local/outset/outset --$OUTSET_MODE" &gt;&gt; "$ONDEMAND_SCRIPT"
+/bin/chmod 755 "$ONDEMAND_SCRIPT"
+/usr/bin/touch /private/tmp/.io.macadmins.outset.ondemand.launchd</string>
+			<key>postuninstall_script</key>
+			<string>#!/bin/zsh
+
+# script varibles
+APPID=SW_NativeAccess
+OUTSET_SCRIPT="/usr/local/outset/login-once/$APPID.sh"
+OUTSET_DATA="/Library/Application Support/$APPID"
+
+# remove login-once scriptData and script 
+if [[ -f "$OUTSET_SCRIPT" ]]; then rm -f "$OUTSET_SCRIPT"; fi
+if [[ -d "$OUTSET_DATA" ]]; then rm -Rf "$OUTSET_DATA"; fi
+
+# Remove Data from users
+for USER in /Users/*; do
+    if [[ "$USER" != *"."* &amp;&amp; "$USER" != "/Users/Shared" &amp;&amp; "$USER" != "/Users/h_admin" &amp;&amp; "$USER" != "/Users/root" &amp;&amp; "$USER" != "/Users/dr.house" ]]; then
+		USERNAME=$(echo "$USER" | cut -d '/' -f 3)
+
+		# remove Application Support Data from user's homedirectory
+		rm -f "$USER/Library/Application Support/Native Instruments/NTK/install.json"
+		rm -f "$USER/Library/Preferences/com.native-instruments.NTKDaemon.plist"
+        rm -f "$USER/Library/Preferences/com.native-instruments.Shared.plist"
+    fi
+done
+
+exit 0</string>
+			<key>preinstall_script</key>
+			<string>#!/bin/bash
+HELPER2_LAUNCHDAEMON="/Library/LaunchDaemons/com.native-instruments.NativeAccess.Helper2.plist"
+HELPER2_ID="com.native-instruments.NativeAccess.Helper2"
+
+# check if launchd is loaded
+if launchctl list | grep -q "$HELPER2_ID"; then
+    echo "LaunchDaemon '$HELPER2_ID' läuft. Wird gestoppt..."
+    if launchctl bootout system "$HELPER2_LAUNCHDAEMON"; then
+        echo "launchd successfully stopped"
+    else
+        echo "Error stopping launchd"
+        exit 1
+    fi
+else
+    echo "launchd '$HELPER2_ID' not active"
+fi</string>
 		</dict>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>1.0.0</string>
 	<key>ParentRecipe</key>
-	<string>com.github.srgssr.download.NativeAccess</string>
+	<string>com.github.srgssr.pkg.NativeAccess</string>
 	<key>Process</key>
 	<array>
+
 		<dict>
-			<key>Arguments</key>
-			<dict>
-				<key>additional_pkginfo</key>
-				<dict>
-					<key>version</key>
-					<string>%version%</string>
-				</dict>
-			</dict>
 			<key>Processor</key>
-			<string>MunkiPkginfoMerger</string>
-		</dict>
-		<dict>
+			<string>MunkiImporter</string>
 			<key>Arguments</key>
 			<dict>
 				<key>pkg_path</key>
-				<string>%pathname%</string>
+				<string>%pkg_path%</string>
 				<key>repo_subdirectory</key>
 				<string>%MUNKI_REPO_SUBDIR%</string>
 				<key>version_comparison_key</key>
 				<string>CFBundleVersion</string>
 			</dict>
-			<key>Processor</key>
-			<string>MunkiImporter</string>
 		</dict>
+
+		<!-- Clean-up what we no longer need to save space. 
+		<dict>
+			<key>Processor</key>
+			<string>PathDeleter</string>		
+			<key>Arguments</key>
+			<dict>
+				<key>path_list</key>
+				<array>
+					<string>%RECIPE_CACHE_DIR%/pkgroot</string>
+					<string>%RECIPE_CACHE_DIR%/unpack</string>
+					<string>%RECIPE_CACHE_DIR%/%NAME%-%version%</string>
+				</array>
+			</dict>		
+		</dict>	
+		-->
 	</array>
 </dict>
 </plist>
