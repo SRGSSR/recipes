@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Comment</key>
+	<string>20250703: Created by Jens Junge</string>
+	<key>Description</key>
+	<string>Creates a package that contains Native Access and the Helper Tool. We repackage everything because the NTK Installer requires adminrights at the time of Munki install.</string>
+	<key>Identifier</key>
+	<string>com.github.srgssr.pkg.NativeAccess</string>
+	<key>Input</key>
+	<dict>
+		<key>NAME</key>
+		<string>NativeAccess</string>
+	</dict>
+	<key>MinimumVersion</key>
+	<string>1.0.0</string>
+	<key>ParentRecipe</key>
+	<string>com.github.srgssr.download.NativeAccess</string>
+	<key>Process</key>
+	<array>
+			<!-- Get Version and merge it into MunkiInfo -->
+			<dict>
+			<key>Processor</key>
+			<string>Versioner</string>
+			<key>Arguments</key>
+			<dict>
+				<key>input_plist_path</key>
+				<string>%pathname%/Native Access.app/Contents/Info.plist</string>
+				<key>plist_version_key</key>
+				<string>CFBundleVersion</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>MunkiPkginfoMerger</string>
+			<key>Arguments</key>
+			<dict>
+				<key>additional_pkginfo</key>
+				<dict>
+					<key>version</key>
+					<string>%version%</string>
+				</dict>
+			</dict>
+		</dict>
+
+		<!-- Create the necessary folder structure in pkgroot -->
+		<dict>
+			<key>Processor</key>
+			<string>PkgRootCreator</string>
+			<key>Arguments</key>
+			<dict>
+				<key>pkgroot</key>
+				<string>%RECIPE_CACHE_DIR%/pkgroot</string>
+				<key>pkgdirs</key>
+				<dict>
+					<key>Applications</key>
+					<string>0775</string>
+					<key>Library</key>
+					<string>0755</string>
+					<key>Library/Application Support</key>
+					<string>0755</string>
+					<key>Library/Application Support/SW_NativeAccess</key>
+					<string>0755</string>
+					<key>Library/Application Support/SW_NativeAccess/Library</key>
+					<string>0755</string>
+					<key>Library/Application Support/SW_NativeAccess/Library/Application Support</key>
+					<string>0755</string>
+					<key>Library/Application Support/SW_NativeAccess/Library/Application Support/Native Instruments</key>
+					<string>0755</string>
+					<key>Library/Application Support/SW_NativeAccess/Library/Application Support/Native Instruments/NTK</key>
+					<string>0755</string>
+					<key>Library/Application Support/SW_NativeAccess/Library/Application Support/Native Instruments/Service Center</key>
+					<string>0755</string>
+					<key>Library/Application Support/SW_NativeAccess/Library/Preferences</key>
+					<string>0755</string>
+					<key>Library/LaunchDaemons</key>
+					<string>0755</string>
+					<key>Library/Preferences</key>
+					<string>0755</string>
+					<key>Library/PrivilegedHelperTools</key>
+					<string>0755</string>
+					<key>Users</key>
+					<string>0755</string>
+					<key>Users/Shared</key>
+					<string>0777</string>
+					<key>Users/Shared/Native Instrumensts</key>
+					<string>0777</string>
+				   <key>Users/Shared/Native Instrumensts/Native Access</key>
+					<string>0755</string>
+					<key>Users/Shared/Native Instrumensts/Native Access/ras3</key>
+					<string>0777</string>
+					<key>Users/Shared/Native Instrumensts/NTK</key>
+					<string>0755</string>
+					<key>Users/Shared/Native Instrumensts/Logs</key>
+					<string>0755</string>
+					<key>Users/Shared/Native Instrumensts/Logs/NTK</key>
+					<string>0755</string>
+					<key>Users/Shared/Native Instrumensts/installed_products</key>
+					<string>0755</string>
+				</dict>
+			</dict>
+		</dict>
+
+		<!-- Copy the NativeAccess app intp Applications -->
+		<dict>
+			<key>Comment</key>
+			<string>Copy App inside downloaded DMG into Applications folder.</string>
+			<key>Processor</key>
+			<string>PkgCopier</string>
+			<key>Arguments</key>
+			<dict>
+				<key>source_pkg</key>
+				<string>%pathname%/Native Access.app</string>
+				<key>pkg_path</key>
+				<string>%RECIPE_CACHE_DIR%/pkgroot/Applications/Native Access.app</string>
+			</dict>
+		</dict>
+
+		<!-- Unpack the NTKDaemon flat package which is stored inside the NativeAccess Application -->
+		<dict>
+			<key>Comment</key>
+			<string>Unpack flat pkg to unpack folder.</string>
+			<key>Processor</key>
+			<string>FlatPkgUnpacker</string>
+			<key>Arguments</key>
+			<dict>
+				<key>flat_pkg_path</key>
+				<string>%RECIPE_CACHE_DIR%/pkgroot/Applications/Native Access.app/Contents/Resources/daemon/mac/NTKDaemon Installer Mac.pkg</string>
+				<key>destination_path</key>
+				<string>%RECIPE_CACHE_DIR%/unpack</string>
+			</dict>
+		</dict>
+
+		<!-- unpack NTKDaemon Documentation.pkg -->
+		 <dict>
+			<key>Comment</key>
+			<string>Unpack NTKDaemon Documentation Payload into /Applications</string>
+			<key>Processor</key>
+			<string>PkgPayloadUnpacker</string>
+			<key>Arguments</key>
+			<dict>
+				<key>pkg_payload_path</key>
+				<string>%RECIPE_CACHE_DIR%/unpack/NTKDaemon Documentation.pkg/Payload</string>
+				<key>destination_path</key>
+				<string>%RECIPE_CACHE_DIR%/pkgroot/Applications</string>
+			</dict>
+		</dict>
+
+		<!-- unpack NTKDaemon System Extensions.pkg -->
+		 <dict>
+			<key>Comment</key>
+			<string>Unpack NTKDaemon System Extensions Payload into /Librarty/Application Support</string>
+			<key>Processor</key>
+			<string>PkgPayloadUnpacker</string>
+			<key>Arguments</key>
+			<dict>
+				<key>pkg_payload_path</key>
+				<string>%RECIPE_CACHE_DIR%/unpack/NTKDaemon System Extensions.pkg/Payload</string>
+				<key>destination_path</key>
+				<string>%RECIPE_CACHE_DIR%/pkgroot/Library/Application Support</string>
+			</dict>
+		</dict>
+
+		<!-- Copy Helper2 to PriviledgedHelperTools -->
+		<dict>
+			<key>Comment</key>
+			<string>Copy the Helper2 Application into PriviledgedHelperTools</string>
+			<key>Processor</key>
+			<string>Copier</string>
+			<key>Arguments</key>
+			<dict>
+				<key>source_path</key>
+				<string>%RECIPE_CACHE_DIR%/pkgroot/Library/Application Support/Native Instruments/NTK/NTKDaemon.app/Contents/Library/LaunchServices/com.native-instruments.NativeAccess.Helper2</string>
+				<key>destination_path</key>
+				<string>%RECIPE_CACHE_DIR%/pkgroot/Library/PrivilegedHelperTools/com.native-instruments.NativeAccess.Helper2</string>
+				<key>overwrite</key>
+				<true/>
+			</dict>
+		</dict>
+
+		<!-- Create NTKDaemon Preferences Plist -->
+		<dict>
+			<key>Comment</key>
+			<string>Create system wide plist</string>
+			<key>Processor</key>
+			<string>FileCreator</string>
+			<key>Arguments</key>
+			<dict>
+				<key>file_path</key>
+				<string>%RECIPE_CACHE_DIR%/pkgroot/Library/Preferences/com.native-instruments.NTKDaemon.plist</string>
+				<key>file_mode</key>
+				<string>644</string>
+				<key>file_content</key>
+				<string>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;
+&lt;plist version="1.0"&gt;
+&lt;dict&gt;
+	&lt;key&gt;InstallDir&lt;/key&gt;
+	&lt;string&gt;Macintosh HD:Applications:Native Instruments:NTKDaemon:&lt;/string&gt;
+&lt;/dict&gt;
+&lt;/plist&gt;
+</string>
+			</dict>
+		</dict>
+
+		<!-- Create Helper2 LaunchDaemon -->
+		<dict>
+			<key>Comment</key>
+			<string>Create LaunchDaemon for Helper2 Tool</string>
+			<key>Processor</key>
+			<string>FileCreator</string>
+			<key>Arguments</key>
+			<dict>
+				<key>file_path</key>
+				<string>%RECIPE_CACHE_DIR%/pkgroot/Library/LaunchDaemons/com.native-instruments.NativeAccess.Helper2.plist</string>
+				<key>file_mode</key>
+				<string>644</string>
+				<key>file_content</key>
+				<string>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;
+&lt;plist version="1.0"&gt;
+&lt;dict&gt;
+	&lt;key&gt;Label&lt;/key&gt;
+	&lt;string&gt;com.native-instruments.NativeAccess.Helper2&lt;/string&gt;
+	&lt;key&gt;MachServices&lt;/key&gt;
+	&lt;dict&gt;
+		&lt;key&gt;com.native-instruments.NativeAccess.Helper2&lt;/key&gt;
+		&lt;true/&gt;
+	&lt;/dict&gt;
+	&lt;key&gt;Program&lt;/key&gt;
+	&lt;string&gt;/Library/PrivilegedHelperTools/com.native-instruments.NativeAccess.Helper2&lt;/string&gt;
+	&lt;key&gt;ProgramArguments&lt;/key&gt;
+	&lt;array&gt;
+		&lt;string&gt;/Library/PrivilegedHelperTools/com.native-instruments.NativeAccess.Helper2&lt;/string&gt;
+	&lt;/array&gt;
+&lt;/dict&gt;
+&lt;/plist&gt;</string>
+			</dict>
+		</dict>
+
+		<!-- Create user specific files in outset directory -->
+		<dict>
+			<key>Comment</key>
+			<string>Create user specific install.json</string>
+			<key>Processor</key>
+			<string>FileCreator</string>
+			<key>Arguments</key>
+			<dict>
+				<key>file_path</key>
+				<string>%RECIPE_CACHE_DIR%/pkgroot/Library/Application Support/SW_NativeAccess/Library/Application Support/Native Instruments/NTK/install.json</string>
+				<key>file_mode</key>
+				<string>644</string>
+				<key>file_content</key>
+				<string>{"path":"/Library/Application Support/Native Instruments/NTK/NTKDaemon.app/Contents/MacOS/NTKDaemon"}</string>
+			</dict>
+		</dict>
+		
+		<dict>
+			<key>Comment</key>
+			<string>Create user specific NTKDaemon.plist</string>
+			<key>Processor</key>
+			<string>FileCreator</string>
+			<key>Arguments</key>
+			<dict>
+				<key>file_path</key>
+				<string>%RECIPE_CACHE_DIR%/pkgroot/Library/Application Support/SW_NativeAccess/Library/Preferences/com.native-instruments.NTKDaemon.plist</string>
+				<key>file_mode</key>
+				<string>600</string>
+				<key>file_content</key>
+				<string>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;
+&lt;plist version="1.0"&gt;
+&lt;dict&gt;
+	&lt;key&gt;uret-configuration&lt;/key&gt;
+	&lt;string&gt;2 https://door.event-bus.io/track/&lt;/string&gt;
+	&lt;key&gt;uret-init&lt;/key&gt;
+	&lt;integer&gt;1&lt;/integer&gt;
+&lt;/dict&gt;
+&lt;/plist&gt;</string>
+			</dict>
+		</dict>
+
+		<dict>
+			<key>Comment</key>
+			<string>Create user specific shared plist</string>
+			<key>Processor</key>
+			<string>FileCreator</string>
+			<key>Arguments</key>
+			<dict>
+				<key>file_path</key>
+				<string>%RECIPE_CACHE_DIR%/pkgroot/Library/Application Support/SW_NativeAccess/Library/Preferences/com.native-instruments.Shared.plist</string>
+				<key>file_mode</key>
+				<string>600</string>
+				<key>file_content</key>
+				<string>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;
+&lt;plist version="1.0"&gt;
+&lt;dict&gt;
+	&lt;key&gt;uret-distinct-id&lt;/key&gt;
+	&lt;string&gt;c4684fac-010c-4731-bbb2-cab9f75630ff&lt;/string&gt;
+	&lt;key&gt;uret-machine-id&lt;/key&gt;
+	&lt;string&gt;DA81E408-608A-584A-A1B5-5194E3300F86&lt;/string&gt;
+&lt;/dict&gt;
+&lt;/plist&gt;</string>
+			</dict>
+		</dict>
+
+		<!-- Build the .pkg -->
+		<dict>
+			<key>Processor</key>
+			<string>PkgCreator</string>
+			<key>Arguments</key>
+			<dict>
+				<key>pkg_request</key>
+				<dict>
+					<key>pkgname</key>
+					<string>%NAME%-%version%</string>
+					<key>version</key>
+					<string>%version%</string>
+					<key>id</key>
+					<string>ch.srgssr.pkg.NativeAccess</string>
+					<key>pkgdir</key>
+					<string>%RECIPE_CACHE_DIR%</string>
+					<key>pkgroot</key>
+					<string>%RECIPE_CACHE_DIR%/pkgroot</string>
+					<key>chown</key>
+    				<array>
+    					<dict>
+    						<key>path</key>
+                    		<string>Library/LaunchDaemons/com.native-instruments.NativeAccess.Helper2.plist</string>
+    						<key>user</key>
+                    		<string>root</string>
+    						<key>group</key>
+                    		<string>wheel</string>
+							<key>mode</key>
+                    		<string>0644</string>
+    					</dict>
+    					<dict>
+    						<key>path</key>
+                    		<string>Library/PrivilegedHelperTools/com.native-instruments.NativeAccess.Helper2</string>
+    						<key>user</key>
+                    		<string>root</string>
+    						<key>group</key>
+                    		<string>wheel</string>
+    						<key>mode</key>
+                    		<string>0755</string>
+    					</dict>
+				    </array>
+				</dict>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>
