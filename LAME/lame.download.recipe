@@ -5,13 +5,13 @@
  <key>Comment</key>
  <string>Created with Christoph Keller</string>
  <key>Description</key>
- <string>Downloads the latest version of ZaxConvert.</string>
+ <string>Downloads the latest version of LAME throu the ZaxConvert download link.</string>
  <key>Identifier</key>
- <string>com.github.srgssr.download.ZaxConvert</string>
+ <string>com.github.srgssr.download.lame</string>
  <key>Input</key>
  <dict>
   <key>NAME</key>
-  <string>ZaxConvert</string>
+  <string>LAME</string>
  </dict>
  <key>MinimumVersion</key>
  <string>1.0.0</string>
@@ -129,6 +129,62 @@
             <string>%RECIPE_CACHE_DIR%/source/lame.pkg</string>
         </dict>
     </dict>
+     <!-- CleanUp -->
+        <dict>
+            <key>Processor</key>
+            <string>PathDeleter</string>
+            <key>Arguments</key>
+            <dict>
+                <key>path_list</key>
+                <array>
+                    <string>%RECIPE_CACHE_DIR%/downloads</string>
+                </array>
+            </dict>
+            </dict>
+                        <!-- Find dmg to delete -->
+    <dict>
+        <key>Processor</key>
+        <string>FileFinder</string>
+        <key>Arguments</key>
+        <dict>
+            <key>pattern</key>
+            <string>%RECIPE_CACHE_DIR%/source/*.dmg</string>
+        </dict>
+    </dict>
+                 <!-- CleanUp -->
+        <dict>
+            <key>Processor</key>
+            <string>PathDeleter</string>
+            <key>Arguments</key>
+            <dict>
+                <key>path_list</key>
+                <array>
+                    <string>%found_filename%</string>
+                </array>
+            </dict>
+            </dict>
+                                    <!-- Find app to delete -->
+    <dict>
+        <key>Processor</key>
+        <string>FileFinder</string>
+        <key>Arguments</key>
+        <dict>
+            <key>pattern</key>
+            <string>%RECIPE_CACHE_DIR%/source/*.app</string>
+        </dict>
+    </dict>
+                             <!-- CleanUp -->
+        <dict>
+            <key>Processor</key>
+            <string>PathDeleter</string>
+            <key>Arguments</key>
+            <dict>
+                <key>path_list</key>
+                <array>
+                    <string>%found_filename%</string>
+                </array>
+            </dict>
+            </dict>
     <!--CodeSignatureVerifier doesnt work looks like it not really signed-->
     </array>
 </dict>
