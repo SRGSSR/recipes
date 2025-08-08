@@ -30,18 +30,18 @@
     <string>%RECIPE_CACHE_DIR%/pkg_root</string>
    </dict>
   </dict>
-    <!-- create Applicationsfolder -->
+ <!-- create Applicationsfolder  -->   
     <dict>
         <key>Processor</key>
         <string>PkgRootCreator</string>
         <key>Arguments</key>
         <dict>
-            <key>pkgroot</key>
-            <string>%RECIPE_CACHE_DIR%/pkg_root</string>
             <key>pkgdirs</key>
-            <string>Applications</string>
+            <dict/>
+            <key>pkgroot</key>
+            <string>%RECIPE_CACHE_DIR%/pkg_root/Applications</string>
           </dict>
-    </dict>
+    </dict> 
    <!-- copy ZaxConvert.app into Lame.pkg -->   
 <dict>
     <key>Processor</key>
@@ -51,11 +51,13 @@
         <key>source</key>
         <string>%RECIPE_CACHE_DIR%/source/ZaxConvert.app</string>
         <key>target</key>
-        <string>%RECIPE_CACHE_DIR%/pkg_root/ZaxConvert.app</string>
+        <string>%RECIPE_CACHE_DIR%/pkg_root/Applications/ZaxConvert.app</string>
     </dict>
 </dict>
 <!-- create the new pkg -->
 <dict>
+    <key>Comment</key>
+    <string>Create the installer package</string>
     <key>Processor</key>
     <string>PkgCreator</string>
     <key>Arguments</key>
@@ -64,17 +66,19 @@
         <dict>
             <key>pkgroot</key>
             <string>%RECIPE_CACHE_DIR%/pkg_root</string>
-            <key>identifier</key>
+            <key>pkgdir</key>
+            <string>%RECIPE_CACHE_DIR%</string>
+            <key>pkgname</key>
+            <string>%NAME%</string>
+            <key>id</key>
             <string>com.github.srgssr.pkg.ZaxConvert</string>
             <key>version</key>
-            <string>1.0</string>
-            <key>install_location</key>
-            <string>/</string>
+            <string>1.0.0</string>
+            <key>options</key>
+            <string>purge_ds_store</string>
         </dict>
-        <key>output_path</key>
-        <string>%RECIPE_CACHE_DIR%/MyFinalModified.pkg</string>
     </dict>
-</dict>
+		</dict>
     <!--CodeSignatureVerifier doesnt work looks like it not really signed-->
     </array>
 </dict>
