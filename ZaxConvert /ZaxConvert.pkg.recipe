@@ -78,7 +78,32 @@
             <string>purge_ds_store</string>
         </dict>
     </dict>
-		</dict>
+</dict>
+    <dict>
+        <key>Processor</key>
+        <string>Versioner</string>
+        <key>Arguments</key>
+        <dict>
+            <key>input_plist_path</key>
+            <string>%RECIPE_CACHE_DIR%/pkg_root/Applications/ZaxConvert.app/Contents/Info.plist</string>
+        </dict>
+    </dict>
+    <!-- python read out version from filename -->
+
+    <!--Cleanup
+<dict>
+  <key>Processor</key>
+  <string>PathDeleter</string>
+  <key>Arguments</key>
+  <dict>
+    <key>path_list</key>
+    <array>
+      <string>%RECIPE_CACHE_DIR%/downloads</string>
+      <string>%RECIPE_CACHE_DIR%/pkg_root</string>
+      <string>%RECIPE_CACHE_DIR%/source</string>
+    </array>
+  </dict>
+</dict>-->
     <!--CodeSignatureVerifier doesnt work looks like it not really signed-->
     </array>
 </dict>
