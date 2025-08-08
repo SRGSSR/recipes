@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+<key>ParentRecipe</key>
+<string>com.github.srgssr.download.ZaxConvert</string>
+ <key>Comment</key>
+ <string>Created with Christoph Keller</string>
+ <key>Description</key>
+ <string>Downloads the latest version of ZaxConvert.</string>
+ <key>Identifier</key>
+ <string>com.github.srgssr.pkg.ZaxConvert</string>
+ <key>Input</key>
+ <dict>
+  <key>NAME</key>
+  <string>ZaxConvert</string>
+ </dict>
+ <key>MinimumVersion</key>
+ <string>1.0.0</string>
+ <key>Process</key>
+ <array>
+   <dict>
+   <key>Processor</key>
+   <string>PkgExtractor</string>
+   <key>Arguments</key>
+   <dict>
+    <key>pkg_path</key>
+    <string>%RECIPE_CACHE_DIR%/source/lame.pkg</string>
+    <key>extract_root</key>
+    <string>%RECIPE_CACHE_DIR%/pkg_root</string>
+   </dict>
+  </dict>
+    <!-- create Applicationsfolder -->
+    <dict>
+        <key>Processor</key>
+        <string>PkgRootCreator</string>
+        <key>Arguments</key>
+        <dict>
+            <key>pkgroot</key>
+            <string>%RECIPE_CACHE_DIR%/pkg_root</string>
+            <key>pkgdirs</key>
+            <string>Applications</string>
+          </dict>
+    </dict>
+   <!-- copy ZaxConvert.app into Lame.pkg -->   
+<dict>
+    <key>Processor</key>
+    <string>FileMover</string>
+    <key>Arguments</key>
+    <dict>
+        <key>source</key>
+        <string>%RECIPE_CACHE_DIR%/source/ZaxConvert.app</string>
+        <key>target</key>
+        <string>%RECIPE_CACHE_DIR%/pkg_root/ZaxConvert.app</string>
+    </dict>
+</dict>
+<!-- create the new pkg -->
+<dict>
+    <key>Processor</key>
+    <string>PkgCreator</string>
+    <key>Arguments</key>
+    <dict>
+        <key>pkg_request</key>
+        <dict>
+            <key>pkgroot</key>
+            <string>%RECIPE_CACHE_DIR%/pkg_root</string>
+            <key>identifier</key>
+            <string>com.github.srgssr.pkg.ZaxConvert</string>
+            <key>version</key>
+            <string>1.0</string>
+            <key>install_location</key>
+            <string>/</string>
+        </dict>
+        <key>output_path</key>
+        <string>%RECIPE_CACHE_DIR%/MyFinalModified.pkg</string>
+    </dict>
+</dict>
+    <!--CodeSignatureVerifier doesnt work looks like it not really signed-->
+    </array>
+</dict>
+</plist>
