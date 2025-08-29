@@ -25,7 +25,7 @@
     <key>url</key>
     <string>https://zaxcom.com/product/zaxconvert/</string>
     <key>re_pattern</key>
-    <string>https:\/\/zaxcom\.com\/wp-content\/uploads\/\d{4}\/\d{2}\/Zaxconvert_[\d.]+_PC_MAC\.zip</string>
+            <string>https:\/\/zaxcom\.com\/wp-content\/uploads\/\d{4}\/\d{2}\/Zax[Cc]onvert-MAC-v\d+\.\d+-\d{4}-\d{2}-\d{2}-\d{2}-\d{2}-\d{2}\.zip</string>
     <key>result_output_var_name</key>
     <string>url</string>
    </dict>
@@ -57,43 +57,18 @@
             <string>%RECIPE_CACHE_DIR%/unpack</string>
         </dict>
     </dict>
-
-            <!-- Find inner zip -->
+    <!-- Find the .app file -->
     <dict>
         <key>Processor</key>
         <string>FileFinder</string>
         <key>Arguments</key>
         <dict>
             <key>pattern</key>
-            <string>%RECIPE_CACHE_DIR%/unpack/*/ZaxConvert-*-MAC.zip</string>
+            <string>%RECIPE_CACHE_DIR%/unpack/*/ZaxConvert.app</string>
         </dict>
     </dict>
 
-    <!-- Unarchive inner zip -->
-    <dict>
-        <key>Processor</key>
-        <string>Unarchiver</string>
-        <key>Arguments</key>
-        <dict>
-            <key>archive_path</key>
-            <string>%found_filename%</string>
-            <key>destination_path</key>
-            <string>%RECIPE_CACHE_DIR%/source</string>
-        </dict>
-    </dict>
-
-    <!-- Find the .dmg file -->
-    <dict>
-        <key>Processor</key>
-        <string>FileFinder</string>
-        <key>Arguments</key>
-        <dict>
-            <key>pattern</key>
-            <string>%RECIPE_CACHE_DIR%/unpack/*/lame-*.dmg</string>
-        </dict>
-    </dict>
-
-    <!-- Copy .dmg to source directory -->
+    <!-- Copy .app to source directory -->
     <dict>
         <key>Processor</key>
         <string>Copier</string>
@@ -102,7 +77,7 @@
             <key>source_path</key>
             <string>%found_filename%</string>
             <key>destination_path</key>
-            <string>%RECIPE_CACHE_DIR%/source/lame.dmg</string>
+            <string>%RECIPE_CACHE_DIR%/source/ZaxConvert.app</string>
         </dict>
     </dict>
  <!-- CleanUp -->
@@ -117,18 +92,6 @@
                 </array>
             </dict>
             </dict>
-            <!-- Take PKG out of DMG -->
-        <dict>
-        <key>Processor</key>
-        <string>PkgCopier</string>
-        <key>Arguments</key>
-        <dict>
-            <key>source_pkg</key>
-            <string>%RECIPE_CACHE_DIR%/source/lame.dmg/*.pkg</string>
-            <key>pkg_path</key>
-            <string>%RECIPE_CACHE_DIR%/source/lame.pkg</string>
-        </dict>
-    </dict>
     <!--CodeSignatureVerifier doesnt work looks like it not really signed-->
     </array>
 </dict>
