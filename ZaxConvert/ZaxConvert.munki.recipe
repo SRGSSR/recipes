@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Downloads the latest version of ZaxConvert and imports it into Munki.</string>
+    <string>Downloads ZaxConvert, erstellt ein PKG und importiert es in Munki.</string>
     <key>Identifier</key>
     <string>com.github.srgssr.recipes.munki.ZaxConvert</string>
     <key>Input</key>
@@ -33,9 +33,40 @@
     <key>MinimumVersion</key>
     <string>1.0.0</string>
     <key>ParentRecipe</key>
-    <string>com.github.srgssr.pkg.ZaxConvert</string>
+    <string>com.github.srgssr.download.ZaxConvert</string>
     <key>Process</key>
     <array>
+        <!-- Version aus url auslesen -->
+<dict>
+    <key>Processor</key>
+    <string>URLTextSearcher</string>
+    <key>Arguments</key>
+    <dict>
+        <key>url</key>
+        <string>https://zaxcom.com/product/zaxconvert/</string>
+        <key>re_pattern</key>
+        <string>Zaxconvert_(?P<version>[\d.]+)_PC_MAC\.zip</string>
+        <key>result_output_var_name</key>
+        <string>url</string>
+    </dict>
+</dict>
+
+        <!-- App in PKG verpacken -->
+        <dict>
+            <key>Processor</key>
+            <string>AppPkgCreator</string>
+            <key>Arguments</key>
+            <dict>
+                <key>app_path</key>
+                <string>%RECIPE_CACHE_DIR%/source/ZaxConvert.app</string>
+                <key>pkg_path</key>
+                <string>%RECIPE_CACHE_DIR%/ZaxConvert.pkg</string>
+                <key>version</key>
+                <string>%version%</string>
+            </dict>
+        </dict>
+
+        <!-- PKG in Munki importieren -->
         <dict>
             <key>Processor</key>
             <string>MunkiImporter</string>
@@ -47,21 +78,7 @@
                 <string>%MUNKI_REPO_SUBDIR%</string>
             </dict>
         </dict>
-        <!--
-		<dict>
-			<key>Arguments</key>
-			<dict>
-				<key>app_path</key>
-				<string>%app_path%</string>
-				<key>repo_subdirectory</key>
-				<string>%MUNKI_REPO_SUBDIR%</string>
-				<key>version_comparison_key</key>
-				<string>CFBundleShortVersionString</string>
-			</dict>
-			<key>Processor</key>
-			<string>MunkiImporter</string>
-		</dict>
-        -->
+
     </array>
 </dict>
 </plist>
