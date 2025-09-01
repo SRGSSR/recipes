@@ -73,7 +73,7 @@
             <key>id</key>
             <string>com.github.srgssr.pkg.ZaxConvert</string>
             <key>version</key>
-            <string>1.0.0</string>
+            <string>6.5.7</string>
             <key>options</key>
             <string>purge_ds_store</string>
         </dict>

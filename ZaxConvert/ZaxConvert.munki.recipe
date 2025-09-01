@@ -28,6 +28,8 @@
             <string>%NAME%</string>
             <key>unattended_install</key>
             <true/>
+            <key>version</key>
+            <string>6.5.7</string>
         </dict>
     </dict>
     <key>MinimumVersion</key>
