@@ -17,19 +17,20 @@
  <string>1.0.0</string>
  <key>Process</key>
  <array>
+<dict>
+  <key>Processor</key>
+  <string>URLTextSearcher</string>
+  <key>Arguments</key>
   <dict>
-   <key>Processor</key>
-   <string>URLTextSearcher</string>
-   <key>Arguments</key>
-   <dict>
     <key>url</key>
     <string>https://zaxcom.com/product/zaxconvert/</string>
     <key>re_pattern</key>
     <string>https:\/\/zaxcom\.com\/wp-content\/uploads\/\d{4}\/\d{2}\/Zaxconvert_[\d.]+_PC_MAC\.zip</string>
     <key>result_output_var_name</key>
     <string>url</string>
-   </dict>
   </dict>
+</dict>
+<!-- Downbload -->
   <dict>
    <key>Processor</key>
    <string>URLDownloader</string>
@@ -41,6 +42,24 @@
     <string>%NAME%.zip</string>
    </dict>
   </dict>
+
+<!-- Version aus derselben Produktseite extrahieren -->
+<dict>
+  <key>Processor</key>
+  <string>URLTextSearcher</string>
+  <key>Arguments</key>
+  <dict>
+    <key>url</key>
+    <string>https://zaxcom.com/product/zaxconvert/</string>
+    <key>re_pattern</key>
+    <!-- <string>Zaxconvert_([\d.]+)_PC_MAC\.zip</string> -->
+    <string>https:\/\/zaxcom\.com\/wp-content\/uploads\/\d{4}\/\d{2}\/Zaxconvert_([\d.]+)_PC_MAC\.zip</string>
+    <key>result_output_var_name</key>
+    <string>version</string>
+    <key>encoding</key>
+    <string>latin-1</string>
+  </dict>
+</dict>
             <dict>
    <key>Processor</key>
    <string>EndOfCheckPhase</string>
@@ -57,7 +76,6 @@
             <string>%RECIPE_CACHE_DIR%/unpack</string>
         </dict>
     </dict>
-
             <!-- Find inner zip -->
     <dict>
         <key>Processor</key>
