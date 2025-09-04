@@ -30,7 +30,7 @@
     <string>url</string>
   </dict>
 </dict>
-<!-- Downbload -->
+<!-- Download -->
   <dict>
    <key>Processor</key>
    <string>URLDownloader</string>
