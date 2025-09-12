@@ -33,7 +33,7 @@
     <key>MinimumVersion</key>
     <string>1.0.0</string>
     <key>ParentRecipe</key>
-    <string>com.github.srgssr.download.ZaxConvert</string>
+    <string>com.github.srgssr.pkg.ZaxConvert</string>
     <key>Process</key>
     <array>
         <dict>
