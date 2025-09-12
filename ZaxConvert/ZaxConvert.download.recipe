@@ -7,7 +7,7 @@
  <key>Description</key>
  <string>Downloads the latest version of ZaxConvert.</string>
  <key>Identifier</key>
- <string>com.github.srgssr.download.ZaxConvert</string>
+ <string>com.github.srgssr.recipes.download.ZaxConvert</string>
  <key>Input</key>
  <dict>
   <key>NAME</key>
