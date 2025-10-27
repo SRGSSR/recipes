@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>Imports the latest version of Auto-Align Post 2 into Munki.</string>
+	<key>Identifier</key>
+	<string>com.github.srgssr.recipes.munki.Auto-AlignPost2</string>
+	<key>Input</key>
+	<dict>
+		<key>MUNKI_REPO_SUBDIR</key>
+		<string>apps/%NAME%</string>
+		<key>NAME</key>
+		<string>Auto-AlignPost2</string>
+		<key>pkginfo</key>
+		<dict>
+			<key>catalogs</key>
+			<array>
+				<string>testing</string>
+			</array>
+			<key>description</key>
+			<string>Auto-Align Post 2 is a professional tool for automatic phase correction and time alignment of microphone recordings in post-production. It precisely aligns boom and lavalier microphones to eliminate comb filtering and phase issues. The software features adaptive time and spectral phase correction and integrates seamlessly with major DAWs.</string>
+			<key>developer</key>
+			<string>Sound Radix</string>
+			<key>display_name</key>
+			<string>Auto-Align Post 2</string>
+			<key>name</key>
+			<string>%NAME%</string>
+			<key>unattended_install</key>
+			<true/>
+		</dict>
+	</dict>
+	<key>MinimumVersion</key>
+	<string>1.0.0</string>
+	<key>ParentRecipe</key>
+	<string>com.github.srgssr.recipes.download.Auto-AlignPost2</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Processor</key>
+			<string>MunkiImporter</string>
+			<key>Arguments</key>
+			<dict>
+				<key>pkg_path</key>
+				<string>%pathname%</string>
+				<key>repo_subdirectory</key>
+				<string>%MUNKI_REPO_SUBDIR%</string>
+			</dict>
+
+		</dict>
+	</array>
+</dict>
+</plist>

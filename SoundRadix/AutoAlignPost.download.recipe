@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>Downloads the latest version of Auto-Align Post 2 from Sound Radix homepage.</string>
+	<key>Identifier</key>
+	<string>com.github.srgssr.recipes.download.Auto-AlignPost2</string>
+	<key>Input</key>
+	<dict>
+		<key>NAME</key>
+		<string>Auto-AlignPost2</string>
+	</dict>
+	<key>MinimumVersion</key>
+	<string>1.0.0</string>
+	<key>Process</key>
+	<array>
+        <!-- Getz pkg installer from Sound Radix homepage -->
+		<dict>
+			<key>Processor</key>
+			<string>URLTextSearcher</string>
+			<key>Arguments</key>
+			<dict>
+				<key>url</key>
+				<string>https://www.soundradix.com/products/auto-align-post/</string>
+				<key>re_pattern</key>
+				<string>(https:\/\/assets\.soundradix\.com\/downloads\/Auto-Align\ Post\ 2\.[0-9]\.[0-9]\ Installer\.pkg)</string>
+				<key>result_output_var_name</key>
+				<string>url</string>
+			</dict>
+		</dict>
+        <dict>
+            <key>Processor</key>
+            <string>com.github.homebysix.FindAndReplace/FindAndReplace</string>
+            <key>Arguments</key>
+            <dict>
+                <key>input_string</key>
+                <string>%url%</string>
+                <key>find</key>
+                <string> </string>
+                <key>replace</key>
+                <string>%20</string>
+            </dict>
+        </dict>
+		<dict>
+			<key>Processor</key>
+			<string>URLDownloader</string>
+			<key>Arguments</key>
+			<dict>
+				<key>url</key>
+				<string>%output_string%</string>
+				<key>filename</key>
+				<string>%NAME%.pkg</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>EndOfCheckPhase</string>
+		</dict>
+
+		<!-- unflatten the downloaded package -->
+        <dict>
+            <key>Comment</key>
+            <string>Unpack flat pkg to unpack subdirectory.</string>
+            <key>Processor</key>
+            <string>FlatPkgUnpacker</string>
+            <key>Arguments</key>
+            <dict>
+                <key>flat_pkg_path</key>
+                <string>%pathname%</string>
+                <key>destination_path</key>
+                <string>%RECIPE_CACHE_DIR%/unpack</string>
+            </dict>
+        </dict>
+
+	    <!-- Unpack payload inside the directory "unpack" to the directory "payload" -->
+         <dict>
+            <key>Comment</key>
+            <string>Unpack AAX Plugin</string>
+            <key>Processor</key>
+            <string>PkgPayloadUnpacker</string>
+            <key>Arguments</key>
+            <dict>
+                <key>pkg_payload_path</key>
+                <string>%RECIPE_CACHE_DIR%/unpack/AAX.pkg/Payload</string>
+                <key>destination_path</key>
+                <string>%RECIPE_CACHE_DIR%/payload/AAX</string>
+            </dict>
+        </dict>
+        <dict>
+          <key>Comment</key>
+            <string>Unpack AU Plugin</string>
+            <key>Processor</key>
+            <string>PkgPayloadUnpacker</string>
+            <key>Arguments</key>
+            <dict>
+                <key>pkg_payload_path</key>
+                <string>%RECIPE_CACHE_DIR%/unpack/AU_ARA2_(Intel_&amp;_Rosetta2).pkg/Payload</string>
+                <key>destination_path</key>
+                <string>%RECIPE_CACHE_DIR%/payload/AU</string>
+            </dict>
+        </dict>
+        <dict>
+          <key>Comment</key>
+            <string>Unpack DaVinci Resolve Plug-in</string>
+            <key>Processor</key>
+            <string>PkgPayloadUnpacker</string>
+            <key>Arguments</key>
+            <dict>
+                <key>pkg_payload_path</key>
+                <string>%RECIPE_CACHE_DIR%/unpack/DaVinci_Resolve_Plug-in.pkg/Payload</string>
+                <key>destination_path</key>
+                <string>%RECIPE_CACHE_DIR%/payload/DavinciResolve</string>
+            </dict>
+        </dict>
+        <dict>
+          <key>Comment</key>
+            <string>Shared pkg</string>
+            <key>Processor</key>
+            <string>PkgPayloadUnpacker</string>
+            <key>Arguments</key>
+            <dict>
+                <key>pkg_payload_path</key>
+                <string>%RECIPE_CACHE_DIR%/unpack/Shared.pkg/Payload</string>
+                <key>destination_path</key>
+                <string>%RECIPE_CACHE_DIR%/payload/Shared</string>
+            </dict>
+        </dict>
+        <dict>
+          <key>Comment</key>
+            <string>Unpack VST3 Plugin</string>
+            <key>Processor</key>
+            <string>PkgPayloadUnpacker</string>
+            <key>Arguments</key>
+            <dict>
+                <key>pkg_payload_path</key>
+                <string>%RECIPE_CACHE_DIR%/unpack/VST3.pkg/Payload</string>
+                <key>destination_path</key>
+                <string>%RECIPE_CACHE_DIR%/payload/VST3</string>
+            </dict>
+        </dict>
+
+  <!-- Verify all code signatures -->
+        <dict>
+            <key>Comment</key>
+            <string>Verify Signature of aax plug-in</string>
+            <key>Processor</key>
+            <string>CodeSignatureVerifier</string>
+            <key>Arguments</key>
+            <dict>
+                <key>input_path</key>
+                <string>%RECIPE_CACHE_DIR%/payload/AAX/Library/Application Support/Avid/Audio/Plug-Ins/AutoAlignPost.aaxplugin</string>
+                <key>requirement</key>
+                <string>identifier "com.soundradix.AutoAlignPost" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "9ZTHPRB4MV"</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Comment</key>
+            <string>Verify Signature of component plug-in</string>
+            <key>Processor</key>
+            <string>CodeSignatureVerifier</string>
+            <key>Arguments</key>
+            <dict>
+                <key>input_path</key>
+                <string>%RECIPE_CACHE_DIR%/payload/AU/Library/Audio/Plug-Ins/Components/AutoAlignPost.component</string>
+                <key>requirement</key>
+                <string>identifier "com.soundradix.AutoAlignPost" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "9ZTHPRB4MV"</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Comment</key>
+            <string>Verify Signature of DaVinci Resolve plug-in</string>
+            <key>Processor</key>
+            <string>CodeSignatureVerifier</string>
+            <key>Arguments</key>
+            <dict>
+                <key>input_path</key>
+                <string>%RECIPE_CACHE_DIR%/payload/DavinciResolve/Library/Application Support/Blackmagic Design/DaVinci Resolve/Workflow Integration Plugins/AutoAlignPost/WorkflowIntegration.node</string>
+                <key>requirement</key>
+                <string>identifier "com.blackmagic-design.WorkflowIntegration" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "9ZGFBWLSYP"</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Comment</key>
+            <string>Verify Signature of AutoAlignPost.app</string>
+            <key>Processor</key>
+            <string>CodeSignatureVerifier</string>
+            <key>Arguments</key>
+            <dict>
+                <key>input_path</key>
+                <string>%RECIPE_CACHE_DIR%/payload/Shared/Library/Application Support/Sound Radix/Auto-Align Post 2/AutoAlignPost.app</string>
+                <key>requirement</key>
+                <string>identifier "com.soundradix.AutoAlignPost" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "9ZTHPRB4MV"</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Comment</key>
+            <string>Verify Signature of Clarity M.vst3</string>
+            <key>Processor</key>
+            <string>CodeSignatureVerifier</string>
+            <key>Arguments</key>
+            <dict>
+                <key>input_path</key>
+                <string>%RECIPE_CACHE_DIR%/payload/VST3/Library/Audio/Plug-Ins/VST3/AutoAlignPost.vst3</string>
+                <key>requirement</key>
+                <string>identifier "com.soundradix.AutoAlignPost" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "9ZTHPRB4MV"</string>
+            </dict>
+        </dict>
+
+		<!-- clean up -->
+		<dict>
+            <key>Comment</key>
+            <string>Purge everything we no longer need</string>
+			<key>Processor</key>
+			<string>PathDeleter</string>
+			<key>Arguments</key>
+			<dict>
+				<key>path_list</key>
+				<array>
+					<string>%RECIPE_CACHE_DIR%/unpack</string>
+                    <string>%RECIPE_CACHE_DIR%/payload</string>
+				</array>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>
