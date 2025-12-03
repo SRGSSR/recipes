@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Identifier</key>
+	<string>com.github.srgssr.munki.AffinityPhoto2</string>
+	<key>Input</key>
+	<dict>
+		<key>MUNKI_REPO_SUBDIR</key>
+		<string>apps/Serif/Affinity Photo 2</string>
+		<key>NAME</key>
+		<string>Affinity Photo 2</string>
+		<key>PRODUCT</key>
+		<string>photo</string>
+        <key>LICENSE_KEY</key>
+		<string></string>
+        <key>registrationTo</key>
+		<string></string>
+		<key>signature</key>
+		<string></string>
+		<key>userCount</key>
+		<string></string>
+		<key>disableCheckForUpdates</key>
+		<string>true</string> <!-- true / false -->
+		<key>disableCrashReports</key> 
+		<string>true</string> <!-- true / false -->
+		<key>disableEULA</key>
+		<string>true</string> <!-- true / false -->
+		<key>disableRegistration</key>
+		<string>true</string> <!-- true / false -->
+		<key>pkginfo</key>
+        <dict>
+            <key>catalogs</key>
+			<array>
+				<string>testing</string>
+			</array>
+			<key>category</key>
+			<string>Graphics</string>
+			<key>description</key>
+			<string>Affinity Photo is a professional-grade photo editing and raster graphics editor known for being a powerful, subscription-free alternative to Adobe Photoshop.</string>
+			<key>developer</key>
+			<string>Serif</string>
+			<key>display_name</key>
+			<string>Affinity Photo</string>
+			<key>name</key>
+			<string>%NAME%</string>
+			<key>unattended_install</key>
+			<false/>
+		</dict>
+	</dict>
+	<key>ParentRecipe</key>
+	<string>com.github.faumac.pkg.AffinityPhoto2</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Processor</key>
+			<string>MunkiImporter</string>
+			<key>Arguments</key>
+			<dict>
+				<key>pkg_path</key>
+				<string>%pkg_path%</string>
+				<key>repo_subdirectory</key>
+				<string>%MUNKI_REPO_SUBDIR%</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Comment</key>
+			<string>Purge everything we no longer need</string>
+			<key>Processor</key>
+			<string>PathDeleter</string>
+			<key>Arguments</key>
+			<dict>
+				<key>path_list</key>
+				<array>
+					<string>%RECIPE_CACHE_DIR%/pkgroot</string>
+					<string>%RECIPE_CACHE_DIR%/scripts</string>
+					<string>%RECIPE_CACHE_DIR%/downloads/Affinity Photo 2.app</string>
+					<string>%RECIPE_CACHE_DIR%/Affinity Photo 2-%version%.pkg</string>
+				</array>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>
