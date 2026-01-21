@@ -5,11 +5,11 @@
 	<key>Description</key>
 	<string>Downloads the latest version of Tentacle Float Converter.</string>
 	<key>Identifier</key>
-	<string>com.github.srgssr.download.TentacleFloatConverter</string>
+	<string>com.github.srgssr.download.TentacleSyncFloatConverter</string>
 	<key>Input</key>
 	<dict>
 		<key>NAME</key>
-		<string>TentacleFloatConverter</string>
+		<string>TentacleSyncFloatConverter</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>1.0.0</string>

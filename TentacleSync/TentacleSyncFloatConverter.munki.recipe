@@ -5,13 +5,13 @@
 	<key>Description</key>
 	<string>Downloads the latest version of Tentacle Float Converter and imports it into Munki.</string>
 	<key>Identifier</key>
-	<string>com.github.srgssr.munki.TentacleFloatConverter</string>
+	<string>com.github.srgssr.munki.TentacleSyncFloatConverter</string>
 	<key>Input</key>
 	<dict>
 		<key>MUNKI_REPO_SUBDIR</key>
 		<string>apps/%NAME%</string>
 		<key>NAME</key>
-		<string>TentacleFloatConverter</string>
+		<string>TentacleSyncFloatConverter</string>
 		<key>pkginfo</key>
 		<dict>
 			<key>catalogs</key>
@@ -33,7 +33,7 @@
 	<key>MinimumVersion</key>
 	<string>1.0.0</string>
 	<key>ParentRecipe</key>
-	<string>com.github.srgssr.download.TentacleFloatConverter</string>
+	<string>com.github.srgssr.download.TentacleSyncFloatConverter</string>
 	<key>Process</key>
 	<array>
 		<dict>
