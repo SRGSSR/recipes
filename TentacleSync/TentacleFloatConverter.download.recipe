@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>Downloads the latest version of Tentacle Sync Studio.</string>
+	<string>Downloads the latest version of Tentacle Float Converter.</string>
 	<key>Identifier</key>
-	<string>com.github.srgssr.download.TentacleSyncStudio</string>
+	<string>com.github.srgssr.download.TentacleFloatConverter</string>
 	<key>Input</key>
 	<dict>
 		<key>NAME</key>
