@@ -16,7 +16,7 @@
 		<dict>
 			<key>catalogs</key>
 			<array>
-				<string>testing</string>
+				<string>QA</string>
 			</array>
 			<key>description</key>
 			<string>allows you to batch convert 32 bit "float wave files" from your TRACK E into standard 24-bit wave files while keeping all metadata</string>
