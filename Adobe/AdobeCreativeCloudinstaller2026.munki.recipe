@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>Download the latest version of the Adobe Creative Cloud Universal Installer from the preview server and imports it into Munki.</string>
+	<key>Comment</key>
+	<string>Modified by: Jens Junge
+	Modification date: 2025-02-04
+	Derived from com.github.joshua-d-miller.autopkg.munki.AdobeCreativeCloudInstallerUniversal. 
+	- Added DMG Creator as we had some issues with munki downloading the PKG.
+	- Inject Version into installcheck_script.
+	- 2023-07-19: unified recipt for differenbt AUSST Servers
+	- 2025-02-04: moved from CC2024 to CC2025</string>
+	<key>Identifier</key>
+	<string>com.github.srgssr.munki.CreativeCloudInstaller2026</string>
+	<key>Input</key>
+	<dict>
+		<key>NAME</key>
+		<string>CreativeCloudInstaller2026</string>
+		<key>VENDOR</key>
+		<string>Adobe</string>
+		<key>NAMEWITHOUTSPACES</key>
+		<string>CreativeCloudInstaller</string>
+		<key>AUSST_SERVER</key>
+		<string>http://your.server.goes.here</string>
+		<key>MUNKI_CATEGORY</key>
+		<string>Creative Cloud</string>
+		<key>MUNKI_DEVELOPER</key>
+		<string>Adobe Systems Inc.</string>
+		<key>MUNKI_REPO_SUBDIR</key>
+		<string>apps/adobe</string>
+		<key>pkginfo</key>
+		<dict>
+			<key>catalogs</key>
+			<array>
+				<string>testing</string>
+			</array>
+			<key>developer</key>
+			<string>%MUNKI_DEVELOPER%</string>
+			<key>category</key>
+			<string>%MUNKI_CATEGORY%</string>
+			<key>description</key>
+			<string>This is the Preview application for Adobe CC 2026 connects to the preview server.</string>
+			<key>display_name</key>
+			<string>Adobe Creative Cloud Desktop 2026 Preview Server</string>
+			<key>name</key>
+			<string>%NAME%</string>
+			<key>unattended_install</key>
+			<true/>
+		</dict>
+	</dict>
+	<key>MinimumVersion</key>
+	<string>2.0.0</string>
+	<key>ParentRecipe</key>
+	<string>com.github.rtrouton.pkg.AdobeCreativeCloudInstallerUniversal</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Comment</key>
+			<string>Create a subdirectory for the PKG we want to wrap inside a DMG</string>
+			<key>Processor</key>
+			<string>PkgRootCreator</string>
+			<key>Arguments</key>
+			<dict>
+				<key>pkgdirs</key>
+				<dict/>
+				<key>pkgroot</key>
+				<string>%RECIPE_CACHE_DIR%/dmg</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Comment</key>
+			<string>Move pkg into dmg directory so we can create the DMG from there.</string>
+			<key>Processor</key>
+			<string>FileMover</string>
+			<key>Arguments</key>
+			<dict>
+				<key>source</key>
+				<string>%RECIPE_CACHE_DIR%/%VENDOR%%NAMEWITHOUTSPACES%-Universal-%version%.pkg</string>
+				<key>target</key>
+				<string>%RECIPE_CACHE_DIR%/dmg/%VENDOR%%NAMEWITHOUTSPACES%-Universal-%version%.pkg</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Comment</key>
+			<string>Create DMG from whats inside directory dmg.</string>
+			<key>Processor</key>
+			<string>DmgCreator</string>
+			<key>Arguments</key>
+			<dict>
+				<key>dmg_root</key>
+				<string>%RECIPE_CACHE_DIR%/dmg</string>
+				<key>dmg_path</key>
+				<string>%RECIPE_CACHE_DIR%/%NAME%-%version%.dmg</string>
+			</dict>
+		</dict>
+        <dict>
+            <key>Processor</key>
+            <string>MunkiPkginfoMerger</string>
+            <key>Arguments</key>
+            <dict>
+                <key>additional_pkginfo</key>
+                <dict>
+					<key>installcheck_script</key>
+					<string>#!/bin/bash
+APPPLIST="/Applications/Utilities/Adobe Creative Cloud/ACC/Creative Cloud.app/Contents/Info.plist"
+CONFIG="/Library/Application Support/Adobe/AAMUpdater/1.0/AdobeUpdater.Overrides" 
+SERVER=%AUSST_SERVER%
+THIS_CCVERSION=2026
+VERSION=%version%
+
+# Taken from: https://stackoverflow.com/questions/4023830/how-to-compare-two-strings-in-dot-separated-version-format-in-bash/4025065#4025065
+vercomp () {
+    if [[ $1 == $2 ]]
+    then
+        return 0
+    fi
+    local IFS=.
+    local i ver1=($1) ver2=($2)
+    # fill empty fields in ver1 with zeros
+    for ((i=${#ver1[@]}; i&lt;${#ver2[@]}; i++))
+    do
+        ver1[i]=0
+    done
+    for ((i=0; i&lt;${#ver1[@]}; i++))
+    do
+        if [[ -z ${ver2[i]} ]]
+        then
+            # fill empty fields in ver2 with zeros
+            ver2[i]=0
+        fi
+        if ((10#${ver1[i]} &gt; 10#${ver2[i]}))
+        then
+            return 1
+        fi
+        if ((10#${ver1[i]} &lt; 10#${ver2[i]}))
+        then
+            return 2
+        fi
+    done
+    return 0
+}
+
+if [[ ! -e "$APPPLIST" ]]; then exit 0; fi
+
+# No Version available -&gt; reinstall
+appVersion=$(defaults read "$APPPLIST" CFBundleShortVersionString)
+if [[ -z "appVersion" ]]; then exit 0; fi
+
+# Version installed &lt; version to be installed -&gt; install
+vercomp "$VERSION" "$appVersion"
+result=$?
+if [[  $result -eq 1  ]]; then exit 0; fi
+
+# Major Version of CC is the one we need to install?
+if [[ -e "$CONFIG" ]]; then
+	INSTALLED_CCVERSION=$(cat "$CONFIG" | grep /ACC/services/ffc/products/ | cut -d '/' -f 7 | cut -d 'f' -f 1)
+	if [[ "$INSTALLED_CCVERSION" != "$THIS_CCVERSION" ]]; then
+		# wrong CC version -&gt; we need to update. 
+		exit 0
+	fi
+fi
+
+# Are we on the right server Preview / Production?
+if [[ -e "$CONFIG" ]]; then
+    if ! grep -q "$SERVER" "$CONFIG"; then
+		# wrong server -&gt; we need to update. 
+        exit 0
+    fi
+fi
+
+exit 1</string>
+                </dict>
+            </dict>
+        </dict>
+		<dict>
+			<key>Processor</key>
+			<string>MunkiImporter</string>
+			<key>Arguments</key>
+			<dict>
+				<key>pkg_path</key>
+				<string>%RECIPE_CACHE_DIR%/%NAME%-%version%.dmg</string>
+				<key>repo_subdirectory</key>
+				<string>%MUNKI_REPO_SUBDIR%</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>PathDeleter</string>		
+			<key>Arguments</key>
+			<dict>
+				<key>path_list</key>
+				<array>
+					<string>%RECIPE_CACHE_DIR%/dmg</string>
+					<string>%RECIPE_CACHE_DIR%/%NAME%-%version%.dmg</string>
+				</array>
+			</dict>
+		</dict>	
+	</array>
+</dict>
+</plist>
