@@ -28,6 +28,11 @@
                 <string>(https://download.qnap.com/Storage/Utility/QNAPQfinderProMac-7.+\.dmg)</string>
 		        <key>result_output_var_name</key>
 		        <string>url</string>
+		        <key>request_headers</key>
+		        <dict>
+		            <key>User-Agent</key>
+		            <string>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36</string>
+		        </dict>
         	</dict>
         </dict>
 		<dict>
