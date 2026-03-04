@@ -42,21 +42,23 @@
 			<key>Processor</key>
 			<string>Unarchiver</string>
 			<key>Arguments</key>
-            <dict>
+			<dict>
 				<key>purge_destination</key>
 				<string>True</string>
-            </dict>
+			</dict>
 		</dict>	
 		<dict>
 			<key>Processor</key>
-            <string>FileFinder</string>
-            <key>Arguments</key>
-            <dict>
-               <key>pattern</key>
-               <string>%RECIPE_CACHE_DIR%/%NAME%/*/*.dmg</string>
-            </dict>
+			<string>FileFinder</string>
+			<key>Arguments</key>
+			<dict>
+				<key>pattern</key>
+				<string>%RECIPE_CACHE_DIR%/%NAME%/*/*.dmg</string>
+			</dict>
 		</dict>
 		<dict>
+			<key>Processor</key>
+			<string>MunkiImporter</string>
 			<key>Arguments</key>
 			<dict>
 				<key>pkg_path</key>
@@ -64,8 +66,17 @@
 				<key>repo_subdirectory</key>
 				<string>%MUNKI_REPO_SUBDIR%</string>
 			</dict>
+		</dict>
+		<dict>
 			<key>Processor</key>
-			<string>MunkiImporter</string>
+			<string>PathDeleter</string>
+			<key>Arguments</key>
+			<dict>
+				<key>path_list</key>
+				<array>
+					<string>%RECIPE_CACHE_DIR%/MemoryMediaUtility</string>
+				</array>
+			</dict>
 		</dict>
 	</array>
 </dict>
