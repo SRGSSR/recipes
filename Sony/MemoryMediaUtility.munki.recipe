@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>Downloads the latest version of MemoryMediaUtility and imports it into Munki.</string>
+	<key>Identifier</key>
+	<string>com.github.srgssr.munki.MemoryMediaUtility</string>
+	<key>Input</key>
+	<dict>
+		<key>MUNKI_REPO_SUBDIR</key>
+		<string>Sony/MemoryMediaUtility</string>
+		<key>NAME</key>
+		<string>MemoryMediaUtility</string>
+		<key>pkginfo</key>
+		<dict>
+			<key>catalogs</key>
+			<array>
+				<string>testing</string>
+			</array>
+			<key>description</key>
+			<string>Memory Media Utility is software for enhanced convenience in media management that can be used with SxS memory cards.</string>
+			<key>developer</key>
+			<string>Sony</string>
+			<key>display_name</key>
+			<string>Memory Media Utility</string>
+			<key>name</key>
+			<string>%NAME%</string>
+			<key>category</key>
+			<string>Tools</string>
+			<key>unattended_install</key>
+			<true/>
+		</dict>
+	</dict>
+	<key>MinimumVersion</key>
+	<string>1.0.0</string>
+	<key>ParentRecipe</key>
+	<string>com.github.srgssr.download.MemoryMediaUtility</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Processor</key>
+			<string>Unarchiver</string>
+			<key>Arguments</key>
+            <dict>
+				<key>purge_destination</key>
+				<string>True</string>
+            </dict>
+		</dict>	
+		<dict>
+			<key>Processor</key>
+            <string>FileFinder</string>
+            <key>Arguments</key>
+            <dict>
+               <key>pattern</key>
+               <string>%RECIPE_CACHE_DIR%/%NAME%/*/*.dmg</string>
+            </dict>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>pkg_path</key>
+				<string>%found_filename%</string>
+				<key>repo_subdirectory</key>
+				<string>%MUNKI_REPO_SUBDIR%</string>
+			</dict>
+			<key>Processor</key>
+			<string>MunkiImporter</string>
+		</dict>
+	</array>
+</dict>
+</plist>
