@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>Downloads the latest version of the desired major TeamViewer Host version (v15 or later) with your custom design ID.
+
+NOTE: As of v15.7x TeamViewer ships the custom Host as a DMG (dl.teamviewer.com/download/version_NNx/CustomDesign/TeamViewerHost-CUSTOMID.dmg) containing an "Install TeamViewerHost.app" wrapper, which itself embeds the real flat installer pkg at Contents/Resources/Install TeamViewerHost.pkg. This recipe only downloads and code-signature-verifies the DMG/wrapper app; the child pkg recipe extracts the embedded pkg.</string>
+    <key>Identifier</key>
+    <string>com.github.srgssr.download.TeamViewerHostCustom</string>
+    <key>Input</key>
+    <dict>
+        <key>TEAMVIEWER_VERSION</key>
+        <string>15</string>
+        <key>TEAMVIEWER_CUSTOM_ID</key>
+        <string>CUSTOM_ID</string>
+        <key>NAME</key>
+        <string>TeamViewerHostCustom</string>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.5.0</string>
+    <key>Process</key>
+    <array>
+        <dict>
+            <key>Comment</key>
+            <string>Ensure we're processing v15 or later</string>
+            <key>Arguments</key>
+            <dict>
+                <key>predicate</key>
+                <string>%TEAMVIEWER_VERSION% &lt; 15</string>
+            </dict>
+            <key>Processor</key>
+            <string>StopProcessingIf</string>
+        </dict>
+        <dict>
+            <key>Arguments</key>
+            <dict>
+                <key>filename</key>
+                <string>%NAME%-%TEAMVIEWER_CUSTOM_ID%.dmg</string>
+                <key>url</key>
+                <string>https://dl.teamviewer.com/download/version_%TEAMVIEWER_VERSION%x/CustomDesign/TeamViewerHost-%TEAMVIEWER_CUSTOM_ID%.dmg</string>
+            </dict>
+            <key>Processor</key>
+            <string>URLDownloader</string>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>EndOfCheckPhase</string>
+        </dict>
+        <dict>
+            <key>Comment</key>
+            <string>Verify the installer wrapper app inside the downloaded DMG</string>
+            <key>Arguments</key>
+            <dict>
+                <key>requirement</key>
+                <string>anchor apple generic and identifier "com.teamviewer.hostinstallerwrapper" and (certificate leaf[field.1.2.840.113635.100.6.1.9] /* exists */ or certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = H7UGFBUGV6)</string>
+                <key>input_path</key>
+                <string>%pathname%/Install TeamViewerHost.app</string>
+            </dict>
+            <key>Processor</key>
+            <string>CodeSignatureVerifier</string>
+        </dict>
+    </array>
+</dict>
+</plist>
