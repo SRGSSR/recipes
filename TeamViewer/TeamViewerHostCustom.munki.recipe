@@ -111,6 +111,7 @@ fi</string>
                 <array>
                     <string>com.teamviewer.RemotePrintingPackage</string>
                     <string>com.teamviewer.teamviewerhostSilentInstaller</string>
+                    <string>com.teamviewer.teamviewerSilentInstaller</string>
                 </array>
             </dict>
             <key>Processor</key>
