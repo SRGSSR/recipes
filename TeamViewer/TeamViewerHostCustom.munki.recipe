@@ -75,6 +75,19 @@ fi</string>
                     <string>%min_os_version%</string>
                     <key>version</key>
                     <string>%version%</string>
+                    <key>installs</key>
+                    <array>
+                        <dict>
+                            <key>type</key>
+                            <string>application</string>
+                            <key>path</key>
+                            <string>/Applications/TeamViewerHost.app</string>
+                            <key>CFBundleIdentifier</key>
+                            <string>com.teamviewer.TeamViewerHost</string>
+                            <key>CFBundleShortVersionString</key>
+                            <string>%version%</string>
+                        </dict>
+                    </array>
                 </dict>
             </dict>
             <key>Processor</key>
@@ -92,30 +105,6 @@ fi</string>
             </dict>
             <key>Processor</key>
             <string>MunkiImporter</string>
-        </dict>
-        <dict>
-            <key>Comment</key>
-            <string>Ensure we actually imported something</string>
-            <key>Arguments</key>
-            <dict>
-                <key>predicate</key>
-                <string>munki_repo_changed == FALSE</string>
-            </dict>
-            <key>Processor</key>
-            <string>StopProcessingIf</string>
-        </dict>
-        <dict>
-            <key>Arguments</key>
-            <dict>
-                <key>pkg_ids_set_optional_true</key>
-                <array>
-                    <string>com.teamviewer.RemotePrintingPackage</string>
-                    <string>com.teamviewer.teamviewerhostSilentInstaller</string>
-                    <string>com.teamviewer.teamviewerSilentInstaller</string>
-                </array>
-            </dict>
-            <key>Processor</key>
-            <string>MunkiOptionalReceiptEditor</string>
         </dict>
     </array>
 </dict>
