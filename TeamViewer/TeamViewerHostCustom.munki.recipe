@@ -86,6 +86,8 @@ fi</string>
                             <string>com.teamviewer.TeamViewerHost</string>
                             <key>CFBundleShortVersionString</key>
                             <string>%version%</string>
+                            <key>version_comparison_key</key>
+                            <string>CFBundleShortVersionString</string>
                         </dict>
                     </array>
                 </dict>
