@@ -92,23 +92,29 @@ fi</string>
                     </array>
                     <key>installcheck_script</key>
                     <string>#!/bin/bash
-# Skip TeamViewer Host on machines that have the full TeamViewer client
-# (the two are mutually exclusive); otherwise install or update Host.
-# Exit 0 = needs install, non-zero = not needed.
+# Skip TeamViewer Host when the full TeamViewer client is present
+# (the two are mutually exclusive); else install or update Host.
+# Exit 0 means install is needed, non-zero means not needed.
+# NOTE: deliberately avoids the shell operators that require XML
+# escaping (no and-and, or-or, or redirects) so the pkginfo carries no
+# XML entities for downstream tooling to mangle.
 full_app="/Applications/TeamViewer.app"
 host_app="/Applications/TeamViewerHost.app"
 managed_version="%version%"
-
-# Full client present -&gt; Host not wanted on this machine
-[ -d "$full_app" ] &amp;&amp; exit 1
-
-# Host not installed -&gt; needs install
-[ -d "$host_app" ] || exit 0
-
-installed=$(/usr/bin/defaults read "$host_app/Contents/Info.plist" CFBundleShortVersionString 2&gt;/dev/null)
-[ "$installed" = "$managed_version" ] &amp;&amp; exit 1
+if [ -d "$full_app" ]; then
+  exit 1
+fi
+if [ ! -d "$host_app" ]; then
+  exit 0
+fi
+installed=$(/usr/bin/defaults read "$host_app/Contents/Info.plist" CFBundleShortVersionString)
+if [ "$installed" = "$managed_version" ]; then
+  exit 1
+fi
 lowest=$( { echo "$installed"; echo "$managed_version"; } | sort -V | head -n1)
-[ "$lowest" = "$managed_version" ] &amp;&amp; exit 1
+if [ "$lowest" = "$managed_version" ]; then
+  exit 1
+fi
 exit 0</string>
                 </dict>
             </dict>
