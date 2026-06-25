@@ -90,6 +90,26 @@ fi</string>
                             <string>CFBundleShortVersionString</string>
                         </dict>
                     </array>
+                    <key>installcheck_script</key>
+                    <string>#!/bin/bash
+# Skip TeamViewer Host on machines that have the full TeamViewer client
+# (the two are mutually exclusive); otherwise install or update Host.
+# Exit 0 = needs install, non-zero = not needed.
+full_app="/Applications/TeamViewer.app"
+host_app="/Applications/TeamViewerHost.app"
+managed_version="%version%"
+
+# Full client present -&gt; Host not wanted on this machine
+[ -d "$full_app" ] &amp;&amp; exit 1
+
+# Host not installed -&gt; needs install
+[ -d "$host_app" ] || exit 0
+
+installed=$(/usr/bin/defaults read "$host_app/Contents/Info.plist" CFBundleShortVersionString 2&gt;/dev/null)
+[ "$installed" = "$managed_version" ] &amp;&amp; exit 1
+lowest=$( { echo "$installed"; echo "$managed_version"; } | sort -V | head -n1)
+[ "$lowest" = "$managed_version" ] &amp;&amp; exit 1
+exit 0</string>
                 </dict>
             </dict>
             <key>Processor</key>
