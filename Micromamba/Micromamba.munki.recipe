@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>Downloads micromamba, builds an architecture-selecting installer
+package and imports it into Munki. Install state is tracked via the
+package receipt (org.mamba.micromamba); the payload-free package needs
+an uninstall_script to remove the binary and forget the receipt.</string>
+	<key>Identifier</key>
+	<string>com.github.srgssr.munki.Micromamba</string>
+	<key>Input</key>
+	<dict>
+		<key>NAME</key>
+		<string>Micromamba</string>
+		<key>MUNKI_REPO_SUBDIR</key>
+		<string>apps/%NAME%</string>
+		<key>pkginfo</key>
+		<dict>
+			<key>catalogs</key>
+			<array>
+				<string>testing</string>
+			</array>
+			<key>description</key>
+			<string>micromamba is a tiny statically linked reimplementation of the mamba/conda package manager. It supports creating and managing conda environments without requiring a base conda installation.</string>
+			<key>developer</key>
+			<string>mamba-org</string>
+			<key>display_name</key>
+			<string>micromamba</string>
+			<key>name</key>
+			<string>%NAME%</string>
+			<key>unattended_install</key>
+			<true/>
+			<key>unattended_uninstall</key>
+			<true/>
+			<key>uninstall_method</key>
+			<string>uninstall_script</string>
+			<key>uninstall_script</key>
+			<string>#!/bin/bash
+# NOTE: deliberately XML-entity-free (no and-and, or-or, or redirects).
+/bin/rm -f /usr/local/bin/micromamba
+/usr/sbin/pkgutil --forget org.mamba.micromamba
+exit 0
+</string>
+			<key>uninstallable</key>
+			<true/>
+		</dict>
+	</dict>
+	<key>MinimumVersion</key>
+	<string>1.0.0</string>
+	<key>ParentRecipe</key>
+	<string>com.github.srgssr.pkg.Micromamba</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Processor</key>
+			<string>MunkiImporter</string>
+			<key>Arguments</key>
+			<dict>
+				<key>pkg_path</key>
+				<string>%pkg_path%</string>
+				<key>repo_subdirectory</key>
+				<string>%MUNKI_REPO_SUBDIR%</string>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>
