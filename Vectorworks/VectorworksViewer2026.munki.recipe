@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>Downloads the official Vectorworks 2026 installer package (via com.github.vmiller.download.VectorworksPkg), builds a disk image containing the package plus a vw2026.plist with the serial "VIEWER" so that only the Vectorworks Viewer gets installed, and imports the result into Munki.</string>
+	<string>Imports the Vectorworks 2026 Install Manager into Munki as a Viewer installer. The postinstall script runs the Install Manager CLI with serial "VIEWER", which downloads and installs only the Viewer feature set (about 3.8 GB) from release.vectorworks.net at install time. Clients therefore need direct access to release.vectorworks.net. The munki item version is the Vectorworks build version from versioninfo.json, which matches CFBundleVersion of the installed application.</string>
 	<key>Identifier</key>
 	<string>com.github.SRGSSR.munki.VectorworksViewer2026</string>
 	<key>Input</key>
@@ -24,10 +24,45 @@
 			<string>Vectorworks</string>
 			<key>display_name</key>
 			<string>Vectorworks Viewer 2026</string>
+			<key>installer_type</key>
+			<string>copy_from_dmg</string>
+			<key>items_to_copy</key>
+			<array>
+				<dict>
+					<key>destination_path</key>
+					<string>/private/tmp</string>
+					<key>source_item</key>
+					<string>Vectorworks 2026 Install Manager.app</string>
+				</dict>
+			</array>
 			<key>minimum_os_version</key>
 			<string>12.0</string>
 			<key>name</key>
 			<string>%NAME%</string>
+			<key>postinstall_script</key>
+			<string>#!/bin/sh
+IM="/private/tmp/Vectorworks 2026 Install Manager.app"
+CLI="$IM/Contents/Resources/cli.sh"
+
+TARGET_UID=$(/usr/bin/stat -f %u /dev/console)
+TARGET_GID=$(/usr/bin/stat -f %g /dev/console)
+if [ "$TARGET_UID" -eq 0 ]; then
+    for HOMEDIR in /Users/*; do
+        OWNER_UID=$(/usr/bin/stat -f %u "$HOMEDIR")
+        if [ "$OWNER_UID" -ge 501 ]; then
+            TARGET_UID=$OWNER_UID
+            TARGET_GID=$(/usr/bin/stat -f %g "$HOMEDIR")
+            break
+        fi
+    done
+fi
+
+"$CLI" -S VIEWER -I "/Applications/Vectorworks 2026 Viewer" install -u "$TARGET_UID" -g "$TARGET_GID"
+RESULT=$?
+
+/bin/rm -rf "$IM"
+exit $RESULT
+</string>
 			<key>unattended_install</key>
 			<true/>
 			<key>uninstall_method</key>
@@ -36,7 +71,6 @@
 			<string>#!/bin/sh
 /bin/rm -rf "/Applications/Vectorworks 2026 Viewer"
 /bin/rm -rf "/Library/Application Support/Vectorworks 2026"
-/usr/sbin/pkgutil --forget net.nemetschek.vectorworks.installer
 exit 0
 </string>
 			<key>uninstallable</key>
@@ -46,59 +80,16 @@ exit 0
 	<key>MinimumVersion</key>
 	<string>1.0.0</string>
 	<key>ParentRecipe</key>
-	<string>com.github.vmiller.download.VectorworksPkg</string>
+	<string>com.github.SRGSSR.download.VectorworksViewer2026</string>
 	<key>Process</key>
 	<array>
-		<dict>
-			<key>Arguments</key>
-			<dict>
-				<key>pkgdirs</key>
-				<dict/>
-				<key>pkgroot</key>
-				<string>%RECIPE_CACHE_DIR%/dmgroot</string>
-			</dict>
-			<key>Processor</key>
-			<string>PkgRootCreator</string>
-		</dict>
-		<dict>
-			<key>Arguments</key>
-			<dict>
-				<key>destination_path</key>
-				<string>%RECIPE_CACHE_DIR%/dmgroot/Vectorworks%RELEASE_VERSION%.pkg</string>
-				<key>source_path</key>
-				<string>%pathname%</string>
-			</dict>
-			<key>Processor</key>
-			<string>Copier</string>
-		</dict>
-		<dict>
-			<key>Arguments</key>
-			<dict>
-				<key>file_content</key>
-				<string>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;
-&lt;plist version="1.0"&gt;
-&lt;dict&gt;
-	&lt;key&gt;serial&lt;/key&gt;
-	&lt;string&gt;VIEWER&lt;/string&gt;
-&lt;/dict&gt;
-&lt;/plist&gt;
-</string>
-				<key>file_mode</key>
-				<string>0644</string>
-				<key>file_path</key>
-				<string>%RECIPE_CACHE_DIR%/dmgroot/vw%RELEASE_VERSION%.plist</string>
-			</dict>
-			<key>Processor</key>
-			<string>FileCreator</string>
-		</dict>
 		<dict>
 			<key>Arguments</key>
 			<dict>
 				<key>dmg_path</key>
 				<string>%RECIPE_CACHE_DIR%/%NAME%-%version%.dmg</string>
 				<key>dmg_root</key>
-				<string>%RECIPE_CACHE_DIR%/dmgroot</string>
+				<string>%RECIPE_CACHE_DIR%/unzipped</string>
 			</dict>
 			<key>Processor</key>
 			<string>DmgCreator</string>
@@ -114,7 +105,7 @@ exit 0
 							<key>CFBundleVersion</key>
 							<string>%version%</string>
 							<key>path</key>
-							<string>/Applications/Vectorworks %RELEASE_VERSION% Viewer/Vectorworks Viewer %RELEASE_VERSION%.app</string>
+							<string>/Applications/Vectorworks 2026 Viewer/Vectorworks 2026.app</string>
 							<key>type</key>
 							<string>application</string>
 							<key>version_comparison_key</key>
