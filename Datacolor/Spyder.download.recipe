@@ -15,7 +15,15 @@ The zip holds a single flat package whose name carries the version
 The inner component package is plain "Spyder.pkg" and is stable.
 
 NOT to be confused with com.github.dataJAR-recipes.download.Spyder, which is
-the unrelated Spyder IDE for Python (spyder-ide/spyder).</string>
+the unrelated Spyder IDE for Python (spyder-ide/spyder).
+
+Deliberately NO StopProcessingIf on download_changed: cloud-autopkg-runner runs
+every recipe twice, first `autopkg run --check` and then, only if the check
+phase reported a new download, a full `autopkg run`. By the time the full run
+starts the file is already in the cache, so URLDownloader reports it unchanged
+and a StopProcessingIf would abort the run before MunkiImporter -- silently, as
+a success with an empty report. The check phase already provides the "skip when
+nothing changed" behaviour that StopProcessingIf is normally there for.</string>
 	<key>Identifier</key>
 	<string>com.github.srgssr.download.Spyder</string>
 	<key>Input</key>
@@ -37,21 +45,12 @@ the unrelated Spyder IDE for Python (spyder-ide/spyder).</string>
 				<key>url</key>
 				<string>%DOWNLOAD_URL%</string>
 				<key>filename</key>
-				<string>%NAME%.zip</string>
+				<string>%NAME%-sp2024.zip</string>
 			</dict>
 		</dict>
 		<dict>
 			<key>Processor</key>
 			<string>EndOfCheckPhase</string>
-		</dict>
-		<dict>
-			<key>Processor</key>
-			<string>StopProcessingIf</string>
-			<key>Arguments</key>
-			<dict>
-				<key>predicate</key>
-				<string>download_changed == FALSE</string>
-			</dict>
 		</dict>
 		<dict>
 			<key>Comment</key>
