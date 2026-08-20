@@ -42,15 +42,6 @@
 			<key>Processor</key>
 			<string>EndOfCheckPhase</string>
 		</dict>
-		<dict>
-			<key>Processor</key>
-			<string>StopProcessingIf</string>
-			<key>Arguments</key>
-			<dict>
-				<key>predicate</key>
-				<string>download_changed == FALSE</string>
-			</dict>
-		</dict>
 		<!-- Unpack downloaded package and check code signature of the app.-->
 		<dict>
 			<key>Processor</key>

@@ -32,15 +32,6 @@
 			<key>Processor</key>
 			<string>EndOfCheckPhase</string>
 		</dict>
-		<dict>
-			<key>Processor</key>
-			<string>StopProcessingIf</string>
-			<key>Arguments</key>
-			<dict>
-				<key>predicate</key>
-				<string>download_changed == FALSE</string>
-			</dict>
-		</dict>
 		<!-- In order to check code signatures we need to unpack and expand the installer pkg. -->
 		<dict>
 			<key>Comment</key>
