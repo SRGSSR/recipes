@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>Downloads the latest Datacolor Spyder installer.
+
+Datacolor serves the download from a short URL that 301-redirects to a
+version-stamped CDN filename, e.g.
+    https://goto.datacolor.com/download/mac/sp2024
+      -&gt; https://cdn.datacolor.com/spyder/Spyder_6.4.4.pkg.zip
+
+The zip holds a single flat package whose name carries the version
+(Spyder_6.4.4.pkg), so it is located with FileFinder rather than hardcoded.
+The inner component package is plain "Spyder.pkg" and is stable.
+
+NOT to be confused with com.github.dataJAR-recipes.download.Spyder, which is
+the unrelated Spyder IDE for Python (spyder-ide/spyder).</string>
+	<key>Identifier</key>
+	<string>com.github.srgssr.download.Spyder</string>
+	<key>Input</key>
+	<dict>
+		<key>NAME</key>
+		<string>Spyder</string>
+		<key>DOWNLOAD_URL</key>
+		<string>https://goto.datacolor.com/download/mac/sp2024</string>
+	</dict>
+	<key>MinimumVersion</key>
+	<string>2.3</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Processor</key>
+			<string>URLDownloader</string>
+			<key>Arguments</key>
+			<dict>
+				<key>url</key>
+				<string>%DOWNLOAD_URL%</string>
+				<key>filename</key>
+				<string>%NAME%.zip</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>EndOfCheckPhase</string>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>StopProcessingIf</string>
+			<key>Arguments</key>
+			<dict>
+				<key>predicate</key>
+				<string>download_changed == FALSE</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Comment</key>
+			<string>Unpack the zip and locate the version-stamped flat package.</string>
+			<key>Processor</key>
+			<string>Unarchiver</string>
+			<key>Arguments</key>
+			<dict>
+				<key>archive_path</key>
+				<string>%pathname%</string>
+				<key>destination_path</key>
+				<string>%RECIPE_CACHE_DIR%/unarchived</string>
+				<key>purge_destination</key>
+				<true/>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>FileFinder</string>
+			<key>Arguments</key>
+			<dict>
+				<key>pattern</key>
+				<string>%RECIPE_CACHE_DIR%/unarchived/Spyder_*.pkg</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Comment</key>
+			<string>Unpack the payload so the app bundle can be verified and versioned.</string>
+			<key>Processor</key>
+			<string>FlatPkgUnpacker</string>
+			<key>Arguments</key>
+			<dict>
+				<key>flat_pkg_path</key>
+				<string>%found_filename%</string>
+				<key>destination_path</key>
+				<string>%RECIPE_CACHE_DIR%/unpack</string>
+				<key>purge_destination</key>
+				<true/>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>PkgPayloadUnpacker</string>
+			<key>Arguments</key>
+			<dict>
+				<key>pkg_payload_path</key>
+				<string>%RECIPE_CACHE_DIR%/unpack/Spyder.pkg/Payload</string>
+				<key>destination_path</key>
+				<string>%RECIPE_CACHE_DIR%/payload</string>
+				<key>purge_destination</key>
+				<true/>
+			</dict>
+		</dict>
+		<dict>
+			<key>Comment</key>
+			<string>Check Spyder.app</string>
+			<key>Processor</key>
+			<string>CodeSignatureVerifier</string>
+			<key>Arguments</key>
+			<dict>
+				<key>input_path</key>
+				<string>%RECIPE_CACHE_DIR%/payload/Applications/Datacolor/Spyder/Spyder.app</string>
+				<key>requirement</key>
+				<string>identifier "com.datacolor.spyder" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = MF3YU89YWH</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Comment</key>
+			<string>Check the distribution package. Deliberately AFTER the Spyder.app check: AutoPkg carries input variables forward for the whole run, and as of 2.9 a CodeSignatureVerifier step that verifies a bundle (the codesign path) while a leftover expected_authority_names is still in the environment is a hard error. Bundle checks must therefore come first.</string>
+			<key>Processor</key>
+			<string>CodeSignatureVerifier</string>
+			<key>Arguments</key>
+			<dict>
+				<key>input_path</key>
+				<string>%found_filename%</string>
+				<key>expected_authority_names</key>
+				<array>
+					<string>Developer ID Installer: Datacolor Inc. (MF3YU89YWH)</string>
+					<string>Developer ID Certification Authority</string>
+					<string>Apple Root CA</string>
+				</array>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>Versioner</string>
+			<key>Arguments</key>
+			<dict>
+				<key>input_plist_path</key>
+				<string>%RECIPE_CACHE_DIR%/payload/Applications/Datacolor/Spyder/Spyder.app/Contents/Info.plist</string>
+				<key>plist_version_key</key>
+				<string>CFBundleShortVersionString</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Comment</key>
+			<string>clean up</string>
+			<key>Processor</key>
+			<string>PathDeleter</string>
+			<key>Arguments</key>
+			<dict>
+				<key>path_list</key>
+				<array>
+					<string>%RECIPE_CACHE_DIR%/unpack</string>
+				</array>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>
