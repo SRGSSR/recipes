@@ -42,7 +42,7 @@ NOTES:
 			<key>description</key>
 			<string>Datacolor Spyder monitor calibration software for the SpyderX Pro, SpyderX Elite and Spyder X2 colorimeters.</string>
 			<key>developer</key>
-			<string>Datacolor Inc.</string>
+			<string>Datacolor</string>
 			<key>display_name</key>
 			<string>Spyder</string>
 			<key>minimum_os_version</key>
