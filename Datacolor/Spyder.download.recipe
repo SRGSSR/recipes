@@ -45,7 +45,7 @@ nothing changed" behaviour that StopProcessingIf is normally there for.</string>
 				<key>url</key>
 				<string>%DOWNLOAD_URL%</string>
 				<key>filename</key>
-				<string>%NAME%-sp2024.zip</string>
+				<string>Datacolor-%NAME%.zip</string>
 			</dict>
 		</dict>
 		<dict>
