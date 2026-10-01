@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>Imports Dangerzone (Freedom of the Press Foundation) into Munki straight from the signed release dmg. Download (GitHub release, ARCH arm64 by default, Developer ID check) comes from com.github.almenscorner.download.Dangerzone - the precursorca munki recipes are deprecated.</string>
+	<key>Identifier</key>
+	<string>com.github.srgssr.munki.Dangerzone</string>
+	<key>Input</key>
+	<dict>
+		<key>NAME</key>
+		<string>Dangerzone</string>
+		<key>MUNKI_REPO_SUBDIR</key>
+		<string>Dangerzone</string>
+		<key>pkginfo</key>
+		<dict>
+			<key>catalogs</key>
+			<array>
+				<string>testing</string>
+			</array>
+			<key>category</key>
+			<string>Security</string>
+			<key>description</key>
+			<string>Dangerzone converts potentially dangerous PDFs, office documents and images into safe PDFs.</string>
+			<key>developer</key>
+			<string>Freedom of the Press Foundation</string>
+			<key>display_name</key>
+			<string>Dangerzone</string>
+			<key>name</key>
+			<string>%NAME%</string>
+			<key>unattended_install</key>
+			<true/>
+		</dict>
+	</dict>
+	<key>MinimumVersion</key>
+	<string>2.3</string>
+	<key>ParentRecipe</key>
+	<string>com.github.almenscorner.download.Dangerzone</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Processor</key>
+			<string>MunkiImporter</string>
+			<key>Arguments</key>
+			<dict>
+				<key>pkg_path</key>
+				<string>%pathname%</string>
+				<key>repo_subdirectory</key>
+				<string>%MUNKI_REPO_SUBDIR%</string>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>
