@@ -24,7 +24,7 @@
 				<string>https://updates.hedge.video/hedge/macos/latest/Hedge.dmg</string>
 			</dict>
 			<key>Processor</key>
-			<string>CURLDownloader</string>
+			<string>URLDownloader</string>
 		</dict>
 		<dict>
 			<key>Processor</key>

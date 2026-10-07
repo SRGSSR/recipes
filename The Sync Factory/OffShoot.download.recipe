@@ -19,7 +19,7 @@
 			<key>Comment</key>
 			<string>Get installer DMG from website.</string>
 			<key>Processor</key>
-			<string>CURLDownloader</string>
+			<string>URLDownloader</string>
 			<key>Arguments</key>
 			<dict>
 				<key>filename</key>
