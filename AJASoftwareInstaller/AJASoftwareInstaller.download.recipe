@@ -19,33 +19,25 @@
 	<key>Process</key>
 	<array>
 		<dict>
+			<key>Processor</key>
+			<string>URLTextSearcher</string>
 			<key>Arguments</key>
 			<dict>
-				<key>filename</key>
-				<string>%NAME%.tgz</string>
 				<key>url</key>
-				<string>%DOWNLOAD_URL%</string>
+				<string>https://www.aja.com/products/kona-lhi#support</string>
+				<key>re_pattern</key>
+				<string>(https://www\.aja\.com/[^"' ]*/AJA-Software-Installer_macOS_v[0-9]+(?:\.[0-9]+)+_Release\.zip)</string>
+				<key>result_output_var_name</key>
+				<string>url</string>
 			</dict>
-
-				<key>Processor</key>
-				<string>URLTextSearcher</string>
-				<key>Arguments</key>
-				<dict>
-					<key>url</key>
-					<string>https://www.aja.com/products/kona-lhi#support</string>
-					<key>re_pattern</key>
-					<string>(AJA-Software-Installer_macOS_v[0-9][0-9].[0-9].[0-9]_Release.zip)</string>
-					<key>result_output_var_name</key>
-					<string>url</string>
-				</dict>
-			</dict>
+		</dict>
 			<dict>
 				<key>Processor</key>
 				<string>URLDownloader</string>
 				<key>Arguments</key>
 				<dict>
 					<key>url</key>
-					<string>https://www.aja.com/assets/support/files/9451/en/%url%</string>
+					<string>%url%</string>
 					<key>filename</key>
 					<string>%NAME%.zip</string>
 				</dict>

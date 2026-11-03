@@ -49,9 +49,11 @@ NOTE: As of v15.7x TeamViewer ships the custom Host as a DMG (dl.teamviewer.com/
         </dict>
         <dict>
             <key>Comment</key>
-            <string>Verify the installer wrapper app inside the downloaded DMG</string>
+            <string>Verify the installer wrapper app inside the downloaded DMG. strict_verification is off because TeamViewer's custom DMG ships TVCombine.framework with a com.apple.FinderInfo xattr, which strict mode rejects as "Disallowed xattr"; the requirement (team ID H7UGFBUGV6) is still enforced.</string>
             <key>Arguments</key>
             <dict>
+                <key>strict_verification</key>
+                <false/>
                 <key>requirement</key>
                 <string>anchor apple generic and identifier "com.teamviewer.hostinstallerwrapper" and (certificate leaf[field.1.2.840.113635.100.6.1.9] /* exists */ or certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = H7UGFBUGV6)</string>
                 <key>input_path</key>
